@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+
+[sub_resource type="CapsuleMesh" id=1]
+
+[sub_resource type="CapsuleMesh" id=2]
+radius = 0.474
+
+[node name="Main" type="Spatial"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.870124, 0, 0.492834, 0, 1, 0, -0.492834, 0, 0.870124, 0.87092, -1.19209e-07, -0.914285 )
+
+[node name="StrangeBlob" type="Spatial" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="StrangeBlob"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.80252, 0, -5 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="StrangeBlob"]
+transform = Transform( 0.735932, -2.9595e-08, 0.677056, -0.677056, -3.21686e-08, 0.735932, 0, -1, -4.37114e-08, -1.02743, 0.216563, -5 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="StrangeBlob"]
+transform = Transform( 0.257487, 4.22375e-08, -0.966282, 0.966282, -1.12551e-08, 0.257487, 0, -1, -4.37114e-08, 0.00468051, 0.645708, -5 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 0.439798, 0.269749, 0.856629, -0.898097, 0.132096, 0.419491, 0, -0.953827, 0.300356, 0.383266, 0.295531, -4.70444 )
+spot_angle = 18.7572
