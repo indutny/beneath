@@ -1,30 +1,37 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Ship.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
 
-[node name="Player" type="Spatial"]
-script = ExtResource( 1 )
+[sub_resource type="CapsuleMesh" id=2]
 
-[node name="Ship" parent="." instance=ExtResource( 2 )]
+[sub_resource type="SphereMesh" id=3]
+radius = 0.2
+height = 0.4
 
-[node name="CollisionShape" type="CollisionShape" parent="Ship"]
+[node name="Player" instance=ExtResource( 2 )]
+manned = true
+
+[node name="CollisionShape" type="CollisionShape" parent="." index="0"]
 shape = SubResource( 1 )
 
-[node name="Camera" type="Camera" parent="Ship"]
-fov = 60.0
+[node name="MeshInstance" type="MeshInstance" parent="." index="1"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Cockpit" type="MeshInstance" parent="." index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.807384, -1.05369 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="Camera" type="Camera" parent="." index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.807, -1.054 )
+fov = 113.0
 far = 10000.0
 
-[node name="LightLeft" type="SpotLight" parent="Ship"]
-transform = Transform( 0.980443, 0, -0.196802, 0, 1, 0, 0.196802, 0, 0.980443, -1, 0, 0 )
+[node name="SpotLight" type="SpotLight" parent="." index="4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.807, -1.054 )
 spot_range = 1000.0
-spot_attenuation = 50.0
-spot_angle = 25.0
-
-[node name="LightRight" type="SpotLight" parent="Ship"]
-transform = Transform( 0.980443, 0, 0.196802, 0, 1, 0, -0.196802, 0, 0.980443, 1, 0, 0 )
-spot_range = 1000.0
-spot_attenuation = 50.0
-spot_angle = 25.0
+spot_attenuation = 2.3
+spot_angle = 20.0

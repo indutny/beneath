@@ -1,25 +1,27 @@
 extends RigidBody
 
 # Current thrust values in local comoving frame
-export var lateral_thrust = Vector2()
-export var thrust = 0
-export var cw_thrust = 0
-export var py_thrust = Vector2()
+var lateral_thrust = Vector2()
+var thrust = 0
+var cw_thrust = 0
+var py_thrust = Vector2()
 
-export var max_forward_velocity = 55
-export var max_backward_velocity = 10
-export var max_lateral_velocity = 10
-export var max_total_velocity = 65
-export var max_cw_angular_velocity = 0.3
-export var max_py_angular_velocity = 0.3
+export(bool) var manned = false
 
-export var max_forward_acceleration = 15
-export var max_backward_acceleration = 10
-export var max_lateral_acceleration = 10
-export var max_cw_torque = 0.2
-export var max_py_torque = 0.2
+export(float) var max_forward_velocity = 55
+export(float) var max_backward_velocity = 10
+export(float) var max_lateral_velocity = 10
+export(float) var max_total_velocity = 65
+export(float) var max_cw_angular_velocity = 0.6
+export(float) var max_py_angular_velocity = 0.6
 
-export var stabilization = true
+export(float) var max_forward_acceleration = 15
+export(float) var max_backward_acceleration = 10
+export(float) var max_lateral_acceleration = 10
+export(float) var max_cw_torque = 0.2
+export(float) var max_py_torque = 0.2
+
+export(bool) var stabilization = true
 
 const epsilon = 1e-23
 
@@ -114,3 +116,22 @@ func _physics_process(delta):
 	
 	linear_velocity = min(linear_velocity.length(), max_total_velocity) * \
 		linear_velocity.normalized()
+
+func _unhandled_input(event):
+	if not manned:
+		return
+	
+	thrust = Input.get_action_strength("ship_accelerate") - \
+		Input.get_action_strength("ship_break")
+	lateral_thrust = Vector2(
+		Input.get_action_strength("ship_lateral_right") - \
+			Input.get_action_strength("ship_lateral_left"),
+		Input.get_action_strength("ship_lateral_up") - \
+			Input.get_action_strength("ship_lateral_down"))
+	cw_thrust = Input.get_action_strength("ship_rotate_cw") - \
+		Input.get_action_strength("ship_rotate_ccw")
+	py_thrust = Vector2(
+		Input.get_action_strength("ship_rotate_up") - \
+			Input.get_action_strength("ship_rotate_down"),
+		Input.get_action_strength("ship_rotate_left") - \
+			event.get_action_strength("ship_rotate_right"))

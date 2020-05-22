@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://HUD.gd" type="Script" id=1]
+
+[node name="HUD" type="HBoxContainer"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -14.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AccelerationTitle" type="Label" parent="."]
+margin_right = 84.0
+margin_bottom = 14.0
+text = "Acceleration:"
+
+[node name="Acceleration" type="Label" parent="."]
+margin_left = 88.0
+margin_right = 96.0
+margin_bottom = 14.0
+text = "0"
+
+[node name="SpeedTitle" type="Label" parent="."]
+margin_left = 100.0
+margin_right = 143.0
+margin_bottom = 14.0
+text = "Speed:"
+
+[node name="Speed" type="Label" parent="."]
+margin_left = 147.0
+margin_right = 155.0
+margin_bottom = 14.0
+text = "0"
