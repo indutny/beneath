@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Ship.gd" type="Script" id=1]
+
+[sub_resource type="PhysicsMaterial" id=1]
+bounce = 0.5
+
+[node name="Ship" type="RigidBody"]
+physics_material_override = SubResource( 1 )
+gravity_scale = 0.0
+script = ExtResource( 1 )

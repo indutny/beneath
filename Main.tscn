@@ -1,34 +1,37 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 
-[sub_resource type="CapsuleMesh" id=1]
+[sub_resource type="PhysicsMaterial" id=2]
+bounce = 1.0
 
-[sub_resource type="CapsuleMesh" id=2]
-radius = 0.474
+[sub_resource type="CapsuleShape" id=3]
+radius = 50.0
+height = 50.0
+
+[sub_resource type="CapsuleMesh" id=1]
+radius = 50.0
+mid_height = 50.0
+rings = 64
 
 [node name="Main" type="Spatial"]
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.870124, 0, 0.492834, 0, 1, 0, -0.492834, 0, 0.870124, 0.87092, -1.19209e-07, -0.914285 )
+[node name="StrangeBlob" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -100 )
+physics_material_override = SubResource( 2 )
 
-[node name="StrangeBlob" type="Spatial" parent="."]
+[node name="CollisionShape" type="CollisionShape" parent="StrangeBlob"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="StrangeBlob"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.80252, 0, -5 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
 mesh = SubResource( 1 )
+skeleton = NodePath("")
 material/0 = null
 
-[node name="MeshInstance2" type="MeshInstance" parent="StrangeBlob"]
-transform = Transform( 0.735932, -2.9595e-08, 0.677056, -0.677056, -3.21686e-08, 0.735932, 0, -1, -4.37114e-08, -1.02743, 0.216563, -5 )
-mesh = SubResource( 2 )
-material/0 = null
-
-[node name="MeshInstance3" type="MeshInstance" parent="StrangeBlob"]
-transform = Transform( 0.257487, 4.22375e-08, -0.966282, 0.966282, -1.12551e-08, 0.257487, 0, -1, -4.37114e-08, 0.00468051, 0.645708, -5 )
-mesh = SubResource( 2 )
-material/0 = null
-
-[node name="SpotLight" type="SpotLight" parent="."]
-transform = Transform( 0.439798, 0.269749, 0.856629, -0.898097, 0.132096, 0.419491, 0, -0.953827, 0.300356, 0.383266, 0.295531, -4.70444 )
+[node name="SpotLight" type="SpotLight" parent="StrangeBlob"]
+transform = Transform( 0.344855, -0.065025, 0.936401, -0.926367, 0.137323, 0.350696, -0.151393, -0.98839, -0.0128805, 0.594036, 0.0387992, -4.95502 )
 spot_angle = 18.7572
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
