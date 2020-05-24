@@ -27,7 +27,8 @@ material/0 = null
 
 [node name="Camera" type="Camera" parent="." index="3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.807, -1.054 )
-fov = 113.0
+keep_aspect = 0
+fov = 90.0
 far = 10000.0
 
 [node name="SpotLight" type="SpotLight" parent="." index="4"]
