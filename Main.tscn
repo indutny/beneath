@@ -9,10 +9,10 @@ bounce = 1.0
 absorbent = true
 
 [sub_resource type="BoxShape" id=2]
-extents = Vector3( 50, 50, 50 )
+extents = Vector3( 25, 25, 25 )
 
 [sub_resource type="CubeMesh" id=3]
-size = Vector3( 100, 100, 100 )
+size = Vector3( 50, 50, 50 )
 
 [node name="Main" type="Spatial"]
 
@@ -31,6 +31,96 @@ skeleton = NodePath("")
 material/0 = null
 
 [node name="SpotLight" type="SpotLight" parent="StrangeBlob"]
+transform = Transform( 0.344855, -0.065025, 0.936401, -0.926367, 0.137323, 0.350696, -0.151393, -0.98839, -0.0128805, 0.594036, 0.0387992, -4.95502 )
+spot_angle = 18.7572
+
+[node name="StrangeBlob4" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -189.602 )
+physics_material_override = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StrangeBlob4"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StrangeBlob4"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+mesh = SubResource( 3 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="SpotLight" type="SpotLight" parent="StrangeBlob4"]
+transform = Transform( 0.344855, -0.065025, 0.936401, -0.926367, 0.137323, 0.350696, -0.151393, -0.98839, -0.0128805, 0.594036, 0.0387992, -4.95502 )
+spot_angle = 18.7572
+
+[node name="StrangeBlob3" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -68.1755, 0, -100 )
+physics_material_override = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StrangeBlob3"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StrangeBlob3"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+mesh = SubResource( 3 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="SpotLight" type="SpotLight" parent="StrangeBlob3"]
+transform = Transform( 0.344855, -0.065025, 0.936401, -0.926367, 0.137323, 0.350696, -0.151393, -0.98839, -0.0128805, 0.594036, 0.0387992, -4.95502 )
+spot_angle = 18.7572
+
+[node name="StrangeBlob6" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -68.1755, 0, -173.574 )
+physics_material_override = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StrangeBlob6"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StrangeBlob6"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+mesh = SubResource( 3 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="SpotLight" type="SpotLight" parent="StrangeBlob6"]
+transform = Transform( 0.344855, -0.065025, 0.936401, -0.926367, 0.137323, 0.350696, -0.151393, -0.98839, -0.0128805, 0.594036, 0.0387992, -4.95502 )
+spot_angle = 18.7572
+
+[node name="StrangeBlob2" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 64.8224, 0, -100 )
+physics_material_override = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StrangeBlob2"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StrangeBlob2"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+mesh = SubResource( 3 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="SpotLight" type="SpotLight" parent="StrangeBlob2"]
+transform = Transform( 0.344855, -0.065025, 0.936401, -0.926367, 0.137323, 0.350696, -0.151393, -0.98839, -0.0128805, 0.594036, 0.0387992, -4.95502 )
+spot_angle = 18.7572
+
+[node name="StrangeBlob5" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 64.8224, 0, -189.959 )
+physics_material_override = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StrangeBlob5"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StrangeBlob5"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+mesh = SubResource( 3 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="SpotLight" type="SpotLight" parent="StrangeBlob5"]
 transform = Transform( 0.344855, -0.065025, 0.936401, -0.926367, 0.137323, 0.350696, -0.151393, -0.98839, -0.0128805, 0.594036, 0.0387992, -4.95502 )
 spot_angle = 18.7572
 

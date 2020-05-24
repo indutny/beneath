@@ -8,7 +8,7 @@ var cw_thrust = 0
 var py_thrust = Vector2()
 var target_velocity = 0
 
-export(bool) var manned = false
+export(bool) var stabilization = true
 
 export(float) var velocity_step = 5
 export(float) var max_forward_velocity_steps = 10
@@ -24,8 +24,6 @@ export(float) var max_backward_acceleration = 10
 export(float) var max_lateral_acceleration = 10
 export(float) var max_cw_torque = 0.2
 export(float) var max_py_torque = 0.2
-
-export(bool) var stabilization = true
 
 var max_forward_velocity = max_forward_velocity_steps * velocity_step
 var max_backward_velocity = max_backward_velocity_steps * velocity_step
@@ -120,31 +118,3 @@ func _integrate_forces(state):
 	torque = transform.basis.xform(torque) * 2 * PI
 	state.add_central_force(acc)
 	state.add_torque(torque)
-
-func _unhandled_input(event):
-	if not manned:
-		return
-	
-	if event.is_action_pressed("ship_accelerate"):
-		target_velocity = min(
-			target_velocity + velocity_step,
-			max_forward_velocity)
-		emit_signal("target_velocity_changed", target_velocity)
-	if event.is_action_pressed("ship_break"):
-		target_velocity = max(
-			target_velocity - velocity_step,
-			-max_backward_velocity)
-		emit_signal("target_velocity_changed", target_velocity)
-	
-	lateral_thrust = Vector2(
-		Input.get_action_strength("ship_lateral_right") - \
-			Input.get_action_strength("ship_lateral_left"),
-		Input.get_action_strength("ship_lateral_up") - \
-			Input.get_action_strength("ship_lateral_down"))
-	cw_thrust = Input.get_action_strength("ship_rotate_cw") - \
-		Input.get_action_strength("ship_rotate_ccw")
-	py_thrust = Vector2(
-		Input.get_action_strength("ship_rotate_up") - \
-			Input.get_action_strength("ship_rotate_down"),
-		Input.get_action_strength("ship_rotate_left") - \
-			event.get_action_strength("ship_rotate_right"))
