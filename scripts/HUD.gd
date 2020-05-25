@@ -81,3 +81,19 @@ func _on_Player_velocity_changed(player, new_value):
 		Tween.EASE_IN,
 		0)
 	$VelocityTween.start()
+
+
+func _on_Player_is_docking_changed(player, is_docking):
+	var color = $DockingIndicator.color
+	
+	$DockingIndicatorTween.stop($DockingIndicator)
+	$DockingIndicatorTween.interpolate_property(
+		$DockingIndicator,
+		"color",
+		color,
+		Color(color.r, color.g, color.b, 1.0 if is_docking else 0.0),
+		0.5,
+		Tween.TRANS_LINEAR,
+		Tween.EASE_IN,
+		0)
+	$DockingIndicatorTween.start()

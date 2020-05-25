@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/Station.gd" type="Script" id=1]
 
@@ -80,6 +80,11 @@ size = Vector3( 100, 100, 100 )
 [sub_resource type="BoxShape" id=9]
 extents = Vector3( 50, 50, 50 )
 
+[sub_resource type="BoxShape" id=12]
+extents = Vector3( 15, 15, 20 )
+
+[sub_resource type="BoxShape" id=14]
+
 [sub_resource type="SpatialMaterial" id=10]
 albedo_color = Color( 0.337255, 0.337255, 0.337255, 1 )
 clearcoat_enabled = true
@@ -89,9 +94,6 @@ clearcoat_gloss = 0.5
 [sub_resource type="CubeMesh" id=11]
 material = SubResource( 10 )
 size = Vector3( 10, 10, 0.5 )
-
-[sub_resource type="BoxShape" id=12]
-extents = Vector3( 15, 15, 20 )
 
 [sub_resource type="CylinderMesh" id=13]
 
@@ -114,13 +116,18 @@ gravity = 0.0
 linear_damp = 0.0
 angular_damp = 0.0
 
+[node name="DockShape" type="CollisionShape" parent="OpenDock"]
+shape = SubResource( 12 )
+
+[node name="Touchdown" type="Area" parent="OpenDock"]
+
+[node name="TouchdownShape" type="CollisionShape" parent="OpenDock/Touchdown"]
+shape = SubResource( 14 )
+
 [node name="Platform" type="MeshInstance" parent="OpenDock"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000246048, 0.0527322, 0.00367737 )
 mesh = SubResource( 11 )
 material/0 = null
-
-[node name="Shape" type="CollisionShape" parent="OpenDock"]
-shape = SubResource( 12 )
 
 [node name="SpotLightObj" type="Spatial" parent="OpenDock"]
 transform = Transform( 0.674289, -0.438169, 0.594426, 0, 0.804946, 0.593349, -0.738467, -0.400089, 0.542766, 10, 10, 5 )
@@ -172,3 +179,6 @@ transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0
 mesh = SubResource( 13 )
 material/0 = null
 [connection signal="body_entered" from="OpenDock" to="." method="_on_OpenDock_body_entered"]
+[connection signal="body_exited" from="OpenDock" to="." method="_on_OpenDock_body_exited"]
+[connection signal="body_entered" from="OpenDock/Touchdown" to="." method="_on_Touchdown_body_entered"]
+[connection signal="body_exited" from="OpenDock/Touchdown" to="." method="_on_Touchdown_body_exited"]

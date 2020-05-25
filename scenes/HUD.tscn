@@ -15,15 +15,22 @@ __meta__ = {
 }
 
 [node name="Velocity" type="ProgressBar" parent="."]
-margin_left = 410.0
-margin_right = 510.0
+margin_left = 392.0
+margin_right = 492.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 100, 32 )
 percent_visible = false
 
+[node name="DockingIndicator" type="ColorRect" parent="."]
+margin_left = 496.0
+margin_right = 528.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 0 )
+color = Color( 0.133333, 0.654902, 0.00784314, 0 )
+
 [node name="TargetVelocity" type="ProgressBar" parent="."]
-margin_left = 514.0
-margin_right = 614.0
+margin_left = 532.0
+margin_right = 632.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 100, 32 )
 percent_visible = false
@@ -39,4 +46,6 @@ volume_db = -80.0
 [node name="Pitch" type="Tween" parent="."]
 
 [node name="VelocityTween" type="Tween" parent="."]
+
+[node name="DockingIndicatorTween" type="Tween" parent="."]
 [connection signal="tween_completed" from="FadeOut" to="." method="_on_FadeOut_tween_completed"]

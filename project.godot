@@ -10,18 +10,18 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "RigidBody",
-"class": "Player",
-"language": "GDScript",
-"path": "res://scripts/Player.gd"
-}, {
-"base": "RigidBody",
 "class": "Ship",
 "language": "GDScript",
 "path": "res://scripts/Ship.gd"
+}, {
+"base": "StaticBody",
+"class": "Station",
+"language": "GDScript",
+"path": "res://scripts/Station.gd"
 } ]
 _global_script_class_icons={
-"Player": "",
-"Ship": ""
+"Ship": "",
+"Station": ""
 }
 
 [application]

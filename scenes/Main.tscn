@@ -11,5 +11,7 @@
 [node name="HUD" parent="." instance=ExtResource( 2 )]
 
 [node name="Station" parent="." instance=ExtResource( 3 )]
+[connection signal="end_docking" from="Player" to="HUD" method="_on_Player_is_docking_changed" binds= [ false ]]
+[connection signal="start_docking" from="Player" to="HUD" method="_on_Player_is_docking_changed" binds= [ true ]]
 [connection signal="target_velocity_changed" from="Player" to="HUD" method="_on_Player_target_velocity_changed"]
 [connection signal="velocity_changed" from="Player" to="HUD" method="_on_Player_velocity_changed"]

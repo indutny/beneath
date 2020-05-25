@@ -1,18 +1,25 @@
 extends "res://scripts/Ship.gd"
-class_name Player
 
 signal target_velocity_changed(player, new_value)
 signal velocity_changed(player, new_value)
+signal start_docking(player)
+signal end_docking(player)
+signal start_touching_down(player)
+signal end_touching_down(player)
+signal docked(player)
+signal undocked(player)
 
-export(float, 1, 10) var target_velocity_step = 5
+export(float, 1, 10) var target_velocity_step = 5.0
+
 var max_forward_velocity_steps = \
 	round(max_forward_velocity / target_velocity_step)
 var max_backward_velocity_steps = \
 	round(-max_backward_velocity / target_velocity_step)
+const velocity_changed_step: float = 1.0
 
-onready var last_velocity: float = round(linear_velocity.length() / velocity_step)
 
-const velocity_step: float = 1.0
+onready var last_velocity: float = round(
+	linear_velocity.length() / velocity_changed_step)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ship_accelerate"):
@@ -40,7 +47,9 @@ func _unhandled_input(event):
 			event.get_action_strength("ship_rotate_right"))
 
 func _process(delta):
-	var current_velocity = round(linear_velocity.length() / velocity_step)
+	var current_velocity = round(
+		linear_velocity.length() / velocity_changed_step)
 	if abs(current_velocity- last_velocity) >= 1:
 		last_velocity = current_velocity
-		emit_signal("velocity_changed", self, last_velocity * velocity_step)
+		emit_signal(
+			"velocity_changed", self, last_velocity * velocity_changed_step)
