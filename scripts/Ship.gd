@@ -2,6 +2,13 @@ extends RigidBody
 
 class_name Ship
 
+signal start_docking(ship)
+signal end_docking(ship)
+signal start_touching_down(ship)
+signal end_touching_down(ship)
+signal docked(ship)
+signal take_off(ship)
+
 # Current thrust values in local comoving frame
 var lateral_thrust = Vector2()
 var cw_thrust = 0
@@ -163,6 +170,12 @@ func check_touch_down():
 	axis_lock_linear_x = true
 	axis_lock_linear_y = true
 	axis_lock_linear_z = true
+	
+	lateral_thrust *= 0
+	cw_thrust *= 0
+	py_thrust *= 0
+	target_velocity *= 0
+	
 	set_docking_state(DockingState.DOCKED)
 
 func set_docking_state(state):
@@ -174,7 +187,7 @@ func set_docking_state(state):
 	elif docking_state == DockingState.TOUCHING_DOWN:
 		self.emit_signal("end_touching_down", self)
 	elif docking_state == DockingState.DOCKED:
-		self.emit_signal("undocked")
+		self.emit_signal("take_off")
 	
 	docking_state = state
 	

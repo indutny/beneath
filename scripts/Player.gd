@@ -2,12 +2,6 @@ extends "res://scripts/Ship.gd"
 
 signal target_velocity_changed(player, new_value)
 signal velocity_changed(player, new_value)
-signal start_docking(player)
-signal end_docking(player)
-signal start_touching_down(player)
-signal end_touching_down(player)
-signal docked(player)
-signal undocked(player)
 
 export(float, 1, 10) var target_velocity_step = 5.0
 
@@ -22,6 +16,9 @@ onready var last_velocity: float = round(
 	linear_velocity.length() / velocity_changed_step)
 
 func _unhandled_input(event):
+	if docking_state == DockingState.DOCKED:
+		return
+		
 	if event.is_action_pressed("ship_accelerate"):
 		target_velocity = min(
 			target_velocity + target_velocity_step,
