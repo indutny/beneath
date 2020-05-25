@@ -1,4 +1,5 @@
 extends "res://scripts/Ship.gd"
+class_name Player
 
 signal target_velocity_changed(player, new_value)
 signal velocity_changed(player, new_value)

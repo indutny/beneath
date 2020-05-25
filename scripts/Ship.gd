@@ -1,5 +1,7 @@
 extends RigidBody
 
+class_name Ship
+
 # Current thrust values in local comoving frame
 var lateral_thrust = Vector2()
 var cw_thrust = 0
@@ -18,7 +20,7 @@ export(float, 0, 1) var max_py_angular_velocity = 0.1
 
 export(float, 0, 30) var max_forward_acceleration = 15
 export(float, 0, 30) var max_backward_acceleration = 5
-export(float, 0, 30) var max_lateral_acceleration = 5
+export(float, 0, 30) var max_lateral_acceleration = 8
 export(float, 0, 1) var max_cw_torque = 0.2
 export(float, 0, 1) var max_py_torque = 0.2
 
