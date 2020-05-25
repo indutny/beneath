@@ -9,6 +9,7 @@
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.075634, -0.059269, -0.0180779 )
 mode = 0
+can_sleep = true
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]
 
