@@ -8,19 +8,19 @@ var target_velocity = 0
 
 export(bool) var stabilization = true
 
-export(float) var max_forward_velocity = 30
-export(float) var max_backward_velocity = 15
-export(float) var max_lateral_velocity = 15
-export(float) var max_total_velocity = 45
-export(float) var max_total_angular_velocity = 1.0
-export(float) var max_cw_angular_velocity = 0.1
-export(float) var max_py_angular_velocity = 0.1
+export(float, 0, 100) var max_forward_velocity = 30
+export(float, 0, 100) var max_backward_velocity = 15
+export(float, 0, 100) var max_lateral_velocity = 15
+export(float, 0, 100) var max_total_velocity = 45
+export(float, 0, 5) var max_total_angular_velocity = 1.0
+export(float, 0, 1) var max_cw_angular_velocity = 0.1
+export(float, 0, 1) var max_py_angular_velocity = 0.1
 
-export(float) var max_forward_acceleration = 15
-export(float) var max_backward_acceleration = 5
-export(float) var max_lateral_acceleration = 5
-export(float) var max_cw_torque = 0.2
-export(float) var max_py_torque = 0.2
+export(float, 0, 30) var max_forward_acceleration = 15
+export(float, 0, 30) var max_backward_acceleration = 5
+export(float, 0, 30) var max_lateral_acceleration = 5
+export(float, 0, 1) var max_cw_torque = 0.2
+export(float, 0, 1) var max_py_torque = 0.2
 
 const epsilon = 1e-23
 

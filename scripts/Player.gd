@@ -3,7 +3,7 @@ extends "res://scripts/Ship.gd"
 signal target_velocity_changed(player, new_value)
 signal velocity_changed(player, new_value)
 
-export(float) var target_velocity_step = 5
+export(float, 1, 10) var target_velocity_step = 5
 var max_forward_velocity_steps = \
 	round(max_forward_velocity / target_velocity_step)
 var max_backward_velocity_steps = \
@@ -12,7 +12,6 @@ var max_backward_velocity_steps = \
 onready var last_velocity: float = round(linear_velocity.length() / velocity_step)
 
 const velocity_step: float = 1.0
-
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ship_accelerate"):

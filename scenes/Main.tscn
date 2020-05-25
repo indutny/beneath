@@ -1,156 +1,17 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=2]
-
-[sub_resource type="PhysicsMaterial" id=1]
-bounce = 1.0
-
-[sub_resource type="OpenSimplexNoise" id=4]
-octaves = 5
-period = 7.0
-
-[sub_resource type="NoiseTexture" id=5]
-width = 1024
-height = 1024
-seamless = true
-as_normalmap = true
-bump_strength = 15.0
-noise = SubResource( 4 )
-
-[sub_resource type="VisualShaderNodeTexture" id=6]
-output_port_for_preview = 1
-texture = SubResource( 5 )
-
-[sub_resource type="VisualShaderNodeScalarOp" id=9]
-output_port_for_preview = 0
-default_input_values = [ 0, 0.5, 1, 0.0 ]
-
-[sub_resource type="VisualShader" id=7]
-code = "shader_type spatial;
-uniform sampler2D tex_frg_2;
-
-
-
-void vertex() {
-// Output:0
-
-}
-
-void fragment() {
-// ScalarOp:3
-	float n_in3p0 = 0.50000;
-	float n_in3p1 = 0.00000;
-	float n_out3p0 = n_in3p0 + n_in3p1;
-
-// Texture:2
-	vec4 tex_frg_2_read = texture(tex_frg_2, UV.xy);
-	vec3 n_out2p0 = tex_frg_2_read.rgb;
-	float n_out2p1 = tex_frg_2_read.a;
-
-// Output:0
-	ROUGHNESS = n_out3p0;
-	NORMALMAP = n_out2p0;
-
-}
-
-void light() {
-// Output:0
-
-}
-"
-graph_offset = Vector2( -780.401, 71.8437 )
-nodes/vertex/0/position = Vector2( 400, 120 )
-nodes/fragment/0/position = Vector2( 240, 180 )
-nodes/fragment/2/node = SubResource( 6 )
-nodes/fragment/2/position = Vector2( -260, 500 )
-nodes/fragment/3/node = SubResource( 9 )
-nodes/fragment/3/position = Vector2( -680, 340 )
-nodes/fragment/connections = PoolIntArray( 2, 0, 0, 8, 3, 0, 0, 3 )
-
-[sub_resource type="ShaderMaterial" id=8]
-shader = SubResource( 7 )
-
-[sub_resource type="CubeMesh" id=2]
-material = SubResource( 8 )
-size = Vector3( 100, 100, 100 )
-
-[sub_resource type="BoxShape" id=3]
-extents = Vector3( 50, 50, 50 )
-
-[sub_resource type="CylinderMesh" id=10]
+[ext_resource path="res://scenes/Station.tscn" type="PackedScene" id=3]
 
 [node name="Main" type="Spatial"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.075634, -0.059269, -0.0180779 )
+mode = 0
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]
 
-[node name="StaticBody" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -200 )
-physics_material_override = SubResource( 1 )
-
-[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0956135, 3.8147e-06, 0.00462341 )
-mesh = SubResource( 2 )
-material/0 = null
-
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-shape = SubResource( 3 )
-
-[node name="SpotLightObj" type="Spatial" parent="StaticBody"]
-transform = Transform( 0.674289, -0.438169, 0.594426, 0, 0.804946, 0.593349, -0.738467, -0.400089, 0.542766, 10, 10, 55 )
-
-[node name="SpotLight" type="SpotLight" parent="StaticBody/SpotLightObj"]
-light_color = Color( 0.952941, 0.0431373, 0.0196078, 1 )
-spot_range = 100.0
-spot_attenuation = 9.0
-
-[node name="MeshInstance" type="MeshInstance" parent="StaticBody/SpotLightObj"]
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
-mesh = SubResource( 10 )
-material/0 = null
-
-[node name="SpotLightObj2" type="Spatial" parent="StaticBody"]
-transform = Transform( 0.674289, 0.438169, -0.594426, 0, 0.804946, 0.593349, 0.738467, -0.400089, 0.542766, -10, 10, 55 )
-
-[node name="SpotLight" type="SpotLight" parent="StaticBody/SpotLightObj2"]
-transform = Transform( 1, -2.98023e-08, 2.98023e-08, -5.96046e-08, 1, 0, -5.96046e-08, -1.49012e-08, 1, -0.00901031, -0.0594749, -0.00860596 )
-light_color = Color( 0.0196078, 0.67451, 0, 1 )
-spot_range = 100.0
-spot_attenuation = 9.0
-
-[node name="MeshInstance" type="MeshInstance" parent="StaticBody/SpotLightObj2"]
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
-mesh = SubResource( 10 )
-material/0 = null
-
-[node name="SpotLightObj4" type="Spatial" parent="StaticBody"]
-transform = Transform( 0.674289, 0.438169, 0.594426, 0, 0.804946, -0.593349, -0.738467, 0.400089, 0.542766, 10, -10, 55 )
-
-[node name="SpotLight" type="SpotLight" parent="StaticBody/SpotLightObj4"]
-transform = Transform( 1, -2.98023e-08, -2.98023e-08, -5.96046e-08, 1, 0, 5.96046e-08, 1.49012e-08, 1, -0.0274353, -0.049511, 0.0221405 )
-light_color = Color( 0.0196078, 0.67451, 0, 1 )
-spot_range = 100.0
-spot_attenuation = 9.0
-
-[node name="MeshInstance" type="MeshInstance" parent="StaticBody/SpotLightObj4"]
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
-mesh = SubResource( 10 )
-material/0 = null
-
-[node name="SpotLightObj3" type="Spatial" parent="StaticBody"]
-transform = Transform( 0.674289, -0.438169, -0.594426, 0, 0.804946, -0.593349, 0.738467, 0.400089, 0.542766, -10, -10, 55 )
-
-[node name="SpotLight" type="SpotLight" parent="StaticBody/SpotLightObj3"]
-light_color = Color( 0.952941, 0.0431373, 0.0196078, 1 )
-spot_range = 100.0
-spot_attenuation = 9.0
-
-[node name="MeshInstance" type="MeshInstance" parent="StaticBody/SpotLightObj3"]
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
-mesh = SubResource( 10 )
-material/0 = null
+[node name="Station" parent="." instance=ExtResource( 3 )]
 [connection signal="target_velocity_changed" from="Player" to="HUD" method="_on_Player_target_velocity_changed"]
 [connection signal="velocity_changed" from="Player" to="HUD" method="_on_Player_velocity_changed"]
