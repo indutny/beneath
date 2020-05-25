@@ -8,19 +8,19 @@ var target_velocity = 0
 
 export(bool) var stabilization = true
 
-export(float) var max_lateral_velocity = 10
-export(float) var max_total_velocity = 65
-export(float) var max_cw_angular_velocity = 0.6
-export(float) var max_py_angular_velocity = 0.6
+export(float) var max_forward_velocity = 30
+export(float) var max_backward_velocity = 15
+export(float) var max_lateral_velocity = 15
+export(float) var max_total_velocity = 45
+export(float) var max_cw_angular_velocity = 0.1
+export(float) var max_py_angular_velocity = 0.1
 
 export(float) var max_forward_acceleration = 15
-export(float) var max_backward_acceleration = 10
-export(float) var max_lateral_acceleration = 10
+export(float) var max_backward_acceleration = 5
+export(float) var max_lateral_acceleration = 5
 export(float) var max_cw_torque = 0.2
 export(float) var max_py_torque = 0.2
 
-export(float) var max_forward_velocity = 50
-export(float) var max_backward_velocity = 20
 const epsilon = 1e-23
 
 func apply_stabilizing_braking(
@@ -48,9 +48,9 @@ func _integrate_forces(state):
 	var acc = Vector3(
 		lateral_thrust.x * max_lateral_acceleration,
 		lateral_thrust.y * max_lateral_acceleration,
-		clamp((target_velocity + velocity_proj.z) / delta,
-			max_backward_acceleration,
-			-max_forward_acceleration))
+		clamp(-(target_velocity + velocity_proj.z) / delta,
+			-max_forward_acceleration,
+			max_backward_acceleration))
 	
 	if stabilization:
 		acc.x = apply_stabilizing_braking(
@@ -79,14 +79,16 @@ func _integrate_forces(state):
 		-py_thrust.x * max_py_torque,
 		py_thrust.y * max_py_torque,
 		-cw_thrust * max_cw_torque)
+	var torque_impulse = Vector3()
 	if stabilization:
 		var angular_proj = transform.basis.xform_inv(state.angular_velocity)
+		angular_proj /= 2 * PI
 		
 		# Turning must be harder at high speeds because of the speed limit
 		var py_limit = min(
 			max_py_angular_velocity,
 			max_lateral_acceleration / (abs(velocity_proj.z) + epsilon))
-		
+			
 		torque.x = apply_stabilizing_braking(
 			torque.x,
 			angular_proj.x,
@@ -106,9 +108,13 @@ func _integrate_forces(state):
 			delta,
 			max_cw_torque)
 	
-	
-	# Apply acceleration and speed limts
 	acc = transform.basis.xform(acc)
 	torque = transform.basis.xform(torque) * 2 * PI
+	
+	var space_drag = -linear_velocity.normalized()
+	space_drag *= pow(max(0, linear_velocity.length() - max_total_velocity), 2)
+	
+	# Apply acceleration and speed limts
+	acc += space_drag
 	state.add_central_force(acc)
 	state.add_torque(torque)

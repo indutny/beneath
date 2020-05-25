@@ -48,7 +48,7 @@ func _on_Player_target_velocity_changed(player, new_value):
 		"value",
 		$TargetVelocity.value,
 		new_value,
-		0.25,
+		0.1,
 		Tween.TRANS_LINEAR,
 		Tween.EASE_IN,
 		0)
@@ -75,7 +75,7 @@ func _on_Player_velocity_changed(player, new_value):
 		"value",
 		$Velocity.value,
 		new_value,
-		0.25,
+		0.1,
 		Tween.TRANS_LINEAR,
 		Tween.EASE_IN,
 		0)
