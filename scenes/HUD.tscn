@@ -7,23 +7,25 @@
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -14.0
+margin_top = -32.0
+alignment = 1
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Velocity" type="ProgressBar" parent="."]
-margin_right = 100.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 100, 20 )
+margin_left = 410.0
+margin_right = 510.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 100, 32 )
 percent_visible = false
 
 [node name="TargetVelocity" type="ProgressBar" parent="."]
-margin_left = 104.0
-margin_right = 204.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 100, 20 )
+margin_left = 514.0
+margin_right = 614.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 100, 32 )
 percent_visible = false
 
 [node name="ThrustSound" type="AudioStreamPlayer" parent="."]

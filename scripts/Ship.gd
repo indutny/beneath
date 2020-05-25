@@ -12,6 +12,7 @@ export(float) var max_forward_velocity = 30
 export(float) var max_backward_velocity = 15
 export(float) var max_lateral_velocity = 15
 export(float) var max_total_velocity = 45
+export(float) var max_total_angular_velocity = 1.0
 export(float) var max_cw_angular_velocity = 0.1
 export(float) var max_py_angular_velocity = 0.1
 
@@ -110,11 +111,17 @@ func _integrate_forces(state):
 	
 	acc = transform.basis.xform(acc)
 	torque = transform.basis.xform(torque) * 2 * PI
-	
+
+	# Totally unphysical, but makes it more playable	
 	var space_drag = -linear_velocity.normalized()
 	space_drag *= pow(max(0, linear_velocity.length() - max_total_velocity), 2)
 	
+	var angular_space_drag = -angular_velocity.normalized()
+	angular_space_drag *= pow(max(
+		0, angular_velocity.length() -max_total_angular_velocity * 2 * PI), 2)
+	
 	# Apply acceleration and speed limts
 	acc += space_drag
+	torque += angular_space_drag
 	state.add_central_force(acc)
 	state.add_torque(torque)
