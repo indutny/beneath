@@ -1,7 +1,8 @@
 extends HBoxContainer
 
-const fade_in_duration = 0.7
-const fade_out_duration = 3.0
+export var fade_in_duration = 0.7
+export var fade_out_duration = 3.0
+export var thrust_volume = -6.0
 
 func _ready():
 	$Velocity.max_value = $"../Player".max_total_velocity
@@ -31,7 +32,7 @@ func fade_in(player: AudioStreamPlayer):
 		player,
 		"volume_db",
 		player.volume_db,
-		0,
+		thrust_volume,
 		fade_in_duration,
 		Tween.TRANS_LINEAR,
 		Tween.EASE_IN,
