@@ -1,4 +1,4 @@
-extends "res://Ship.gd"
+extends "res://scripts/Ship.gd"
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ship_accelerate"):

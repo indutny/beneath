@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=2]
+
+[node name="Main" type="Spatial"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.075634, -0.059269, -0.0180779 )
+
+[node name="HUD" parent="." instance=ExtResource( 2 )]
+[connection signal="target_velocity_changed" from="Player" to="HUD" method="_on_Player_target_velocity_changed"]
