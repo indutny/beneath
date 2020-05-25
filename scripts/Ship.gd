@@ -1,7 +1,5 @@
 extends RigidBody
 
-signal target_velocity_changed
-
 # Current thrust values in local comoving frame
 var lateral_thrust = Vector2()
 var cw_thrust = 0
@@ -9,10 +7,6 @@ var py_thrust = Vector2()
 var target_velocity = 0
 
 export(bool) var stabilization = true
-
-export(float) var velocity_step = 5
-export(float) var max_forward_velocity_steps = 10
-export(float) var max_backward_velocity_steps = 4
 
 export(float) var max_lateral_velocity = 10
 export(float) var max_total_velocity = 65
@@ -25,8 +19,8 @@ export(float) var max_lateral_acceleration = 10
 export(float) var max_cw_torque = 0.2
 export(float) var max_py_torque = 0.2
 
-var max_forward_velocity = max_forward_velocity_steps * velocity_step
-var max_backward_velocity = max_backward_velocity_steps * velocity_step
+export(float) var max_forward_velocity = 50
+export(float) var max_backward_velocity = 20
 const epsilon = 1e-23
 
 func apply_stabilizing_braking(

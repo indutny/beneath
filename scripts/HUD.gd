@@ -3,11 +3,10 @@ extends HBoxContainer
 const fade_in_duration = 0.7
 const fade_out_duration = 3.0
 
-func set_acceleration(value):
-	$Acceleration.text = str(value)
-
-func set_speed(value):
-	$Speed.text = str(value)
+func _ready():
+	$Velocity.max_value = $"../Player".max_total_velocity
+	$TargetVelocity.min_value = -$"../Player".max_backward_velocity
+	$TargetVelocity.max_value = $"../Player".max_forward_velocity
 
 func fade_out(player: AudioStreamPlayer):
 	$FadeIn.stop(player)
@@ -39,11 +38,28 @@ func fade_in(player: AudioStreamPlayer):
 		0)
 	$FadeIn.start()
 
-func _on_Player_target_velocity_changed(new_value):
+
+func _on_FadeOut_tween_completed(object, key):
+	object.stop()
+
+func _on_Player_target_velocity_changed(player, new_value):
+	$VelocityTween.interpolate_property(
+		$TargetVelocity,
+		"value",
+		$TargetVelocity.value,
+		new_value,
+		0.25,
+		Tween.TRANS_LINEAR,
+		Tween.EASE_IN,
+		0)
+	$VelocityTween.start()
+
+func _on_Player_velocity_changed(player, new_value):
 	if new_value == 0:
 		fade_out($ThrustSound)
 	else:
 		fade_in($ThrustSound)
+	
 	$Pitch.stop($ThrustSound)
 	$Pitch.interpolate_property(
 		$ThrustSound,
@@ -54,7 +70,13 @@ func _on_Player_target_velocity_changed(new_value):
 		0)
 	$Pitch.start()
 	
-	$Acceleration.text = str(new_value)
-
-func _on_FadeOut_tween_completed(object, key):
-	object.stop()
+	$VelocityTween.interpolate_property(
+		$Velocity,
+		"value",
+		$Velocity.value,
+		new_value,
+		0.25,
+		Tween.TRANS_LINEAR,
+		Tween.EASE_IN,
+		0)
+	$VelocityTween.start()

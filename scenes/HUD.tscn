@@ -3,9 +3,6 @@
 [ext_resource path="res://scripts/HUD.gd" type="Script" id=1]
 [ext_resource path="res://assets/audio/thrusters-loop.wav" type="AudioStream" id=2]
 
-
-
-
 [node name="HUD" type="HBoxContainer"]
 anchor_top = 1.0
 anchor_right = 1.0
@@ -16,35 +13,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TargetSpeedTitle" type="Label" parent="."]
-margin_right = 84.0
-margin_bottom = 14.0
-text = "Acceleration:"
+[node name="Velocity" type="ProgressBar" parent="."]
+margin_right = 100.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 100, 20 )
+percent_visible = false
 
-[node name="Acceleration" type="Label" parent="."]
-margin_left = 88.0
-margin_right = 96.0
-margin_bottom = 14.0
-text = "0"
-
-[node name="SpeedTitle" type="Label" parent="."]
-margin_left = 100.0
-margin_right = 143.0
-margin_bottom = 14.0
-text = "Speed:"
-
-[node name="Speed" type="Label" parent="."]
-margin_left = 147.0
-margin_right = 155.0
-margin_bottom = 14.0
-text = "0"
-
-[node name="ProgressBar" type="ProgressBar" parent="."]
-margin_left = 159.0
-margin_right = 259.0
-margin_bottom = 14.0
-rect_min_size = Vector2( 100, 0 )
-value = 10.0
+[node name="TargetVelocity" type="ProgressBar" parent="."]
+margin_left = 104.0
+margin_right = 204.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 100, 20 )
+percent_visible = false
 
 [node name="ThrustSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
@@ -55,4 +35,6 @@ volume_db = -80.0
 [node name="FadeOut" type="Tween" parent="."]
 
 [node name="Pitch" type="Tween" parent="."]
+
+[node name="VelocityTween" type="Tween" parent="."]
 [connection signal="tween_completed" from="FadeOut" to="." method="_on_FadeOut_tween_completed"]

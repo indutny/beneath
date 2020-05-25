@@ -10,3 +10,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.075634, -0.059269, -0.018077
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]
 [connection signal="target_velocity_changed" from="Player" to="HUD" method="_on_Player_target_velocity_changed"]
+[connection signal="velocity_changed" from="Player" to="HUD" method="_on_Player_velocity_changed"]
