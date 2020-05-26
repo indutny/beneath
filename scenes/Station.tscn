@@ -84,12 +84,12 @@ extents = Vector3( 50, 50, 50 )
 margin = 0.1
 extents = Vector3( 15, 10, 15 )
 
-[sub_resource type="BoxShape" id=11]
-margin = 0.1
-extents = Vector3( 1.5, 1.2, 1.5 )
+[sub_resource type="CylinderShape" id=16]
+radius = 2.5
+height = 2.5
 
 [sub_resource type="PrismMesh" id=15]
-size = Vector3( 2, 2, 0.1 )
+size = Vector3( 2, 6, 0.1 )
 
 [sub_resource type="SpatialMaterial" id=12]
 albedo_color = Color( 0.337255, 0.337255, 0.337255, 1 )
@@ -125,7 +125,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="DockShape" type="CollisionShape" parent="OpenDock"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0456238, 9.97748, 0.0695038 )
 shape = SubResource( 10 )
 
 [node name="Touchdown" type="Area" parent="OpenDock"]
@@ -133,8 +133,8 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="TouchdownShape" type="CollisionShape" parent="OpenDock/Touchdown"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0 )
-shape = SubResource( 11 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0 )
+shape = SubResource( 16 )
 
 [node name="Center" type="Position3D" parent="OpenDock"]
 
