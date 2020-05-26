@@ -84,18 +84,19 @@ func _on_Player_velocity_changed(_player, new_value):
 
 
 func _on_Player_is_docking_changed(_ship, is_docking):
-	var color = $Docking/Indicator.color
-	
 	$DockingIndicatorTween.stop_all()
-	$DockingIndicatorTween.interpolate_property(
-		$Docking/Indicator,
-		"color",
-		color,
-		Color(color.r, color.g, color.b, 1.0 if is_docking else 0.0),
-		0.5,
-		Tween.TRANS_LINEAR,
-		Tween.EASE_IN,
-		0)
+	for ui in [ $Docking/Indicator, $Docking/Horizontal, $Docking/Vertical ]:
+		var color = ui.color
+	
+		$DockingIndicatorTween.interpolate_property(
+			ui,
+			"color",
+			color,
+			Color(color.r, color.g, color.b, 1.0 if is_docking else 0.0),
+			0.5,
+			Tween.TRANS_LINEAR,
+			Tween.EASE_IN,
+			0)
 	$DockingIndicatorTween.start()
 
 
@@ -105,5 +106,6 @@ func _on_Player_docking_position_updated(_ship, position, orientation, angle):
 	
 	indicator.rect_position = center - \
 		Vector2(position.x * center.x, position.z * center.y) / 2
-	indicator.rect_scale = Vector2(1, 1) * (1 + pow(position.y, 2))
-	indicator.rect_rotation = orientation / ( 2 * PI) * 360
+	indicator.rect_scale = Vector2(1, 1) * exp(abs(position.y))
+	indicator.rect_rotation = orientation / (2 * PI) * 360
+	print(indicator.rect_position)

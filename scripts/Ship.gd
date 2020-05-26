@@ -212,11 +212,13 @@ func set_docking_state(state):
 	if docking_state == state:
 		return
 	
-	if docking_state == DockingState.DOCKING:
+	if docking_state == DockingState.DOCKING and state == DockingState.NOT_DOCKING:
 		self.emit_signal("end_docking", self)
-	elif docking_state == DockingState.TOUCHING_DOWN:
+	elif docking_state == DockingState.TOUCHING_DOWN and \
+		state == DockingState.DOCKING:
 		self.emit_signal("end_touching_down", self)
-	elif docking_state == DockingState.DOCKED:
+	elif docking_state == DockingState.DOCKED and \
+		docking_state == DockingState.TOUCHING_DOWN:
 		self.emit_signal("take_off")
 	
 	docking_state = state
