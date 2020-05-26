@@ -10,8 +10,11 @@
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]
 
-[node name="Station" parent="." instance=ExtResource( 3 )]
+[node name="Station-1" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.707107, 0.5, 0.5, 0, 0.707107, -0.707107, -0.707107, 0.5, 0.5, 0.237198, 1.90735e-06, -199.776 )
+
+[node name="Station-2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.751786, -0.60528, 0.261639, 0.535677, 0.329206, -0.777608, 0.384538, 0.724748, 0.571727, 273.893, -34.796, -390.134 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( -0.42091, 0.549845, -0.72146, -0.490426, 0.531142, 0.69092, 0.763097, 0.644638, 0.0460951, 9.33116, 2.52591, 0 )
