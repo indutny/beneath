@@ -8,6 +8,7 @@ signal start_touching_down(ship)
 signal end_touching_down(ship)
 signal docked(ship)
 signal take_off(ship)
+signal docking_position_updated(ship, position, orientation, angle)
 
 # Current thrust values in local comoving frame
 var lateral_thrust = Vector2()
@@ -17,7 +18,9 @@ var target_velocity = 0
 
 export(bool) var stabilization = true
 
-export(float, 1, 20) var docking_reduction = 2.0
+export(float, 1, 20) var docking_forward_reduction = 15.0
+export(float, 1, 20) var docking_backward_reduction = 5.0
+export(float, 1, 20) var docking_lateral_reduction = 3.0
 
 export(float, 0, 100) var max_forward_velocity = 30
 export(float, 0, 100) var max_backward_velocity = 15
@@ -70,35 +73,41 @@ func _integrate_forces(state):
 	var velocity_proj = transform.basis.xform_inv(state.linear_velocity)
 	var delta = state.step
 	
-	var reduction = 1 if docking_state != DockingState.DOCKING else \
-		docking_reduction
+	var forward_reduction = 1
+	var backward_reduction = 1
+	var lateral_reduction = 1
+	if docking_state == DockingState.DOCKING:
+		forward_reduction = docking_forward_reduction
+		backward_reduction = docking_backward_reduction
+		lateral_reduction = docking_lateral_reduction
 	
 	# Apply stabilization to lateral/longtidual
 	var acc = Vector3(
-		lateral_thrust.x * max_lateral_acceleration / reduction,
-		lateral_thrust.y * max_lateral_acceleration / reduction,
+		lateral_thrust.x * max_lateral_acceleration / lateral_reduction,
+		lateral_thrust.y * max_lateral_acceleration / lateral_reduction,
 		clamp(-(target_velocity + velocity_proj.z) / delta,
-			-max_forward_acceleration / reduction,
-			max_backward_acceleration / reduction))
+			-max_forward_acceleration / forward_reduction,
+			max_backward_acceleration / backward_reduction))
 	
 	if stabilization:
 		acc.x = apply_stabilizing_braking(
 			acc.x,
 			velocity_proj.x,
-			max_lateral_velocity if acc.x != 0 else 0,
+			max_lateral_velocity / lateral_reduction if acc.x != 0 else 0,
 			delta,
 			max_lateral_acceleration)
 		acc.y = apply_stabilizing_braking(
 			acc.y,
 			velocity_proj.y,
-			max_lateral_velocity if acc.y != 0 else 0,
+			max_lateral_velocity / lateral_reduction if acc.y != 0 else 0,
 			delta,
 			max_lateral_acceleration)
 		acc.z = apply_stabilizing_braking(
 			acc.z,
 			velocity_proj.z,
-			max_backward_velocity
-				if velocity_proj.z > 0 else max_forward_velocity,
+			max_backward_velocity / backward_reduction
+				if velocity_proj.z > 0 else
+				max_forward_velocity / forward_reduction,
 			delta,
 			max_backward_acceleration
 				if velocity_proj.z > 0 else max_forward_acceleration)
@@ -153,16 +162,37 @@ func _integrate_forces(state):
 	state.add_central_force(acc)
 	state.add_torque(torque)
 	
-	check_touch_down()
+	perform_docking()
 
-func check_touch_down():
-	if docking_state != DockingState.TOUCHING_DOWN:
-		return
-		
-	if linear_velocity.length() > current_station.max_docking_velocity:
+func perform_docking():
+	if docking_state != DockingState.DOCKING and \
+		docking_state != DockingState.TOUCHING_DOWN:
 		return
 	
-	# TODO(indutny): check angular tolerance
+	# TODO(indutny): make it more general?
+	var delta = current_station.get_touchdown_point() - \
+		$Docking/Bottom.to_global(Vector3())
+	delta = current_station.transform.basis.xform_inv(delta)
+	delta /= current_station.platform_width
+	
+	# TODO(indutny): do it in more general way. What if the platform is oriented
+	# the same way as station?
+	var orientation = acos(current_station.transform.basis.z.dot(
+		transform.basis.z))
+	var angle = acos(current_station.transform.basis.y.dot(
+		transform.basis.y))
+	emit_signal("docking_position_updated", self, delta, orientation, angle)
+	
+	if docking_state != DockingState.TOUCHING_DOWN:
+		return
+	
+	if orientation > current_station.orientation_tolerance:
+		return
+	if angle > current_station.angle_tolerance:
+		return
+
+	if linear_velocity.length() > current_station.max_docking_velocity:
+		return
 	
 	axis_lock_angular_x = true
 	axis_lock_angular_y = true
@@ -199,7 +229,7 @@ func set_docking_state(state):
 		self.emit_signal("docked")
 
 func enter_docking_area(station):
-	if docking_state != DockingState.NOT_DOCKING:
+	if docking_state != DockingState.NOT_DOCKING or current_station != null:
 		return
 	
 	current_station = station
@@ -207,7 +237,7 @@ func enter_docking_area(station):
 	pass
 
 func exit_docking_area(station):
-	if docking_state != DockingState.DOCKING:
+	if docking_state != DockingState.DOCKING or station != current_station:
 		return
 	
 	current_station = null
@@ -215,13 +245,13 @@ func exit_docking_area(station):
 	pass
 
 func enter_touchdown_area(station):
-	if docking_state != DockingState.DOCKING:
+	if docking_state != DockingState.DOCKING or station != current_station:
 		return
 	set_docking_state(DockingState.TOUCHING_DOWN)
 	pass
 
 func exit_touchdown_area(station):
-	if docking_state != DockingState.TOUCHING_DOWN:
+	if docking_state != DockingState.TOUCHING_DOWN or station != current_station:
 		return
 	set_docking_state(DockingState.DOCKING)
 	pass

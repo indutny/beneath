@@ -1,20 +1,32 @@
 extends StaticBody
 class_name Station
 
-export(float, 0, 10) var max_docking_velocity = 1
+export(float, 0, 10) var max_docking_velocity = 1.0
+export(float, 0, 20) var platform_width = 10.0
+export(float, 0, 3) var orientation_tolerance = PI / 8.0
+export(float, 0, 3) var angle_tolerance = PI / 12.0
 
-func _on_OpenDock_body_entered(body):
-	if body is Ship:
-		body.enter_docking_area(self)
+func get_touchdown_point() -> Vector3:
+	return $OpenDock/Center.to_global(Vector3())
 
-func _on_OpenDock_body_exited(body):
-	if body is Ship:
-		body.exit_docking_area(self)
 
-func _on_Touchdown_body_entered(body):
+func _on_Touchdown_area_entered(area):
+	var body = area.owner
 	if body is Ship:
 		body.enter_touchdown_area(self)
 
-func _on_Touchdown_body_exited(body):
+func _on_Touchdown_area_exited(area):
+	var body = area.owner
 	if body is Ship:
 		body.exit_touchdown_area(self)
+
+
+func _on_OpenDock_area_entered(area):
+	var body = area.owner
+	if body is Ship:
+		body.enter_docking_area(self)
+
+func _on_OpenDock_area_exited(area):
+	var body = area.owner
+	if body is Ship:
+		body.exit_docking_area(self)

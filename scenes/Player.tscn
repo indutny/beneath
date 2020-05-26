@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Ship.tscn" type="PackedScene" id=2]
@@ -12,30 +12,21 @@
 radius = 0.2
 height = 0.4
 
-[sub_resource type="PanoramaSky" id=6]
+[sub_resource type="PanoramaSky" id=4]
 radiance_size = 0
 panorama = ExtResource( 3 )
 
-[sub_resource type="Environment" id=7]
+[sub_resource type="Environment" id=5]
 background_mode = 2
-background_sky = SubResource( 6 )
+background_sky = SubResource( 4 )
 background_sky_orientation = Basis( 0.707107, 0.5, 0.5, 0, 0.707107, -0.707107, -0.707107, 0.5, 0.5 )
+
+[sub_resource type="BoxShape" id=6]
+margin = 0.01
+extents = Vector3( 0.1, 0.1, 0.1 )
 
 [node name="Player" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
-stabilization = true
-max_forward_velocity = 30.0
-max_backward_velocity = 15.0
-max_lateral_velocity = 15.0
-max_total_velocity = 45.0
-max_total_angular_velocity = 1.0
-max_cw_angular_velocity = 0.1
-max_py_angular_velocity = 0.1
-max_forward_acceleration = 15.0
-max_backward_acceleration = 5.0
-max_lateral_acceleration = 3.0
-max_cw_torque = 0.2
-max_py_torque = 0.2
 
 [node name="CollisionShape" type="CollisionShape" parent="." index="0"]
 shape = SubResource( 1 )
@@ -45,12 +36,12 @@ mesh = SubResource( 2 )
 material/0 = null
 
 [node name="Cockpit" type="MeshInstance" parent="." index="2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.807384, -1.05369 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.807, -1 )
 mesh = SubResource( 3 )
 material/0 = null
 
 [node name="SpotLight" type="SpotLight" parent="." index="3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.807, -1.054 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5 )
 light_energy = 0.5
 spot_range = 1000.0
 spot_attenuation = 9.0
@@ -58,8 +49,16 @@ spot_angle = 35.0
 spot_angle_attenuation = 0.9
 
 [node name="Camera" type="Camera" parent="." index="4"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.807, -1.054 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.807, -1.18157 )
 keep_aspect = 0
-environment = SubResource( 7 )
+environment = SubResource( 5 )
 fov = 90.0
 far = 10000.0
+
+[node name="Docking" type="Area" parent="." index="5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0 )
+collision_layer = 2
+collision_mask = 2
+
+[node name="Bottom" type="CollisionShape" parent="Docking" index="0"]
+shape = SubResource( 6 )

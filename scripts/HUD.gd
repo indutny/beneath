@@ -40,10 +40,10 @@ func fade_in(player: AudioStreamPlayer):
 	$FadeIn.start()
 
 
-func _on_FadeOut_tween_completed(object, key):
+func _on_FadeOut_tween_completed(object, _key):
 	object.stop()
 
-func _on_Player_target_velocity_changed(player, new_value):
+func _on_Player_target_velocity_changed(_player, new_value):
 	$VelocityTween.interpolate_property(
 		$TargetVelocity,
 		"value",
@@ -55,7 +55,7 @@ func _on_Player_target_velocity_changed(player, new_value):
 		0)
 	$VelocityTween.start()
 
-func _on_Player_velocity_changed(player, new_value):
+func _on_Player_velocity_changed(_player, new_value):
 	if new_value == 0:
 		fade_out($ThrustSound)
 	else:
@@ -83,12 +83,12 @@ func _on_Player_velocity_changed(player, new_value):
 	$VelocityTween.start()
 
 
-func _on_Player_is_docking_changed(player, is_docking):
-	var color = $DockingIndicator.color
+func _on_Player_is_docking_changed(_ship, is_docking):
+	var color = $Docking/Indicator.color
 	
-	$DockingIndicatorTween.stop($DockingIndicator)
+	$DockingIndicatorTween.stop_all()
 	$DockingIndicatorTween.interpolate_property(
-		$DockingIndicator,
+		$Docking/Indicator,
 		"color",
 		color,
 		Color(color.r, color.g, color.b, 1.0 if is_docking else 0.0),
@@ -97,3 +97,13 @@ func _on_Player_is_docking_changed(player, is_docking):
 		Tween.EASE_IN,
 		0)
 	$DockingIndicatorTween.start()
+
+
+func _on_Player_docking_position_updated(_ship, position, orientation, angle):
+	var indicator = $Docking/Indicator
+	var center = ($Docking.rect_size - indicator.rect_size) / 2
+	
+	indicator.rect_position = center - \
+		Vector2(position.x * center.x, position.z * center.y) / 2
+	indicator.rect_scale = Vector2(1, 1) * (1 + pow(position.y, 2))
+	indicator.rect_rotation = orientation / ( 2 * PI) * 360

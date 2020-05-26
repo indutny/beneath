@@ -99,6 +99,11 @@ ship_rotate_right={
  ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="Collisions"
+3d_physics/layer_2="Docking"
+
 [physics]
 
 3d/default_gravity=0.0
@@ -107,5 +112,5 @@ ship_rotate_right={
 
 [rendering]
 
-environment/default_clear_color=Color( 0, 0, 0, 1 )
+environment/default_clear_color=Color( 0.305882, 0.305882, 0.305882, 1 )
 environment/default_environment="res://default_env.tres"
