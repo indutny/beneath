@@ -51,7 +51,7 @@ func set_is_docking(is_docking):
 			0)
 	$DockingIndicatorTween.start()
 
-func update_docking_position(position, orientation, angle):
+func update_docking_position(position, orientation, _angle):
 	var indicator = $Docking/Indicator
 	var center = ($Docking.rect_size - indicator.rect_size) / 2
 	

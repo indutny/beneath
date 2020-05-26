@@ -68,11 +68,11 @@ func _on_Player_is_docking_changed(_ship, is_docking):
 func _on_Player_docking_position_updated(_ship, position, orientation, angle):
 	$Column/Bottom.update_docking_position(position, orientation, angle)
 
-func _on_Player_body_entered(body):
+func _on_Player_body_entered(_body):
 	# TODO(indutny): play collision sound
 	pass # Replace with function body.
 
-func _on_Player_docked(ship):
+func _on_Player_docked(_ship):
 	$Column/Middle/DockingSucceeded.visible = true
 
 

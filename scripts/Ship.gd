@@ -18,9 +18,9 @@ var target_velocity = 0
 
 export(bool) var stabilization = true
 
-export(float, 1, 20) var docking_forward_reduction = 15.0
-export(float, 1, 20) var docking_backward_reduction = 4.0
-export(float, 1, 20) var docking_lateral_reduction = 4.0
+export(float, 1, 20) var docking_forward_reduction = 10.0
+export(float, 1, 20) var docking_backward_reduction = 2.5
+export(float, 1, 20) var docking_lateral_reduction = 2.5
 
 export(float, 0, 100) var max_forward_velocity = 30
 export(float, 0, 100) var max_backward_velocity = 15
@@ -174,13 +174,19 @@ func perform_docking():
 	var delta = anchor.to_global(Vector3()) - \
 		$Docking/Bottom.to_global(Vector3())
 	
-	delta = anchor.global_transform.basis.xform_inv(delta)
+	var anchor_basis = anchor.global_transform.basis
+	var anchor_normal = anchor_basis.y
+	
+	delta = anchor_basis.xform_inv(delta)
 	delta /= current_station.platform_width
 	
-	var orientation = acos(anchor.global_transform.basis.z.dot(
-		transform.basis.z))
-	var angle = acos(anchor.global_transform.basis.y.dot(
-		transform.basis.y))
+	var projected_z = transform.basis.z
+	projected_z -= projected_z.dot(anchor_normal) * anchor_normal
+	projected_z = projected_z.normalized()
+	projected_z = anchor_basis.xform_inv(projected_z)
+	
+	var orientation = atan2(projected_z.x, projected_z.z)
+	var angle = acos(transform.basis.y.dot(anchor_normal))
 	emit_signal("docking_position_updated", self, delta, orientation, angle)
 	
 	if docking_state != DockingState.TOUCHING_DOWN:
