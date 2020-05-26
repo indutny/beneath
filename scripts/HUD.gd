@@ -85,6 +85,7 @@ func _on_Player_velocity_changed(_player, new_value):
 
 func _on_Player_is_docking_changed(_ship, is_docking):
 	$DockingIndicatorTween.stop_all()
+	# TODO(indutny): use texture
 	for ui in [ $Docking/Indicator, $Docking/Horizontal, $Docking/Vertical ]:
 		var color = ui.color
 	
@@ -108,4 +109,3 @@ func _on_Player_docking_position_updated(_ship, position, orientation, angle):
 		Vector2(position.x * center.x, position.z * center.y) / 2
 	indicator.rect_scale = Vector2(1, 1) * exp(abs(position.y))
 	indicator.rect_rotation = orientation / (2 * PI) * 360
-	print(indicator.rect_position)

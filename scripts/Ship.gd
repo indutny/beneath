@@ -19,8 +19,8 @@ var target_velocity = 0
 export(bool) var stabilization = true
 
 export(float, 1, 20) var docking_forward_reduction = 15.0
-export(float, 1, 20) var docking_backward_reduction = 5.0
-export(float, 1, 20) var docking_lateral_reduction = 3.0
+export(float, 1, 20) var docking_backward_reduction = 4.0
+export(float, 1, 20) var docking_lateral_reduction = 4.0
 
 export(float, 0, 100) var max_forward_velocity = 30
 export(float, 0, 100) var max_backward_velocity = 15
@@ -31,8 +31,8 @@ export(float, 0, 1) var max_cw_angular_velocity = 0.1
 export(float, 0, 1) var max_py_angular_velocity = 0.1
 
 export(float, 0, 30) var max_forward_acceleration = 15
-export(float, 0, 30) var max_backward_acceleration = 5
-export(float, 0, 30) var max_lateral_acceleration = 3
+export(float, 0, 30) var max_backward_acceleration = 4
+export(float, 0, 30) var max_lateral_acceleration = 4
 export(float, 0, 1) var max_cw_torque = 0.2
 export(float, 0, 1) var max_py_torque = 0.2
 
@@ -170,16 +170,16 @@ func perform_docking():
 		return
 	
 	# TODO(indutny): make it more general?
-	var delta = current_station.get_touchdown_point() - \
+	var anchor = current_station.get_touchdown_position()
+	var delta = anchor.to_global(Vector3()) - \
 		$Docking/Bottom.to_global(Vector3())
-	delta = current_station.transform.basis.xform_inv(delta)
+	
+	delta = anchor.global_transform.basis.xform_inv(delta)
 	delta /= current_station.platform_width
 	
-	# TODO(indutny): do it in more general way. What if the platform is oriented
-	# the same way as station?
-	var orientation = acos(current_station.transform.basis.z.dot(
+	var orientation = acos(anchor.global_transform.basis.z.dot(
 		transform.basis.z))
-	var angle = acos(current_station.transform.basis.y.dot(
+	var angle = acos(anchor.global_transform.basis.y.dot(
 		transform.basis.y))
 	emit_signal("docking_position_updated", self, delta, orientation, angle)
 	

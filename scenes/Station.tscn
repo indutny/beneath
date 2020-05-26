@@ -86,7 +86,7 @@ extents = Vector3( 15, 10, 15 )
 
 [sub_resource type="BoxShape" id=11]
 margin = 0.1
-extents = Vector3( 1, 1, 0.5 )
+extents = Vector3( 1.25, 0.75, 1.25 )
 
 [sub_resource type="PrismMesh" id=15]
 size = Vector3( 2, 2, 0.1 )
@@ -133,7 +133,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="TouchdownShape" type="CollisionShape" parent="OpenDock/Touchdown"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0 )
 shape = SubResource( 11 )
 
 [node name="Center" type="Position3D" parent="OpenDock"]

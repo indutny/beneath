@@ -6,8 +6,8 @@ export(float, 0, 20) var platform_width = 10.0
 export(float, 0, 3) var orientation_tolerance = PI / 8.0
 export(float, 0, 3) var angle_tolerance = PI / 12.0
 
-func get_touchdown_point() -> Vector3:
-	return $OpenDock/Center.to_global(Vector3())
+func get_touchdown_position() -> Node:
+	return $OpenDock/Center
 
 
 func _on_Touchdown_area_entered(area):
