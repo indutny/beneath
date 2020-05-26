@@ -1,7 +1,7 @@
 extends StaticBody
 class_name Station
 
-export(float, 0, 10) var max_docking_velocity = 1.0
+export(float, 0, 10) var max_docking_velocity = 0.2
 export(float, 0, 20) var platform_width = 10.0
 export(float, 0, 3) var orientation_tolerance = PI / 8.0
 export(float, 0, 3) var angle_tolerance = PI / 12.0

@@ -33,8 +33,8 @@ export(float, 0, 1) var max_py_angular_velocity = 0.1
 export(float, 0, 30) var max_forward_acceleration = 15
 export(float, 0, 30) var max_backward_acceleration = 4
 export(float, 0, 30) var max_lateral_acceleration = 4
-export(float, 0, 1) var max_cw_torque = 0.2
-export(float, 0, 1) var max_py_torque = 0.2
+export(float, 0, 1) var max_cw_torque = 0.5
+export(float, 0, 1) var max_py_torque = 0.5
 
 # Docking
 
@@ -154,7 +154,9 @@ func _integrate_forces(state):
 	
 	var angular_space_drag = -angular_velocity.normalized()
 	angular_space_drag *= pow(max(
-		0, angular_velocity.length() -max_total_angular_velocity * 2 * PI), 2)
+		0, angular_velocity.length() - max_total_angular_velocity * 2 * PI), 2)
+	
+	print(torque / 2 / PI, ' ', angular_velocity / 2 / PI)
 	
 	# Apply acceleration and speed limts
 	acc += space_drag

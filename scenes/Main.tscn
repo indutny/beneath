@@ -11,7 +11,7 @@
 [node name="HUD" parent="." instance=ExtResource( 2 )]
 
 [node name="Station" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.707107, 0.5, 0.5, 0, 0.707107, -0.707107, -0.707107, 0.5, 0.5, 0, 0, -200 )
+transform = Transform( 0.707107, 0.5, 0.5, 0, 0.707107, -0.707107, -0.707107, 0.5, 0.5, 0.237198, 1.90735e-06, -199.776 )
 [connection signal="docking_position_updated" from="Player" to="HUD" method="_on_Player_docking_position_updated"]
 [connection signal="end_docking" from="Player" to="HUD" method="_on_Player_is_docking_changed" binds= [ false ]]
 [connection signal="start_docking" from="Player" to="HUD" method="_on_Player_is_docking_changed" binds= [ true ]]
