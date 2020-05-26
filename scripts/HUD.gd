@@ -109,3 +109,8 @@ func _on_Player_docking_position_updated(_ship, position, orientation, angle):
 		Vector2(position.x * center.x, position.z * center.y) / 2
 	indicator.rect_scale = Vector2(1, 1) * exp(abs(position.y))
 	indicator.rect_rotation = orientation / (2 * PI) * 360
+
+
+func _on_Player_body_entered(body):
+	# TODO(indutny): play collision sound
+	pass # Replace with function body.

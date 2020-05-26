@@ -16,6 +16,7 @@ transform = Transform( 0.707107, 0.5, 0.5, 0, 0.707107, -0.707107, -0.707107, 0.
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( -0.42091, 0.549845, -0.72146, -0.490426, 0.531142, 0.69092, 0.763097, 0.644638, 0.0460951, 9.33116, 2.52591, 0 )
 light_energy = 0.2
+[connection signal="body_entered" from="Player" to="HUD" method="_on_Player_body_entered"]
 [connection signal="docking_position_updated" from="Player" to="HUD" method="_on_Player_docking_position_updated"]
 [connection signal="end_docking" from="Player" to="HUD" method="_on_Player_is_docking_changed" binds= [ false ]]
 [connection signal="start_docking" from="Player" to="HUD" method="_on_Player_is_docking_changed" binds= [ true ]]

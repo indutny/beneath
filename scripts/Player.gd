@@ -41,7 +41,7 @@ func _unhandled_input(event):
 		Input.get_action_strength("ship_rotate_up") - \
 			Input.get_action_strength("ship_rotate_down"),
 		Input.get_action_strength("ship_rotate_left") - \
-			event.get_action_strength("ship_rotate_right"))
+			Input.get_action_strength("ship_rotate_right"))
 
 func _process(_delta):
 	var current_velocity = round(

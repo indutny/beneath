@@ -156,8 +156,6 @@ func _integrate_forces(state):
 	angular_space_drag *= pow(max(
 		0, angular_velocity.length() - max_total_angular_velocity * 2 * PI), 2)
 	
-	print(torque / 2 / PI, ' ', angular_velocity / 2 / PI)
-	
 	# Apply acceleration and speed limts
 	acc += space_drag
 	torque += angular_space_drag
