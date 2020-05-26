@@ -74,3 +74,8 @@ func _on_Player_body_entered(body):
 
 func _on_Player_docked(ship):
 	$Column/Middle/DockingSucceeded.visible = true
+
+
+func _on_Undock_pressed():
+	$"../Player".undock()
+	$Column/Middle/DockingSucceeded.visible = false

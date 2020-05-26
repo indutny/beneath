@@ -32,16 +32,36 @@ margin_right = 984.0
 margin_bottom = 508.0
 size_flags_vertical = 3
 
-[node name="DockingSucceeded" type="Label" parent="Column/Middle"]
+[node name="DockingSucceeded" type="VBoxContainer" parent="Column/Middle"]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -19.0
+margin_right = 128.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 256, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Column/Middle/DockingSucceeded"]
+margin_right = 256.0
+margin_bottom = 14.0
 text = "Successfully Docked!"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Undock" type="Button" parent="Column/Middle/DockingSucceeded"]
+margin_top = 18.0
+margin_right = 256.0
+margin_bottom = 38.0
+text = "Undock"
 
 [node name="Bottom" type="HBoxContainer" parent="Column"]
 margin_top = 512.0
@@ -120,4 +140,5 @@ volume_db = -80.0
 [node name="FadeOut" type="Tween" parent="."]
 
 [node name="Pitch" type="Tween" parent="."]
+[connection signal="pressed" from="Column/Middle/DockingSucceeded/Undock" to="." method="_on_Undock_pressed"]
 [connection signal="tween_completed" from="FadeOut" to="." method="_on_FadeOut_tween_completed"]

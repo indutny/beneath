@@ -208,6 +208,23 @@ func perform_docking():
 	
 	set_docking_state(DockingState.DOCKED)
 
+func undock():
+	if docking_state != DockingState.DOCKED:
+		return
+	
+	set_docking_state(DockingState.TOUCHING_DOWN)
+	set_docking_state(DockingState.DOCKING)
+	set_docking_state(DockingState.NOT_DOCKING)
+	
+	current_station = null
+	
+	axis_lock_angular_x = false
+	axis_lock_angular_y = false
+	axis_lock_angular_z = false
+	axis_lock_linear_x = false
+	axis_lock_linear_y = false
+	axis_lock_linear_z = false
+
 func set_docking_state(state):
 	if docking_state == state:
 		return
