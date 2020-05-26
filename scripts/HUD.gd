@@ -1,13 +1,11 @@
-extends HBoxContainer
+extends MarginContainer
 
 export(float, 0, 5) var fade_in_duration = 0.7
 export(float, 0, 5) var fade_out_duration = 3.0
 export(float, -80.0, 0.0) var thrust_volume = -6.0
 
 func _ready():
-	$Velocity.max_value = $"../Player".max_total_velocity
-	$TargetVelocity.min_value = -$"../Player".max_backward_velocity
-	$TargetVelocity.max_value = $"../Player".max_forward_velocity
+	$Column/Bottom.set_player($"../Player")
 
 func fade_out(player: AudioStreamPlayer):
 	$FadeIn.stop(player)
@@ -44,16 +42,7 @@ func _on_FadeOut_tween_completed(object, _key):
 	object.stop()
 
 func _on_Player_target_velocity_changed(_player, new_value):
-	$VelocityTween.interpolate_property(
-		$TargetVelocity,
-		"value",
-		$TargetVelocity.value,
-		new_value,
-		0.1,
-		Tween.TRANS_LINEAR,
-		Tween.EASE_IN,
-		0)
-	$VelocityTween.start()
+	$Column/Bottom.set_target_velocity(new_value)
 
 func _on_Player_velocity_changed(_player, new_value):
 	if new_value == 0:
@@ -71,46 +60,17 @@ func _on_Player_velocity_changed(_player, new_value):
 		0)
 	$Pitch.start()
 	
-	$VelocityTween.interpolate_property(
-		$Velocity,
-		"value",
-		$Velocity.value,
-		new_value,
-		0.1,
-		Tween.TRANS_LINEAR,
-		Tween.EASE_IN,
-		0)
-	$VelocityTween.start()
-
+	$Column/Bottom.set_velocity(new_value)
 
 func _on_Player_is_docking_changed(_ship, is_docking):
-	$DockingIndicatorTween.stop_all()
-	# TODO(indutny): use texture
-	for ui in [ $Docking/Indicator, $Docking/Horizontal, $Docking/Vertical ]:
-		var color = ui.color
-	
-		$DockingIndicatorTween.interpolate_property(
-			ui,
-			"color",
-			color,
-			Color(color.r, color.g, color.b, 1.0 if is_docking else 0.0),
-			0.5,
-			Tween.TRANS_LINEAR,
-			Tween.EASE_IN,
-			0)
-	$DockingIndicatorTween.start()
-
+	$Column/Bottom.set_is_docking(is_docking)
 
 func _on_Player_docking_position_updated(_ship, position, orientation, angle):
-	var indicator = $Docking/Indicator
-	var center = ($Docking.rect_size - indicator.rect_size) / 2
-	
-	indicator.rect_position = center - \
-		Vector2(position.x * center.x, position.z * center.y) / 2
-	indicator.rect_scale = Vector2(1, 1) * exp(abs(position.y))
-	indicator.rect_rotation = orientation / (2 * PI) * 360
-
+	$Column/Bottom.update_docking_position(position, orientation, angle)
 
 func _on_Player_body_entered(body):
 	# TODO(indutny): play collision sound
 	pass # Replace with function body.
+
+func _on_Player_docked(ship):
+	$Column/Middle/DockingSucceeded.visible = true

@@ -1,33 +1,74 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/HUD.gd" type="Script" id=1]
 [ext_resource path="res://assets/audio/thrusters-loop.wav" type="AudioStream" id=2]
+[ext_resource path="res://scripts/HUDBottom.gd" type="Script" id=3]
 
-[node name="HUD" type="HBoxContainer"]
-anchor_top = 1.0
+[node name="HUD" type="MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -48.0
-alignment = 1
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Velocity" type="ProgressBar" parent="."]
-margin_left = 356.0
-margin_right = 484.0
+[node name="Column" type="VBoxContainer" parent="."]
+margin_right = 984.0
+margin_bottom = 560.0
+
+[node name="Top" type="Control" parent="Column"]
+margin_right = 984.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Middle" type="Control" parent="Column"]
+margin_top = 4.0
+margin_right = 984.0
+margin_bottom = 508.0
+size_flags_vertical = 3
+
+[node name="DockingSucceeded" type="Label" parent="Column/Middle"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Successfully Docked!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bottom" type="HBoxContainer" parent="Column"]
+margin_top = 512.0
+margin_right = 984.0
+margin_bottom = 560.0
+alignment = 1
+script = ExtResource( 3 )
+
+[node name="VelocityTween" type="Tween" parent="Column/Bottom"]
+
+[node name="DockingIndicatorTween" type="Tween" parent="Column/Bottom"]
+
+[node name="Velocity" type="ProgressBar" parent="Column/Bottom"]
+margin_right = 464.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 128, 32 )
+size_flags_horizontal = 3
+step = 0.1
 percent_visible = false
 
-[node name="Docking" type="Panel" parent="."]
-margin_left = 488.0
-margin_right = 536.0
+[node name="Docking" type="Panel" parent="Column/Bottom"]
+margin_left = 468.0
+margin_right = 516.0
 margin_bottom = 48.0
 rect_min_size = Vector2( 48, 48 )
 
-[node name="Vertical" type="ColorRect" parent="Docking"]
+[node name="Vertical" type="ColorRect" parent="Column/Bottom/Docking"]
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
@@ -37,7 +78,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Horizontal" type="ColorRect" parent="Docking"]
+[node name="Horizontal" type="ColorRect" parent="Column/Bottom/Docking"]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
@@ -47,7 +88,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Indicator" type="ColorRect" parent="Docking"]
+[node name="Indicator" type="ColorRect" parent="Column/Bottom/Docking"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -62,11 +103,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TargetVelocity" type="ProgressBar" parent="."]
-margin_left = 540.0
-margin_right = 668.0
+[node name="TargetVelocity" type="ProgressBar" parent="Column/Bottom"]
+margin_left = 520.0
+margin_right = 984.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 128, 32 )
+size_flags_horizontal = 3
+step = 0.1
 percent_visible = false
 
 [node name="ThrustSound" type="AudioStreamPlayer" parent="."]
@@ -78,8 +121,4 @@ volume_db = -80.0
 [node name="FadeOut" type="Tween" parent="."]
 
 [node name="Pitch" type="Tween" parent="."]
-
-[node name="VelocityTween" type="Tween" parent="."]
-
-[node name="DockingIndicatorTween" type="Tween" parent="."]
 [connection signal="tween_completed" from="FadeOut" to="." method="_on_FadeOut_tween_completed"]

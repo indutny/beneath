@@ -228,7 +228,7 @@ func set_docking_state(state):
 	elif docking_state == DockingState.TOUCHING_DOWN:
 		self.emit_signal("start_touching_down", self)
 	elif docking_state == DockingState.DOCKED:
-		self.emit_signal("docked")
+		self.emit_signal("docked", self)
 
 func enter_docking_area(station):
 	if docking_state != DockingState.NOT_DOCKING or current_station != null:

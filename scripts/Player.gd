@@ -9,7 +9,7 @@ var max_forward_velocity_steps = \
 	round(max_forward_velocity / target_velocity_step)
 var max_backward_velocity_steps = \
 	round(-max_backward_velocity / target_velocity_step)
-const velocity_changed_step: float = 1.0
+const velocity_changed_step: float = 0.5
 
 
 onready var last_velocity: float = round(
