@@ -55,10 +55,10 @@ script = ExtResource( 3 )
 [node name="DockingIndicatorTween" type="Tween" parent="Column/Bottom"]
 
 [node name="Velocity" type="ProgressBar" parent="Column/Bottom"]
+margin_left = 336.0
 margin_right = 464.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 128, 32 )
-size_flags_horizontal = 3
 step = 0.1
 percent_visible = false
 
@@ -105,10 +105,9 @@ __meta__ = {
 
 [node name="TargetVelocity" type="ProgressBar" parent="Column/Bottom"]
 margin_left = 520.0
-margin_right = 984.0
+margin_right = 648.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 128, 32 )
-size_flags_horizontal = 3
 step = 0.1
 percent_visible = false
 
