@@ -33,9 +33,9 @@ func _unhandled_input(event):
 		$SpotLight.visible = not $SpotLight.visible
 	
 	if event.is_action_pressed("ship_fire"):
-		is_mining = true
+		set_is_mining(true)
 	elif event.is_action_released("ship_fire"):
-		is_mining = false
+		set_is_mining(false)
 	
 	lateral_thrust = Vector2(
 		Input.get_action_strength("ship_lateral_right") - \
@@ -52,7 +52,11 @@ func _unhandled_input(event):
 
 func _process(_delta):
 	emit_signal("velocity_changed", self, linear_velocity.length())
-	
 
 func _on_Player_docked(ship):
-	is_mining = false
+	set_is_mining(false)
+
+func set_is_mining(new_value):
+	is_mining = new_value
+	$LeftLaser.set_enabled(new_value)
+	$RightLaser.set_enabled(new_value)

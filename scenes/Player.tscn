@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Ship.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/images/stars.jpg" type="Texture" id=3]
 [ext_resource path="res://assets/models/ship.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://scenes/MininingLaser.tscn" type="PackedScene" id=5]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.282353, 0.282353, 0.282353, 1 )
@@ -26,24 +27,6 @@ background_sky_orientation = Basis( 0.707107, 0.5, 0.5, 0, 0.707107, -0.707107, 
 [sub_resource type="BoxShape" id=5]
 margin = 0.01
 extents = Vector3( 0.1, 0.1, 0.1 )
-
-[sub_resource type="SpatialMaterial" id=7]
-flags_transparent = true
-flags_do_not_receive_shadows = true
-albedo_color = Color( 1, 0, 0, 0.313726 )
-emission_enabled = true
-emission = Color( 1, 0, 0, 1 )
-emission_energy = 1.0
-emission_operator = 0
-emission_on_uv2 = false
-
-[sub_resource type="CylinderMesh" id=6]
-material = SubResource( 7 )
-top_radius = 0.05
-bottom_radius = 0.05
-height = 1.0
-radial_segments = 8
-rings = 1
 
 [node name="Player" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
@@ -91,22 +74,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 0.273, -2.835 )
 light_energy = 2.28
 omni_range = 0.5
 
-[node name="MiningRayCast" type="RayCast" parent="." index="7"]
-enabled = true
-cast_to = Vector3( 0, 0, -50 )
-collision_mask = 4
+[node name="LeftLaser" parent="." index="7" instance=ExtResource( 5 )]
+transform = Transform( 0.999976, 0, -0.00698126, 0, 1, 0, 0.00698126, 0, 0.999976, -0.7, 0, 0 )
 
-[node name="MininingLaser" type="Spatial" parent="." index="8"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 75, 0, 0, 0 )
-visible = false
-
-[node name="Left" type="MeshInstance" parent="MininingLaser" index="0"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.7, 0, -0.5 )
-mesh = SubResource( 6 )
-material/0 = null
-
-[node name="Right" type="MeshInstance" parent="MininingLaser" index="1"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.7, 0, -0.5 )
-mesh = SubResource( 6 )
-material/0 = null
+[node name="RightLaser" parent="." index="8" instance=ExtResource( 5 )]
+transform = Transform( 0.999976, 0, 0.00698126, 0, 1, 0, -0.00698126, 0, 0.999976, 0.7, 0, 0 )
 [connection signal="docked" from="." to="." method="_on_Player_docked"]
