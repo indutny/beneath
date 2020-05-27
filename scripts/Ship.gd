@@ -114,7 +114,7 @@ func _integrate_forces(state):
 	
 	# Rotational stabilization
 	var torque = Vector3(
-		-py_thrust.x * max_py_torque,
+		py_thrust.x * max_py_torque,
 		py_thrust.y * max_py_torque,
 		-cw_thrust * max_cw_torque)
 	if stabilization:
@@ -207,6 +207,8 @@ func perform_docking():
 	axis_lock_linear_y = true
 	axis_lock_linear_z = true
 	
+	sleeping = true
+	
 	lateral_thrust *= 0
 	cw_thrust *= 0
 	py_thrust *= 0
@@ -230,6 +232,8 @@ func undock():
 	axis_lock_linear_x = false
 	axis_lock_linear_y = false
 	axis_lock_linear_z = false
+	
+	sleeping = false
 
 func set_docking_state(state):
 	if docking_state == state:
