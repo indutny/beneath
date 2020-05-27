@@ -162,23 +162,21 @@ func _integrate_forces(state):
 	state.add_central_force(acc)
 	state.add_torque(torque)
 	
-	perform_docking()
-
-func perform_docking():
+func _process(_delta):
 	if docking_state != DockingState.DOCKING and \
 		docking_state != DockingState.TOUCHING_DOWN:
 		return
 	
 	# TODO(indutny): make it more general?
 	var anchor = current_station.get_touchdown_position()
-	var delta = anchor.to_global(Vector3()) - \
+	var diff = anchor.to_global(Vector3()) - \
 		$Docking/Bottom.to_global(Vector3())
 	
 	var anchor_basis = anchor.global_transform.basis
 	var anchor_normal = anchor_basis.y
 	
-	delta = anchor_basis.xform_inv(delta)
-	delta /= current_station.platform_width
+	diff = anchor_basis.xform_inv(diff)
+	diff /= current_station.platform_width
 	
 	var projected_z = transform.basis.z
 	projected_z -= projected_z.dot(anchor_normal) * anchor_normal
@@ -187,7 +185,7 @@ func perform_docking():
 	
 	var orientation = atan2(projected_z.x, projected_z.z)
 	var angle = acos(transform.basis.y.dot(anchor_normal))
-	emit_signal("docking_position_updated", self, delta, orientation, angle)
+	emit_signal("docking_position_updated", self, diff, orientation, angle)
 	
 	if docking_state != DockingState.TOUCHING_DOWN:
 		return
