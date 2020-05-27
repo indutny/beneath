@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/HUD.gd" type="Script" id=1]
 [ext_resource path="res://assets/audio/thrusters-loop.wav" type="AudioStream" id=2]
 [ext_resource path="res://scripts/HUDBottom.gd" type="Script" id=3]
+[ext_resource path="res://scenes/StationMenu.tscn" type="PackedScene" id=4]
 
 [node name="HUD" type="MarginContainer"]
 anchor_right = 1.0
@@ -26,33 +27,38 @@ margin_bottom = 16.0
 alignment = 1
 
 [node name="CargoLabel" type="Label" parent="Column/Top"]
-margin_left = 314.0
+margin_left = 370.0
 margin_top = 1.0
-margin_right = 353.0
+margin_right = 409.0
 margin_bottom = 15.0
 text = "Cargo:"
 
 [node name="Cargo" type="ProgressBar" parent="Column/Top"]
-margin_left = 357.0
-margin_right = 485.0
+margin_left = 413.0
+margin_right = 541.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 128, 16 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="VSeparator" type="VSeparator" parent="Column/Top"]
+margin_left = 545.0
+margin_right = 549.0
+margin_bottom = 16.0
+
 [node name="CreditsLabel" type="Label" parent="Column/Top"]
-margin_left = 489.0
+margin_left = 553.0
 margin_top = 1.0
-margin_right = 538.0
+margin_right = 602.0
 margin_bottom = 15.0
 text = "Credits:"
 
-[node name="Credis" type="Label" parent="Column/Top"]
-margin_left = 542.0
-margin_right = 670.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 128, 16 )
+[node name="Credits" type="Label" parent="Column/Top"]
+margin_left = 606.0
+margin_top = 1.0
+margin_right = 614.0
+margin_bottom = 15.0
 text = "0"
 
 [node name="Middle" type="Control" parent="Column"]
@@ -61,36 +67,8 @@ margin_right = 984.0
 margin_bottom = 508.0
 size_flags_vertical = 3
 
-[node name="DockingSucceeded" type="VBoxContainer" parent="Column/Middle"]
+[node name="StationMenu" parent="Column/Middle" instance=ExtResource( 4 )]
 visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -128.0
-margin_top = -19.0
-margin_right = 128.0
-margin_bottom = 19.0
-rect_min_size = Vector2( 256, 0 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Title" type="Label" parent="Column/Middle/DockingSucceeded"]
-margin_right = 256.0
-margin_bottom = 14.0
-text = "Successfully Docked!"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Undock" type="Button" parent="Column/Middle/DockingSucceeded"]
-margin_top = 18.0
-margin_right = 256.0
-margin_bottom = 38.0
-text = "Undock"
 
 [node name="Bottom" type="HBoxContainer" parent="Column"]
 margin_top = 512.0
@@ -169,5 +147,5 @@ volume_db = -80.0
 [node name="FadeOut" type="Tween" parent="."]
 
 [node name="Pitch" type="Tween" parent="."]
-[connection signal="pressed" from="Column/Middle/DockingSucceeded/Undock" to="." method="_on_Undock_pressed"]
+[connection signal="undock" from="Column/Middle/StationMenu" to="." method="_on_StationMenu_undock"]
 [connection signal="tween_completed" from="FadeOut" to="." method="_on_FadeOut_tween_completed"]

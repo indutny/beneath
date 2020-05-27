@@ -11,11 +11,13 @@
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]
 
-[node name="Station-1" parent="." instance=ExtResource( 3 )]
+[node name="Station-Alpha" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.707107, 0.5, 0.5, 0, 0.707107, -0.707107, -0.707107, 0.5, 0.5, 0.237198, 1.90735e-06, -199.776 )
+station_name = "Alpha"
 
-[node name="Station-2" parent="." instance=ExtResource( 3 )]
+[node name="Station-Beta" parent="." instance=ExtResource( 3 )]
 transform = Transform( -0.545974, -0.0599654, 0.835654, 0.226887, 0.949581, 0.216377, -0.806497, 0.307734, -0.504841, 273.893, -66.6653, -390.134 )
+station_name = "Beta"
 
 [node name="Asteroid" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 119.281, -54.1127, -236.215 )
@@ -25,11 +27,12 @@ angular_velocity = Vector3( 0.3, 0.2, 0.1 )
 transform = Transform( -0.42091, 0.549845, -0.72146, -0.490426, 0.531142, 0.69092, 0.763097, 0.644638, 0.0460951, 9.33116, 2.52591, 0 )
 light_energy = 0.2
 [connection signal="body_entered" from="Player" to="HUD" method="_on_Player_body_entered"]
+[connection signal="cargo_updated" from="Player" to="HUD" method="_on_Player_cargo_updated"]
+[connection signal="credits_updated" from="Player" to="HUD" method="_on_Player_credits_updated"]
 [connection signal="docked" from="Player" to="HUD" method="_on_Player_docked"]
 [connection signal="docking_position_updated" from="Player" to="HUD" method="_on_Player_docking_position_updated"]
 [connection signal="end_docking" from="Player" to="HUD" method="_on_Player_is_docking_changed" binds= [ false ]]
 [connection signal="start_docking" from="Player" to="HUD" method="_on_Player_is_docking_changed" binds= [ true ]]
 [connection signal="take_off" from="Player" to="HUD" method="_on_Player_take_off"]
 [connection signal="target_velocity_changed" from="Player" to="HUD" method="_on_Player_target_velocity_changed"]
-[connection signal="total_cargo_weight_changed" from="Player" to="HUD" method="_on_Player_total_cargo_weight_changed"]
 [connection signal="velocity_changed" from="Player" to="HUD" method="_on_Player_velocity_changed"]

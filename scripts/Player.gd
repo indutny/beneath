@@ -3,13 +3,17 @@ class_name Player
 
 signal target_velocity_changed(player, new_value)
 signal velocity_changed(player, new_value)
-signal total_cargo_weight_changed(player, total_cargo_weight)
+signal cargo_updated(player, total_cargo_weight, cargo)
+signal credits_updated(player, credits)
 
 export(float, 1, 10) var target_velocity_step = 5.0
 export(float, 0, 1000) var max_total_cargo_weight = 100
 
 var cargo = {}
 var total_cargo_weight = 0
+
+var credits = 0
+
 var is_mining = false
 
 var max_forward_velocity_steps = \
@@ -64,7 +68,6 @@ func set_is_mining(new_value):
 	$LeftLaser.set_enabled(new_value)
 	$RightLaser.set_enabled(new_value)
 
-
 func _on_Laser_released_mined_resources(type, count):
 	var weight = Constants.RESOURCE_WEIGHT[type] * count
 	if weight + total_cargo_weight > max_total_cargo_weight:
@@ -76,4 +79,23 @@ func _on_Laser_released_mined_resources(type, count):
 		cargo[type] += count
 	else:
 		cargo[type] = count
-	emit_signal("total_cargo_weight_changed", self, total_cargo_weight)
+	emit_signal("cargo_updated", self, total_cargo_weight, cargo)
+
+func remove_cargo(resource_type: int, quantity: int):
+	if not cargo.has(resource_type):
+		return 0
+	
+	var max_quantity = cargo[resource_type]
+	var change = clamp(quantity, 0, max_quantity)
+	
+	cargo[resource_type] -= change
+	if cargo[resource_type] == 0:
+		cargo.erase(resource_type)
+		
+	total_cargo_weight -= Constants.RESOURCE_WEIGHT[resource_type] * change
+	emit_signal("cargo_updated", self, total_cargo_weight, cargo)
+	return change
+
+func add_credits(delta: int):
+	credits += delta
+	emit_signal("credits_updated", self, credits)

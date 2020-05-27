@@ -74,17 +74,23 @@ func _on_Player_body_entered(_body):
 	# TODO(indutny): play collision sound
 	pass
 
-func _on_Player_docked(_ship):
-	$Column/Middle/DockingSucceeded.visible = true
+func _on_Player_docked(player):
+	$Column/Middle/StationMenu.set_player(player)
+	$Column/Middle/StationMenu.visible = true
 	$Column/Bottom.visible = false
 	$Column/Bottom.set_is_docking(false)
 
 func _on_Player_take_off(_ship):
-	$Column/Bottom.visible = true
-	$Column/Middle/DockingSucceeded.visible = false
+	$Column/Middle/StationMenu.visible = false
+	$Column/Bottom.visible = true	
 
-func _on_Undock_pressed():
+func _on_StationMenu_undock():
 	$"../Player".undock()
 
-func _on_Player_total_cargo_weight_changed(_player, total_cargo_weight):
+
+func _on_Player_cargo_updated(_player, total_cargo_weight, _cargo):
 	$Column/Top/Cargo.value = total_cargo_weight
+
+
+func _on_Player_credits_updated(player, credits):
+	$Column/Top/Credits.text = str(credits)
