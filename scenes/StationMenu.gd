@@ -5,7 +5,7 @@ signal undock
 var current_player = null
 var current_station = null
 
-var SellResourceItem = preload("res://scenes/SellResourceItem.tscn")
+var ShopItem = preload("res://scenes/ShopItem.tscn")
 
 func set_player(player):
 	current_player = player
@@ -22,7 +22,7 @@ func reset_sell_tab():
 	# Add new children
 	var cargo = current_player.cargo
 	for resource_type in cargo:
-		var item = SellResourceItem.instance()
+		var item = ShopItem.instance()
 		item.set_resource(resource_type, cargo[resource_type], 10)
 		$TabContainer/Sell/Scroll/List.add_child(item)
 

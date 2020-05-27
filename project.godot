@@ -45,6 +45,7 @@ config/icon="res://assets/icon.png"
 [autoload]
 
 Constants="*res://scripts/utils/Constants.gd"
+Simulation="*res://scripts/Simulation.gd"
 
 [input]
 

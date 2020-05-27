@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://scenes/SellResourceItem.gd" type="Script" id=1]
+[ext_resource path="res://scripts/ShopItem.gd" type="Script" id=1]
 
-[node name="SellResourceItem" type="HBoxContainer"]
+[node name="ShopItem" type="HBoxContainer"]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
