@@ -1,9 +1,11 @@
 extends "res://scripts/Ship.gd"
+class_name Player
 
 signal target_velocity_changed(player, new_value)
 signal velocity_changed(player, new_value)
 
 var cargo = Dictionary()
+var is_mining = false
 
 export(float, 1, 10) var target_velocity_step = 5.0
 
@@ -11,10 +13,6 @@ var max_forward_velocity_steps = \
 	round(max_forward_velocity / target_velocity_step)
 var max_backward_velocity_steps = \
 	round(-max_backward_velocity / target_velocity_step)
-const velocity_changed_step: float = 0.5
-
-onready var last_velocity: float = round(
-	linear_velocity.length() / velocity_changed_step)
 
 func _unhandled_input(event):
 	if docking_state == DockingState.DOCKED:
@@ -34,6 +32,11 @@ func _unhandled_input(event):
 	if event.is_action_pressed("ship_toggle_spotlight"):
 		$SpotLight.visible = not $SpotLight.visible
 	
+	if event.is_action_pressed("ship_fire"):
+		is_mining = true
+	elif event.is_action_released("ship_fire"):
+		is_mining = false
+	
 	lateral_thrust = Vector2(
 		Input.get_action_strength("ship_lateral_right") - \
 			Input.get_action_strength("ship_lateral_left"),
@@ -48,9 +51,8 @@ func _unhandled_input(event):
 			Input.get_action_strength("ship_rotate_right"))
 
 func _process(_delta):
-	var current_velocity = round(
-		linear_velocity.length() / velocity_changed_step)
-	if abs(current_velocity- last_velocity) >= 1:
-		last_velocity = current_velocity
-		emit_signal(
-			"velocity_changed", self, last_velocity * velocity_changed_step)
+	emit_signal("velocity_changed", self, linear_velocity.length())
+	
+
+func _on_Player_docked(ship):
+	is_mining = false

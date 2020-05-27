@@ -8,6 +8,5 @@ bounce = 1.0
 
 [node name="Ship" type="RigidBody"]
 physics_material_override = SubResource( 1 )
-gravity_scale = 0.0
 can_sleep = false
 script = ExtResource( 1 )

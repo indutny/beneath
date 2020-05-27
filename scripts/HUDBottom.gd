@@ -6,16 +6,7 @@ func set_player(player):
 	$TargetVelocity.max_value = player.max_forward_velocity
 
 func set_target_velocity(new_value):
-	$VelocityTween.interpolate_property(
-		$TargetVelocity,
-		"value",
-		$TargetVelocity.value,
-		new_value,
-		0.1,
-		Tween.TRANS_LINEAR,
-		Tween.EASE_IN,
-		0)
-	$VelocityTween.start()
+	$TargetVelocity.value = new_value
 
 func set_velocity(new_value):
 	$VelocityTween.interpolate_property(

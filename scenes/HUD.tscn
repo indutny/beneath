@@ -70,9 +70,9 @@ margin_bottom = 560.0
 alignment = 1
 script = ExtResource( 3 )
 
-[node name="VelocityTween" type="Tween" parent="Column/Bottom"]
-
 [node name="DockingIndicatorTween" type="Tween" parent="Column/Bottom"]
+
+[node name="VelocityTween" type="Tween" parent="Column/Bottom"]
 
 [node name="Velocity" type="ProgressBar" parent="Column/Bottom"]
 margin_left = 336.0
