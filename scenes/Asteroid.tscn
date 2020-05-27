@@ -14,7 +14,7 @@ bump_strength = 5.9
 noise = SubResource( 3 )
 
 [sub_resource type="SpatialMaterial" id=1]
-albedo_color = Color( 0.388235, 0.388235, 0.388235, 1 )
+albedo_color = Color( 0.686275, 0.686275, 0.686275, 1 )
 metallic = 0.53
 roughness = 0.7
 normal_enabled = true
