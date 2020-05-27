@@ -76,11 +76,15 @@ func _on_Player_body_entered(_body):
 
 func _on_Player_docked(_ship):
 	$Column/Middle/DockingSucceeded.visible = true
+	$Column/Bottom.visible = false
+	$Column/Bottom.set_is_docking(false)
 
+func _on_Player_take_off(_ship):
+	$Column/Bottom.visible = true
+	$Column/Middle/DockingSucceeded.visible = false
 
 func _on_Undock_pressed():
 	$"../Player".undock()
-	$Column/Middle/DockingSucceeded.visible = false
 
 func _on_Player_total_cargo_weight_changed(_player, total_cargo_weight):
 	$Column/Top/Cargo.value = total_cargo_weight

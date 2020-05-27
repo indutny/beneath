@@ -218,12 +218,6 @@ func undock():
 	if docking_state != DockingState.DOCKED:
 		return
 	
-	set_docking_state(DockingState.TOUCHING_DOWN)
-	set_docking_state(DockingState.DOCKING)
-	set_docking_state(DockingState.NOT_DOCKING)
-	
-	current_station = null
-	
 	axis_lock_angular_x = false
 	axis_lock_angular_y = false
 	axis_lock_angular_z = false
@@ -232,6 +226,10 @@ func undock():
 	axis_lock_linear_z = false
 	
 	sleeping = false
+	
+	current_station = null
+	set_docking_state(DockingState.NOT_DOCKING)
+
 
 func set_docking_state(state):
 	if docking_state == state:
@@ -243,8 +241,8 @@ func set_docking_state(state):
 		state == DockingState.DOCKING:
 		self.emit_signal("end_touching_down", self)
 	elif docking_state == DockingState.DOCKED and \
-		docking_state == DockingState.TOUCHING_DOWN:
-		self.emit_signal("take_off")
+		state == DockingState.NOT_DOCKING:
+		self.emit_signal("take_off", self)
 	
 	docking_state = state
 	
