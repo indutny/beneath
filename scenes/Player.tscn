@@ -72,3 +72,5 @@ omni_range = 0.5
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 0.273, -2.835 )
 light_energy = 2.28
 omni_range = 0.5
+
+[node name="MiningRay" type="RayCast" parent="." index="7"]

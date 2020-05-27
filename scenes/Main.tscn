@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Station.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Asteroid.tscn" type="PackedScene" id=4]
 
 [node name="Main" type="Spatial"]
 
@@ -19,6 +20,10 @@ transform = Transform( 0.751786, -0.60528, 0.261639, 0.535677, 0.329206, -0.7776
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( -0.42091, 0.549845, -0.72146, -0.490426, 0.531142, 0.69092, 0.763097, 0.644638, 0.0460951, 9.33116, 2.52591, 0 )
 light_energy = 0.2
+
+[node name="Asteroid" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 119.281, -54.1127, -236.215 )
+angular_velocity = Vector3( 0.3, 0.2, 0.1 )
 [connection signal="body_entered" from="Player" to="HUD" method="_on_Player_body_entered"]
 [connection signal="docked" from="Player" to="HUD" method="_on_Player_docked"]
 [connection signal="docking_position_updated" from="Player" to="HUD" method="_on_Player_docking_position_updated"]

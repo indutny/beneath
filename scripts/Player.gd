@@ -3,6 +3,8 @@ extends "res://scripts/Ship.gd"
 signal target_velocity_changed(player, new_value)
 signal velocity_changed(player, new_value)
 
+var cargo = Dictionary()
+
 export(float, 1, 10) var target_velocity_step = 5.0
 
 var max_forward_velocity_steps = \
@@ -10,7 +12,6 @@ var max_forward_velocity_steps = \
 var max_backward_velocity_steps = \
 	round(-max_backward_velocity / target_velocity_step)
 const velocity_changed_step: float = 0.5
-
 
 onready var last_velocity: float = round(
 	linear_velocity.length() / velocity_changed_step)
