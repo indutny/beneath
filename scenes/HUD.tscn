@@ -20,14 +20,43 @@ __meta__ = {
 margin_right = 984.0
 margin_bottom = 560.0
 
-[node name="Top" type="Control" parent="Column"]
+[node name="Top" type="HBoxContainer" parent="Column"]
 margin_right = 984.0
+margin_bottom = 16.0
+alignment = 1
+
+[node name="CargoLabel" type="Label" parent="Column/Top"]
+margin_left = 314.0
+margin_top = 1.0
+margin_right = 353.0
+margin_bottom = 15.0
+text = "Cargo:"
+
+[node name="Cargo" type="ProgressBar" parent="Column/Top"]
+margin_left = 357.0
+margin_right = 485.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 128, 16 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="CreditsLabel" type="Label" parent="Column/Top"]
+margin_left = 489.0
+margin_top = 1.0
+margin_right = 538.0
+margin_bottom = 15.0
+text = "Credits:"
+
+[node name="Credis" type="Label" parent="Column/Top"]
+margin_left = 542.0
+margin_right = 670.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 128, 16 )
+text = "0"
+
 [node name="Middle" type="Control" parent="Column"]
-margin_top = 4.0
+margin_top = 20.0
 margin_right = 984.0
 margin_bottom = 508.0
 size_flags_vertical = 3

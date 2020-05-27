@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "RigidBody",
+"class": "Asteroid",
+"language": "GDScript",
+"path": "res://scripts/Asteroid.gd"
+}, {
+"base": "RigidBody",
 "class": "Player",
 "language": "GDScript",
 "path": "res://scripts/Player.gd"
@@ -25,6 +30,7 @@ _global_script_classes=[ {
 "path": "res://scripts/Station.gd"
 } ]
 _global_script_class_icons={
+"Asteroid": "",
 "Player": "",
 "Ship": "",
 "Station": ""
@@ -35,6 +41,10 @@ _global_script_class_icons={
 config/name="Beneath"
 run/main_scene="res://scenes/Main.tscn"
 config/icon="res://assets/icon.png"
+
+[autoload]
+
+Constants="*res://scripts/utils/Constants.gd"
 
 [input]
 

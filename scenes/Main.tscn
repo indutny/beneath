@@ -30,4 +30,5 @@ light_energy = 0.2
 [connection signal="end_docking" from="Player" to="HUD" method="_on_Player_is_docking_changed" binds= [ false ]]
 [connection signal="start_docking" from="Player" to="HUD" method="_on_Player_is_docking_changed" binds= [ true ]]
 [connection signal="target_velocity_changed" from="Player" to="HUD" method="_on_Player_target_velocity_changed"]
+[connection signal="total_cargo_weight_changed" from="Player" to="HUD" method="_on_Player_total_cargo_weight_changed"]
 [connection signal="velocity_changed" from="Player" to="HUD" method="_on_Player_velocity_changed"]

@@ -80,3 +80,5 @@ transform = Transform( 0.999976, 0, -0.00698126, 0, 1, 0, 0.00698126, 0, 0.99997
 [node name="RightLaser" parent="." index="8" instance=ExtResource( 5 )]
 transform = Transform( 0.999976, 0, 0.00698126, 0, 1, 0, -0.00698126, 0, 0.999976, 0.7, 0, 0 )
 [connection signal="docked" from="." to="." method="_on_Player_docked"]
+[connection signal="released_mined_resources" from="LeftLaser" to="." method="_on_Laser_released_mined_resources"]
+[connection signal="released_mined_resources" from="RightLaser" to="." method="_on_Laser_released_mined_resources"]

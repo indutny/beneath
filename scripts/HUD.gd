@@ -5,6 +5,8 @@ export(float, 0, 5) var fade_out_duration = 3.0
 export(float, -80.0, 0.0) var thrust_volume = -6.0
 
 func _ready():
+	var player = $"../Player"
+	$Column/Top/Cargo.max_value = player.max_total_cargo_weight
 	$Column/Bottom.set_player($"../Player")
 
 func fade_out(player: AudioStreamPlayer):
@@ -70,7 +72,7 @@ func _on_Player_docking_position_updated(_ship, position, orientation, angle):
 
 func _on_Player_body_entered(_body):
 	# TODO(indutny): play collision sound
-	pass # Replace with function body.
+	pass
 
 func _on_Player_docked(_ship):
 	$Column/Middle/DockingSucceeded.visible = true
@@ -79,3 +81,6 @@ func _on_Player_docked(_ship):
 func _on_Undock_pressed():
 	$"../Player".undock()
 	$Column/Middle/DockingSucceeded.visible = false
+
+func _on_Player_total_cargo_weight_changed(_player, total_cargo_weight):
+	$Column/Top/Cargo.value = total_cargo_weight

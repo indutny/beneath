@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/models/asteroid.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://scripts/Asteroid.gd" type="Script" id=2]
 
 [sub_resource type="OpenSimplexNoise" id=1]
 octaves = 6
@@ -27,6 +28,7 @@ points = PoolVector3Array( -0.771953, 1.00089, 0.702392, -0.713991, 1.01925, 0.7
 [node name="Asteroid" type="RigidBody"]
 collision_layer = 5
 mass = 6000.0
+script = ExtResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 32, 0, 0, 0, 32, 0, 0, 0, 32, 0, 0, 0 )
