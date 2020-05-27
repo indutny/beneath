@@ -30,6 +30,9 @@ func _unhandled_input(event):
 			target_velocity - target_velocity_step,
 			-max_backward_velocity)
 		emit_signal("target_velocity_changed", self, target_velocity)
+		
+	if event.is_action_pressed("ship_toggle_spotlight"):
+		$SpotLight.visible = not $SpotLight.visible
 	
 	lateral_thrust = Vector2(
 		Input.get_action_strength("ship_lateral_right") - \

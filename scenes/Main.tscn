@@ -21,7 +21,7 @@ transform = Transform( -0.545974, -0.0599654, 0.835654, 0.226887, 0.949581, 0.21
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 119.281, -54.1127, -236.215 )
 angular_velocity = Vector3( 0.3, 0.2, 0.1 )
 
-[node name="DirectionalLight" type="DirectionalLight" parent="."]
+[node name="StarLight" type="DirectionalLight" parent="."]
 transform = Transform( -0.42091, 0.549845, -0.72146, -0.490426, 0.531142, 0.69092, 0.763097, 0.644638, 0.0460951, 9.33116, 2.52591, 0 )
 light_energy = 0.2
 [connection signal="body_entered" from="Player" to="HUD" method="_on_Player_body_entered"]
