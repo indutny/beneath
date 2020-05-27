@@ -58,4 +58,4 @@ func update_docking_position(position, orientation, _angle):
 	indicator.rect_position = center - \
 		Vector2(position.x * center.x, position.z * center.y) / 2
 	indicator.rect_scale = Vector2(1, 1) * exp(abs(position.y))
-	indicator.rect_rotation = orientation / (2 * PI) * 360
+	indicator.rect_rotation = -orientation / (2 * PI) * 360
