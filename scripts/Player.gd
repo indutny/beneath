@@ -1,4 +1,4 @@
-extends "res://scripts/Ship.gd"
+extends "res://scripts/Ship/Main.gd"
 class_name Player
 
 signal target_velocity_changed(player, new_value)

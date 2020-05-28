@@ -1,6 +1,6 @@
 extends HBoxContainer
 
-var resource: SimMarketResource
+var resource: MarketResource
 var price: float
 var quantity: int = 0
 var max_quantity: int = 0
@@ -9,7 +9,7 @@ var digits = RegEx.new()
 func _ready():
 	digits.compile("[^0-9]+")
 
-func set_resource(res: SimMarketResource, max_quantity_: int, price_: float):
+func set_resource(res: MarketResource, max_quantity_: int, price_: float):
 	resource = res
 	price = price_
 	max_quantity = max_quantity_

@@ -3,14 +3,13 @@ extends MarginContainer
 signal undock
 
 var current_player
-var station: SimStation
+var station: Station
 
-const MarketResource = preload("res://scenes/MarketResource.tscn")
+const HUDMarketResource = preload("res://scenes/HUD/MarketResource.tscn")
 
-func set_player(player):
+func set_player(player: Player):
 	current_player = player
-	station = SimUniverse.get_station(
-		current_player.current_station.station_id)
+	station = player.current_station
 	$TabContainer/Station/Name.text = station.name
 	
 	reset_sell_tab()
@@ -24,11 +23,11 @@ func reset_sell_tab():
 	# Add new children
 	var cargo = current_player.cargo
 	for resource_type in cargo:
-		var res: SimMarketResource = station.market_resource[resource_type]
+		var res: MarketResource = station.market_resource.get(resource_type)
 		if not res:
 			continue
 			
-		var item = MarketResource.instance()
+		var item = HUDMarketResource.instance()
 		item.set_resource(
 			res,
 			min(cargo[resource_type], res.capacity - res.quantity),
@@ -42,8 +41,8 @@ func reset_buy_tab():
 	
 	# Add new children
 	for resource_type in station.market_resource:
-		var res: SimMarketResource = station.market_resource[resource_type]
-		var item = MarketResource.instance()
+		var res: MarketResource = station.market_resource.get(resource_type)
+		var item = HUDMarketResource.instance()
 		item.set_resource(res, res.quantity, res.buy_price)
 		$TabContainer/Buy/Scroll/List.add_child(item)
 
@@ -53,7 +52,7 @@ func _on_Undock_pressed():
 
 func _on_Sell_pressed():
 	for child in $TabContainer/Sell/Scroll/List.get_children():
-		var res: SimMarketResource = child.resource
+		var res: MarketResource = child.resource
 		var to_sell = current_player.retrieve_cargo(
 			res.resource_type, child.quantity)
 		var stored = station.store_resource(res.resource_type, to_sell)
@@ -73,7 +72,7 @@ func _on_Sell_pressed():
 # TODO(indutny): DRY
 func _on_Buy_pressed():
 	for child in $TabContainer/Buy/Scroll/List.get_children():
-		var res: SimMarketResource = child.resource
+		var res: MarketResource = child.resource
 		var to_buy = station.retrieve_resource(
 			res.resource_type, child.quantity)
 			

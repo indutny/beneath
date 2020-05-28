@@ -167,8 +167,7 @@ func _process(_delta):
 		docking_state != DockingState.TOUCHING_DOWN:
 		return
 	
-	# TODO(indutny): make it more general?
-	var anchor = current_station.get_touchdown_position()
+	var anchor = current_station.dock.get_touchdown_position()
 	var diff = anchor.to_global(Vector3()) - \
 		$Docking/Bottom.to_global(Vector3())
 	

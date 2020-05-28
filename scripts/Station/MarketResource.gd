@@ -1,5 +1,5 @@
 extends Node
-class_name SimMarketResource
+class_name MarketResource
 
 export(Constants.ResourceType) var resource_type = Constants.ResourceType.Metal
 export(float,0,1000) var buy_price = 1

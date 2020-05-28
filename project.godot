@@ -12,7 +12,17 @@ _global_script_classes=[ {
 "base": "RigidBody",
 "class": "Asteroid",
 "language": "GDScript",
-"path": "res://scripts/Asteroid.gd"
+"path": "res://scripts/Asteroid/Main.gd"
+}, {
+"base": "Spatial",
+"class": "AsteroidField",
+"language": "GDScript",
+"path": "res://scripts/Asteroid/AsteroidField.gd"
+}, {
+"base": "Node",
+"class": "MarketResource",
+"language": "GDScript",
+"path": "res://scripts/Station/MarketResource.gd"
 }, {
 "base": "RigidBody",
 "class": "Player",
@@ -22,29 +32,19 @@ _global_script_classes=[ {
 "base": "RigidBody",
 "class": "Ship",
 "language": "GDScript",
-"path": "res://scripts/Ship.gd"
-}, {
-"base": "Node",
-"class": "SimMarketResource",
-"language": "GDScript",
-"path": "res://scripts/Simulation/SimMarketResource.gd"
-}, {
-"base": "Spatial",
-"class": "SimStation",
-"language": "GDScript",
-"path": "res://scripts/Simulation/SimStation.gd"
+"path": "res://scripts/Ship/Main.gd"
 }, {
 "base": "StaticBody",
 "class": "Station",
 "language": "GDScript",
-"path": "res://scripts/Station.gd"
+"path": "res://scripts/Station/Main.gd"
 } ]
 _global_script_class_icons={
 "Asteroid": "",
+"AsteroidField": "",
+"MarketResource": "",
 "Player": "",
 "Ship": "",
-"SimMarketResource": "",
-"SimStation": "",
 "Station": ""
 }
 
@@ -56,8 +56,7 @@ config/icon="res://assets/icon.png"
 
 [autoload]
 
-Constants="*res://scripts/Simulation/Constants.gd"
-SimUniverse="*res://scenes/Simulation/SimUniverse.tscn"
+Constants="*res://scripts/Constants.gd"
 
 [input]
 
@@ -143,6 +142,7 @@ ship_fire={
 3d_physics/layer_1="Collisions"
 3d_physics/layer_2="Docking"
 3d_physics/layer_3="Asteroid"
+3d_physics/layer_4="Location"
 
 [physics]
 
@@ -152,5 +152,6 @@ ship_fire={
 
 [rendering]
 
+threads/thread_model=2
 environment/default_clear_color=Color( 0.305882, 0.305882, 0.305882, 1 )
 environment/default_environment="res://default_env.tres"
