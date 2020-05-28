@@ -80,10 +80,7 @@ func _on_Laser_released_mined_resources(type, count):
 		return
 	
 	total_cargo_weight += weight
-	if cargo.has(type):
-		cargo[type] += count
-	else:
-		cargo[type] = count
+	cargo[type] = cargo.get(type, 0) + count
 	emit_signal("cargo_updated", self, total_cargo_weight, cargo)
 
 func remove_cargo(resource_type: int, quantity: int):

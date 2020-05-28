@@ -30,10 +30,8 @@ func _process(delta):
 	
 	if collider is Asteroid:
 		var mined = min(collider.resources, mining_speed * delta)
-		var buffer_value = 0
 		
-		if buffer.has(collider.resource_type):
-			buffer_value = buffer[collider.resource_type]
+		var buffer_value = buffer.get(collider.resource_type, 0)
 		buffer_value += mined
 		collider.resources -= mined
 	

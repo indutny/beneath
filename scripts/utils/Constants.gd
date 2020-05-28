@@ -1,7 +1,12 @@
 extends Node
 
+enum ResourceType {
+	Metal
+}
+
+# TODO(indutny): generate this automatically
 export(Dictionary) var RESOURCE_NAME = {
-	0: "Metal"
+	ResourceType.Metal: "Metal"
 }
 
 export(Dictionary) var RESOURCE_WEIGHT = {
