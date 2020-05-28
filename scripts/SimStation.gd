@@ -2,7 +2,8 @@ extends Node
 class_name SimStation
 
 var station_name = ""
-var prices = {}
+var buy_price = {}
+var sell_price = {}
 var resources = {}
 
 func add_resource(resource_type, quantity):
