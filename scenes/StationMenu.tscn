@@ -27,10 +27,12 @@ margin_left = 4.0
 margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
+alignment = 1
 
 [node name="Title" type="Label" parent="TabContainer/Station"]
+margin_top = 190.0
 margin_right = 888.0
-margin_bottom = 14.0
+margin_bottom = 204.0
 text = "Welcome to"
 align = 1
 valign = 1
@@ -39,16 +41,16 @@ __meta__ = {
 }
 
 [node name="Name" type="Label" parent="TabContainer/Station"]
-margin_top = 18.0
+margin_top = 208.0
 margin_right = 888.0
-margin_bottom = 32.0
+margin_bottom = 222.0
 text = "<STATION NAME>"
 align = 1
 
 [node name="Undock" type="Button" parent="TabContainer/Station"]
-margin_top = 36.0
+margin_top = 226.0
 margin_right = 888.0
-margin_bottom = 56.0
+margin_bottom = 246.0
 text = "Undock"
 
 [node name="Sell" type="VBoxContainer" parent="TabContainer"]
