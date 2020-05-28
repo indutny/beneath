@@ -70,6 +70,7 @@ func _process(_delta):
 
 func _on_Player_docked(_ship):
 	set_is_mining(false)
+	emit_signal("velocity_changed", self, 0)
 
 func set_is_mining(new_value):
 	is_mining = new_value

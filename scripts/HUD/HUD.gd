@@ -87,7 +87,6 @@ func _on_Player_take_off(_ship):
 func _on_StationMenu_undock():
 	$"../Player".undock()
 
-
 func _on_Player_cargo_updated(_player, total_cargo_weight, _cargo):
 	$Column/Top/Cargo.value = total_cargo_weight
 
