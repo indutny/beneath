@@ -1,7 +1,8 @@
 extends Node
 class_name MarketResource
 
-export(Constants.ResourceType) var resource_type = Constants.ResourceType.Metal
+export(Constants.ResourceType) var resource_type = \
+	Constants.ResourceType.IronOre
 export(float,0,1000) var buy_price = 1
 export(float,0,1000) var sell_price = 1
 export(int,0,1000) var quantity = 0

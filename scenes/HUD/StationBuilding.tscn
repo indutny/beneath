@@ -1,0 +1,89 @@
+[gd_scene format=2]
+
+[node name="HUDStationBuilding" type="VBoxContainer"]
+margin_right = 888.0
+margin_bottom = 38.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Top" type="HBoxContainer" parent="."]
+margin_right = 888.0
+margin_bottom = 20.0
+alignment = 1
+
+[node name="TypeLabel" type="Label" parent="Top"]
+margin_left = 330.0
+margin_top = 3.0
+margin_right = 364.0
+margin_bottom = 17.0
+text = "Type:"
+
+[node name="Type" type="OptionButton" parent="Top"]
+margin_left = 368.0
+margin_right = 432.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 64, 0 )
+
+[node name="Sep1" type="VSeparator" parent="Top"]
+margin_left = 436.0
+margin_right = 440.0
+margin_bottom = 20.0
+
+[node name="PriceLabel2" type="Label" parent="Top"]
+margin_left = 444.0
+margin_top = 3.0
+margin_right = 480.0
+margin_bottom = 17.0
+text = "Price:"
+
+[node name="Price2" type="Label" parent="Top"]
+margin_left = 484.0
+margin_top = 3.0
+margin_right = 492.0
+margin_bottom = 17.0
+text = "0"
+
+[node name="Sep2" type="VSeparator" parent="Top"]
+margin_left = 496.0
+margin_right = 500.0
+margin_bottom = 20.0
+
+[node name="Action" type="Button" parent="Top"]
+margin_left = 504.0
+margin_right = 557.0
+margin_bottom = 20.0
+text = "Action"
+
+[node name="Bottom" type="HBoxContainer" parent="."]
+margin_top = 24.0
+margin_right = 888.0
+margin_bottom = 38.0
+alignment = 1
+
+[node name="ProducesLabel" type="Label" parent="Bottom"]
+margin_left = 384.0
+margin_right = 447.0
+margin_bottom = 14.0
+text = "Produces:"
+
+[node name="Produces" type="Label" parent="Bottom"]
+margin_left = 451.0
+margin_right = 451.0
+margin_bottom = 14.0
+
+[node name="Sep1" type="VSeparator" parent="Bottom"]
+margin_left = 455.0
+margin_right = 459.0
+margin_bottom = 14.0
+
+[node name="ConsumesLabel" type="Label" parent="Bottom"]
+margin_left = 463.0
+margin_right = 499.0
+margin_bottom = 14.0
+text = "Price:"
+
+[node name="Consumes" type="Label" parent="Bottom"]
+margin_left = 503.0
+margin_right = 503.0
+margin_bottom = 14.0

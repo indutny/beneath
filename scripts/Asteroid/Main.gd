@@ -1,7 +1,8 @@
 extends RigidBody
 class_name Asteroid
 
-export(Constants.ResourceType) var resource_type = Constants.ResourceType.Metal
+export(Constants.ResourceType) var resource_type = \
+	Constants.ResourceType.IronOre
 export(float, 0, 1000) var max_resources = 100
 export(float, 0, 1000) var replenish_speed = 1
 

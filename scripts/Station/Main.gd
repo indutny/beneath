@@ -6,15 +6,19 @@ export(float, 0, 20) var platform_width = 10.0
 export(float, 0, 3) var orientation_tolerance = PI / 8.0
 export(float, 0, 3) var angle_tolerance = PI / 12.0
 
+var dock
+
 # Just to speed-up lookup
 var market_resource = {}
-var dock
+var buildings = []
 
 func _ready():
 	dock = $OpenDock
 	for child in get_children():
 		if child is MarketResource:
 			market_resource[child.resource_type] = child
+		elif child is StationBuilding:
+			buildings.append(child)
 
 func store_resource(resource_type, quantity):
 	if not market_resource.has(resource_type):

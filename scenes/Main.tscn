@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/HUD/Main.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scripts/Main.gd" type="Script" id=4]
 [ext_resource path="res://scripts/Station/MarketResource.gd" type="Script" id=5]
 [ext_resource path="res://scenes/Asteroid/Main.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Station/StationBuilding.tscn" type="PackedScene" id=7]
 
 [node name="Main" type="Spatial"]
 script = ExtResource( 4 )
@@ -29,6 +30,8 @@ transform = Transform( 0.553147, 0.386757, -0.737867, -0.573019, 0.819542, 0, 0.
 script = ExtResource( 5 )
 buy_price = 7.0
 sell_price = 6.0
+
+[node name="ElectrolysisPlan" parent="Universe/Stations/Alpha" instance=ExtResource( 7 )]
 
 [node name="Beta" parent="Universe/Stations" instance=ExtResource( 3 )]
 transform = Transform( 0.699855, -0.474396, -0.533996, 0.377148, 0.880312, -0.287768, 0.606599, 0, 0.795008, 436.348, -134.14, -130.269 )
