@@ -54,7 +54,7 @@ func _on_Sell_pressed():
 	for child in $TabContainer/Sell/Scroll/List.get_children():
 		var res: MarketResource = child.resource
 		var to_sell = current_player.retrieve_cargo(
-			res.resource_type, child.quantity)
+			res.resource_type, child.get_quantity())
 		var stored = station.store_resource(res.resource_type, to_sell)
 		
 		# Return rest back to player
@@ -74,7 +74,7 @@ func _on_Buy_pressed():
 	for child in $TabContainer/Buy/Scroll/List.get_children():
 		var res: MarketResource = child.resource
 		var to_buy = station.retrieve_resource(
-			res.resource_type, child.quantity)
+			res.resource_type, child.get_quantity())
 			
 		# Check that player has enough credits
 		if not current_player.spend_credits(to_buy * child.price):
