@@ -53,6 +53,7 @@ margin_bottom = 56.0
 text = "Undock"
 
 [node name="Sell" type="VBoxContainer" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -71,7 +72,7 @@ margin_right = 888.0
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="Sell" type="Button" parent="TabContainer/Sell"]
+[node name="Confirm" type="Button" parent="TabContainer/Sell"]
 margin_left = 412.0
 margin_top = 404.0
 margin_right = 476.0
@@ -80,5 +81,35 @@ rect_min_size = Vector2( 64, 32 )
 size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "Sell"
+
+[node name="Buy" type="VBoxContainer" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+rect_min_size = Vector2( 0, 128 )
+
+[node name="Scroll" type="ScrollContainer" parent="TabContainer/Buy"]
+margin_right = 888.0
+margin_bottom = 400.0
+size_flags_vertical = 3
+
+[node name="List" type="VBoxContainer" parent="TabContainer/Buy/Scroll"]
+margin_right = 888.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Confirm" type="Button" parent="TabContainer/Buy"]
+margin_left = 412.0
+margin_top = 404.0
+margin_right = 476.0
+margin_bottom = 436.0
+rect_min_size = Vector2( 64, 32 )
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Buy"
 [connection signal="pressed" from="TabContainer/Station/Undock" to="." method="_on_Undock_pressed"]
-[connection signal="pressed" from="TabContainer/Sell/Sell" to="." method="_on_Sell_pressed"]
+[connection signal="pressed" from="TabContainer/Sell/Confirm" to="." method="_on_Sell_pressed"]
+[connection signal="pressed" from="TabContainer/Buy/Confirm" to="." method="_on_Buy_pressed"]

@@ -6,6 +6,7 @@ export(float, 0, 20) var platform_width = 10.0
 export(float, 0, 3) var orientation_tolerance = PI / 8.0
 export(float, 0, 3) var angle_tolerance = PI / 12.0
 export var station_name = "Station Name"
+export(int) var station_id = 0
 
 func get_touchdown_position() -> Node:
 	return $OpenDock/Center

@@ -9,10 +9,11 @@ signal credits_updated(player, credits)
 export(float, 1, 10) var target_velocity_step = 5.0
 export(float, 0, 1000) var max_total_cargo_weight = 100
 
-var cargo = {}
-var total_cargo_weight = 0
+# XXX(indutny): just for testing
+var cargo = {0: 4}
+var total_cargo_weight = 4
 
-var credits = 0
+var credits = 420
 
 var is_mining = false
 
@@ -20,6 +21,10 @@ var max_forward_velocity_steps = \
 	round(max_forward_velocity / target_velocity_step)
 var max_backward_velocity_steps = \
 	round(-max_backward_velocity / target_velocity_step)
+
+func _ready():
+	emit_signal("cargo_updated", self, total_cargo_weight, cargo)
+	emit_signal("credits_updated", self, credits)
 
 func _unhandled_input(event):
 	if docking_state == DockingState.DOCKED:

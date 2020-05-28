@@ -13,6 +13,7 @@ func set_player(player):
 	$TabContainer/Station/Name.text = current_station.station_name
 	
 	reset_sell_tab()
+	reset_buy_tab()
 
 func reset_sell_tab():
 	# Clear
@@ -36,3 +37,9 @@ func _on_Sell_pressed():
 			child.resource_type, child.quantity)
 		current_player.add_credits(sold * 10)
 	reset_sell_tab()
+
+func reset_buy_tab():
+	pass
+
+func _on_Buy_pressed():
+	reset_buy_tab()
