@@ -25,9 +25,14 @@ _global_script_classes=[ {
 "path": "res://scripts/Ship.gd"
 }, {
 "base": "Node",
+"class": "SimMarketResource",
+"language": "GDScript",
+"path": "res://scripts/Simulation/SimMarketResource.gd"
+}, {
+"base": "Spatial",
 "class": "SimStation",
 "language": "GDScript",
-"path": "res://scripts/SimStation.gd"
+"path": "res://scripts/Simulation/SimStation.gd"
 }, {
 "base": "StaticBody",
 "class": "Station",
@@ -38,6 +43,7 @@ _global_script_class_icons={
 "Asteroid": "",
 "Player": "",
 "Ship": "",
+"SimMarketResource": "",
 "SimStation": "",
 "Station": ""
 }
@@ -50,8 +56,8 @@ config/icon="res://assets/icon.png"
 
 [autoload]
 
-Constants="*res://scripts/utils/Constants.gd"
-Simulation="*res://scripts/Simulation.gd"
+Constants="*res://scripts/Simulation/Constants.gd"
+SimUniverse="*res://scenes/Simulation/SimUniverse.tscn"
 
 [input]
 

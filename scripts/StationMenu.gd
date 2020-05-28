@@ -2,16 +2,16 @@ extends MarginContainer
 
 signal undock
 
-var current_player = null
-var current_station: SimStation
+var current_player
+var station: SimStation
 
-const ShopItem = preload("res://scenes/ShopItem.tscn")
+const MarketResource = preload("res://scenes/MarketResource.tscn")
 
 func set_player(player):
 	current_player = player
-	current_station = Simulation.stations.get(
+	station = SimUniverse.get_station(
 		current_player.current_station.station_id)
-	$TabContainer/Station/Name.text = current_station.station_name
+	$TabContainer/Station/Name.text = station.name
 	
 	reset_sell_tab()
 	reset_buy_tab()
@@ -24,28 +24,16 @@ func reset_sell_tab():
 	# Add new children
 	var cargo = current_player.cargo
 	for resource_type in cargo:
-		if not current_station.buy_price.has(resource_type):
+		var res: SimMarketResource = station.market_resource[resource_type]
+		if not res:
 			continue
-		
-		var item = ShopItem.instance()
+			
+		var item = MarketResource.instance()
 		item.set_resource(
-			resource_type,
-			cargo[resource_type],
-			current_station.buy_price[resource_type])
+			res,
+			min(cargo[resource_type], res.capacity - res.quantity),
+			res.sell_price)
 		$TabContainer/Sell/Scroll/List.add_child(item)
-
-func _on_Undock_pressed():
-	emit_signal("undock")
-
-
-func _on_Sell_pressed():
-	for child in $TabContainer/Sell/Scroll/List.get_children():
-		var sold = current_player.remove_cargo(
-			child.resource_type, child.quantity)
-		current_station.add_resource(child.resource_type, sold)
-		current_player.add_credits(
-			sold * current_station.buy_price[child.resource_type])
-	reset_sell_tab()
 
 func reset_buy_tab():
 	# Clear
@@ -53,16 +41,54 @@ func reset_buy_tab():
 		$TabContainer/Buy/Scroll/List.remove_child(child)
 	
 	# Add new children
-	for resource_type in current_station.resources:
-		if not current_station.sell_price.has(resource_type):
-			continue
-		
-		var item = ShopItem.instance()
-		item.set_resource(
-			resource_type,
-			current_station.resources[resource_type],
-			current_station.sell_price[resource_type])
+	for resource_type in station.market_resource:
+		var res: SimMarketResource = station.market_resource[resource_type]
+		var item = MarketResource.instance()
+		item.set_resource(res, res.quantity, res.buy_price)
 		$TabContainer/Buy/Scroll/List.add_child(item)
 
-func _on_Buy_pressed():
+func _on_Undock_pressed():
+	emit_signal("undock")
+
+
+func _on_Sell_pressed():
+	for child in $TabContainer/Sell/Scroll/List.get_children():
+		var res: SimMarketResource = child.resource
+		var to_sell = current_player.retrieve_cargo(
+			res.resource_type, child.quantity)
+		var stored = station.store_resource(res.resource_type, to_sell)
+		
+		# Return rest back to player
+		if stored != to_sell:
+			var to_return = max(to_sell - stored, 0)
+			var returned = current_player.store_cargo(
+				res.resource_type, to_return)
+			assert(returned == to_return)
+		
+		current_player.add_credits(stored * child.price)
+	
+	reset_sell_tab()
 	reset_buy_tab()
+
+# TODO(indutny): DRY
+func _on_Buy_pressed():
+	for child in $TabContainer/Buy/Scroll/List.get_children():
+		var res: SimMarketResource = child.resource
+		var to_buy = station.retrieve_resource(
+			res.resource_type, child.quantity)
+			
+		# Check that player has enough credits
+		if not current_player.spend_credits(to_buy * child.price):
+			continue
+		
+		var stored = current_player.store_cargo(
+			res.resource_type, to_buy)
+			
+		# Refund
+		if stored != to_buy:
+			var excess = max(to_buy - stored, 0)
+			current_player.add_credits(excess * child.price)
+			station.store_resource(res.resource_type, excess)
+	
+	reset_buy_tab()
+	reset_sell_tab()

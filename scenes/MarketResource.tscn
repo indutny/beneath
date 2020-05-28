@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://scripts/ShopItem.gd" type="Script" id=1]
+[ext_resource path="res://scripts/MarketResource.gd" type="Script" id=1]
 
 [node name="ShopItem" type="HBoxContainer"]
 anchor_top = 0.5
@@ -34,7 +34,7 @@ margin_right = 481.0
 margin_bottom = 19.0
 text = "/"
 
-[node name="Count" type="Label" parent="."]
+[node name="MaxQuantity" type="Label" parent="."]
 margin_left = 485.0
 margin_top = 5.0
 margin_right = 493.0

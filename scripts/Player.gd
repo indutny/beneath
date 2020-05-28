@@ -10,8 +10,9 @@ export(float, 1, 10) var target_velocity_step = 5.0
 export(float, 0, 1000) var max_total_cargo_weight = 100
 
 # XXX(indutny): just for testing
-var cargo = {0: 4}
-var total_cargo_weight = 4
+var cargo = {Constants.ResourceType.Metal: 4}
+var total_cargo_weight = \
+	Constants.RESOURCE_WEIGHT[Constants.ResourceType.Metal] * 4
 
 var credits = 420
 
@@ -83,7 +84,7 @@ func _on_Laser_released_mined_resources(type, count):
 	cargo[type] = cargo.get(type, 0) + count
 	emit_signal("cargo_updated", self, total_cargo_weight, cargo)
 
-func remove_cargo(resource_type: int, quantity: int):
+func retrieve_cargo(resource_type: int, quantity: int) -> int:
 	if not cargo.has(resource_type):
 		return 0
 	
@@ -98,6 +99,24 @@ func remove_cargo(resource_type: int, quantity: int):
 	emit_signal("cargo_updated", self, total_cargo_weight, cargo)
 	return change
 
+func store_cargo(resource_type: int, quantity: int) -> int:
+	var capacity = max_total_cargo_weight - total_cargo_weight
+	capacity /= Constants.RESOURCE_WEIGHT[resource_type]
+	capacity = floor(capacity)
+	
+	var to_store = clamp(quantity, 0, capacity)
+	cargo[resource_type] = cargo.get(resource_type, 0) + to_store
+	total_cargo_weight += to_store * Constants.RESOURCE_WEIGHT[resource_type]
+	emit_signal("cargo_updated", self, total_cargo_weight, cargo)
+	return to_store
+	
 func add_credits(delta: int):
 	credits += delta
 	emit_signal("credits_updated", self, credits)
+
+func spend_credits(delta: int) -> bool:
+	if credits < delta:
+		return false
+	credits -= delta
+	emit_signal("credits_updated", self, credits)
+	return true

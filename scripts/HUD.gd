@@ -92,5 +92,5 @@ func _on_Player_cargo_updated(_player, total_cargo_weight, _cargo):
 	$Column/Top/Cargo.value = total_cargo_weight
 
 
-func _on_Player_credits_updated(player, credits):
+func _on_Player_credits_updated(_player, credits):
 	$Column/Top/Credits.text = str(credits)
