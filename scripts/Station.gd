@@ -10,7 +10,6 @@ export(int) var station_id = -1
 func get_touchdown_position() -> Node:
 	return $OpenDock/Center
 
-
 func _on_Touchdown_area_entered(area):
 	var body = area.owner
 	if body is Ship:

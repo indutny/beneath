@@ -22,7 +22,7 @@ func change_quantity(delta: int):
 	set_quantity(quantity + delta)
 
 func set_quantity(new_value: int):
-	quantity = clamp(new_value, 0, max_quantity)
+	quantity = convert(clamp(new_value, 0, max_quantity), TYPE_INT)
 	$SellCount.text = str(quantity)
 
 func _on_All_pressed():
