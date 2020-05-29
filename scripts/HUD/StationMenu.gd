@@ -9,6 +9,7 @@ func set_player(player: Player):
 	
 	$TabContainer/Sell.set_player(player)
 	$TabContainer/Buy.set_player(player)
+	$TabContainer/Buildings.set_player(player)
 
 
 func _on_Undock_pressed():

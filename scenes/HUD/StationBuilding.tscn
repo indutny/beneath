@@ -16,78 +16,79 @@ margin_bottom = 20.0
 alignment = 1
 
 [node name="TypeLabel" type="Label" parent="Top"]
-margin_left = 332.0
+margin_left = 336.0
 margin_top = 3.0
-margin_right = 366.0
+margin_right = 370.0
 margin_bottom = 17.0
 text = "Type:"
 
 [node name="Type" type="OptionButton" parent="Top"]
-margin_left = 370.0
-margin_right = 434.0
+margin_left = 374.0
+margin_right = 438.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 64, 0 )
 
 [node name="Sep1" type="VSeparator" parent="Top"]
-margin_left = 438.0
-margin_right = 442.0
+margin_left = 442.0
+margin_right = 446.0
 margin_bottom = 20.0
 
 [node name="CostLabel" type="Label" parent="Top"]
-margin_left = 446.0
+margin_left = 450.0
 margin_top = 3.0
-margin_right = 478.0
+margin_right = 482.0
 margin_bottom = 17.0
 text = "Cost:"
 
 [node name="Cost" type="Label" parent="Top"]
-margin_left = 482.0
+margin_left = 486.0
 margin_top = 3.0
-margin_right = 490.0
+margin_right = 494.0
 margin_bottom = 17.0
 text = "0"
 
 [node name="Sep2" type="VSeparator" parent="Top"]
-margin_left = 494.0
-margin_right = 498.0
+margin_left = 498.0
+margin_right = 502.0
 margin_bottom = 20.0
 
 [node name="Action" type="Button" parent="Top"]
-margin_left = 502.0
-margin_right = 555.0
+margin_left = 506.0
+margin_right = 551.0
 margin_bottom = 20.0
-text = "Action"
+text = "Build"
 
-[node name="Bottom" type="HBoxContainer" parent="."]
+[node name="Middle" type="HBoxContainer" parent="."]
 margin_top = 24.0
 margin_right = 888.0
 margin_bottom = 38.0
 alignment = 1
 
-[node name="ConsumesLabel" type="Label" parent="Bottom"]
-margin_left = 367.0
-margin_right = 438.0
+[node name="ConsumesLabel" type="Label" parent="Middle"]
+margin_left = 406.0
+margin_right = 477.0
 margin_bottom = 14.0
 text = "Consumes:"
 
-[node name="Consumes" type="HBoxContainer" parent="Bottom"]
-margin_left = 442.0
-margin_right = 442.0
+[node name="Consumes" type="HBoxContainer" parent="Middle"]
+margin_left = 481.0
+margin_right = 481.0
 margin_bottom = 14.0
 
-[node name="Separator" type="VSeparator" parent="Bottom"]
-margin_left = 446.0
-margin_right = 450.0
-margin_bottom = 14.0
+[node name="Bottom" type="HBoxContainer" parent="."]
+margin_top = 42.0
+margin_right = 888.0
+margin_bottom = 56.0
+alignment = 1
 
 [node name="ProducesLabel" type="Label" parent="Bottom"]
-margin_left = 454.0
-margin_right = 517.0
+margin_left = 410.0
+margin_right = 473.0
 margin_bottom = 14.0
 text = "Produces:"
 
 [node name="Produces" type="HBoxContainer" parent="Bottom"]
-margin_left = 521.0
-margin_right = 521.0
+margin_left = 477.0
+margin_right = 477.0
 margin_bottom = 14.0
 [connection signal="item_selected" from="Top/Type" to="." method="_on_Type_item_selected"]

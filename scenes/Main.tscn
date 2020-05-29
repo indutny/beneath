@@ -31,7 +31,10 @@ script = ExtResource( 5 )
 buy_price = 7.0
 sell_price = 6.0
 
-[node name="ElectrolysisPlan" parent="Universe/Stations/Alpha" instance=ExtResource( 7 )]
+[node name="Vacant" parent="Universe/Stations/Alpha" instance=ExtResource( 7 )]
+
+[node name="ElectrolysisPlan2" parent="Universe/Stations/Alpha" instance=ExtResource( 7 )]
+building_type = 1
 
 [node name="Beta" parent="Universe/Stations" instance=ExtResource( 3 )]
 transform = Transform( 0.699855, -0.474396, -0.533996, 0.377148, 0.880312, -0.287768, 0.606599, 0, 0.795008, 436.348, -134.14, -130.269 )

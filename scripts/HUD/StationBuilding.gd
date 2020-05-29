@@ -2,27 +2,51 @@ extends VBoxContainer
 
 const ProductionItem = preload("res://scenes/HUD/StationProductionItem.tscn")
 
-func _ready():
+var building: StationBuilding
+
+func set_building(building_: StationBuilding):
+	building = building_
+	
+	$Top/Type.clear()
 	for building_type in Constants.BuildingType.values():
-		$Top/Type.add_item(Constants.BUILDING_TYPE[building_type], building_type)
+		if building.building_type != Constants.BuildingType.Vacant and \
+			building_type == Constants.BuildingType.Vacant:
+			continue
+		$Top/Type.add_item(Constants.BUILDING_TYPE[building_type], \
+			building_type)
 	_on_Type_item_selected($Top/Type.selected)
 
+	$Top/Type.select(building.building_type)
+	if building.building_type != Constants.BuildingType.Vacant:
+		$Top/Action.visible = false
+		$Top/Action.text = str("Replace")
 
-func _on_Type_item_selected(id):
+func _on_Type_item_selected(idx):
+	var id = $Top/Type.get_item_id(idx)
+	$Top/Action.visible = \
+		id != building.building_type and \
+		id != Constants.BuildingType.Vacant
+	
+	# Clear consumption/production
+	for child in $Middle/Consumes.get_children():
+		$Middle/Consumes.remove_child(child)
+	for child in $Bottom/Produces.get_children():
+		$Bottom/Produces.remove_child(child)		
+
+	if id == Constants.BuildingType.Vacant:
+		$Top/Cost.text = str("N/A")
+		return
+	
 	$Top/Cost.text = str(Constants.BUILDING_COST[id])
 	
-	var produces = Constants.BUILDING_PRODUCES[id]
+			
 	var consumes = Constants.BUILDING_CONSUMES[id]
+	for child in to_production_nodes(consumes):
+		$Middle/Consumes.add_child(child)
 	
-	for child in $Bottom/Produces.get_children():
-		$Bottom/Produces.remove_child(child)
-	for child in $Bottom/Consumes.get_children():
-		$Bottom/Consumes.remove_child(child)
-		
+	var produces = Constants.BUILDING_PRODUCES[id]
 	for child in to_production_nodes(produces):
 		$Bottom/Produces.add_child(child)
-	for child in to_production_nodes(consumes):
-		$Bottom/Consumes.add_child(child)
 
 func to_production_nodes(list):
 	var out = []
