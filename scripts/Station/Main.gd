@@ -27,6 +27,18 @@ func _ready():
 		resource.set_capacity(resource_capacity)
 		market_resource[resource_type] = resource
 
+func serialize():
+	var market = {}
+	for resource_type in market_resource:
+		market[resource_type] = market_resource[resource_type].serialize()
+	return { "market": market }
+
+func deserialize(data):
+	var market = data["market"]
+	for resource_type in market:
+		var subdata = market[resource_type]
+		market_resource[int(resource_type)].deserialize(subdata)
+
 func store_resource(resource_type, quantity):
 	var res = market_resource[resource_type]
 	var space_left = res.capacity - res.quantity

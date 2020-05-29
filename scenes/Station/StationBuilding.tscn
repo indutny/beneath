@@ -2,5 +2,7 @@
 
 [ext_resource path="res://scripts/Station/StationBuilding.gd" type="Script" id=1]
 
-[node name="StationBuilding" type="Node"]
+[node name="StationBuilding" type="Node" groups=[
+"Persist",
+]]
 script = ExtResource( 1 )

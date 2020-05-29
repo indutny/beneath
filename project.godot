@@ -63,6 +63,7 @@ config/icon="res://assets/icon.png"
 [autoload]
 
 Constants="*res://scripts/Constants.gd"
+Persistence="*res://scripts/Persistence.gd"
 
 [input]
 

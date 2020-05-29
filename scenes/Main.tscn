@@ -7,7 +7,9 @@
 [ext_resource path="res://scenes/Asteroid/Main.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Station/StationBuilding.tscn" type="PackedScene" id=7]
 
-[node name="Main" type="Spatial"]
+[node name="Main" type="Spatial" groups=[
+"Persist",
+]]
 script = ExtResource( 4 )
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]

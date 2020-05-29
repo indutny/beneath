@@ -10,3 +10,11 @@ var resources = max_resources
 
 func _process(delta):
 	resources = min(max_resources, resources + delta * replenish_speed)
+
+func serialize():
+	return {
+		"resources": resources
+	}
+
+func deserialize(data):
+	resources = float(data["resources"])

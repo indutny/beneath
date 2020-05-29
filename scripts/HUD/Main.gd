@@ -9,6 +9,9 @@ func _ready():
 	$Column/Top/Cargo.max_value = player.max_total_cargo_weight
 	$Column/Bottom.set_player($"../Player")
 
+func show_main_menu():
+	$GameMenu.popup_centered_minsize()
+
 func fade_out(player: AudioStreamPlayer):
 	$FadeIn.stop(player)
 	$FadeOut.stop(player)

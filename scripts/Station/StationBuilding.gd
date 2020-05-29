@@ -1,11 +1,22 @@
 extends Node
 class_name StationBuilding
 
-# TODO(indutny): persist these
 export(Constants.BuildingType) var building_type = \
 	Constants.BuildingType.Vacant
 export(int) var level = 0
 export(int) var last_production_tick = 0
+
+func serialize():
+	return {
+		"building_type": building_type,
+		"level": level,
+		"last_production_tick": last_production_tick
+	}
+
+func deserialize(data):
+	building_type = int(data["building_type"])
+	level = int(data["level"])
+	last_production_tick = int(data["last_production_tick"])
 
 func get_produce_dict() -> Dictionary:
 	return Constants.BUILDING_PRODUCES[building_type]
@@ -20,6 +31,7 @@ func get_produce_interval() -> float:
 func produce(tick, station) -> bool:
 	if get_produce_interval() + last_production_tick > tick:
 		return false
+	last_production_tick = tick
 	
 	# Has enough input resources
 	var consumes = get_consume_dict()
@@ -45,5 +57,4 @@ func produce(tick, station) -> bool:
 		var stored = station.store_resource(resource_type, quantity)
 		assert(stored == quantity)
 	
-	last_production_tick = tick
 	return true

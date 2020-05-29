@@ -7,6 +7,16 @@ export(Constants.ResourceType) var resource_type
 export(int) var quantity = 0
 export(int) var capacity = 1000
 
+func serialize():
+	return {
+		"quantity": quantity,
+		"capacity": capacity
+	}
+
+func deserialize(data):
+	quantity = int(data["quantity"])
+	capacity = int(data["capacity"])
+
 func set_resource_type(resource_type_):
 	resource_type = resource_type_
 

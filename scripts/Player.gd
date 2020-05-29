@@ -11,9 +11,11 @@ export(float, 0, 1000) var max_total_cargo_weight = 100
 export(Vector3) var universe_pos = Vector3()
 
 var cargo = {}
+
+# TODO(indutny): update inertia
 var total_cargo_weight: float = 0
 
-var credits = 0
+var credits: int = 0
 
 var is_mining = false
 
@@ -21,6 +23,27 @@ var max_forward_velocity_steps = \
 	round(max_forward_velocity / target_velocity_step)
 var max_backward_velocity_steps = \
 	round(-max_backward_velocity / target_velocity_step)
+	
+# Persistence
+func serialize():
+	return {
+		"cargo": cargo,
+		"credits": credits
+	}
+
+func deserialize(data):
+	for resource_type in data["cargo"]:
+		cargo[int(resource_type)] = int(data["cargo"][resource_type])
+	credits = int(data["credits"])
+	
+	# Recompute weight
+	total_cargo_weight = 0
+	for resource_type in cargo:
+		var weight = Constants.RESOURCE_WEIGHT[resource_type]
+		total_cargo_weight += weight * cargo[resource_type]
+	
+	emit_signal("cargo_updated", self, total_cargo_weight, cargo)
+	emit_signal("credits_updated", self, credits)
 
 func _unhandled_input(event):
 	if docking_state == DockingState.DOCKED:

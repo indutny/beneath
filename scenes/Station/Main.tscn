@@ -81,7 +81,9 @@ size = Vector3( 100, 100, 100 )
 [sub_resource type="BoxShape" id=9]
 extents = Vector3( 50, 50, 50 )
 
-[node name="Station" type="StaticBody"]
+[node name="Station" type="StaticBody" groups=[
+"Persist",
+]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -200 )
 physics_material_override = SubResource( 1 )
 script = ExtResource( 1 )
