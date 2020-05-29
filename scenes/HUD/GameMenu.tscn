@@ -55,6 +55,35 @@ margin_right = 509.0
 margin_bottom = 94.0
 size_flags_horizontal = 4
 text = "Exit"
+
+[node name="HSeparator2" type="HSeparator" parent="Vertical"]
+margin_top = 98.0
+margin_right = 984.0
+margin_bottom = 102.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ControlsTitle" type="Label" parent="Vertical"]
+margin_top = 106.0
+margin_right = 984.0
+margin_bottom = 120.0
+text = "Controls:"
+align = 1
+
+[node name="ControlsContent" type="Label" parent="Vertical"]
+margin_top = 124.0
+margin_right = 984.0
+margin_bottom = 257.0
+text = "AWSD - lateral movement
+Q/E - (counter)clockwise rotation
+Arrows - Pitch/Yaw
+Shift - Reduce Speed
+Space - Increase Speed
+R - Mining Laser
+I - View Cargo Hold
+Esc - This menu"
+align = 1
 [connection signal="about_to_show" from="." to="." method="_on_GameMenu_about_to_show"]
 [connection signal="pressed" from="Vertical/Save" to="." method="_on_Save_pressed"]
 [connection signal="pressed" from="Vertical/Return" to="." method="_on_Return_pressed"]
