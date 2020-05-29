@@ -20,21 +20,18 @@ func reset():
 	# Add new children
 	var cargo = current_player.cargo
 	for resource_type in cargo:
-		var res: MarketResource = station.market_resource.get(resource_type)
-		if not res:
-			continue
-			
+		var res = station.market_resource[resource_type]
 		var item = HUDMarketResource.instance()
 		item.set_resource(
 			res,
 			min(cargo[resource_type], res.capacity - res.quantity),
-			res.sell_price)
+			station.get_sell_price(resource_type))
 		$Scroll/List.add_child(item)
 
 
 func _on_Confirm_pressed():
 	for child in $Scroll/List.get_children():
-		var res: MarketResource = child.resource
+		var res = child.resource
 		var to_sell = current_player.retrieve_cargo(
 			res.resource_type, child.get_quantity())
 		var stored = station.store_resource(res.resource_type, to_sell)

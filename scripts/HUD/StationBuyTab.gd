@@ -20,16 +20,17 @@ func reset():
 	
 	# Add new children
 	for resource_type in station.market_resource:
-		var res: MarketResource = station.market_resource.get(resource_type)
+		var res = station.market_resource[resource_type]
 		var item = HUDMarketResource.instance()
-		item.set_resource(res, res.quantity, res.buy_price)
+		item.set_resource(
+			res, res.quantity, station.get_buy_price(resource_type))
 		$Scroll/List.add_child(item)
 
 
 # TODO(indutny): DRY
 func _on_Confirm_pressed():
 	for child in $Scroll/List.get_children():
-		var res: MarketResource = child.resource
+		var res = child.resource
 		var to_buy = station.retrieve_resource(
 			res.resource_type, child.get_quantity())
 			

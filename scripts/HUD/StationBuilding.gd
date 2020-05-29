@@ -37,7 +37,7 @@ func _on_Type_item_selected(idx):
 	
 	var cost = Constants.BUILDING_COST[id]
 	$Top/CostBox/Cost.text = str(cost)
-			
+	
 	$Top/Action.disabled = cost > player.credits
 	
 	# Clear consumption/production

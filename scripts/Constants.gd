@@ -35,6 +35,17 @@ export(Dictionary) var RESOURCE_WEIGHT = {
 	ResourceType.Fuel: 1
 }
 
+export(Dictionary) var RESOURCE_BASE_PRICE = {
+	ResourceType.IronOre: 3,
+	ResourceType.NickelOre: 40,
+	ResourceType.CobaltOre: 10,
+	ResourceType.Ice: 1,
+	
+	ResourceType.Hydrogen: 1,
+	ResourceType.Oxygen: 2,
+	ResourceType.Fuel: 6
+}
+
 enum BuildingType {
 	Vacant,
 	ElectrolysisPlant,
@@ -56,11 +67,11 @@ export(Dictionary) var BUILDING_COST = {
 export(Dictionary) var BUILDING_CONSUMES = {
 	BuildingType.Vacant: {},
 	BuildingType.ElectrolysisPlant: {
-		ResourceType.Ice: 1
+		ResourceType.Ice: 4
 	},
 	BuildingType.FuelRefinery: {
-		ResourceType.Hydrogen: 1,
-		ResourceType.Oxygen: 1
+		ResourceType.Hydrogen: 2,
+		ResourceType.Oxygen: 2
 	}
 }
 
@@ -73,4 +84,10 @@ export(Dictionary) var BUILDING_PRODUCES = {
 	BuildingType.FuelRefinery: {
 		ResourceType.Fuel: 1
 	}
+}
+
+export(Dictionary) var BUILDING_PRODUCE_INTERVAL = {
+	BuildingType.Vacant: [ INF ],
+	BuildingType.ElectrolysisPlant: [ 10.0 ],
+	BuildingType.FuelRefinery: [ 30.0 ]
 }

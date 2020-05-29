@@ -4,9 +4,20 @@
 [ext_resource path="res://scenes/HUD/Main.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Station/Main.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=4]
-[ext_resource path="res://scripts/Station/MarketResource.gd" type="Script" id=5]
 [ext_resource path="res://scenes/Asteroid/Main.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Station/StationBuilding.tscn" type="PackedScene" id=7]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node
+class_name MarketResource
+
+export(Constants.ResourceType) var resource_type = \\
+	Constants.ResourceType.IronOre
+export(float,0,1000) var buy_price = 1
+export(float,0,1000) var sell_price = 1
+export(int,0,1000) var quantity = 0
+export(int,0,10000) var capacity = 1000
+"
 
 [node name="Main" type="Spatial"]
 script = ExtResource( 4 )
@@ -26,11 +37,6 @@ light_energy = 0.2
 [node name="Alpha" parent="Universe/Stations" instance=ExtResource( 3 )]
 transform = Transform( 0.553147, 0.386757, -0.737867, -0.573019, 0.819542, 0, 0.604713, 0.422811, 0.674946, 0, 0, -213.398 )
 
-[node name="Metal" type="Node" parent="Universe/Stations/Alpha"]
-script = ExtResource( 5 )
-buy_price = 7.0
-sell_price = 6.0
-
 [node name="Vacant" parent="Universe/Stations/Alpha" instance=ExtResource( 7 )]
 
 [node name="ElectrolysisPlan2" parent="Universe/Stations/Alpha" instance=ExtResource( 7 )]
@@ -40,7 +46,7 @@ building_type = 1
 transform = Transform( 0.699855, -0.474396, -0.533996, 0.377148, 0.880312, -0.287768, 0.606599, 0, 0.795008, 436.348, -134.14, -130.269 )
 
 [node name="Metal" type="Node" parent="Universe/Stations/Beta"]
-script = ExtResource( 5 )
+script = SubResource( 1 )
 buy_price = 8.0
 sell_price = 7.0
 
