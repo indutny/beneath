@@ -19,10 +19,8 @@ func set_player(player_: Player):
 	$TabContainer/Buy.set_player(player)
 	$TabContainer/Buildings.set_player(player)
 
-
 func _on_Undock_pressed():
 	emit_signal("undock")
-
 
 func _on_any_transaction():
 	$TabContainer/Buy.update_market()
