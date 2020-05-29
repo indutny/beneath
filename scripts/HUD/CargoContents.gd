@@ -13,8 +13,8 @@ func _ready():
 	pass
 
 func update_items(cargo: Dictionary):
-	for resource_type in cargo.keys():
-		items[resource_type].set_count(cargo[resource_type])
+	for resource_type in Constants.ResourceType.values():
+		items[resource_type].set_count(cargo.get(resource_type, 0))
 
 func toggle():
 	if visible:
