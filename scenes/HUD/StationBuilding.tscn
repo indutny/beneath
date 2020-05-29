@@ -28,22 +28,26 @@ margin_right = 438.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 64, 0 )
 
-[node name="Sep1" type="VSeparator" parent="Top"]
+[node name="CostBox" type="HBoxContainer" parent="Top"]
 margin_left = 442.0
-margin_right = 446.0
+margin_right = 494.0
 margin_bottom = 20.0
 
-[node name="CostLabel" type="Label" parent="Top"]
-margin_left = 450.0
+[node name="Sep1" type="VSeparator" parent="Top/CostBox"]
+margin_right = 4.0
+margin_bottom = 20.0
+
+[node name="CostLabel" type="Label" parent="Top/CostBox"]
+margin_left = 8.0
 margin_top = 3.0
-margin_right = 482.0
+margin_right = 40.0
 margin_bottom = 17.0
 text = "Cost:"
 
-[node name="Cost" type="Label" parent="Top"]
-margin_left = 486.0
+[node name="Cost" type="Label" parent="Top/CostBox"]
+margin_left = 44.0
 margin_top = 3.0
-margin_right = 494.0
+margin_right = 52.0
 margin_bottom = 17.0
 text = "0"
 
@@ -91,4 +95,10 @@ text = "Produces:"
 margin_left = 477.0
 margin_right = 477.0
 margin_bottom = 14.0
+
+[node name="VSeparator" type="HSeparator" parent="."]
+margin_top = 60.0
+margin_right = 888.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
 [connection signal="item_selected" from="Top/Type" to="." method="_on_Type_item_selected"]

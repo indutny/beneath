@@ -14,11 +14,13 @@ func set_building(building_: StationBuilding):
 			continue
 		$Top/Type.add_item(Constants.BUILDING_TYPE[building_type], \
 			building_type)
+		if building_type == Constants.BuildingType.Vacant:
+			$Top/Type.add_separator()
+	
+	$Top/Type.select($Top/Type.get_item_index(building.building_type))
 	_on_Type_item_selected($Top/Type.selected)
 
-	$Top/Type.select(building.building_type)
 	if building.building_type != Constants.BuildingType.Vacant:
-		$Top/Action.visible = false
 		$Top/Action.text = str("Replace")
 
 func _on_Type_item_selected(idx):
@@ -27,18 +29,15 @@ func _on_Type_item_selected(idx):
 		id != building.building_type and \
 		id != Constants.BuildingType.Vacant
 	
+	$Top/CostBox.visible = $Top/Action.visible
+	
 	# Clear consumption/production
 	for child in $Middle/Consumes.get_children():
 		$Middle/Consumes.remove_child(child)
 	for child in $Bottom/Produces.get_children():
 		$Bottom/Produces.remove_child(child)		
-
-	if id == Constants.BuildingType.Vacant:
-		$Top/Cost.text = str("N/A")
-		return
 	
-	$Top/Cost.text = str(Constants.BUILDING_COST[id])
-	
+	$Top/CostBox/Cost.text = str(Constants.BUILDING_COST[id])
 			
 	var consumes = Constants.BUILDING_CONSUMES[id]
 	for child in to_production_nodes(consumes):
