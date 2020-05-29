@@ -5,14 +5,14 @@ var player: Player
 func set_player(player_: Player):
 	player = player_
 	$Velocity.max_value = player.max_total_velocity
-	$TargetBackwardVelocity.max_value = player.max_backward_velocity
-	$TargetForwardVelocity.max_value = player.max_forward_velocity
+	$TargetVelocity.max_value = max(
+		player.max_backward_velocity,
+		player.max_forward_velocity)
 
 func set_target_velocity(new_value: float):
-	$TargetForwardVelocity.value = max(0, new_value)
-	$TargetBackwardVelocity.value = min(new_value, 0) + \
-		player.max_backward_velocity
-
+	$TargetVelocity.value = abs(new_value)
+	$TargetVelocity.modulate = Color.red if new_value < 0 else Color.white
+	
 func set_velocity(new_value):
 	$VelocityTween.interpolate_property(
 		$Velocity,
