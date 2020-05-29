@@ -22,11 +22,6 @@ var max_forward_velocity_steps = \
 var max_backward_velocity_steps = \
 	round(-max_backward_velocity / target_velocity_step)
 
-func _ready():
-	# XXX(indutny): just for testing
-	add_credits(1420)
-	var _stored = store_cargo(Constants.ResourceType.IronOre, 4)
-
 func _unhandled_input(event):
 	if docking_state == DockingState.DOCKED:
 		return

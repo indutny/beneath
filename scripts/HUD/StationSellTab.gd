@@ -31,7 +31,6 @@ func update_market():
 func _on_Confirm_pressed():
 	var cargo = player.cargo
 	for resource_type in cargo:
-		var market_resource = station.market_resource[resource_type]
 		var ui = $List.get_resource(resource_type)
 		
 		var to_sell = player.retrieve_cargo(resource_type, ui.get_quantity())
@@ -44,5 +43,6 @@ func _on_Confirm_pressed():
 			assert(returned == to_return)
 		
 		player.add_credits(stored * ui.get_price())
+		ui.reset()
 	
 	emit_signal("transaction")

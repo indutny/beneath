@@ -46,5 +46,7 @@ func _on_Confirm_pressed():
 			var excess = max(to_buy - stored, 0)
 			player.add_credits(excess * ui.get_price())
 			station.store_resource(resource_type, excess)
+		
+		ui.reset()
 	
 	emit_signal("transaction")

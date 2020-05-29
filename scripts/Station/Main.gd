@@ -1,6 +1,8 @@
 extends StaticBody
 class_name Station
 
+signal production_update
+
 export(float, 0, 10) var max_docking_velocity = 0.2
 export(float, 0, 20) var platform_width = 10.0
 export(float, 0, 3) var orientation_tolerance = PI / 8.0
@@ -25,7 +27,7 @@ func _ready():
 		resource.set_capacity(resource_capacity)
 		market_resource[resource_type] = resource
 
-func store_resource(resource_type, quantity):	
+func store_resource(resource_type, quantity):
 	var res = market_resource[resource_type]
 	var space_left = res.capacity - res.quantity
 	var to_store = clamp(quantity, 0, space_left)
@@ -35,7 +37,14 @@ func store_resource(resource_type, quantity):
 func get_touchdown_position() -> Node:
 	return $OpenDock/Center
 
-func retrieve_resource(resource_type, quantity):	
+func has_resource(resource_type, quantity) -> bool:
+	return market_resource[resource_type].quantity >= quantity
+
+func can_store_resource(resource_type, quantity) -> bool:
+	var market = market_resource[resource_type]
+	return quantity <= market.capacity - market.quantity
+
+func retrieve_resource(resource_type, quantity):
 	var res = market_resource[resource_type]
 	var to_retrieve = clamp(quantity, 0, res.quantity)
 	res.quantity -= to_retrieve
@@ -67,3 +76,12 @@ func get_buy_price(resource_type) -> int:
 func get_sell_price(resource_type) -> int:
 	var economics = get_resource_economics(resource_type)
 	return economics["sell_price"]
+
+# NOTE: Called by /Main
+func process_tick(tick):
+	var produced = false
+	for building in buildings:
+		if building.produce(tick, self):
+			produced = true
+	if produced:
+		emit_signal("production_update")
