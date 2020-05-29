@@ -90,8 +90,13 @@ func _on_Player_take_off(_ship):
 func _on_StationMenu_undock():
 	$"../Player".undock()
 
-func _on_Player_cargo_updated(_player, total_cargo_weight, _cargo):
+func _on_Player_cargo_updated(_player, total_cargo_weight, cargo):
 	$Column/Top/Cargo.value = total_cargo_weight
+	$CargoContents.update_items(cargo)
 
 func _on_Player_credits_updated(_player, credits):
 	$Column/Top/Credits.text = str(credits)
+
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_open_cargo"):
+		$CargoContents.toggle()

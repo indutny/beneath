@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/HUD/CargoItem.gd" type="Script" id=1]
+
+[node name="CargoItem" type="PanelContainer"]
+margin_right = 89.0
+margin_bottom = 14.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 171.0
+margin_bottom = 21.0
+
+[node name="Horizontal" type="HBoxContainer" parent="MarginContainer"]
+margin_right = 164.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Count" type="Label" parent="MarginContainer/Horizontal"]
+margin_right = 44.0
+margin_bottom = 14.0
+text = "[count]"
+
+[node name="x" type="Label" parent="MarginContainer/Horizontal"]
+margin_left = 48.0
+margin_right = 55.0
+margin_bottom = 14.0
+text = "x"
+
+[node name="Type" type="Label" parent="MarginContainer/Horizontal"]
+margin_left = 59.0
+margin_right = 89.0
+margin_bottom = 14.0
+text = "Type"
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/Horizontal"]
+margin_left = 93.0
+margin_right = 97.0
+margin_bottom = 14.0
+
+[node name="Weight" type="Label" parent="MarginContainer/Horizontal"]
+margin_left = 101.0
+margin_right = 151.0
+margin_bottom = 14.0
+text = "[weight]"
+
+[node name="tons" type="Label" parent="MarginContainer/Horizontal"]
+margin_left = 155.0
+margin_right = 164.0
+margin_bottom = 14.0
+text = "t."

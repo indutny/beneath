@@ -32,7 +32,6 @@ func _on_Confirm_pressed():
 	var cargo = player.cargo
 	for resource_type in cargo:
 		var ui = $List.get_resource(resource_type)
-		
 		var to_sell = player.retrieve_cargo(resource_type, ui.get_quantity())
 		var stored = station.store_resource(resource_type, to_sell)
 		

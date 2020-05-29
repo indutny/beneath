@@ -96,14 +96,7 @@ func set_is_mining(new_value):
 	$RightLaser.set_enabled(new_value)
 
 func _on_Laser_released_mined_resources(type, count):
-	var weight = Constants.RESOURCE_WEIGHT[type] * count
-	if weight + total_cargo_weight > max_total_cargo_weight:
-		# TODO(indutny): display a notification or something
-		return
-	
-	total_cargo_weight += weight
-	cargo[type] = cargo.get(type, 0) + count
-	emit_signal("cargo_updated", self, total_cargo_weight, cargo)
+	store_cargo(type, count)
 
 func retrieve_cargo(resource_type: int, quantity: int) -> int:
 	if not cargo.has(resource_type):
@@ -126,6 +119,9 @@ func store_cargo(resource_type: int, quantity: int) -> int:
 	capacity = floor(capacity)
 	
 	var to_store = clamp(quantity, 0, capacity)
+	if to_store == 0:
+		return to_store
+	
 	cargo[resource_type] = cargo.get(resource_type, 0) + to_store
 	total_cargo_weight += to_store * Constants.RESOURCE_WEIGHT[resource_type]
 	emit_signal("cargo_updated", self, total_cargo_weight, cargo)
