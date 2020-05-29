@@ -19,3 +19,4 @@ func _on_Undock_pressed():
 func _on_any_transaction():
 	$TabContainer/Buy.reset()
 	$TabContainer/Sell.reset()
+	$TabContainer/Buildings.reset()

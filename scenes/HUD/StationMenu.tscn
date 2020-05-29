@@ -67,3 +67,4 @@ visible = false
 [connection signal="pressed" from="TabContainer/Station/Undock" to="." method="_on_Undock_pressed"]
 [connection signal="transaction" from="TabContainer/Sell" to="." method="_on_any_transaction"]
 [connection signal="transaction" from="TabContainer/Buy" to="." method="_on_any_transaction"]
+[connection signal="transaction" from="TabContainer/Buildings" to="." method="_on_any_transaction"]

@@ -24,7 +24,7 @@ var max_backward_velocity_steps = \
 
 func _ready():
 	# XXX(indutny): just for testing
-	add_credits(420)
+	add_credits(1420)
 	var _stored = store_cargo(Constants.ResourceType.IronOre, 4)
 
 func _unhandled_input(event):
