@@ -53,19 +53,22 @@ export(float) var MARK_UP = 1.2
 enum BuildingType {
 	Vacant,
 	ElectrolysisPlant,
-	FuelRefinery
+	FuelRefinery,
+	IceMine
 }
 
 export(Dictionary) var BUILDING_TYPE = {
 	BuildingType.Vacant: "Vacant",
 	BuildingType.ElectrolysisPlant: "Electrolysis Plant",
-	BuildingType.FuelRefinery: "Fuel Refinery"
+	BuildingType.FuelRefinery: "Fuel Refinery",
+	BuildingType.IceMine: "Hydrogen Pump"
 }
 
 export(Dictionary) var BUILDING_COST = {
 	BuildingType.Vacant: 0,
 	BuildingType.ElectrolysisPlant: 700,
-	BuildingType.FuelRefinery: 1000
+	BuildingType.FuelRefinery: 1000,
+	BuildingType.IceMine: 500
 }
 
 export(Dictionary) var BUILDING_CONSUMES = {
@@ -76,7 +79,8 @@ export(Dictionary) var BUILDING_CONSUMES = {
 	BuildingType.FuelRefinery: {
 		ResourceType.Hydrogen: 2,
 		ResourceType.Oxygen: 2
-	}
+	},
+	BuildingType.IceMine: {}
 }
 
 export(Dictionary) var BUILDING_PRODUCES = {
@@ -87,11 +91,15 @@ export(Dictionary) var BUILDING_PRODUCES = {
 	},
 	BuildingType.FuelRefinery: {
 		ResourceType.Fuel: 1
+	},
+	BuildingType.IceMine: {
+		ResourceType.Ice: 1
 	}
 }
 
 export(Dictionary) var BUILDING_PRODUCE_INTERVAL = {
 	BuildingType.Vacant: [ INF ],
 	BuildingType.ElectrolysisPlant: [ 10.0 ],
-	BuildingType.FuelRefinery: [ 15.0 ]
+	BuildingType.FuelRefinery: [ 15.0 ],
+	BuildingType.IceMine: [ 3.0 ]
 }
