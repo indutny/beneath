@@ -35,24 +35,24 @@ func produce(tick, station) -> bool:
 	
 	# Has enough input resources
 	var consumes = get_consume_dict()
-	for resource_type in consumes:
+	for resource_type in consumes.keys():
 		var quantity = consumes[resource_type]
 		if not station.has_resource(resource_type, quantity):
 			return false
 	
 	# Has enough room for output resources
 	var produces = get_produce_dict()
-	for resource_type in produces:
+	for resource_type in produces.keys():
 		var quantity = produces[resource_type]
 		if not station.can_store_resource(resource_type, quantity):
 			return false
 	
-	for resource_type in consumes:
+	for resource_type in consumes.keys():
 		var quantity = consumes[resource_type]
 		var got = station.retrieve_resource(resource_type, quantity)
 		assert(got == quantity)
 	
-	for resource_type in produces:
+	for resource_type in produces.keys():
 		var quantity = produces[resource_type]
 		var stored = station.store_resource(resource_type, quantity)
 		assert(stored == quantity)

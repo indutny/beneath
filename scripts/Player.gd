@@ -32,13 +32,13 @@ func serialize():
 	}
 
 func deserialize(data):
-	for resource_type in data["cargo"]:
+	for resource_type in data["cargo"].keys():
 		cargo[int(resource_type)] = int(data["cargo"][resource_type])
 	credits = int(data["credits"])
 	
 	# Recompute weight
 	total_cargo_weight = 0
-	for resource_type in cargo:
+	for resource_type in cargo.keys():
 		var weight = Constants.RESOURCE_WEIGHT[resource_type]
 		total_cargo_weight += weight * cargo[resource_type]
 	
@@ -96,7 +96,7 @@ func set_is_mining(new_value):
 	$RightLaser.set_enabled(new_value)
 
 func _on_Laser_released_mined_resources(type, count):
-	store_cargo(type, count)
+	var _stored = store_cargo(type, count)
 
 func retrieve_cargo(resource_type: int, quantity: int) -> int:
 	if not cargo.has(resource_type):

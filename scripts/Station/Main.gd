@@ -29,13 +29,13 @@ func _ready():
 
 func serialize():
 	var market = {}
-	for resource_type in market_resource:
+	for resource_type in market_resource.keys():
 		market[resource_type] = market_resource[resource_type].serialize()
 	return { "market": market }
 
 func deserialize(data):
 	var market = data["market"]
-	for resource_type in market:
+	for resource_type in market.keys():
 		var subdata = market[resource_type]
 		market_resource[int(resource_type)].deserialize(subdata)
 
@@ -73,7 +73,7 @@ func get_resource_economics(resource_type):
 		var consumes = building.get_consume_dict()
 		supply += produces.get(resource_type, 0) / interval
 		demand += consumes.get(resource_type, 0) / interval
-	var adjusted_price = price * pow(1.5, demand - supply)
+	var adjusted_price = price * pow(20.0, demand - supply)
 	
 	return {
 		"buy_price": convert(max(

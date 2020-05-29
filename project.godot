@@ -164,6 +164,5 @@ ui_open_cargo={
 
 [rendering]
 
-threads/thread_model=2
 environment/default_clear_color=Color( 0.305882, 0.305882, 0.305882, 1 )
 environment/default_environment="res://default_env.tres"

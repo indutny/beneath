@@ -13,7 +13,7 @@ func _ready():
 	pass
 
 func update_items(cargo: Dictionary):
-	for resource_type in cargo:
+	for resource_type in cargo.keys():
 		items[resource_type].set_count(cargo[resource_type])
 
 func toggle():

@@ -44,7 +44,7 @@ func _on_Type_item_selected(idx):
 	for child in $Middle/Consumes.get_children():
 		$Middle/Consumes.remove_child(child)
 	for child in $Bottom/Produces.get_children():
-		$Bottom/Produces.remove_child(child)		
+		$Bottom/Produces.remove_child(child)
 	
 	# Re-add consumption/production
 	var consumes = Constants.BUILDING_CONSUMES[id]
@@ -57,12 +57,12 @@ func _on_Type_item_selected(idx):
 
 
 
-func to_production_nodes(list):
+func to_production_nodes(map):
 	var out = []
-	for resource_type in list:
+	for resource_type in map.keys():
 		var item = ProductionItem.instance()
 		item.set_resource_type(resource_type)
-		item.set_resource_count(list[resource_type])
+		item.set_resource_count(map[resource_type])
 		out.append(item)
 	return out
 

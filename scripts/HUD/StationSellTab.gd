@@ -16,7 +16,7 @@ func reset():
 
 func update_market():
 	var cargo = player.cargo
-	for resource_type in station.market_resource:
+	for resource_type in station.market_resource.keys():
 		var market_resource = station.market_resource[resource_type]
 		var ui = $List.get_resource(resource_type)
 		
@@ -30,7 +30,7 @@ func update_market():
 
 func _on_Confirm_pressed():
 	var cargo = player.cargo
-	for resource_type in cargo:
+	for resource_type in cargo.keys():
 		var ui = $List.get_resource(resource_type)
 		var to_sell = player.retrieve_cargo(resource_type, ui.get_quantity())
 		var stored = station.store_resource(resource_type, to_sell)
