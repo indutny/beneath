@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/HUD/StationMenu.gd" type="Script" id=1]
-[ext_resource path="res://scenes/HUD/StationBuilding.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/HUD/StationBuildingsTab.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/HUD/StationBuyTab.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/HUD/StationSellTab.tscn" type="PackedScene" id=4]
 
@@ -62,22 +62,7 @@ visible = false
 [node name="Buy" parent="TabContainer" instance=ExtResource( 3 )]
 visible = false
 
-[node name="Buildings" type="ScrollContainer" parent="TabContainer"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
-
-[node name="List" type="VBoxContainer" parent="TabContainer/Buildings"]
-margin_right = 888.0
-margin_bottom = 436.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MenuBuilding" parent="TabContainer/Buildings/List" instance=ExtResource( 2 )]
+[node name="Buildings" parent="TabContainer" instance=ExtResource( 2 )]
 [connection signal="pressed" from="TabContainer/Station/Undock" to="." method="_on_Undock_pressed"]
 [connection signal="transaction" from="TabContainer/Sell" to="." method="_on_any_transaction"]
 [connection signal="transaction" from="TabContainer/Buy" to="." method="_on_any_transaction"]

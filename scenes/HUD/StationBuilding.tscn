@@ -1,8 +1,11 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/HUD/StationBuilding.gd" type="Script" id=1]
 
 [node name="HUDStationBuilding" type="VBoxContainer"]
 margin_right = 888.0
 margin_bottom = 38.0
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -13,45 +16,45 @@ margin_bottom = 20.0
 alignment = 1
 
 [node name="TypeLabel" type="Label" parent="Top"]
-margin_left = 330.0
+margin_left = 332.0
 margin_top = 3.0
-margin_right = 364.0
+margin_right = 366.0
 margin_bottom = 17.0
 text = "Type:"
 
 [node name="Type" type="OptionButton" parent="Top"]
-margin_left = 368.0
-margin_right = 432.0
+margin_left = 370.0
+margin_right = 434.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 64, 0 )
 
 [node name="Sep1" type="VSeparator" parent="Top"]
-margin_left = 436.0
-margin_right = 440.0
+margin_left = 438.0
+margin_right = 442.0
 margin_bottom = 20.0
 
-[node name="PriceLabel2" type="Label" parent="Top"]
-margin_left = 444.0
+[node name="CostLabel" type="Label" parent="Top"]
+margin_left = 446.0
 margin_top = 3.0
-margin_right = 480.0
+margin_right = 478.0
 margin_bottom = 17.0
-text = "Price:"
+text = "Cost:"
 
-[node name="Price2" type="Label" parent="Top"]
-margin_left = 484.0
+[node name="Cost" type="Label" parent="Top"]
+margin_left = 482.0
 margin_top = 3.0
-margin_right = 492.0
+margin_right = 490.0
 margin_bottom = 17.0
 text = "0"
 
 [node name="Sep2" type="VSeparator" parent="Top"]
-margin_left = 496.0
-margin_right = 500.0
+margin_left = 494.0
+margin_right = 498.0
 margin_bottom = 20.0
 
 [node name="Action" type="Button" parent="Top"]
-margin_left = 504.0
-margin_right = 557.0
+margin_left = 502.0
+margin_right = 555.0
 margin_bottom = 20.0
 text = "Action"
 
@@ -61,29 +64,30 @@ margin_right = 888.0
 margin_bottom = 38.0
 alignment = 1
 
+[node name="ConsumesLabel" type="Label" parent="Bottom"]
+margin_left = 367.0
+margin_right = 438.0
+margin_bottom = 14.0
+text = "Consumes:"
+
+[node name="Consumes" type="HBoxContainer" parent="Bottom"]
+margin_left = 442.0
+margin_right = 442.0
+margin_bottom = 14.0
+
+[node name="Separator" type="VSeparator" parent="Bottom"]
+margin_left = 446.0
+margin_right = 450.0
+margin_bottom = 14.0
+
 [node name="ProducesLabel" type="Label" parent="Bottom"]
-margin_left = 384.0
-margin_right = 447.0
+margin_left = 454.0
+margin_right = 517.0
 margin_bottom = 14.0
 text = "Produces:"
 
-[node name="Produces" type="Label" parent="Bottom"]
-margin_left = 451.0
-margin_right = 451.0
+[node name="Produces" type="HBoxContainer" parent="Bottom"]
+margin_left = 521.0
+margin_right = 521.0
 margin_bottom = 14.0
-
-[node name="Sep1" type="VSeparator" parent="Bottom"]
-margin_left = 455.0
-margin_right = 459.0
-margin_bottom = 14.0
-
-[node name="ConsumesLabel" type="Label" parent="Bottom"]
-margin_left = 463.0
-margin_right = 499.0
-margin_bottom = 14.0
-text = "Price:"
-
-[node name="Consumes" type="Label" parent="Bottom"]
-margin_left = 503.0
-margin_right = 503.0
-margin_bottom = 14.0
+[connection signal="item_selected" from="Top/Type" to="." method="_on_Type_item_selected"]
