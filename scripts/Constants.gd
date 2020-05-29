@@ -35,16 +35,20 @@ export(Dictionary) var RESOURCE_WEIGHT = {
 	ResourceType.Fuel: 1
 }
 
+# Take in account: price of base resources and production rate at level 0
 export(Dictionary) var RESOURCE_BASE_PRICE = {
-	ResourceType.IronOre: 3,
-	ResourceType.NickelOre: 40,
-	ResourceType.CobaltOre: 10,
-	ResourceType.Ice: 1,
+	ResourceType.IronOre: 30,
+	ResourceType.NickelOre: 400,
+	ResourceType.CobaltOre: 100,
+	ResourceType.Ice: 5,
 	
-	ResourceType.Hydrogen: 1,
-	ResourceType.Oxygen: 2,
-	ResourceType.Fuel: 6
+	ResourceType.Hydrogen: 5,
+	ResourceType.Oxygen: 10,
+	ResourceType.Fuel: 75
 }
+
+# Price difference between buy/sell
+export(float) var MARK_UP = 1.2
 
 enum BuildingType {
 	Vacant,
@@ -89,5 +93,5 @@ export(Dictionary) var BUILDING_PRODUCES = {
 export(Dictionary) var BUILDING_PRODUCE_INTERVAL = {
 	BuildingType.Vacant: [ INF ],
 	BuildingType.ElectrolysisPlant: [ 10.0 ],
-	BuildingType.FuelRefinery: [ 30.0 ]
+	BuildingType.FuelRefinery: [ 15.0 ]
 }

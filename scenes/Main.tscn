@@ -35,7 +35,7 @@ light_energy = 0.2
 [node name="Stations" type="Spatial" parent="Universe"]
 
 [node name="Alpha" parent="Universe/Stations" instance=ExtResource( 3 )]
-transform = Transform( 0.553147, 0.386757, -0.737867, -0.573019, 0.819542, 0, 0.604713, 0.422811, 0.674946, 0, 0, -213.398 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -60, 0 )
 
 [node name="Vacant" parent="Universe/Stations/Alpha" instance=ExtResource( 7 )]
 

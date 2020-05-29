@@ -20,11 +20,10 @@ func _ready():
 			buildings.append(child)
 	
 	for resource_type in Constants.ResourceType.values():
-		market_resource[resource_type] = {
-			"resource_type": resource_type,
-			"quantity": 0,
-			"capacity": resource_capacity
-		}
+		var resource = MarketResource.new()
+		resource.set_resource_type(resource_type)
+		resource.set_capacity(resource_capacity)
+		market_resource[resource_type] = resource
 
 func store_resource(resource_type, quantity):	
 	var res = market_resource[resource_type]
@@ -44,7 +43,6 @@ func retrieve_resource(resource_type, quantity):
 
 func get_resource_economics(resource_type):
 	var price = Constants.RESOURCE_BASE_PRICE[resource_type]
-	var resource = market_resource[resource_type]
 	var supply = 0
 	var demand = 0.0
 	for building in buildings:
@@ -54,13 +52,18 @@ func get_resource_economics(resource_type):
 		var consumes = building.get_consume_dict()
 		supply += produces.get(resource_type, 0) / interval
 		demand += consumes.get(resource_type, 0) / interval
-	return price
+	var adjusted_price = price * pow(1.5, demand - supply)
+	
+	return {
+		"buy_price": convert(max(
+			ceil(adjusted_price * Constants.MARK_UP), 1), TYPE_INT),
+		"sell_price": convert(max(floor(adjusted_price), 1), TYPE_INT)
+	}
 
-func get_buy_price(resource_type):
-	var price = Constants.RESOURCE_BASE_PRICE[resource_type]
-	var eco = get_resource_economics(resource_type)
-	return price
+func get_buy_price(resource_type) -> int:
+	var economics = get_resource_economics(resource_type)
+	return economics["buy_price"]
 
-func get_sell_price(resource_type):
-	var price = Constants.RESOURCE_BASE_PRICE[resource_type]
-	return price
+func get_sell_price(resource_type) -> int:
+	var economics = get_resource_economics(resource_type)
+	return economics["sell_price"]

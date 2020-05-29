@@ -10,9 +10,9 @@ var station: Station
 func set_player(player: Player):
 	current_player = player
 	station = player.current_station
-	reset()
+	update_market()
 	
-func reset():
+func update_market():
 	for child in $List.get_children():
 		$List.remove_child(child)
 	

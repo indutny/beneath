@@ -2,49 +2,49 @@ extends VBoxContainer
 
 signal transaction
 
-const HUDMarketResource = preload("res://scenes/HUD/MarketResource.tscn")
-
-var current_player: Player
+var player: Player
 var station: Station
 
-func set_player(player: Player):
-	current_player = player
+func set_player(player_):
+	player = player_
 	station = player.current_station
-	
 	reset()
 
 func reset():
-	# Clear
-	for child in $Scroll/List.get_children():
-		$Scroll/List.remove_child(child)
-	
-	# Add new children
-	for resource_type in station.market_resource:
-		var res = station.market_resource[resource_type]
-		var item = HUDMarketResource.instance()
-		item.set_resource(
-			res, res.quantity, station.get_buy_price(resource_type))
-		$Scroll/List.add_child(item)
+	$List.reset()
+	update_market()
 
+func update_market():
+	for resource_type in station.market_resource:
+		var market_resource = station.market_resource[resource_type]
+		var ui = $List.get_resource(resource_type)
+		
+		ui.visible = market_resource.quantity != 0
+		
+		var buy_price = station.get_buy_price(resource_type)
+		var max_buy_quantity = min(
+			floor(player.credits / buy_price),
+			market_resource.quantity)
+		ui.configure(max_buy_quantity, buy_price)
 
 # TODO(indutny): DRY
 func _on_Confirm_pressed():
-	for child in $Scroll/List.get_children():
-		var res = child.resource
+	for resource_type in station.market_resource:
+		var ui = $List.get_resource(resource_type)
+		
 		var to_buy = station.retrieve_resource(
-			res.resource_type, child.get_quantity())
+			resource_type, ui.get_quantity())
 			
 		# Check that player has enough credits
-		if not current_player.spend_credits(to_buy * child.price):
+		if not player.spend_credits(to_buy * ui.get_price()):
 			continue
 		
-		var stored = current_player.store_cargo(
-			res.resource_type, to_buy)
+		var stored = player.store_cargo(resource_type, to_buy)
 			
 		# Refund
 		if stored != to_buy:
 			var excess = max(to_buy - stored, 0)
-			current_player.add_credits(excess * child.price)
-			station.store_resource(res.resource_type, excess)
+			player.add_credits(excess * ui.get_price())
+			station.store_resource(resource_type, excess)
 	
 	emit_signal("transaction")

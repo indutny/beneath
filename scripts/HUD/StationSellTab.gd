@@ -2,47 +2,47 @@ extends VBoxContainer
 
 signal transaction
 
-const HUDMarketResource = preload("res://scenes/HUD/MarketResource.tscn")
-
-var current_player: Player
+var player: Player
 var station: Station
 
-func set_player(player):
-	current_player = player
+func set_player(player_):
+	player = player_
 	station = player.current_station
 	reset()
 
 func reset():
-	# Clear
-	for child in $Scroll/List.get_children():
-		$Scroll/List.remove_child(child)
-	
-	# Add new children
-	var cargo = current_player.cargo
-	for resource_type in cargo:
-		var res = station.market_resource[resource_type]
-		var item = HUDMarketResource.instance()
-		item.set_resource(
-			res,
-			min(cargo[resource_type], res.capacity - res.quantity),
-			station.get_sell_price(resource_type))
-		$Scroll/List.add_child(item)
+	$List.reset()
+	update_market()
 
+func update_market():
+	var cargo = player.cargo
+	for resource_type in station.market_resource:
+		var market_resource = station.market_resource[resource_type]
+		var ui = $List.get_resource(resource_type)
+		
+		var quantity = cargo.get(resource_type, 0)
+		ui.visible = quantity != 0
+		
+		var max_sell_quantity = min(
+			quantity,
+			market_resource.capacity - market_resource.quantity)
+		ui.configure(max_sell_quantity, station.get_sell_price(resource_type))
 
 func _on_Confirm_pressed():
-	for child in $Scroll/List.get_children():
-		var res = child.resource
-		var to_sell = current_player.retrieve_cargo(
-			res.resource_type, child.get_quantity())
-		var stored = station.store_resource(res.resource_type, to_sell)
+	var cargo = player.cargo
+	for resource_type in cargo:
+		var market_resource = station.market_resource[resource_type]
+		var ui = $List.get_resource(resource_type)
+		
+		var to_sell = player.retrieve_cargo(resource_type, ui.get_quantity())
+		var stored = station.store_resource(resource_type, to_sell)
 		
 		# Return rest back to player
 		if stored != to_sell:
 			var to_return = max(to_sell - stored, 0)
-			var returned = current_player.store_cargo(
-				res.resource_type, to_return)
+			var returned = player.store_cargo(resource_type, to_return)
 			assert(returned == to_return)
 		
-		current_player.add_credits(stored * child.price)
+		player.add_credits(stored * ui.get_price())
 	
 	emit_signal("transaction")

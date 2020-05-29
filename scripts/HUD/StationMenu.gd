@@ -17,6 +17,6 @@ func _on_Undock_pressed():
 
 
 func _on_any_transaction():
-	$TabContainer/Buy.reset()
-	$TabContainer/Sell.reset()
-	$TabContainer/Buildings.reset()
+	$TabContainer/Buy.update_market()
+	$TabContainer/Sell.update_market()
+	$TabContainer/Buildings.update_market()
