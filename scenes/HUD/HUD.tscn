@@ -1,11 +1,12 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://scripts/HUD/Main.gd" type="Script" id=1]
+[ext_resource path="res://scripts/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://assets/audio/thrusters-loop.wav" type="AudioStream" id=2]
 [ext_resource path="res://scripts/HUD/Bottom.gd" type="Script" id=3]
 [ext_resource path="res://scenes/HUD/StationMenu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/HUD/GameMenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/HUD/CargoContents.tscn" type="PackedScene" id=6]
+
 
 [node name="HUD" type="MarginContainer"]
 anchor_right = 1.0

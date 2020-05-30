@@ -1,11 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/HUD/Main.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/Station/Main.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/HUD/HUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Station/Station.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=4]
 [ext_resource path="res://assets/images/stars.jpg" type="Texture" id=5]
-[ext_resource path="res://scenes/Asteroid/Main.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Asteroid/Asteroid.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Station/StationBuilding.tscn" type="PackedScene" id=7]
 
 [sub_resource type="PanoramaSky" id=1]
@@ -24,6 +24,10 @@ dof_blur_far_distance = 250.0
 glow_enabled = true
 glow_intensity = 1.0
 
+[sub_resource type="PhysicsMaterial" id=3]
+friction = 0.0
+bounce = 1.0
+
 [node name="Main" type="Spatial" groups=[
 "Persist",
 ]]
@@ -35,6 +39,7 @@ environment = SubResource( 2 )
 [node name="HUD" parent="." instance=ExtResource( 2 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+physics_material_override = SubResource( 3 )
 
 [node name="StarLight" type="DirectionalLight" parent="."]
 transform = Transform( -0.42091, 0.549845, -0.72146, -0.490426, 0.531142, 0.69092, 0.763097, 0.644638, 0.0460953, 9.33116, 2.52591, 0 )

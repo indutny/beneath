@@ -12,12 +12,7 @@ _global_script_classes=[ {
 "base": "RigidBody",
 "class": "Asteroid",
 "language": "GDScript",
-"path": "res://scripts/Asteroid/Main.gd"
-}, {
-"base": "Spatial",
-"class": "AsteroidField",
-"language": "GDScript",
-"path": "res://scripts/Asteroid/AsteroidField.gd"
+"path": "res://scripts/Asteroid/Asteroid.gd"
 }, {
 "base": "Node",
 "class": "MarketResource",
@@ -32,12 +27,12 @@ _global_script_classes=[ {
 "base": "RigidBody",
 "class": "Ship",
 "language": "GDScript",
-"path": "res://scripts/Ship/Main.gd"
+"path": "res://scripts/Ship/Ship.gd"
 }, {
 "base": "StaticBody",
 "class": "Station",
 "language": "GDScript",
-"path": "res://scripts/Station/Main.gd"
+"path": "res://scripts/Station/Station.gd"
 }, {
 "base": "Node",
 "class": "StationBuilding",
@@ -46,7 +41,6 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Asteroid": "",
-"AsteroidField": "",
 "MarketResource": "",
 "Player": "",
 "Ship": "",

@@ -1,7 +1,8 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://scripts/Station/Main.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Station/Station.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Station/OpenDock.tscn" type="PackedScene" id=2]
+
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 1.0
