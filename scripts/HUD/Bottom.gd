@@ -1,8 +1,8 @@
 extends HBoxContainer
 
-var player: Player
+var player
 
-func set_player(player_: Player):
+func set_player(player_):
 	player = player_
 	$Velocity.max_value = player.max_total_velocity
 	$TargetVelocity.max_value = max(

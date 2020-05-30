@@ -7,7 +7,6 @@
 [ext_resource path="res://scenes/HUD/GameMenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/HUD/CargoContents.tscn" type="PackedScene" id=6]
 
-
 [node name="HUD" type="MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -155,5 +154,5 @@ volume_db = -80.0
 [node name="FadeOut" type="Tween" parent="."]
 
 [node name="Pitch" type="Tween" parent="."]
-[connection signal="undock" from="Column/Middle/StationMenu" to="." method="_on_StationMenu_undock"]
+[connection signal="take_off" from="Column/Middle/StationMenu" to="." method="_on_StationMenu_take_off"]
 [connection signal="tween_completed" from="FadeOut" to="." method="_on_FadeOut_tween_completed"]

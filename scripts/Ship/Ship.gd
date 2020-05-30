@@ -1,6 +1,6 @@
 extends RigidBody
 
-class_name Ship
+class_name SpatialShip
 
 signal start_docking(ship)
 signal end_docking(ship)
@@ -44,7 +44,7 @@ enum DockingState {
 	TOUCHING_DOWN,
 	DOCKED,
 }
-var current_station = null
+var station: SpatialStation = null
 var docking_state = DockingState.NOT_DOCKING
 
 const epsilon = 1e-23
@@ -167,7 +167,7 @@ func _process(_delta):
 		docking_state != DockingState.TOUCHING_DOWN:
 		return
 	
-	var anchor = current_station.dock.get_touchdown_position()
+	var anchor = station.dock.get_touchdown_position()
 	var diff = anchor.to_global(Vector3()) - \
 		$Docking/Bottom.to_global(Vector3())
 	
@@ -175,7 +175,7 @@ func _process(_delta):
 	var anchor_normal = anchor_basis.y
 	
 	diff = anchor_basis.xform_inv(diff)
-	diff /= current_station.platform_width
+	diff /= station.platform_width
 	
 	var projected_z = transform.basis.z
 	projected_z -= projected_z.dot(anchor_normal) * anchor_normal
@@ -189,12 +189,12 @@ func _process(_delta):
 	if docking_state != DockingState.TOUCHING_DOWN:
 		return
 	
-	if orientation > current_station.orientation_tolerance:
+	if orientation > station.orientation_tolerance:
 		return
-	if angle > current_station.angle_tolerance:
+	if angle > station.angle_tolerance:
 		return
 
-	if linear_velocity.length() > current_station.max_docking_velocity:
+	if linear_velocity.length() > station.max_docking_velocity:
 		return
 	
 	axis_lock_angular_x = true
@@ -213,7 +213,7 @@ func _process(_delta):
 	
 	set_docking_state(DockingState.DOCKED)
 
-func undock():
+func take_off():
 	if docking_state != DockingState.DOCKED:
 		return
 	
@@ -226,7 +226,7 @@ func undock():
 	
 	sleeping = false
 	
-	current_station = null
+	set_station(null)
 	set_docking_state(DockingState.NOT_DOCKING)
 
 
@@ -252,30 +252,33 @@ func set_docking_state(state):
 	elif docking_state == DockingState.DOCKED:
 		self.emit_signal("docked", self)
 
-func enter_docking_area(station):
-	if docking_state != DockingState.NOT_DOCKING or current_station != null:
+func enter_docking_area(station_):
+	if docking_state != DockingState.NOT_DOCKING or station != null:
 		return
 	
-	current_station = station
+	set_station(station_)
 	set_docking_state(DockingState.DOCKING)
 	pass
 
-func exit_docking_area(station):
-	if docking_state != DockingState.DOCKING or station != current_station:
+func exit_docking_area(station_):
+	if docking_state != DockingState.DOCKING or station != station_:
 		return
 	
-	current_station = null
+	set_station(null)
 	set_docking_state(DockingState.NOT_DOCKING)
 	pass
 
-func enter_touchdown_area(station):
-	if docking_state != DockingState.DOCKING or station != current_station:
+func enter_touchdown_area(station_):
+	if docking_state != DockingState.DOCKING or station != station_:
 		return
 	set_docking_state(DockingState.TOUCHING_DOWN)
 	pass
 
-func exit_touchdown_area(station):
-	if docking_state != DockingState.TOUCHING_DOWN or station != current_station:
+func exit_touchdown_area(station_):
+	if docking_state != DockingState.TOUCHING_DOWN or station != station_:
 		return
 	set_docking_state(DockingState.DOCKING)
 	pass
+	
+func set_station(station_: SpatialStation):
+	station = station_

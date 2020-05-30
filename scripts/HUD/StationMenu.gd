@@ -1,6 +1,6 @@
 extends MarginContainer
 
-signal undock
+signal take_off
 
 var player: Player
 var station: Station
@@ -10,7 +10,7 @@ func set_player(player_: Player):
 		station.disconnect("production_update", self, "_on_any_transaction")
 
 	player = player_
-	station = player.current_station
+	station = player.station
 	var err = station.connect("production_update", self, "_on_any_transaction")
 	assert(err == OK)
 	
@@ -19,10 +19,11 @@ func set_player(player_: Player):
 	$TabContainer/Buy.set_player(player)
 	$TabContainer/Buildings.set_player(player)
 
-func _on_Undock_pressed():
-	emit_signal("undock")
-
 func _on_any_transaction():
 	$TabContainer/Buy.update_market()
 	$TabContainer/Sell.update_market()
 	$TabContainer/Buildings.update_market()
+
+
+func _on_TakeOff_pressed():
+	emit_signal("take_off")

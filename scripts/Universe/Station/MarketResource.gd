@@ -1,9 +1,12 @@
-extends Node
 class_name MarketResource
 
 var resource_type
 var quantity: int = 0
-var capacity: int = 1000
+var capacity: int
+
+func _init(resource_type_: int, capacity_: int):
+	resource_type = resource_type_
+	capacity = capacity_
 
 func serialize():
 	return {
@@ -14,12 +17,6 @@ func serialize():
 func deserialize(data):
 	quantity = int(data["quantity"])
 	capacity = int(data["capacity"])
-
-func set_resource_type(resource_type_):
-	resource_type = resource_type_
-
-func set_capacity(capacity_: int):
-	capacity = capacity_
 
 func store(num: int):
 	var to_store = clamp(num, 0, capacity - quantity)

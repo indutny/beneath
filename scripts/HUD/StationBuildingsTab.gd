@@ -9,7 +9,7 @@ var station: Station
 
 func set_player(player: Player):
 	current_player = player
-	station = player.current_station
+	station = player.station
 	update_market()
 	
 func update_market():

@@ -7,7 +7,7 @@ var station: Station
 
 func set_player(player_):
 	player = player_
-	station = player.current_station
+	station = player.station
 	reset()
 
 func reset():

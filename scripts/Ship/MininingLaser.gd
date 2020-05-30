@@ -28,7 +28,7 @@ func _process(delta):
 		$RayCast.get_collision_point())
 	$Ray.scale.z = distance
 	
-	if collider is Asteroid:
+	if collider is SpatialAsteroid:
 		var mined = min(collider.resources, mining_speed * delta)
 		
 		var buffer_value = buffer.get(collider.resource_type, 0)

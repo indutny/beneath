@@ -1,12 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/HUD/HUD.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/Station/Station.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Universe/Universe.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=4]
 [ext_resource path="res://assets/images/stars.jpg" type="Texture" id=5]
-[ext_resource path="res://scenes/Asteroid/Asteroid.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/Station/StationBuilding.tscn" type="PackedScene" id=7]
 
 [sub_resource type="PanoramaSky" id=1]
 panorama = ExtResource( 5 )
@@ -28,9 +26,7 @@ glow_intensity = 1.0
 friction = 0.0
 bounce = 1.0
 
-[node name="Main" type="Spatial" groups=[
-"Persist",
-]]
+[node name="Main" type="Spatial"]
 script = ExtResource( 4 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -45,33 +41,13 @@ physics_material_override = SubResource( 3 )
 transform = Transform( -0.42091, 0.549845, -0.72146, -0.490426, 0.531142, 0.69092, 0.763097, 0.644638, 0.0460953, 9.33116, 2.52591, 0 )
 light_energy = 0.2
 
-[node name="Universe" type="Spatial" parent="."]
+[node name="Surroundings" type="Spatial" parent="."]
 
-[node name="Stations" type="Spatial" parent="Universe"]
+[node name="UniverseViewport" type="Viewport" parent="."]
+own_world = true
 
-[node name="Alpha" parent="Universe/Stations" instance=ExtResource( 3 )]
-transform = Transform( 0.601913, 0.758, 0.251272, 0, 0.314655, -0.949206, -0.798562, 0.571339, 0.189395, 0, 25.7005, -284.497 )
-
-[node name="Vacant1" parent="Universe/Stations/Alpha" instance=ExtResource( 7 )]
-
-[node name="Vacant2" parent="Universe/Stations/Alpha" instance=ExtResource( 7 )]
-
-[node name="Beta" parent="Universe/Stations" instance=ExtResource( 3 )]
-transform = Transform( 0.699855, -0.474396, -0.533996, 0.377148, 0.880312, -0.287768, 0.606599, 0, 0.795008, 436.348, -134.14, -130.269 )
-
-[node name="Vacant1" parent="Universe/Stations/Beta" instance=ExtResource( 7 )]
-
-[node name="Vacant2" parent="Universe/Stations/Beta" instance=ExtResource( 7 )]
-
-[node name="Asteroids" type="Spatial" parent="Universe"]
-
-[node name="Asteroid" parent="Universe/Asteroids" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 251.279, 0, -398.764 )
-angular_velocity = Vector3( 0.3, 0.3, 0.2 )
-resource_type = 3
+[node name="Universe" parent="UniverseViewport" instance=ExtResource( 3 )]
 [connection signal="body_entered" from="Player" to="HUD" method="_on_Player_body_entered"]
-[connection signal="cargo_updated" from="Player" to="HUD" method="_on_Player_cargo_updated"]
-[connection signal="credits_updated" from="Player" to="HUD" method="_on_Player_credits_updated"]
 [connection signal="docked" from="Player" to="HUD" method="_on_Player_docked"]
 [connection signal="docking_position_updated" from="Player" to="HUD" method="_on_Player_docking_position_updated"]
 [connection signal="end_docking" from="Player" to="HUD" method="_on_Player_is_docking_changed" binds= [ false ]]
@@ -79,3 +55,5 @@ resource_type = 3
 [connection signal="take_off" from="Player" to="HUD" method="_on_Player_take_off"]
 [connection signal="target_velocity_changed" from="Player" to="HUD" method="_on_Player_target_velocity_changed"]
 [connection signal="velocity_changed" from="Player" to="HUD" method="_on_Player_velocity_changed"]
+[connection signal="new_surroundings" from="UniverseViewport/Universe" to="." method="_on_Universe_new_surroundings"]
+[connection signal="universe_ready" from="UniverseViewport/Universe" to="." method="_on_Universe_universe_ready"]

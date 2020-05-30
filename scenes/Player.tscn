@@ -18,9 +18,7 @@ height = 6.15337
 margin = 0.01
 extents = Vector3( 0.1, 0.1, 0.1 )
 
-[node name="Player" groups=[
-"Persist",
-] instance=ExtResource( 2 )]
+[node name="Player" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="." index="0"]

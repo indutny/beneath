@@ -5,9 +5,9 @@ signal transaction
 var player: Player
 var station: Station
 
-func set_player(player_):
+func set_player(player_: Player):
 	player = player_
-	station = player.current_station
+	station = player.station
 	reset()
 
 func reset():
