@@ -56,4 +56,6 @@ own_world = true
 [connection signal="target_velocity_changed" from="Player" to="HUD" method="_on_Player_target_velocity_changed"]
 [connection signal="velocity_changed" from="Player" to="HUD" method="_on_Player_velocity_changed"]
 [connection signal="new_surroundings" from="UniverseViewport/Universe" to="." method="_on_Universe_new_surroundings"]
+[connection signal="player_cargo_updated" from="UniverseViewport/Universe" to="HUD" method="_on_Universe_player_cargo_updated"]
+[connection signal="player_credits_updated" from="UniverseViewport/Universe" to="HUD" method="_on_Universe_player_credits_updated"]
 [connection signal="universe_ready" from="UniverseViewport/Universe" to="." method="_on_Universe_universe_ready"]

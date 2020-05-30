@@ -27,3 +27,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33, -0.33, 0.2 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 [connection signal="area_entered" from="Player" to="." method="_on_Player_area_entered"]
+[connection signal="cargo_updated" from="Player" to="." method="_on_Player_cargo_updated"]
+[connection signal="credits_updated" from="Player" to="." method="_on_Player_credits_updated"]

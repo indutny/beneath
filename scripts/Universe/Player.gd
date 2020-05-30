@@ -1,8 +1,8 @@
 extends Area
 class_name Player
 
-signal cargo_updated(player, total_cargo_weight, cargo)
-signal credits_updated(player, credits)
+signal cargo_updated(player)
+signal credits_updated(player)
 
 export(float, 0, 1000) var max_total_cargo_weight = 100
 
@@ -32,8 +32,8 @@ func deserialize(data):
 		var weight = Constants.RESOURCE_WEIGHT[resource_type]
 		total_cargo_weight += weight * cargo[resource_type]
 	
-	emit_signal("cargo_updated", self, total_cargo_weight, cargo)
-	emit_signal("credits_updated", self, credits)
+	emit_signal("cargo_updated", self)
+	emit_signal("credits_updated", self)
 
 func retrieve_cargo(resource_type: int, quantity: int) -> int:
 	if not cargo.has(resource_type):
@@ -47,7 +47,7 @@ func retrieve_cargo(resource_type: int, quantity: int) -> int:
 		cargo.erase(resource_type)
 		
 	total_cargo_weight -= Constants.RESOURCE_WEIGHT[resource_type] * change
-	emit_signal("cargo_updated", self, total_cargo_weight, cargo)
+	emit_signal("cargo_updated", self)
 	return change
 
 func store_cargo(resource_type: int, quantity: int) -> int:
@@ -61,16 +61,16 @@ func store_cargo(resource_type: int, quantity: int) -> int:
 	
 	cargo[resource_type] = cargo.get(resource_type, 0) + to_store
 	total_cargo_weight += to_store * Constants.RESOURCE_WEIGHT[resource_type]
-	emit_signal("cargo_updated", self, total_cargo_weight, cargo)
+	emit_signal("cargo_updated", self)
 	return to_store
 	
 func add_credits(delta: int):
 	credits += delta
-	emit_signal("credits_updated", self, credits)
+	emit_signal("credits_updated", self)
 
 func spend_credits(delta: int) -> bool:
 	if credits < delta:
 		return false
 	credits -= delta
-	emit_signal("credits_updated", self, credits)
+	emit_signal("credits_updated", self)
 	return true

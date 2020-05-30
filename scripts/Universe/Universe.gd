@@ -3,6 +3,8 @@ class_name Universe
 
 signal universe_ready
 signal new_surroundings(node)
+signal player_cargo_updated(player)
+signal player_credits_updated(player)
 
 var player: Player
 var stations = []
@@ -50,3 +52,11 @@ func deserialize(data):
 
 func _on_Player_area_entered(area):
 	emit_signal("new_surroundings", area.load_visual_instance())
+
+
+func _on_Player_cargo_updated(player):
+	emit_signal("player_cargo_updated", player)
+
+
+func _on_Player_credits_updated(player):
+	emit_signal("player_credits_updated", player)

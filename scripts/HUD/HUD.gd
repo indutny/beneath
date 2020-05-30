@@ -82,12 +82,6 @@ func _on_Player_take_off(_ship):
 	$Column/Middle/StationMenu.visible = false
 	$Column/Bottom.visible = true
 
-func _on_Player_cargo_updated(_player, total_cargo_weight, cargo):
-	$Column/Top/Cargo.value = total_cargo_weight
-	$CargoContents.update_items(cargo)
-
-func _on_Player_credits_updated(_player, credits):
-	$Column/Top/Credits.text = str(credits)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_open_cargo"):
@@ -101,3 +95,13 @@ func _on_Universe_player_ready(player):
 func _on_StationMenu_take_off():
 	print("take off?")
 	$"../Player".take_off()
+
+
+func _on_Universe_player_cargo_updated(player: Player):
+	$Column/Top/Cargo.value = player.total_cargo_weight
+	$CargoContents.update_items(player.cargo)
+
+
+func _on_Universe_player_credits_updated(player: Player):
+		$Column/Top/Credits.text = str(player.credits)
+
