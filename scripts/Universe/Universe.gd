@@ -6,6 +6,8 @@ signal new_surroundings(node)
 signal player_cargo_updated(player)
 signal player_credits_updated(player)
 
+export(float, 1e3, 1e6) var universe_scale = 1e3
+
 var player: Player
 var stations = []
 var asteroid_fields = []
@@ -51,7 +53,11 @@ func deserialize(data):
 #
 
 func _on_Player_area_entered(area):
-	emit_signal("new_surroundings", area.load_visual_instance())
+	var spatial: Spatial = area.load_spatial_instance()
+	spatial.transform.basis = area.transform.basis
+	spatial.transform.origin = \
+		(area.transform.origin - player.transform.origin) * universe_scale
+	emit_signal("new_surroundings", spatial)
 
 
 func _on_Player_cargo_updated(player):

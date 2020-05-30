@@ -38,10 +38,9 @@ func deserialize(data):
 # Visual Instancing
 #
 
-func load_visual_instance() -> Spatial:
+func load_spatial_instance() -> Spatial:
 	var res: Spatial = \
 		load("res://scenes/Station/Station.tscn").instance() as Spatial
-	res.transform.basis = transform.basis
 	res.dual = self
 	return res
 
