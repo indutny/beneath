@@ -2,15 +2,15 @@ extends Node
 
 enum ResourceType {
 	# Asteroid Content
-	IronOre,
-	NickelOre,
-	CobaltOre,
-	Ice,
+	IronOre = 0,
+	NickelOre = 1,
+	CobaltOre = 2,
+	Ice = 3,
 	
 	# Composites or intermediate resources
-	Hydrogen,
-	Oxygen,
-	Fuel
+	Hydrogen = 4,
+	Oxygen = 5,
+	Fuel = 6
 }
 
 export(Dictionary) var RESOURCE_NAME = {
@@ -51,17 +51,17 @@ export(Dictionary) var RESOURCE_BASE_PRICE = {
 export(float) var MARK_UP = 1.2
 
 enum BuildingType {
-	Vacant,
-	ElectrolysisPlant,
-	FuelRefinery,
-	IceMine
+	Vacant = 0,
+	ElectrolysisPlant = 1,
+	FuelRefinery = 2,
+	IceMine = 3
 }
 
-export(Dictionary) var BUILDING_TYPE = {
+export(Dictionary) var BUILDING_NAME = {
 	BuildingType.Vacant: "Vacant",
 	BuildingType.ElectrolysisPlant: "Electrolysis Plant",
 	BuildingType.FuelRefinery: "Fuel Refinery",
-	BuildingType.IceMine: "Hydrogen Pump"
+	BuildingType.IceMine: "Ice Mine"
 }
 
 export(Dictionary) var BUILDING_COST = {

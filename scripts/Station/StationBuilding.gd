@@ -4,7 +4,7 @@ class_name StationBuilding
 export(Constants.BuildingType) var building_type = \
 	Constants.BuildingType.Vacant
 export(int) var level = 0
-export(int) var last_production_tick = 0
+var last_production_tick = 0
 
 func serialize():
 	return {

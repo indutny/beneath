@@ -16,7 +16,7 @@ func init(player_: Player, building_: StationBuilding):
 		if building.building_type != Constants.BuildingType.Vacant and \
 			building_type == Constants.BuildingType.Vacant:
 			continue
-		$Top/Type.add_item(Constants.BUILDING_TYPE[building_type], \
+		$Top/Type.add_item(Constants.BUILDING_NAME[building_type], \
 			building_type)
 		if building_type == Constants.BuildingType.Vacant:
 			$Top/Type.add_separator()
