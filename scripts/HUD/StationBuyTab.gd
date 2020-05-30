@@ -18,14 +18,14 @@ func update_market():
 	for resource_type in station.market_resource:
 		var market_resource = station.market_resource[resource_type]
 		var ui = $List.get_resource(resource_type)
-		
+	
 		ui.visible = market_resource.quantity != 0
 		
 		var buy_price = station.get_buy_price(resource_type)
 		var max_buy_quantity = min(
 			floor(player.credits / buy_price),
 			market_resource.quantity)
-		ui.configure(max_buy_quantity, buy_price)
+		ui.configure(max_buy_quantity, buy_price, market_resource.quantity)
 
 # TODO(indutny): DRY
 func _on_Confirm_pressed():

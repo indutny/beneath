@@ -10,10 +10,10 @@ func set_resource_type(resource_type_):
 func reset():
 	$SellCount.value = 0
 
-func configure(max_quantity: int, price_: float):
+func configure(max_quantity: int, price_: float, limit: int = 0):
 	price = price_
 	
-	$MaxQuantity.text = str(max_quantity)
+	$MaxQuantity.text = str(max(limit, max_quantity))
 	$Price.text = str(price)
 	$SellCount.max_value = max_quantity
 

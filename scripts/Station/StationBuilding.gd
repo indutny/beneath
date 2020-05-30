@@ -56,5 +56,4 @@ func produce(tick, station) -> bool:
 		var quantity = produces[resource_type]
 		var stored = station.store_resource(resource_type, quantity)
 		assert(stored == quantity)
-	
 	return true
