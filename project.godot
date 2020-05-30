@@ -65,10 +65,6 @@ config/icon="res://assets/icon.png"
 Constants="*res://scripts/Constants.gd"
 Persistence="*res://scripts/Persistence.gd"
 
-[display]
-
-window/dpi/allow_hidpi=true
-
 [input]
 
 ui_up={
