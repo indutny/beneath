@@ -26,9 +26,6 @@ func _unhandled_input(event):
 	if docking_state == DockingState.DOCKED:
 		return
 	
-	if event.is_action_pressed("hud_map"):
-		toggle_map()
-	
 	if event.is_action_pressed("ship_toggle_hyperspace"):
 		toggle_hyperspace()
 	
@@ -108,6 +105,3 @@ func get_integer_position() -> Vector3:
 func global_translate(offset: Vector3):
 	.global_translate(offset)
 	last_reported_position = get_integer_position()
-
-func toggle_map():
-	pass
