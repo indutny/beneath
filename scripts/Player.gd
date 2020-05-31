@@ -7,8 +7,10 @@ signal velocity_changed(player, new_value)
 var dual: Player
 
 export(float, 1, 10) var target_velocity_step = 5.0
+export(float, 0.1, 1.0) var velocity_changed_step = 0.5
 
 var is_mining = false
+var last_reported_velocity = 0.0
 
 var max_forward_velocity_steps = \
 	round(max_forward_velocity / target_velocity_step)
@@ -58,7 +60,11 @@ func set_station(station_: SpatialStation):
 func _process(_delta):
 	if docking_state == DockingState.DOCKED:
 		return
-	emit_signal("velocity_changed", self, linear_velocity.length())
+	
+	var current_velocity = linear_velocity.length()
+	if abs(current_velocity - last_reported_velocity) >= velocity_changed_step:
+		last_reported_velocity = current_velocity
+		emit_signal("velocity_changed", self, current_velocity)
 
 func _on_Player_docked(_ship):
 	set_is_mining(false)
