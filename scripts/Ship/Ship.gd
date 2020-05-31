@@ -18,9 +18,9 @@ var target_velocity = 0
 
 export(bool) var stabilization = true
 
-export(float, 1, 20) var docking_forward_reduction = 10.0
-export(float, 1, 20) var docking_backward_reduction = 2.5
-export(float, 1, 20) var docking_lateral_reduction = 2.5
+export(float, 1, 20) var docking_max_forward_velocity = 3.0
+export(float, 1, 20) var docking_max_backward_velocity = 3.0
+export(float, 1, 20) var docking_max_lateral_velocity = 3.0
 
 export(float, 0, 100) var max_forward_velocity = 30
 export(float, 0, 100) var max_backward_velocity = 15
@@ -32,6 +32,7 @@ export(float, 0, 1) var max_py_angular_velocity = 0.1
 
 export(float, 1, 10000) var hyperspace_velocity = 10000.0
 export(float, 1, 10000) var hyperspace_acceleration = 500.0
+export(float, 1, 10000) var hyperspace_leave_velocity = 1.0
 
 export(float, 0, 30) var max_forward_acceleration = 15
 export(float, 0, 30) var max_backward_acceleration = 4
@@ -79,62 +80,79 @@ func apply_stabilizing_braking(
 func _integrate_forces(state):
 	if docking_state == DockingState.DOCKED:
 		return
+	
+	process_hyperspace()
 		
 	var velocity_proj = transform.basis.xform_inv(state.linear_velocity)
 	var delta = state.step
 	
-	var forward_reduction = 1
-	var backward_reduction = 1
-	var lateral_reduction = 1
-	var active_target_velocity = target_velocity
+	# State-dependent parameters
+	var act_mx_fwd_vel = max_forward_velocity
+	var act_mx_bwd_vel = max_backward_velocity
+	var act_mx_lat_vel = max_lateral_velocity
+	var act_mx_fwd_acc = max_forward_acceleration
+	var act_mx_bwd_acc = max_backward_acceleration
+	var act_mx_lat_acc = max_lateral_acceleration
+	var act_target_vel = target_velocity
+	var act_stabilization = stabilization
+	
 	if hyperspace_state != HyperspaceState.NOT_IN_HYPERSPACE:
-		forward_reduction = max_forward_acceleration / hyperspace_acceleration
-		backward_reduction = max_backward_acceleration / hyperspace_acceleration
-		lateral_reduction = INF
+		act_mx_fwd_acc = hyperspace_acceleration
+		act_mx_bwd_acc = hyperspace_acceleration
+		act_mx_lat_acc = hyperspace_acceleration
+		
+		act_mx_fwd_vel = hyperspace_velocity
+		act_mx_bwd_vel = hyperspace_velocity
+		act_mx_lat_vel = 0.0
+		
+		act_stabilization = true
+		
+		# Override target velocity
 		if hyperspace_state != HyperspaceState.LEAVING_HYPERSPACE:
-			active_target_velocity = hyperspace_velocity
+			act_target_vel = hyperspace_velocity
 	elif docking_state == DockingState.DOCKING:
-		forward_reduction = docking_forward_reduction
-		backward_reduction = docking_backward_reduction
-		lateral_reduction = docking_lateral_reduction
+		act_mx_fwd_vel = docking_max_forward_velocity
+		act_mx_bwd_vel = docking_max_backward_velocity
+		act_mx_lat_vel = docking_max_lateral_velocity
 	
 	# Apply stabilization to lateral/longtidual
 	var acc = Vector3(
-		lateral_thrust.x * max_lateral_acceleration / lateral_reduction,
-		lateral_thrust.y * max_lateral_acceleration / lateral_reduction,
-		clamp(-(active_target_velocity + velocity_proj.z) / delta,
-			-max_forward_acceleration / forward_reduction,
-			max_backward_acceleration / backward_reduction))
+		lateral_thrust.x * act_mx_lat_acc,
+		lateral_thrust.y * act_mx_lat_acc,
+		clamp(-(act_target_vel + velocity_proj.z) / delta,
+			-act_mx_fwd_acc,
+			act_mx_bwd_acc))
 	
-	if stabilization:
+	if act_stabilization:
 		acc.x = apply_stabilizing_braking(
 			acc.x,
 			velocity_proj.x,
-			max_lateral_velocity / lateral_reduction if acc.x != 0 else 0,
+			act_mx_lat_vel if acc.x != 0 else 0,
 			delta,
-			max_lateral_acceleration)
+			act_mx_lat_acc)
 		acc.y = apply_stabilizing_braking(
 			acc.y,
 			velocity_proj.y,
-			max_lateral_velocity / lateral_reduction if acc.y != 0 else 0,
+			act_mx_lat_vel if acc.y != 0 else 0,
 			delta,
-			max_lateral_acceleration)
+			act_mx_lat_acc)
 		acc.z = apply_stabilizing_braking(
 			acc.z,
 			velocity_proj.z,
-			max_backward_velocity / backward_reduction
+			act_mx_bwd_vel
 				if velocity_proj.z > 0 else
-				max_forward_velocity / forward_reduction,
+				act_mx_fwd_vel,
 			delta,
-			max_backward_acceleration
-				if velocity_proj.z > 0 else max_forward_acceleration)
+			act_mx_bwd_acc
+				if velocity_proj.z > 0 else
+				act_mx_fwd_acc)
 	
 	# Rotational stabilization
 	var torque = Vector3(
 		py_thrust.x * max_py_torque,
 		py_thrust.y * max_py_torque,
 		-cw_thrust * max_cw_torque)
-	if stabilization:
+	if act_stabilization:
 		var angular_proj = transform.basis.xform_inv(state.angular_velocity)
 		angular_proj /= 2 * PI
 		
@@ -168,6 +186,8 @@ func _integrate_forces(state):
 	# Totally unphysical, but makes it more playable
 	var space_drag = -linear_velocity.normalized()
 	space_drag *= pow(max(0, linear_velocity.length() - max_total_velocity), 2)
+	
+	# Disable speed drag in hyperspace
 	if hyperspace_state != HyperspaceState.NOT_IN_HYPERSPACE:
 		space_drag *= 0.0
 	
@@ -183,12 +203,12 @@ func _integrate_forces(state):
 	
 func _process(delta):
 	process_docking(delta)
-	process_hyperspace(delta)
 
-func process_hyperspace(delta):
-	if hyperspace_state == HyperspaceState.LEAVING_HYPERSPACE:
-		if linear_velocity.length() <= target_velocity:
-			hyperspace_state = HyperspaceState.NOT_IN_HYPERSPACE
+func process_hyperspace():
+	if hyperspace_state != HyperspaceState.LEAVING_HYPERSPACE:
+		return
+	if linear_velocity.length() <= hyperspace_leave_velocity:
+		hyperspace_state = HyperspaceState.NOT_IN_HYPERSPACE
 
 func process_docking(_delta):
 	if docking_state != DockingState.DOCKING and \
