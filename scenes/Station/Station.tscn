@@ -82,6 +82,7 @@ size = Vector3( 100, 100, 100 )
 extents = Vector3( 50, 50, 50 )
 
 [node name="Station" type="StaticBody"]
+collision_mask = 0
 physics_material_override = SubResource( 1 )
 script = ExtResource( 1 )
 

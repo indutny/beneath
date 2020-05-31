@@ -27,6 +27,7 @@ points = PoolVector3Array( -0.771953, 1.00089, 0.702392, -0.713991, 1.01925, 0.7
 
 [node name="Asteroid" type="RigidBody"]
 collision_layer = 5
+collision_mask = 0
 axis_lock_linear_x = true
 axis_lock_linear_y = true
 axis_lock_linear_z = true

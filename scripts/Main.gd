@@ -12,6 +12,7 @@ func _unhandled_input(event):
 func _on_Universe_universe_ready():
 	universe = $UniverseViewport/Universe
 	$Player.dual = universe.player
+	$HUD.set_player($Player)
 
 func _on_Universe_new_surroundings(surroundings):
 	# TODO(indutny): graceful fadeout by moving origin?

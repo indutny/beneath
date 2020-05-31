@@ -4,6 +4,8 @@ export(float, 0, 5) var fade_in_duration = 0.7
 export(float, 0, 5) var fade_out_duration = 3.0
 export(float, -80.0, 0.0) var thrust_volume = -6.0
 
+var player: SpatialPlayer
+
 func show_main_menu():
 	$GameMenu.popup_centered_minsize()
 
@@ -82,19 +84,17 @@ func _on_Player_take_off(_ship):
 	$Column/Middle/StationMenu.visible = false
 	$Column/Bottom.visible = true
 
-
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_open_cargo"):
 		$CargoContents.toggle()
 
-func _on_Universe_player_ready(player):
-	$Column/Top/Cargo.max_value = player.max_total_cargo_weight
-	$Column/Bottom.set_player($"../Player")
-
+func set_player(player_):
+	player = player_
+	$Column/Top/Cargo.max_value = player.dual.max_total_cargo_weight
+	$Column/Bottom.set_player(player)
 
 func _on_StationMenu_take_off():
-	print("take off?")
-	$"../Player".take_off()
+	player.take_off()
 
 
 func _on_Universe_player_cargo_updated(player: Player):
@@ -103,5 +103,5 @@ func _on_Universe_player_cargo_updated(player: Player):
 
 
 func _on_Universe_player_credits_updated(player: Player):
-		$Column/Top/Credits.text = str(player.credits)
+	$Column/Top/Credits.text = str(player.credits)
 
