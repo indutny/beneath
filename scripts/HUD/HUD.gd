@@ -6,6 +6,12 @@ export(float, -80.0, 0.0) var thrust_volume = -6.0
 
 var spatial_player: SpatialPlayer
 
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		show_main_menu()
+	if event.is_action_pressed("hud_cargo"):
+		$CargoContents.toggle()
+
 func show_main_menu():
 	$GameMenu.popup_centered_minsize()
 
@@ -84,10 +90,6 @@ func _on_Player_docked(spatial_player_: SpatialPlayer):
 func _on_Player_take_off(_ship):
 	$Column/Middle/StationMenu.visible = false
 	$Column/Bottom.visible = true
-
-func _unhandled_input(event):
-	if event.is_action_pressed("ui_open_cargo"):
-		$CargoContents.toggle()
 
 func set_player(spatial_player_: SpatialPlayer):
 	spatial_player = spatial_player_

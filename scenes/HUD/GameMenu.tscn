@@ -3,7 +3,6 @@
 [ext_resource path="res://scripts/HUD/GameMenu.gd" type="Script" id=1]
 
 [node name="GameMenu" type="PopupDialog"]
-visible = true
 margin_right = 984.0
 margin_bottom = 560.0
 script = ExtResource( 1 )
@@ -74,7 +73,7 @@ align = 1
 [node name="ControlsContent" type="Label" parent="Vertical"]
 margin_top = 124.0
 margin_right = 984.0
-margin_bottom = 257.0
+margin_bottom = 291.0
 text = "AWSD - lateral movement
 Q/E - (counter)clockwise rotation
 Arrows - Pitch/Yaw
@@ -82,6 +81,8 @@ Shift - Reduce Speed
 Space - Increase Speed
 R - Mining Laser
 I - View Cargo Hold
+M - View Map
+H - Toggle Hyperspace Drive
 Esc - This menu"
 align = 1
 [connection signal="about_to_show" from="." to="." method="_on_GameMenu_about_to_show"]

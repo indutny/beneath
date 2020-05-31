@@ -2,7 +2,8 @@ extends Spatial
 class_name Universe
 
 signal universe_ready
-signal new_surroundings(surroundings)
+signal new_surroundings(location, surroundings)
+signal leave_surroundings(location)
 signal player_cargo_updated(player)
 signal player_credits_updated(player)
 
@@ -53,8 +54,11 @@ func _on_Player_area_entered(area: Area):
 	var spatial: Spatial = area.load_spatial_instance(local_player_pos)
 	spatial.transform.basis = area.transform.basis
 	spatial.transform.origin = player_pos * universe_scale
-	emit_signal("new_surroundings", spatial)
+	emit_signal("new_surroundings", area, spatial)
 
+
+func _on_Player_area_exited(area):
+	emit_signal("leave_surroundings", area)
 
 func _on_Player_cargo_updated(player_):
 	assert(player == player_)
@@ -64,3 +68,6 @@ func _on_Player_cargo_updated(player_):
 func _on_Player_credits_updated(player_):
 	assert(player == player_)
 	emit_signal("player_credits_updated", player)
+
+func translate_player(shift: Vector3):
+	$Player.global_translate(shift / universe_scale)

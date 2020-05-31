@@ -30,6 +30,9 @@ export(float, 0, 5) var max_total_angular_velocity = 1.0
 export(float, 0, 1) var max_cw_angular_velocity = 0.1
 export(float, 0, 1) var max_py_angular_velocity = 0.1
 
+export(float, 1, 10000) var hyperspace_velocity = 2000.0
+export(float, 1, 10000) var hyperspace_acceleration = 500.0
+
 export(float, 0, 30) var max_forward_acceleration = 15
 export(float, 0, 30) var max_backward_acceleration = 4
 export(float, 0, 30) var max_lateral_acceleration = 4
@@ -46,6 +49,14 @@ enum DockingState {
 }
 var station: SpatialStation = null
 var docking_state = DockingState.NOT_DOCKING
+
+enum HyperspaceState {
+	NOT_IN_HYPERSPACE,
+	ENTERING_HYPERSPACE,
+	IN_HYPERSPACE,
+	LEAVING_HYPERSPACE
+}
+var hyperspace_state = HyperspaceState.NOT_IN_HYPERSPACE
 
 const epsilon = 1e-23
 
@@ -76,16 +87,23 @@ func _integrate_forces(state):
 	var forward_reduction = 1
 	var backward_reduction = 1
 	var lateral_reduction = 1
+	var active_target_velocity = target_velocity
 	if docking_state == DockingState.DOCKING:
 		forward_reduction = docking_forward_reduction
 		backward_reduction = docking_backward_reduction
 		lateral_reduction = docking_lateral_reduction
+	elif hyperspace_state != HyperspaceState.NOT_IN_HYPERSPACE:
+		forward_reduction = max_forward_acceleration / hyperspace_acceleration
+		backward_reduction = max_backward_acceleration / hyperspace_acceleration
+		lateral_reduction = INF
+		if hyperspace_state != HyperspaceState.LEAVING_HYPERSPACE:
+			active_target_velocity = hyperspace_velocity
 	
 	# Apply stabilization to lateral/longtidual
 	var acc = Vector3(
 		lateral_thrust.x * max_lateral_acceleration / lateral_reduction,
 		lateral_thrust.y * max_lateral_acceleration / lateral_reduction,
-		clamp(-(target_velocity + velocity_proj.z) / delta,
+		clamp(-(active_target_velocity + velocity_proj.z) / delta,
 			-max_forward_acceleration / forward_reduction,
 			max_backward_acceleration / backward_reduction))
 	
@@ -282,3 +300,6 @@ func exit_touchdown_area(station_):
 	
 func set_station(station_: SpatialStation):
 	station = station_
+
+func toggle_hyperspace():
+	hyperspace_state = HyperspaceState.ENTERING_HYPERSPACE

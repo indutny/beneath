@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/HUD/HUD.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Universe/Universe.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=4]
@@ -15,12 +15,11 @@ background_sky = SubResource( 1 )
 background_sky_orientation = Basis( 0.764787, 0.0189285, 0.644005, 0.136616, 0.972074, -0.190809, -0.629633, 0.23391, 0.740843 )
 background_energy = 1.5
 fog_color = Color( 0, 0, 0, 1 )
-fog_sun_color = Color( 0, 0, 0, 1 )
-fog_depth_begin = 217.9
-fog_depth_end = 1412.5
+fog_depth_begin = 500.0
+fog_depth_end = 10000.0
 dof_blur_far_distance = 250.0
+dof_blur_far_transition = 2.0
 glow_enabled = true
-glow_intensity = 1.0
 
 [sub_resource type="PhysicsMaterial" id=3]
 friction = 0.0
@@ -36,6 +35,22 @@ environment = SubResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 physics_material_override = SubResource( 3 )
+stabilization = true
+docking_forward_reduction = 10.0
+docking_backward_reduction = 2.5
+docking_lateral_reduction = 2.5
+max_forward_velocity = 30.0
+max_backward_velocity = 15.0
+max_lateral_velocity = 15.0
+max_total_velocity = 45.0
+max_total_angular_velocity = 1.0
+max_cw_angular_velocity = 0.1
+max_py_angular_velocity = 0.1
+max_forward_acceleration = 15.0
+max_backward_acceleration = 4.0
+max_lateral_acceleration = 4.0
+max_cw_torque = 0.5
+max_py_torque = 0.5
 
 [node name="StarLight" type="DirectionalLight" parent="."]
 transform = Transform( -0.42091, 0.549845, -0.72146, -0.490426, 0.531142, 0.69092, 0.763097, 0.644638, 0.0460953, 9.33116, 2.52591, 0 )
@@ -48,13 +63,7 @@ own_world = true
 
 [node name="Universe" parent="UniverseViewport" instance=ExtResource( 3 )]
 [connection signal="body_entered" from="Player" to="HUD" method="_on_Player_body_entered"]
-[connection signal="docked" from="Player" to="HUD" method="_on_Player_docked"]
-[connection signal="docking_position_updated" from="Player" to="HUD" method="_on_Player_docking_position_updated"]
-[connection signal="end_docking" from="Player" to="HUD" method="_on_Player_is_docking_changed" binds= [ false ]]
-[connection signal="start_docking" from="Player" to="HUD" method="_on_Player_is_docking_changed" binds= [ true ]]
-[connection signal="take_off" from="Player" to="HUD" method="_on_Player_take_off"]
-[connection signal="target_velocity_changed" from="Player" to="HUD" method="_on_Player_target_velocity_changed"]
-[connection signal="velocity_changed" from="Player" to="HUD" method="_on_Player_velocity_changed"]
+[connection signal="leave_surroundings" from="UniverseViewport/Universe" to="." method="_on_Universe_leave_surroundings"]
 [connection signal="new_surroundings" from="UniverseViewport/Universe" to="." method="_on_Universe_new_surroundings"]
 [connection signal="player_cargo_updated" from="UniverseViewport/Universe" to="HUD" method="_on_Universe_player_cargo_updated"]
 [connection signal="player_credits_updated" from="UniverseViewport/Universe" to="HUD" method="_on_Universe_player_credits_updated"]
