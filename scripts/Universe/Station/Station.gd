@@ -38,11 +38,11 @@ func deserialize(data):
 # Visual Instancing
 #
 
-func load_spatial_instance() -> Spatial:
-	var res: Spatial = \
+func load_spatial_instance(_player_pos: Vector3) -> Spatial:
+	var instance = \
 		load("res://scenes/Station/Station.tscn").instance() as Spatial
-	res.dual = self
-	return res
+	instance.dual = self
+	return instance
 
 #
 # Storage and Market

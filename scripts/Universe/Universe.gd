@@ -2,7 +2,7 @@ extends Spatial
 class_name Universe
 
 signal universe_ready
-signal new_surroundings(node)
+signal new_surroundings(surroundings)
 signal player_cargo_updated(player)
 signal player_credits_updated(player)
 
@@ -23,14 +23,9 @@ func _process(delta):
 		for station in $Stations.get_children():
 			station.process_tick(tick)
 
-func _notification(what):
-	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
-		Persistence.save_game()
-
-func _ready():
-	Persistence.load_game()
-	
+func start():
 	player = $Player
+	
 	for station in $Stations.get_children():
 		stations.append(station)
 	for field in $AsteroidFeilds.get_children():
@@ -52,17 +47,20 @@ func deserialize(data):
 # Surroundings
 #
 
-func _on_Player_area_entered(area):
-	var spatial: Spatial = area.load_spatial_instance()
+func _on_Player_area_entered(area: Area):
+	var player_pos = area.transform.origin - player.transform.origin
+	var local_player_pos = area.transform.basis.xform_inv(player_pos)
+	var spatial: Spatial = area.load_spatial_instance(local_player_pos)
 	spatial.transform.basis = area.transform.basis
-	spatial.transform.origin = \
-		(area.transform.origin - player.transform.origin) * universe_scale
+	spatial.transform.origin = player_pos * universe_scale
 	emit_signal("new_surroundings", spatial)
 
 
-func _on_Player_cargo_updated(player):
+func _on_Player_cargo_updated(player_):
+	assert(player == player_)
 	emit_signal("player_cargo_updated", player)
 
 
-func _on_Player_credits_updated(player):
+func _on_Player_credits_updated(player_):
+	assert(player == player_)
 	emit_signal("player_credits_updated", player)

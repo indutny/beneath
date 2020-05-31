@@ -4,18 +4,18 @@ export(float, 0, 5) var fade_in_duration = 0.7
 export(float, 0, 5) var fade_out_duration = 3.0
 export(float, -80.0, 0.0) var thrust_volume = -6.0
 
-var player: SpatialPlayer
+var spatial_player: SpatialPlayer
 
 func show_main_menu():
 	$GameMenu.popup_centered_minsize()
 
-func fade_out(player: AudioStreamPlayer):
-	$FadeIn.stop(player)
-	$FadeOut.stop(player)
+func fade_out(audio: AudioStreamPlayer):
+	$FadeIn.stop(audio)
+	$FadeOut.stop(audio)
 	$FadeOut.interpolate_property(
-		player,
+		audio,
 		"volume_db",
-		player.volume_db,
+		audio.volume_db,
 		-80,
 		fade_out_duration,
 		Tween.TRANS_LINEAR,
@@ -23,15 +23,15 @@ func fade_out(player: AudioStreamPlayer):
 		0)
 	$FadeOut.start()
 
-func fade_in(player: AudioStreamPlayer):
-	if not player.playing:
-		player.play()
-	$FadeIn.stop(player)
-	$FadeOut.stop(player)
+func fade_in(audio: AudioStreamPlayer):
+	if not audio.playing:
+		audio.play()
+	$FadeIn.stop(audio)
+	$FadeOut.stop(audio)
 	$FadeIn.interpolate_property(
-		player,
+		audio,
 		"volume_db",
-		player.volume_db,
+		audio.volume_db,
 		thrust_volume,
 		fade_in_duration,
 		Tween.TRANS_LINEAR,
@@ -74,8 +74,9 @@ func _on_Player_body_entered(_body):
 	# TODO(indutny): play collision sound
 	pass
 
-func _on_Player_docked(player):
-	$Column/Middle/StationMenu.set_player(player.dual)
+func _on_Player_docked(spatial_player_: SpatialPlayer):
+	assert(spatial_player == spatial_player_)
+	$Column/Middle/StationMenu.set_player(spatial_player.dual)
 	$Column/Middle/StationMenu.visible = true
 	$Column/Bottom.visible = false
 	$Column/Bottom.set_is_docking(false)
@@ -88,13 +89,13 @@ func _unhandled_input(event):
 	if event.is_action_pressed("ui_open_cargo"):
 		$CargoContents.toggle()
 
-func set_player(player_):
-	player = player_
-	$Column/Top/Cargo.max_value = player.dual.max_total_cargo_weight
-	$Column/Bottom.set_player(player)
+func set_player(spatial_player_: SpatialPlayer):
+	spatial_player = spatial_player_
+	$Column/Top/Cargo.max_value = spatial_player.dual.max_total_cargo_weight
+	$Column/Bottom.set_player(spatial_player)
 
 func _on_StationMenu_take_off():
-	player.take_off()
+	spatial_player.take_off()
 
 
 func _on_Universe_player_cargo_updated(player: Player):

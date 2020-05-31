@@ -4,17 +4,25 @@ var dual: AsteroidField
 
 var Asteroid = preload("res://scenes/Asteroid/Asteroid.tscn")
 
-func set_dual(dual_: AsteroidField):
+func is_overlapping(list: Array, origin: Vector3, min_separation: float):
+	for entry in list:
+		if origin.distance_to(entry) < min_separation:
+			return true
+	return false
+
+func configure(dual_: AsteroidField, player_pos: Vector3):
 	dual = dual_
 	
+	var added = []
 	for i in range(0, dual.asteroid_count):
 		var node: SpatialAsteroid = Asteroid.instance()
 		
 		var origin = Vector3()
-		origin.y = Utils.random_normal(1, 1) * 100.0
+		origin.y = Utils.random_normal(0.0, dual.min_separation)
 		
 		# Leave enough space for player
-		while origin.distance_to(Vector3()) < 100.0:
+		while origin.distance_to(player_pos) < 50.0 or \
+			is_overlapping(added, origin, dual.min_separation):
 			origin.x = (2 * randf() - 1) * 1000.0
 			origin.z = (2 * randf() - 1) * 1000.0
 		node.transform.origin = origin
@@ -28,3 +36,4 @@ func set_dual(dual_: AsteroidField):
 		
 		node.configure(dual)
 		add_child(node)
+		added.append(node.transform.origin)

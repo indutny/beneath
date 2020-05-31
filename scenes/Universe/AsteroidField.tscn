@@ -12,7 +12,6 @@ albedo_color = Color( 0.721569, 0.286275, 0, 1 )
 
 [node name="AsteroidField" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
-asteroid_count = 30.0
 
 [node name="MeshInstance" type="MeshInstance" parent="." index="1"]
 mesh = SubResource( 1 )

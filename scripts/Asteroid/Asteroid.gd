@@ -6,5 +6,5 @@ var resources = 0
 
 func configure(field: AsteroidField):
 	resource_type = field.resource_type
-	resources = Utils.random_normal(field.resource_mean, \
-		field.resource_deviation)
+	resources = max(0, Utils.random_normal(field.resource_mean, \
+		field.resource_deviation))

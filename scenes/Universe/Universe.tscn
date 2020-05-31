@@ -10,7 +10,7 @@
 "Persist",
 ]]
 script = ExtResource( 1 )
-universe_scale = 10000.0
+universe_scale = 100000.0
 
 [node name="Stations" type="Spatial" parent="."]
 
@@ -92,7 +92,7 @@ transform = Transform( 0.198513, 0.980098, 0, 0.163399, -0.0330955, 0.986005, 0.
 transform = Transform( 0.198513, 0.980098, 0, 0.163399, -0.0330955, 0.986005, 0.966382, -0.195734, -0.166717, 1.85706, 0.850659, -1.22882 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33, -0.33, 0.2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0.001, 0.001 )
 [connection signal="area_entered" from="Player" to="." method="_on_Player_area_entered"]
 [connection signal="cargo_updated" from="Player" to="." method="_on_Player_cargo_updated"]
 [connection signal="credits_updated" from="Player" to="." method="_on_Player_credits_updated"]
