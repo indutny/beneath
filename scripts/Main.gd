@@ -25,7 +25,7 @@ func _on_Universe_universe_ready():
 
 func _on_Universe_new_surroundings(location, surroundings):
 	if location_map.has(location):
-		location_map[location].queue_free()
+		return
 	
 	location_map[location] = surroundings
 	$Surroundings.transform.origin = Vector3()
