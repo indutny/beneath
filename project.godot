@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Spatial",
+"class": "AsteroidField",
+"language": "GDScript",
+"path": "res://scripts/Universe/AsteroidField.gd"
+}, {
 "base": "Area",
 "class": "Location",
 "language": "GDScript",
@@ -60,6 +65,7 @@ _global_script_classes=[ {
 "path": "res://scripts/Universe/Universe.gd"
 } ]
 _global_script_class_icons={
+"AsteroidField": "",
 "Location": "",
 "MarketResource": "",
 "Player": "",
@@ -82,6 +88,7 @@ config/icon="res://assets/icon.png"
 
 Constants="*res://scripts/Constants.gd"
 Persistence="*res://scripts/Persistence.gd"
+Utils="*res://scripts/Utils.gd"
 
 [input]
 

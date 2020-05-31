@@ -2,6 +2,9 @@ extends Spatial
 
 var universe: Universe
 
+func _ready():
+	randomize()
+
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
 		$HUD.show_main_menu()
@@ -9,8 +12,6 @@ func _unhandled_input(event):
 func _on_Universe_universe_ready():
 	universe = $UniverseViewport/Universe
 	$Player.dual = universe.player
-
-
 
 func _on_Universe_new_surroundings(surroundings):
 	# TODO(indutny): graceful fadeout by moving origin?
