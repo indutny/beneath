@@ -25,22 +25,6 @@ extents = Vector3( 0.1, 0.1, 0.1 )
 
 [node name="Player" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
-stabilization = true
-docking_forward_reduction = 10.0
-docking_backward_reduction = 2.5
-docking_lateral_reduction = 2.5
-max_forward_velocity = 30.0
-max_backward_velocity = 15.0
-max_lateral_velocity = 15.0
-max_total_velocity = 45.0
-max_total_angular_velocity = 1.0
-max_cw_angular_velocity = 0.1
-max_py_angular_velocity = 0.1
-max_forward_acceleration = 15.0
-max_backward_acceleration = 4.0
-max_lateral_acceleration = 4.0
-max_cw_torque = 0.5
-max_py_torque = 0.5
 
 [node name="MeshInstance" type="MeshInstance" parent="." index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000193119, 0.437286, 1.44001 )

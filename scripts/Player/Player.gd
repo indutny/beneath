@@ -72,7 +72,9 @@ func _process(_delta):
 	if docking_state == DockingState.DOCKED:
 		return
 	
-	var current_velocity = linear_velocity.length()
+	var current_velocity = round(
+		linear_velocity.length() / velocity_changed_step) * \
+		velocity_changed_step
 	if abs(current_velocity - last_reported_velocity) >= velocity_changed_step:
 		last_reported_velocity = current_velocity
 		emit_signal("velocity_changed", self, current_velocity)

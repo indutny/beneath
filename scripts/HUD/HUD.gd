@@ -63,7 +63,7 @@ func _on_Player_velocity_changed(_player, new_value):
 		$ThrustSound,
 		"pitch_scale",
 		$ThrustSound.pitch_scale,
-		1 + abs(new_value) / 100,
+		1 + abs(pow(new_value, 0.6)) /  100,
 		fade_in_duration,
 		0)
 	$Pitch.start()

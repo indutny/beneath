@@ -30,7 +30,7 @@ export(float, 0, 5) var max_total_angular_velocity = 1.0
 export(float, 0, 1) var max_cw_angular_velocity = 0.1
 export(float, 0, 1) var max_py_angular_velocity = 0.1
 
-export(float, 1, 10000) var hyperspace_velocity = 2000.0
+export(float, 1, 10000) var hyperspace_velocity = 10000.0
 export(float, 1, 10000) var hyperspace_acceleration = 500.0
 
 export(float, 0, 30) var max_forward_acceleration = 15
@@ -52,7 +52,6 @@ var docking_state = DockingState.NOT_DOCKING
 
 enum HyperspaceState {
 	NOT_IN_HYPERSPACE,
-	ENTERING_HYPERSPACE,
 	IN_HYPERSPACE,
 	LEAVING_HYPERSPACE
 }
@@ -88,16 +87,16 @@ func _integrate_forces(state):
 	var backward_reduction = 1
 	var lateral_reduction = 1
 	var active_target_velocity = target_velocity
-	if docking_state == DockingState.DOCKING:
-		forward_reduction = docking_forward_reduction
-		backward_reduction = docking_backward_reduction
-		lateral_reduction = docking_lateral_reduction
-	elif hyperspace_state != HyperspaceState.NOT_IN_HYPERSPACE:
+	if hyperspace_state != HyperspaceState.NOT_IN_HYPERSPACE:
 		forward_reduction = max_forward_acceleration / hyperspace_acceleration
 		backward_reduction = max_backward_acceleration / hyperspace_acceleration
 		lateral_reduction = INF
 		if hyperspace_state != HyperspaceState.LEAVING_HYPERSPACE:
 			active_target_velocity = hyperspace_velocity
+	elif docking_state == DockingState.DOCKING:
+		forward_reduction = docking_forward_reduction
+		backward_reduction = docking_backward_reduction
+		lateral_reduction = docking_lateral_reduction
 	
 	# Apply stabilization to lateral/longtidual
 	var acc = Vector3(
@@ -166,9 +165,11 @@ func _integrate_forces(state):
 	acc = transform.basis.xform(acc)
 	torque = transform.basis.xform(torque) * 2 * PI
 
-	# Totally unphysical, but makes it more playable	
+	# Totally unphysical, but makes it more playable
 	var space_drag = -linear_velocity.normalized()
 	space_drag *= pow(max(0, linear_velocity.length() - max_total_velocity), 2)
+	if hyperspace_state != HyperspaceState.NOT_IN_HYPERSPACE:
+		space_drag *= 0.0
 	
 	var angular_space_drag = -angular_velocity.normalized()
 	angular_space_drag *= pow(max(
@@ -180,7 +181,16 @@ func _integrate_forces(state):
 	state.add_central_force(acc)
 	state.add_torque(torque)
 	
-func _process(_delta):
+func _process(delta):
+	process_docking(delta)
+	process_hyperspace(delta)
+
+func process_hyperspace(delta):
+	if hyperspace_state == HyperspaceState.LEAVING_HYPERSPACE:
+		if linear_velocity.length() <= target_velocity:
+			hyperspace_state = HyperspaceState.NOT_IN_HYPERSPACE
+
+func process_docking(_delta):
 	if docking_state != DockingState.DOCKING and \
 		docking_state != DockingState.TOUCHING_DOWN:
 		return
@@ -302,4 +312,7 @@ func set_station(station_: SpatialStation):
 	station = station_
 
 func toggle_hyperspace():
-	hyperspace_state = HyperspaceState.ENTERING_HYPERSPACE
+	if hyperspace_state == HyperspaceState.NOT_IN_HYPERSPACE:
+		hyperspace_state = HyperspaceState.IN_HYPERSPACE
+	elif hyperspace_state == HyperspaceState.IN_HYPERSPACE:
+		hyperspace_state = HyperspaceState.LEAVING_HYPERSPACE

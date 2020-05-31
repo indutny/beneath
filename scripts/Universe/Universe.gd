@@ -71,3 +71,4 @@ func _on_Player_credits_updated(player_):
 
 func translate_player(shift: Vector3):
 	$Player.global_translate(shift / universe_scale)
+	print($Player.to_global(Vector3()))
