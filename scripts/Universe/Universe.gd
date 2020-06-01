@@ -11,6 +11,9 @@ signal player_map_updated(player)
 
 export(float, 1e3, 1e6) var universe_scale = 1e3
 
+# NOTE: In the local units (i.e. divide by scale)
+export(float, 1, 1000) var safe_location_distance = 250.0
+
 var player: Player
 var stations = []
 var asteroid_fields = []
@@ -51,9 +54,17 @@ func deserialize(data):
 #
 
 func _on_Player_area_entered(area: Area):
-	var player_pos = area.transform.origin - player.transform.origin
-	var local_player_pos = area.transform.basis.xform_inv(player_pos)
-	var spatial: Spatial = area.load_spatial_instance(local_player_pos)
+	var player_pos = area.to_global(Vector3()) - player.to_global(Vector3())
+	
+	# Make sure that we spawn distance away from the location
+	var distance = player_pos.length() * universe_scale
+	if distance < safe_location_distance:
+		var offset = Vector3(0, 0, -1) * (safe_location_distance - distance)
+		player.global_translate(offset)
+		player_pos -= offset
+		
+	var location_player_pos = area.global_transform.basis.xform_inv(player_pos)
+	var spatial: Spatial = area.load_spatial_instance(location_player_pos)
 	spatial.transform.basis = area.transform.basis
 	spatial.transform.origin = player_pos * universe_scale
 	emit_signal("new_surroundings", area, spatial)

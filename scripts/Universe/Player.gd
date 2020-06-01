@@ -17,7 +17,7 @@ var credits: int = 0
 	
 # Persistence
 func serialize():
-	var pos = transform.origin
+	var pos = to_global(Vector3())
 	return {
 		"cargo": cargo,
 		"credits": credits,
@@ -39,7 +39,7 @@ func deserialize(data):
 		var pos = data["position"]
 		pos = Vector3(float(pos[0]), float(pos[1]), float(pos[2]))
 		if not is_nan(pos.length()):
-			transform.origin = pos
+			global_translate(pos - to_global(Vector3()))
 	
 	emit_signal("cargo_updated", self)
 	emit_signal("credits_updated", self)

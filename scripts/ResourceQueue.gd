@@ -41,12 +41,18 @@ func get_resource(uri: String) -> Resource:
 			complete.erase(uri)
 		complete_mutex.unlock()
 		
-		if not result:
-			var err = complete_sem.wait()
-			assert(err == OK)
-			continue
+		if result:
+			return result
 		
-		return result
+		start_mutex.lock()
+		var is_running = running.has(uri)
+		start_mutex.unlock()
+		if not is_running:
+			queue_resource(uri)
+		
+		var err = complete_sem.wait()
+		assert(err == OK)
+	return null
 
 func _load_one():
 	start_mutex.lock()
