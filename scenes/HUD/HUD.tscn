@@ -22,13 +22,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="Overlay"]
+[node name="CenterDot" type="ColorRect" parent="Overlay"]
 margin_left = 511.0
 margin_top = 299.0
 margin_right = 513.0
 margin_bottom = 301.0
 rect_min_size = Vector2( 2, 2 )
 color = Color( 1, 1, 1, 0.501961 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Triptich" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -59,15 +62,15 @@ margin_bottom = 16.0
 alignment = 1
 
 [node name="CargoLabel" type="Label" parent="Triptich/Column/Top"]
-margin_left = 317.0
+margin_left = 358.0
 margin_top = 1.0
-margin_right = 356.0
+margin_right = 397.0
 margin_bottom = 15.0
 text = "Cargo:"
 
 [node name="Cargo" type="ProgressBar" parent="Triptich/Column/Top"]
-margin_left = 360.0
-margin_right = 488.0
+margin_left = 401.0
+margin_right = 529.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 128, 16 )
 __meta__ = {
@@ -75,40 +78,21 @@ __meta__ = {
 }
 
 [node name="VSeparator" type="VSeparator" parent="Triptich/Column/Top"]
-margin_left = 492.0
-margin_right = 496.0
+margin_left = 533.0
+margin_right = 537.0
 margin_bottom = 16.0
 
 [node name="CreditsLabel" type="Label" parent="Triptich/Column/Top"]
-margin_left = 500.0
+margin_left = 541.0
 margin_top = 1.0
-margin_right = 549.0
+margin_right = 590.0
 margin_bottom = 15.0
 text = "Credits:"
 
 [node name="Credits" type="Label" parent="Triptich/Column/Top"]
-margin_left = 553.0
+margin_left = 594.0
 margin_top = 1.0
-margin_right = 561.0
-margin_bottom = 15.0
-text = "0"
-
-[node name="VSeparator2" type="VSeparator" parent="Triptich/Column/Top"]
-margin_left = 565.0
-margin_right = 569.0
-margin_bottom = 16.0
-
-[node name="LocationLabel" type="Label" parent="Triptich/Column/Top"]
-margin_left = 573.0
-margin_top = 1.0
-margin_right = 631.0
-margin_bottom = 15.0
-text = "Location:"
-
-[node name="Location" type="Label" parent="Triptich/Column/Top"]
-margin_left = 635.0
-margin_top = 1.0
-margin_right = 643.0
+margin_right = 602.0
 margin_bottom = 15.0
 text = "0"
 

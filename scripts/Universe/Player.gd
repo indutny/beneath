@@ -91,6 +91,10 @@ func get_map_locations() -> Array:
 	for x in list:
 		if x != self:
 			filtered.append(x)
+	
+	# Always show at least one location
+	if len(filtered) == 0:
+		return [ $"../".get_default_map_location() ]
 	return filtered
 
 func get_universe():

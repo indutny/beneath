@@ -71,14 +71,15 @@ func set_station(station_: SpatialStation):
 	.set_station(station_)
 	dual.station = station_.dual if station_ else null
 
-func _process(_delta):		
+func _process(_delta):
 	if $Camera/Map.visible:
+		var up = global_transform.basis.y
 		var universe: Universe = dual.get_universe()
 		var center = dual.to_global(Vector3()) * universe.universe_scale + \
 			to_global(Vector3())
 			
 		$Camera/Map.transform.basis = transform.basis.inverse()
-		$Camera/Map.update(center, universe.universe_scale)
+		$Camera/Map.update(center, universe.universe_scale, up)
 	
 	if docking_state == DockingState.DOCKED:
 		return

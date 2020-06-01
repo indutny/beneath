@@ -112,9 +112,3 @@ func _on_Universe_player_credits_updated(player: Player):
 
 func pad_coordinate(x: float) -> String:
 	return str(round(x * 100) / 100)
-
-func _on_Universe_player_moved(_player, position):
-	$Triptich/Column/Top/Location.text = \
-		pad_coordinate(position.x) + ':' + \
-		pad_coordinate(position.y) + ':' + \
-		pad_coordinate(position.z)

@@ -79,3 +79,6 @@ func translate_player(shift: Vector3):
 func _on_Player_map_updated(player_):
 	assert(player == player_)
 	emit_signal("player_map_updated", player)
+
+func get_default_map_location():
+	return $Stations/Alpha

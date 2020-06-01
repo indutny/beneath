@@ -15,7 +15,7 @@ roughness = 0.62
 [sub_resource type="CapsuleShape" id=2]
 height = 6.15337
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="BoxShape" id=3]
 margin = 0.01
 extents = Vector3( 0.1, 0.1, 0.1 )
 
@@ -55,7 +55,7 @@ collision_mask = 2
 
 [node name="Bottom" type="CollisionShape" parent="Docking" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.734326, -2.19446 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="LeftOmni" type="OmniLight" parent="." index="5"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.279764, -0.307126, -3.70536 )

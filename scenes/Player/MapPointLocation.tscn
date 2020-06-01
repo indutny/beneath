@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/Player/MapPointLocation.gd" type="Script" id=1]
+
+[node name="MapPointLocation" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameContaintainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 24.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="NameContaintainer"]
+margin_left = 460.0
+margin_top = 281.0
+margin_right = 564.0
+margin_bottom = 295.0
+custom_colors/font_color = Color( 0.337255, 1, 0, 0.501961 )
+text = "[Location Name]"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_left = -0.00132608
+anchor_top = 9.93411e-11
+anchor_right = 0.998674
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer"]
+margin_left = 510.0
+margin_top = 297.0
+margin_right = 514.0
+margin_bottom = 301.0
+rect_min_size = Vector2( 4, 4 )
+color = Color( 0.337255, 1, 0, 0.501961 )
