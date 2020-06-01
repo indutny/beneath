@@ -1,7 +1,8 @@
 extends Control
 
 func set_name(name: String):
-	$NameContaintainer/Name.text = name
+	$NameContaintainer/VBoxContainer/Name.text = name
 
-func set_distance(_distance: float):
-	pass
+func set_distance(distance: float):
+	$NameContaintainer/VBoxContainer/Distance.text = str(
+		round(distance * 10.0) / 10.0)

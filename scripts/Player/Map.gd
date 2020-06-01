@@ -35,7 +35,11 @@ func update(center: Vector3, scale: float, up: Vector3):
 		var point: Spatial = points[x]
 		
 		var pos: Vector3 = location.to_global(Vector3()) * scale
-		var origin = (pos - center).normalized()
+		var offset = pos - center
+		var origin = offset.normalized()
+		var distance = offset.length()
 		
 		point.transform = identity.looking_at(origin, up)
 		point.transform.origin = origin
+		
+		point.set_distance(distance / scale)
