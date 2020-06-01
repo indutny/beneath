@@ -53,7 +53,6 @@ func deserialize(data):
 func _on_Player_area_entered(area: Area):
 	var player_pos = player.to_global(Vector3())
 	var offset = area.to_global(Vector3()) - player_pos
-	var local_player_pos = area.global_transform.basis.xform_inv(player_pos)
 	
 	var spatial: Spatial = area.load_spatial_instance()
 	spatial.transform.basis = area.transform.basis
