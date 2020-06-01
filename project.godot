@@ -9,7 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Spatial",
+"base": "",
 "class": "AsteroidField",
 "language": "GDScript",
 "path": "res://scripts/Universe/AsteroidField.gd"
@@ -49,7 +49,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/Station/Station.gd"
 }, {
-"base": "Spatial",
+"base": "",
 "class": "Station",
 "language": "GDScript",
 "path": "res://scripts/Universe/Station/Station.gd"
@@ -89,6 +89,7 @@ config/icon="res://assets/icon.png"
 Constants="*res://scripts/Constants.gd"
 Persistence="*res://scripts/Persistence.gd"
 Utils="*res://scripts/Utils.gd"
+ResourceQueue="*res://scripts/ResourceQueue.gd"
 
 [input]
 
@@ -193,6 +194,7 @@ hud_map={
 3d_physics/layer_3="Asteroid"
 3d_physics/layer_4="Location"
 3d_physics/layer_5="Hyperspace"
+3d_physics/layer_6="LocationLoader"
 
 [physics]
 
@@ -202,5 +204,6 @@ hud_map={
 
 [rendering]
 
+threads/thread_model=2
 environment/default_clear_color=Color( 0.305882, 0.305882, 0.305882, 1 )
 environment/default_environment="res://default_env.tres"

@@ -1,4 +1,4 @@
-extends Spatial
+extends "../Location.gd"
 class_name Station
 
 signal production_update
@@ -10,6 +10,7 @@ var market_resource = {}
 var buildings = []
 
 func _ready():
+	spatial_scene_uri = "res://scenes/Station/Station.tscn"
 	for child in get_children():
 		if child is StationBuilding:
 			buildings.append(child)
@@ -39,8 +40,7 @@ func deserialize(data):
 #
 
 func load_spatial_instance(_player_pos: Vector3) -> Spatial:
-	var instance = \
-		load("res://scenes/Station/Station.tscn").instance() as Spatial
+	var instance = instance_spatial_scene()
 	instance.dual = self
 	return instance
 

@@ -14,7 +14,7 @@ func configure(dual_: AsteroidField, player_pos: Vector3):
 	dual = dual_
 	
 	var added = []
-	for i in range(0, dual.asteroid_count):
+	for _i in range(0, dual.asteroid_count):
 		var node: SpatialAsteroid = Asteroid.instance()
 		
 		var origin = Vector3()
