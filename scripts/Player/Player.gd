@@ -27,9 +27,9 @@ func _unhandled_input(event):
 		return
 	
 	if event.is_action_pressed("ship_toggle_hyperspace"):
-		toggle_hyperspace()
-		target_velocity = 0.0
-		emit_signal("target_velocity_changed", self, target_velocity)
+		if toggle_hyperspace():
+			target_velocity = 0.0
+			emit_signal("target_velocity_changed", self, target_velocity)
 	
 	if hyperspace_state == HyperspaceState.NOT_IN_HYPERSPACE:
 		if event.is_action_pressed("ship_accelerate"):

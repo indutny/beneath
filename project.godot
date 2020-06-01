@@ -192,6 +192,7 @@ hud_map={
 3d_physics/layer_2="Docking"
 3d_physics/layer_3="Asteroid"
 3d_physics/layer_4="Location"
+3d_physics/layer_5="Hyperspace"
 
 [physics]
 

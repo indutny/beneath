@@ -16,6 +16,7 @@ universe_scale = 100000.0
 
 [node name="Alpha" parent="Stations" instance=ExtResource( 2 )]
 transform = Transform( 0.803452, -0.222683, -0.552157, 0, 0.927419, -0.374024, 0.59537, 0.30051, 0.745136, 0, 0, 0 )
+monitoring = true
 
 [node name="Vacant1" parent="Stations/Alpha" instance=ExtResource( 3 )]
 
@@ -27,6 +28,7 @@ transform = Transform( 0.803452, -0.222683, -0.552157, 0, 0.927419, -0.374024, 0
 
 [node name="Beta" parent="Stations" instance=ExtResource( 2 )]
 transform = Transform( 0.940022, 0.139699, -0.311197, 0.0873516, 0.783292, 0.615486, 0.329741, -0.605754, 0.724108, 1.03865, 0.211309, -0.469057 )
+monitoring = true
 
 [node name="Vacant1" parent="Stations/Beta" instance=ExtResource( 3 )]
 
@@ -38,6 +40,7 @@ transform = Transform( 0.940022, 0.139699, -0.311197, 0.0873516, 0.783292, 0.615
 
 [node name="Gamma" parent="Stations" instance=ExtResource( 2 )]
 transform = Transform( 0.59164, -0.749121, 0.297959, 0.806201, 0.550374, -0.217089, -0.0013631, 0.368653, 0.929566, 1.23379, 0.211309, 0.659479 )
+monitoring = true
 
 [node name="Vacant1" parent="Stations/Gamma" instance=ExtResource( 3 )]
 
@@ -49,6 +52,7 @@ transform = Transform( 0.59164, -0.749121, 0.297959, 0.806201, 0.550374, -0.2170
 
 [node name="Delta" parent="Stations" instance=ExtResource( 2 )]
 transform = Transform( 0.59164, -0.749121, 0.297959, 0.806201, 0.550374, -0.217089, -0.0013631, 0.368653, 0.929566, 2.57064, -0.402478, 0.186094 )
+monitoring = true
 
 [node name="Vacant1" parent="Stations/Delta" instance=ExtResource( 3 )]
 
@@ -60,6 +64,7 @@ transform = Transform( 0.59164, -0.749121, 0.297959, 0.806201, 0.550374, -0.2170
 
 [node name="Epsilon" parent="Stations" instance=ExtResource( 2 )]
 transform = Transform( 0.59164, -0.749121, 0.297959, 0.806201, 0.550374, -0.217089, -0.0013631, 0.368653, 0.929566, 1.31105, -1.12674, -0.786165 )
+monitoring = true
 
 [node name="Vacant1" parent="Stations/Epsilon" instance=ExtResource( 3 )]
 
@@ -71,6 +76,7 @@ transform = Transform( 0.59164, -0.749121, 0.297959, 0.806201, 0.550374, -0.2170
 
 [node name="Zeta" parent="Stations" instance=ExtResource( 2 )]
 transform = Transform( 0.59164, -0.749121, 0.297959, 0.806201, 0.550374, -0.217089, -0.0013631, 0.368653, 0.929566, 1.553, -0.12349, 2.01635 )
+monitoring = true
 
 [node name="Vacant1" parent="Stations/Zeta" instance=ExtResource( 3 )]
 
@@ -84,15 +90,18 @@ transform = Transform( 0.59164, -0.749121, 0.297959, 0.806201, 0.550374, -0.2170
 
 [node name="IceField 1" parent="AsteroidFeilds" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33, -0.33, 0.2 )
+monitoring = true
 
 [node name="IceField 2" parent="AsteroidFeilds" instance=ExtResource( 5 )]
 transform = Transform( 0.198513, 0.980098, 0, 0.163399, -0.0330955, 0.986005, 0.966382, -0.195734, -0.166717, 1.85706, -0.245029, 0.876226 )
+monitoring = true
 
 [node name="IceField 3" parent="AsteroidFeilds" instance=ExtResource( 5 )]
 transform = Transform( 0.198513, 0.980098, 0, 0.163399, -0.0330955, 0.986005, 0.966382, -0.195734, -0.166717, 1.85706, 0.850659, -1.22882 )
+monitoring = true
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0.001, 0.001 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3 )
 [connection signal="area_entered" from="Player" to="." method="_on_Player_area_entered"]
 [connection signal="area_exited" from="Player" to="." method="_on_Player_area_exited"]
 [connection signal="cargo_updated" from="Player" to="." method="_on_Player_cargo_updated"]

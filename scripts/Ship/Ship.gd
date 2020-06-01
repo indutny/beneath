@@ -9,6 +9,9 @@ signal end_touching_down(ship)
 signal docked(ship)
 signal take_off(ship)
 signal docking_position_updated(ship, position, orientation, angle)
+signal entered_hyperspace(ship)
+signal leaving_hyperspace(ship)
+signal left_hyperspace(ship)
 
 # Current thrust values in local comoving frame
 var lateral_thrust = Vector2()
@@ -31,8 +34,10 @@ export(float, 0, 1) var max_cw_angular_velocity = 0.1
 export(float, 0, 1) var max_py_angular_velocity = 0.1
 
 export(float, 1, 10000) var hyperspace_velocity = 10000.0
-export(float, 1, 10000) var hyperspace_acceleration = 500.0
+export(float, 1, 10000) var hyperspace_acceleration = 1000.0
+export(float, 1, 10000) var hyperspace_braking = 2200.0
 export(float, 1, 10000) var hyperspace_leave_velocity = 1.0
+export(float, 0, 1) var hyperspace_max_py_angular_velocity = 0.025
 
 export(float, 0, 30) var max_forward_acceleration = 15
 export(float, 0, 30) var max_backward_acceleration = 4
@@ -57,6 +62,9 @@ enum HyperspaceState {
 	LEAVING_HYPERSPACE
 }
 var hyperspace_state = HyperspaceState.NOT_IN_HYPERSPACE
+
+# Number of areas that intersect with HyperspaceSafety at different levels
+var hyperspace_unsafe = [ 0, 0, 0 ]
 
 const epsilon = 1e-23
 
@@ -93,23 +101,31 @@ func _integrate_forces(state):
 	var act_mx_fwd_acc = max_forward_acceleration
 	var act_mx_bwd_acc = max_backward_acceleration
 	var act_mx_lat_acc = max_lateral_acceleration
+	var act_mx_py_ang_vel = max_py_angular_velocity
 	var act_target_vel = target_velocity
 	var act_stabilization = stabilization
 	
 	if hyperspace_state != HyperspaceState.NOT_IN_HYPERSPACE:
 		act_mx_fwd_acc = hyperspace_acceleration
-		act_mx_bwd_acc = hyperspace_acceleration
+		act_mx_bwd_acc = hyperspace_braking
+		
 		act_mx_lat_acc = hyperspace_acceleration
 		
 		act_mx_fwd_vel = hyperspace_velocity
 		act_mx_bwd_vel = hyperspace_velocity
 		act_mx_lat_vel = 0.0
 		
+		act_mx_py_ang_vel = hyperspace_max_py_angular_velocity
+		
 		act_stabilization = true
 		
 		# Override target velocity
-		if hyperspace_state != HyperspaceState.LEAVING_HYPERSPACE:
-			act_target_vel = hyperspace_velocity
+		act_target_vel = hyperspace_velocity
+		
+		if hyperspace_state == HyperspaceState.LEAVING_HYPERSPACE:
+			act_target_vel = hyperspace_leave_velocity
+		else:
+			act_target_vel = compute_safe_hyperspace_velocity()
 	elif docking_state == DockingState.DOCKING:
 		act_mx_fwd_vel = docking_max_forward_velocity
 		act_mx_bwd_vel = docking_max_backward_velocity
@@ -158,8 +174,8 @@ func _integrate_forces(state):
 		
 		# Turning must be harder at high speeds because of the speed limit
 		var py_limit = min(
-			max_py_angular_velocity,
-			max_lateral_acceleration / (abs(velocity_proj.z) + epsilon))
+			act_mx_py_ang_vel,
+			act_mx_lat_acc / (abs(velocity_proj.z) + epsilon))
 			
 		torque.x = apply_stabilizing_braking(
 			torque.x,
@@ -209,6 +225,7 @@ func process_hyperspace():
 		return
 	if linear_velocity.length() <= hyperspace_leave_velocity:
 		hyperspace_state = HyperspaceState.NOT_IN_HYPERSPACE
+		emit_signal("left_hyperspace", self)
 
 func process_docking(_delta):
 	if docking_state != DockingState.DOCKING and \
@@ -332,7 +349,30 @@ func set_station(station_: SpatialStation):
 	station = station_
 
 func toggle_hyperspace():
-	if hyperspace_state == HyperspaceState.NOT_IN_HYPERSPACE:
-		hyperspace_state = HyperspaceState.IN_HYPERSPACE
-	elif hyperspace_state == HyperspaceState.IN_HYPERSPACE:
-		hyperspace_state = HyperspaceState.LEAVING_HYPERSPACE
+	match hyperspace_state:
+		HyperspaceState.NOT_IN_HYPERSPACE:
+			if hyperspace_unsafe[0] <= 0:
+				hyperspace_state = HyperspaceState.IN_HYPERSPACE
+				emit_signal("entered_hyperspace", self)
+				return true
+		HyperspaceState.IN_HYPERSPACE:
+			hyperspace_state = HyperspaceState.LEAVING_HYPERSPACE
+			emit_signal("leaving_hyperspace", self)
+			return true
+	return false
+
+func on_enter_hyperspace_unsafe_level(_area, level: int):
+	hyperspace_unsafe[level] += 1
+	if level == 0 and hyperspace_state == HyperspaceState.IN_HYPERSPACE:
+		toggle_hyperspace()
+
+func on_exit_hyperspace_unsafe_level(_area, level: int):
+	hyperspace_unsafe[level] -= 1
+	
+func compute_safe_hyperspace_velocity():
+	if hyperspace_unsafe[0] > 0:
+		return 0.0
+	elif hyperspace_unsafe[1] > 0:
+		return hyperspace_velocity / 15.0
+	else:
+		return hyperspace_velocity
