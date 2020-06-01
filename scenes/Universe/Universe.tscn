@@ -110,7 +110,6 @@ monitoring = true
 collision_mask = 8
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3 )
 [connection signal="area_entered" from="Player" to="." method="_on_Player_area_entered"]
 [connection signal="area_exited" from="Player" to="." method="_on_Player_area_exited"]
 [connection signal="cargo_updated" from="Player" to="." method="_on_Player_cargo_updated"]

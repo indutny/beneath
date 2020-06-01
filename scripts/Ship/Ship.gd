@@ -33,7 +33,7 @@ export(float, 0, 5) var max_total_angular_velocity = 1.0
 export(float, 0, 1) var max_cw_angular_velocity = 0.1
 export(float, 0, 1) var max_py_angular_velocity = 0.1
 
-export(float, 1, 10000) var hyperspace_velocity = 10000.0
+export(float, 1, 10000) var hyperspace_velocity = 5000.0
 export(float, 1, 10000) var hyperspace_acceleration = 1000.0
 export(float, 1, 10000) var hyperspace_braking = 2200.0
 export(float, 1, 10000) var hyperspace_leave_velocity = 1.0
@@ -368,11 +368,11 @@ func on_enter_hyperspace_unsafe_level(_area, level: int):
 
 func on_exit_hyperspace_unsafe_level(_area, level: int):
 	hyperspace_unsafe[level] -= 1
-	
+
 func compute_safe_hyperspace_velocity():
 	if hyperspace_unsafe[0] > 0:
 		return 0.0
 	elif hyperspace_unsafe[1] > 0:
-		return hyperspace_velocity / 15.0
+		return hyperspace_velocity / 7.0
 	else:
 		return hyperspace_velocity

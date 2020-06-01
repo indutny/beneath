@@ -60,7 +60,7 @@ func _on_Player_area_entered(area: Area):
 	var distance = player_pos.length() * universe_scale
 	if distance < safe_location_distance:
 		var offset = Vector3(0, 0, -1) * (safe_location_distance - distance)
-		player.global_translate(offset)
+		translate_player(offset)
 		player_pos -= offset
 		
 	var location_player_pos = area.global_transform.basis.xform_inv(player_pos)
