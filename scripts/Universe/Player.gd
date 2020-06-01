@@ -85,7 +85,13 @@ func spend_credits(delta: int) -> bool:
 	return true
 
 func get_map_locations() -> Array:
-	return $MapArea.get_overlapping_areas()
+	# TODO(indutny): can it be done more efficiently?
+	var list = $MapArea.get_overlapping_areas()
+	var filtered = []
+	for x in list:
+		if x != self:
+			filtered.append(x)
+	return filtered
 
 func get_universe():
 	return $"../"

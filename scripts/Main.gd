@@ -1,6 +1,7 @@
 extends Spatial
 
 export(float,1.0,1000.0) var shift_origin_every = 500.0
+export(float, 1, 1000) var safe_location_distance = 250.0
 
 var universe: Universe
 var accumulated_shift = Vector3()
@@ -25,15 +26,24 @@ func _on_Universe_universe_ready():
 	Persistence.load_game()
 	$UniverseViewport/Universe.translate_player(Vector3())
 
-func _on_Universe_new_surroundings(location, surroundings):
+func _on_Universe_new_surroundings(location, offset, surroundings):
 	if location_map.has(location):
 		return
 	
+	var distance = offset.distance_to($Player.transform.origin)
+	if distance < safe_location_distance:
+		offset -= $Player.transform.basis.z * \
+			(safe_location_distance - distance)
+	
 	location_map[location] = surroundings
-	$Surroundings.transform.origin = Vector3()
+	
+	surroundings.transform.origin = offset
+	
+	var local_player_pos = surroundings.transform.xform_inv(
+		$Player.transform.origin)
+	surroundings.set_player_pos(local_player_pos)
+	
 	$Surroundings.add_child(surroundings)
-	$Player.transform.origin = Vector3()
-
 
 func _on_Universe_leave_surroundings(location):
 	if location_map.has(location):
@@ -47,7 +57,8 @@ func _on_Player_position_changed(_player, offset: Vector3):
 	# TODO(indutny): find a way to do it without the drop
 	if accumulated_shift.length() >= shift_origin_every:
 		$Player.global_translate(-accumulated_shift)
-		$Surroundings.global_translate(-accumulated_shift)
+		for s in $Surroundings.get_children():
+			s.global_translate(-accumulated_shift)
 		$UniverseViewport/Universe.translate_player(accumulated_shift)
 		accumulated_shift = Vector3()
 

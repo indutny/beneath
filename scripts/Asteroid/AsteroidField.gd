@@ -10,9 +10,7 @@ func is_overlapping(list: Array, origin: Vector3, min_separation: float):
 			return true
 	return false
 
-func configure(dual_: AsteroidField, player_pos: Vector3):
-	dual = dual_
-	
+func set_player_pos(player_pos: Vector3):
 	var added = []
 	for _i in range(0, dual.asteroid_count):
 		var node: SpatialAsteroid = Asteroid.instance()

@@ -39,7 +39,7 @@ func deserialize(data):
 # Visual Instancing
 #
 
-func load_spatial_instance(_player_pos: Vector3) -> Spatial:
+func load_spatial_instance() -> Spatial:
 	var instance = instance_spatial_scene()
 	instance.dual = self
 	return instance

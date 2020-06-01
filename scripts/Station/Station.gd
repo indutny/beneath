@@ -13,3 +13,6 @@ var dock
 
 func _ready():
 	dock = $OpenDock
+
+func set_player_pos(_player_pos):
+	pass
