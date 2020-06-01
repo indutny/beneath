@@ -15,13 +15,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Map" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Overlay" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0

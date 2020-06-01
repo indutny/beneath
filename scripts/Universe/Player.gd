@@ -3,6 +3,7 @@ class_name Player
 
 signal cargo_updated(player)
 signal credits_updated(player)
+signal map_updated(player)
 
 export(float, 0, 1000) var max_total_cargo_weight = 100
 
@@ -16,9 +17,11 @@ var credits: int = 0
 	
 # Persistence
 func serialize():
+	var pos = transform.origin
 	return {
 		"cargo": cargo,
-		"credits": credits
+		"credits": credits,
+		"position": [ pos.x, pos.y, pos.z ]
 	}
 
 func deserialize(data):
@@ -31,6 +34,12 @@ func deserialize(data):
 	for resource_type in cargo.keys():
 		var weight = Constants.RESOURCE_WEIGHT[resource_type]
 		total_cargo_weight += weight * cargo[resource_type]
+	
+	if data.has("position"):
+		var pos = data["position"]
+		pos = Vector3(float(pos[0]), float(pos[1]), float(pos[2]))
+		if not is_nan(pos.length()):
+			transform.origin = pos
 	
 	emit_signal("cargo_updated", self)
 	emit_signal("credits_updated", self)
@@ -74,3 +83,12 @@ func spend_credits(delta: int) -> bool:
 	credits -= delta
 	emit_signal("credits_updated", self)
 	return true
+
+func get_map_locations() -> Array:
+	return $MapArea.get_overlapping_areas()
+
+func get_universe():
+	return $"../"
+
+func _on_MapArea_area_entered(_area):
+	emit_signal("map_updated", self)

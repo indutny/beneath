@@ -115,3 +115,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3 )
 [connection signal="area_exited" from="Player" to="." method="_on_Player_area_exited"]
 [connection signal="cargo_updated" from="Player" to="." method="_on_Player_cargo_updated"]
 [connection signal="credits_updated" from="Player" to="." method="_on_Player_credits_updated"]
+[connection signal="map_updated" from="Player" to="." method="_on_Player_map_updated"]

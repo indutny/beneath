@@ -26,6 +26,9 @@ func _unhandled_input(event):
 	if docking_state == DockingState.DOCKED:
 		return
 	
+	if event.is_action_pressed("hud_map"):
+		$Camera/Map.visible = not $Camera/Map.visible
+	
 	if event.is_action_pressed("ship_toggle_hyperspace"):
 		if toggle_hyperspace():
 			target_velocity = 0.0
@@ -68,7 +71,15 @@ func set_station(station_: SpatialStation):
 	.set_station(station_)
 	dual.station = station_.dual if station_ else null
 
-func _process(_delta):
+func _process(_delta):		
+	if $Camera/Map.visible:
+		var universe: Universe = dual.get_universe()
+		var center = dual.to_global(Vector3()) * universe.universe_scale + \
+			to_global(Vector3())
+			
+		$Camera/Map.transform.basis = transform.basis.inverse()
+		$Camera/Map.update(center, universe.universe_scale)
+	
 	if docking_state == DockingState.DOCKED:
 		return
 	
@@ -108,3 +119,7 @@ func get_integer_position() -> Vector3:
 func global_translate(offset: Vector3):
 	.global_translate(offset)
 	last_reported_position = get_integer_position()
+
+func _on_Universe_player_map_updated(dual_):
+	assert(dual_ == dual)
+	$Camera/Map.add_locations(dual.get_map_locations())

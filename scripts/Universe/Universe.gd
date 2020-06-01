@@ -7,6 +7,7 @@ signal leave_surroundings(location)
 signal player_cargo_updated(player)
 signal player_credits_updated(player)
 signal player_moved(player, position)
+signal player_map_updated(player)
 
 export(float, 1e3, 1e6) var universe_scale = 1e3
 
@@ -73,3 +74,8 @@ func _on_Player_credits_updated(player_):
 func translate_player(shift: Vector3):
 	player.global_translate(shift / universe_scale)
 	emit_signal("player_moved", player, player.to_global(Vector3()))
+
+
+func _on_Player_map_updated(player_):
+	assert(player == player_)
+	emit_signal("player_map_updated", player)
