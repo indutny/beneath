@@ -54,10 +54,19 @@ func get_resource(uri: String) -> Resource:
 		assert(err == OK)
 	return null
 
+func stop():
+	var err = start_sem.post()
+	assert(err == OK)
+	
+	thread.wait_to_finish()
+	
 func _load_one():
 	start_mutex.lock()
 	var uri = queue.pop_front()
 	start_mutex.unlock()
+	
+	if not uri:
+		return false
 	
 	var loader: ResourceInteractiveLoader = \
 		ResourceLoader.load_interactive(uri)
@@ -79,12 +88,15 @@ func _load_one():
 	err = complete_sem.post()
 	assert(err == OK)
 	
+	return true
+	
 func _loop(_data):
 	while true:
 		var err = start_sem.wait()
 		assert(err == OK)
 		
-		_load_one()
+		if not _load_one():
+			break
 
 func _init():
 	._init()

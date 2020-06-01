@@ -64,7 +64,7 @@ enum HyperspaceState {
 var hyperspace_state = HyperspaceState.NOT_IN_HYPERSPACE
 
 # Number of areas that intersect with HyperspaceSafety at different levels
-var hyperspace_unsafe = [ 0, 0, 0 ]
+var hyperspace_unsafe = [ 0, 0 ]
 
 const epsilon = 1e-23
 
