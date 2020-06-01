@@ -90,7 +90,7 @@ func _integrate_forces(state):
 		return
 	
 	process_hyperspace()
-		
+	
 	var velocity_proj = transform.basis.xform_inv(state.linear_velocity)
 	var delta = state.step
 	

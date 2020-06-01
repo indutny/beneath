@@ -22,6 +22,7 @@ func _on_Universe_universe_ready():
 	$HUD.set_player($Player)
 		
 	Persistence.load_game()
+	$UniverseViewport/Universe.translate_player(Vector3())
 
 func _on_Universe_new_surroundings(location, surroundings):
 	if location_map.has(location):

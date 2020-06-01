@@ -7,101 +7,153 @@
 [ext_resource path="res://scenes/HUD/GameMenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/HUD/CargoContents.tscn" type="PackedScene" id=6]
 
-[node name="HUD" type="MarginContainer"]
+[node name="HUD" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = 20.0
-margin_right = -20.0
-margin_bottom = -20.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GameMenu" parent="." instance=ExtResource( 5 )]
+[node name="Map" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="CargoContents" parent="." instance=ExtResource( 6 )]
+[node name="Overlay" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Column" type="VBoxContainer" parent="."]
-margin_right = 984.0
-margin_bottom = 560.0
+[node name="ColorRect" type="ColorRect" parent="Overlay"]
+margin_left = 511.0
+margin_top = 299.0
+margin_right = 513.0
+margin_bottom = 301.0
+rect_min_size = Vector2( 2, 2 )
+color = Color( 1, 1, 1, 0.501961 )
 
-[node name="Top" type="HBoxContainer" parent="Column"]
-margin_right = 984.0
+[node name="Triptich" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = -32.0
+margin_bottom = -32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameMenu" parent="Triptich" instance=ExtResource( 5 )]
+margin_right = 960.0
+margin_bottom = 536.0
+
+[node name="CargoContents" parent="Triptich" instance=ExtResource( 6 )]
+margin_right = 960.0
+margin_bottom = 536.0
+
+[node name="Column" type="VBoxContainer" parent="Triptich"]
+margin_right = 960.0
+margin_bottom = 536.0
+
+[node name="Top" type="HBoxContainer" parent="Triptich/Column"]
+margin_right = 960.0
 margin_bottom = 16.0
 alignment = 1
 
-[node name="CargoLabel" type="Label" parent="Column/Top"]
-margin_left = 370.0
+[node name="CargoLabel" type="Label" parent="Triptich/Column/Top"]
+margin_left = 317.0
 margin_top = 1.0
-margin_right = 409.0
+margin_right = 356.0
 margin_bottom = 15.0
 text = "Cargo:"
 
-[node name="Cargo" type="ProgressBar" parent="Column/Top"]
-margin_left = 413.0
-margin_right = 541.0
+[node name="Cargo" type="ProgressBar" parent="Triptich/Column/Top"]
+margin_left = 360.0
+margin_right = 488.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 128, 16 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VSeparator" type="VSeparator" parent="Column/Top"]
-margin_left = 545.0
-margin_right = 549.0
+[node name="VSeparator" type="VSeparator" parent="Triptich/Column/Top"]
+margin_left = 492.0
+margin_right = 496.0
 margin_bottom = 16.0
 
-[node name="CreditsLabel" type="Label" parent="Column/Top"]
-margin_left = 553.0
+[node name="CreditsLabel" type="Label" parent="Triptich/Column/Top"]
+margin_left = 500.0
 margin_top = 1.0
-margin_right = 602.0
+margin_right = 549.0
 margin_bottom = 15.0
 text = "Credits:"
 
-[node name="Credits" type="Label" parent="Column/Top"]
-margin_left = 606.0
+[node name="Credits" type="Label" parent="Triptich/Column/Top"]
+margin_left = 553.0
 margin_top = 1.0
-margin_right = 614.0
+margin_right = 561.0
 margin_bottom = 15.0
 text = "0"
 
-[node name="Middle" type="Control" parent="Column"]
+[node name="VSeparator2" type="VSeparator" parent="Triptich/Column/Top"]
+margin_left = 565.0
+margin_right = 569.0
+margin_bottom = 16.0
+
+[node name="LocationLabel" type="Label" parent="Triptich/Column/Top"]
+margin_left = 573.0
+margin_top = 1.0
+margin_right = 631.0
+margin_bottom = 15.0
+text = "Location:"
+
+[node name="Location" type="Label" parent="Triptich/Column/Top"]
+margin_left = 635.0
+margin_top = 1.0
+margin_right = 643.0
+margin_bottom = 15.0
+text = "0"
+
+[node name="Middle" type="Control" parent="Triptich/Column"]
 margin_top = 20.0
-margin_right = 984.0
-margin_bottom = 508.0
+margin_right = 960.0
+margin_bottom = 484.0
 size_flags_vertical = 3
 
-[node name="StationMenu" parent="Column/Middle" instance=ExtResource( 4 )]
+[node name="StationMenu" parent="Triptich/Column/Middle" instance=ExtResource( 4 )]
 visible = false
 
-[node name="Bottom" type="HBoxContainer" parent="Column"]
-margin_top = 512.0
-margin_right = 984.0
-margin_bottom = 560.0
+[node name="Bottom" type="HBoxContainer" parent="Triptich/Column"]
+margin_top = 488.0
+margin_right = 960.0
+margin_bottom = 536.0
 alignment = 1
 script = ExtResource( 3 )
 
-[node name="DockingIndicatorTween" type="Tween" parent="Column/Bottom"]
+[node name="DockingIndicatorTween" type="Tween" parent="Triptich/Column/Bottom"]
 
-[node name="VelocityTween" type="Tween" parent="Column/Bottom"]
+[node name="VelocityTween" type="Tween" parent="Triptich/Column/Bottom"]
 
-[node name="Velocity" type="ProgressBar" parent="Column/Bottom"]
-margin_left = 336.0
-margin_right = 464.0
+[node name="Velocity" type="ProgressBar" parent="Triptich/Column/Bottom"]
+margin_left = 324.0
+margin_right = 452.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 128, 32 )
 step = 0.1
 percent_visible = false
 
-[node name="Docking" type="Panel" parent="Column/Bottom"]
-margin_left = 468.0
-margin_right = 516.0
+[node name="Docking" type="Panel" parent="Triptich/Column/Bottom"]
+margin_left = 456.0
+margin_right = 504.0
 margin_bottom = 48.0
 rect_min_size = Vector2( 48, 48 )
 
-[node name="Vertical" type="ColorRect" parent="Column/Bottom/Docking"]
+[node name="Vertical" type="ColorRect" parent="Triptich/Column/Bottom/Docking"]
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
@@ -111,7 +163,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Horizontal" type="ColorRect" parent="Column/Bottom/Docking"]
+[node name="Horizontal" type="ColorRect" parent="Triptich/Column/Bottom/Docking"]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
@@ -121,7 +173,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Indicator" type="ColorRect" parent="Column/Bottom/Docking"]
+[node name="Indicator" type="ColorRect" parent="Triptich/Column/Bottom/Docking"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -136,9 +188,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TargetVelocity" type="ProgressBar" parent="Column/Bottom"]
-margin_left = 520.0
-margin_right = 648.0
+[node name="TargetVelocity" type="ProgressBar" parent="Triptich/Column/Bottom"]
+margin_left = 508.0
+margin_right = 636.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 128, 32 )
 step = 0.1
@@ -153,5 +205,5 @@ volume_db = -80.0
 [node name="FadeOut" type="Tween" parent="."]
 
 [node name="Pitch" type="Tween" parent="."]
-[connection signal="take_off" from="Column/Middle/StationMenu" to="." method="_on_StationMenu_take_off"]
+[connection signal="take_off" from="Triptich/Column/Middle/StationMenu" to="." method="_on_StationMenu_take_off"]
 [connection signal="tween_completed" from="FadeOut" to="." method="_on_FadeOut_tween_completed"]
