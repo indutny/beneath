@@ -67,9 +67,9 @@ export(Dictionary) var RESOURCE_BASE_PRICE = {
 	# Can't be sold
 	ResourceType.Electricity: 0,
 	
-	ResourceType.Hydrogen: 50,
-	ResourceType.Oxygen: 100,
-	ResourceType.Fuel: 750
+	ResourceType.Hydrogen: 25,
+	ResourceType.Oxygen: 50,
+	ResourceType.Fuel: 300
 }
 
 # Price difference between buy/sell
@@ -116,7 +116,7 @@ export(Dictionary) var BUILDING_CONSUMES = {
 	BuildingType.SolarPanel: {},
 	BuildingType.ElectrolysisPlant: {
 		ResourceType.Electricity: 5,
-		ResourceType.Ice: 4
+		ResourceType.Ice: 2
 	},
 	BuildingType.FuelRefinery: {
 		ResourceType.Electricity: 3,

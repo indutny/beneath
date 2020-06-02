@@ -115,7 +115,25 @@ func _on_Universe_player_cargo_updated(player: Player):
 
 
 func _on_Universe_player_credits_updated(player: Player):
-	$Triptich/Column/Top/Credits.text = str(player.credits)
+	var value = player.credits
+	var is_neg = value < 0
+	if is_neg:
+		value = -value
+	
+	var text: String = ""
+	while value != 0:
+		if text:
+			text = "'" + text
+		var segment = str(value % 1000)
+		value = int(value / 1000)
+		if value != 0:
+			segment = segment.pad_zeros(3)
+		text = segment + text
+		
+	if is_neg:
+		text = "-" + text
+	
+	$Triptich/Column/Top/Credits.text = text
 
 func pad_coordinate(x: float) -> String:
 	return str(round(x * 100) / 100)

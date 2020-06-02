@@ -49,6 +49,10 @@ func deserialize(data):
 	emit_signal("credits_updated", self)
 
 func retrieve_cargo(resource_type: int, quantity: int) -> int:
+	assert(quantity >= 0)
+	if quantity == 0:
+		return 0
+	
 	if not cargo.has(resource_type):
 		return 0
 	
@@ -64,6 +68,7 @@ func retrieve_cargo(resource_type: int, quantity: int) -> int:
 	return change
 
 func burn_fuel(distance: float):
+	assert(distance >= 0)
 	var universe_distance: float = distance / get_universe().universe_scale
 	var quantity: float = universe_distance * Constants.FUEL_PER_UNIVERSE_UNIT
 	
@@ -74,10 +79,15 @@ func burn_fuel(distance: float):
 	var to_burn: int = int(floor(burn_accumulator))
 	burn_accumulator -= float(to_burn)
 	var burned = retrieve_cargo(Constants.ResourceType.Fuel, to_burn)
-	if burned != quantity:
-		credits -= burned * Constants.FUEL_LOAN_PRICE
+	if burned != to_burn:
+		credits -= max(to_burn - burned, 0) * Constants.FUEL_LOAN_PRICE
+		emit_signal("credits_updated", self)
 
 func store_cargo(resource_type: int, quantity: int) -> int:
+	assert(quantity >= 0)
+	if quantity == 0:
+		return 0
+	
 	var density = Constants.RESOURCE_WEIGHT[resource_type]
 	
 	# Can't store in cargo (see Constants.gd)
@@ -105,13 +115,20 @@ func store_cargo(resource_type: int, quantity: int) -> int:
 	return to_store
 	
 func add_credits(delta: int):
-	credits += delta
+	assert(delta >= 0)
+	if delta == 0:
+		return
+	credits += int(max(0, delta))
 	emit_signal("credits_updated", self)
 
 func spend_credits(delta: int) -> bool:
+	if delta == 0:
+		return true
+	
+	assert(delta >= 0)
 	if credits < delta:
 		return false
-	credits -= delta
+	credits -= int(max(0, delta))
 	emit_signal("credits_updated", self)
 	return true
 
