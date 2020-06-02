@@ -16,7 +16,8 @@ enum ResourceType {
 	Electricity = 100,
 	Hydrogen = 101,
 	Oxygen = 102,
-	Fuel = 103
+	Fuel = 103,
+	Microchip = 104
 }
 
 export(Dictionary) var RESOURCE_NAME = {
@@ -33,7 +34,8 @@ export(Dictionary) var RESOURCE_NAME = {
 	ResourceType.Electricity: "Electricity",
 	ResourceType.Hydrogen: "Hydrogen",
 	ResourceType.Oxygen: "Oxygen",
-	ResourceType.Fuel: "Fuel"
+	ResourceType.Fuel: "Fuel",
+	ResourceType.Microchip: "Microchip"
 }
 
 export(Dictionary) var RESOURCE_WEIGHT = {
@@ -50,6 +52,7 @@ export(Dictionary) var RESOURCE_WEIGHT = {
 	ResourceType.Electricity: -1,
 	ResourceType.Hydrogen: 1,
 	ResourceType.Oxygen: 1,
+	ResourceType.Microchip: 1,
 	
 	# NOTE: Isn't placed in cargo anyway
 	ResourceType.Fuel: 0
@@ -70,6 +73,7 @@ export(Dictionary) var RESOURCE_STATION_CAPACITY = {
 	ResourceType.Hydrogen: 2000,
 	ResourceType.Oxygen: 1000,
 	ResourceType.Fuel: 250,
+	ResourceType.Microchip: 1000
 }
 
 # Take in account: price of base resources and production rate at level 0
@@ -92,7 +96,8 @@ export(Dictionary) var RESOURCE_BASE_PRICE = {
 	
 	ResourceType.Hydrogen: 25,
 	ResourceType.Oxygen: 50,
-	ResourceType.Fuel: 300
+	ResourceType.Fuel: 300,
+	ResourceType.Microchip: 500
 }
 
 # Price difference between buy/sell
@@ -103,7 +108,8 @@ enum BuildingType {
 	SolarPanel = 1,
 	ElectrolysisPlant = 2,
 	FuelRefinery = 3,
-	IceMine = 4
+	IceMine = 4,
+	MicrochipFactory = 5
 }
 
 export(Dictionary) var BUILDING_NAME = {
@@ -111,7 +117,8 @@ export(Dictionary) var BUILDING_NAME = {
 	BuildingType.SolarPanel: "Solar Panel",
 	BuildingType.ElectrolysisPlant: "Electrolysis Plant",
 	BuildingType.FuelRefinery: "Fuel Refinery",
-	BuildingType.IceMine: "Ice Mine"
+	BuildingType.IceMine: "Ice Mine",
+	BuildingType.MicrochipFactory: "Microchip Factory"
 }
 
 export(Dictionary) var BUILDING_COST = {
@@ -131,6 +138,12 @@ export(Dictionary) var BUILDING_COST = {
 			ResourceType.IronOre: 100,
 			ResourceType.CobaltOre: 10
 		}
+	],
+	BuildingType.MicrochipFactory: [
+		100000,
+		{
+			ResourceType.Silicon: 5
+		}
 	]
 }
 
@@ -148,6 +161,9 @@ export(Dictionary) var BUILDING_CONSUMES = {
 	},
 	BuildingType.IceMine: {
 		ResourceType.Electricity: 5
+	},
+	BuildingType.MicrochipFactory: {
+		ResourceType.Microchip: 1
 	}
 }
 
