@@ -81,4 +81,4 @@ func _on_Player_map_updated(player_):
 	emit_signal("player_map_updated", player)
 
 func get_default_map_location():
-	return $Stations/Alpha
+	return $Stations/Dirac

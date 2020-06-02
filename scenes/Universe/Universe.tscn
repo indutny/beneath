@@ -14,100 +14,208 @@ universe_scale = 100000.0
 
 [node name="Stations" type="Spatial" parent="."]
 
-[node name="Alpha" parent="Stations" instance=ExtResource( 2 )]
+[node name="Dirac" parent="Stations" instance=ExtResource( 2 )]
 transform = Transform( 0.803452, -0.222683, -0.552157, 0, 0.927419, -0.374024, 0.59537, 0.30051, 0.745136, 0, 0, 0 )
 monitoring = true
 collision_mask = 8
 
-[node name="Vacant1" parent="Stations/Alpha" instance=ExtResource( 3 )]
+[node name="Vacant1" parent="Stations/Dirac" instance=ExtResource( 3 )]
 
-[node name="Vacant2" parent="Stations/Alpha" instance=ExtResource( 3 )]
+[node name="Vacant2" parent="Stations/Dirac" instance=ExtResource( 3 )]
 
-[node name="Vacant3" parent="Stations/Alpha" instance=ExtResource( 3 )]
+[node name="Vacant3" parent="Stations/Dirac" instance=ExtResource( 3 )]
 
-[node name="Vacant4" parent="Stations/Alpha" instance=ExtResource( 3 )]
+[node name="Vacant4" parent="Stations/Dirac" instance=ExtResource( 3 )]
 
-[node name="Beta" parent="Stations" instance=ExtResource( 2 )]
+[node name="Weyl" parent="Stations" instance=ExtResource( 2 )]
 transform = Transform( 0.940022, 0.139699, -0.311197, 0.0873516, 0.783292, 0.615486, 0.329741, -0.605754, 0.724108, 1.03865, 0.211309, -0.469057 )
 monitoring = true
 collision_mask = 8
 
-[node name="Vacant1" parent="Stations/Beta" instance=ExtResource( 3 )]
+[node name="Vacant1" parent="Stations/Weyl" instance=ExtResource( 3 )]
 
-[node name="Vacant2" parent="Stations/Beta" instance=ExtResource( 3 )]
+[node name="Vacant2" parent="Stations/Weyl" instance=ExtResource( 3 )]
 
-[node name="Vacant3" parent="Stations/Beta" instance=ExtResource( 3 )]
+[node name="Vacant3" parent="Stations/Weyl" instance=ExtResource( 3 )]
 
-[node name="Vacant4" parent="Stations/Beta" instance=ExtResource( 3 )]
+[node name="Vacant4" parent="Stations/Weyl" instance=ExtResource( 3 )]
 
-[node name="Gamma" parent="Stations" instance=ExtResource( 2 )]
+[node name="Lagrange" parent="Stations" instance=ExtResource( 2 )]
 transform = Transform( 0.59164, -0.749121, 0.297959, 0.806201, 0.550374, -0.217089, -0.0013631, 0.368653, 0.929566, 1.23379, 0.211309, 0.659479 )
 monitoring = true
 collision_mask = 8
 
-[node name="Vacant1" parent="Stations/Gamma" instance=ExtResource( 3 )]
+[node name="Vacant1" parent="Stations/Lagrange" instance=ExtResource( 3 )]
 
-[node name="Vacant2" parent="Stations/Gamma" instance=ExtResource( 3 )]
+[node name="Vacant2" parent="Stations/Lagrange" instance=ExtResource( 3 )]
 
-[node name="Vacant3" parent="Stations/Gamma" instance=ExtResource( 3 )]
+[node name="Vacant3" parent="Stations/Lagrange" instance=ExtResource( 3 )]
 
-[node name="Vacant4" parent="Stations/Gamma" instance=ExtResource( 3 )]
+[node name="Vacant4" parent="Stations/Lagrange" instance=ExtResource( 3 )]
 
-[node name="Delta" parent="Stations" instance=ExtResource( 2 )]
+[node name="Heaviside" parent="Stations" instance=ExtResource( 2 )]
 transform = Transform( 0.59164, -0.749121, 0.297959, 0.806201, 0.550374, -0.217089, -0.0013631, 0.368653, 0.929566, 2.57064, -0.402478, 0.186094 )
 monitoring = true
 collision_mask = 8
 
-[node name="Vacant1" parent="Stations/Delta" instance=ExtResource( 3 )]
+[node name="Vacant1" parent="Stations/Heaviside" instance=ExtResource( 3 )]
 
-[node name="Vacant2" parent="Stations/Delta" instance=ExtResource( 3 )]
+[node name="Vacant2" parent="Stations/Heaviside" instance=ExtResource( 3 )]
 
-[node name="Vacant3" parent="Stations/Delta" instance=ExtResource( 3 )]
+[node name="Vacant3" parent="Stations/Heaviside" instance=ExtResource( 3 )]
 
-[node name="Vacant4" parent="Stations/Delta" instance=ExtResource( 3 )]
+[node name="Vacant4" parent="Stations/Heaviside" instance=ExtResource( 3 )]
 
-[node name="Epsilon" parent="Stations" instance=ExtResource( 2 )]
+[node name="Wigner" parent="Stations" instance=ExtResource( 2 )]
 transform = Transform( 0.59164, -0.749121, 0.297959, 0.806201, 0.550374, -0.217089, -0.0013631, 0.368653, 0.929566, 1.31105, -1.12674, -0.786165 )
 monitoring = true
 collision_mask = 8
 
-[node name="Vacant1" parent="Stations/Epsilon" instance=ExtResource( 3 )]
+[node name="Vacant1" parent="Stations/Wigner" instance=ExtResource( 3 )]
 
-[node name="Vacant2" parent="Stations/Epsilon" instance=ExtResource( 3 )]
+[node name="Vacant2" parent="Stations/Wigner" instance=ExtResource( 3 )]
 
-[node name="Vacant3" parent="Stations/Epsilon" instance=ExtResource( 3 )]
+[node name="Vacant3" parent="Stations/Wigner" instance=ExtResource( 3 )]
 
-[node name="Vacant4" parent="Stations/Epsilon" instance=ExtResource( 3 )]
+[node name="Vacant4" parent="Stations/Wigner" instance=ExtResource( 3 )]
 
-[node name="Zeta" parent="Stations" instance=ExtResource( 2 )]
+[node name="Lorentz" parent="Stations" instance=ExtResource( 2 )]
 transform = Transform( 0.59164, -0.749121, 0.297959, 0.806201, 0.550374, -0.217089, -0.0013631, 0.368653, 0.929566, 1.553, -0.12349, 2.01635 )
 monitoring = true
 collision_mask = 8
 
-[node name="Vacant1" parent="Stations/Zeta" instance=ExtResource( 3 )]
+[node name="Vacant1" parent="Stations/Lorentz" instance=ExtResource( 3 )]
 
-[node name="Vacant2" parent="Stations/Zeta" instance=ExtResource( 3 )]
+[node name="Vacant2" parent="Stations/Lorentz" instance=ExtResource( 3 )]
 
-[node name="Vacant3" parent="Stations/Zeta" instance=ExtResource( 3 )]
+[node name="Vacant3" parent="Stations/Lorentz" instance=ExtResource( 3 )]
 
-[node name="Vacant4" parent="Stations/Zeta" instance=ExtResource( 3 )]
+[node name="Vacant4" parent="Stations/Lorentz" instance=ExtResource( 3 )]
+
+[node name="Salam" parent="Stations" instance=ExtResource( 2 )]
+transform = Transform( 0.569868, 0.0904672, 0.816741, 0.654137, 0.551618, -0.517515, -0.497348, 0.829175, 0.255172, -0.509026, 0.45296, 2.22421 )
+monitoring = true
+collision_mask = 8
+
+[node name="Vacant1" parent="Stations/Salam" instance=ExtResource( 3 )]
+
+[node name="Vacant2" parent="Stations/Salam" instance=ExtResource( 3 )]
+
+[node name="Vacant3" parent="Stations/Salam" instance=ExtResource( 3 )]
+
+[node name="Vacant4" parent="Stations/Salam" instance=ExtResource( 3 )]
+
+[node name="Weinberg" parent="Stations" instance=ExtResource( 2 )]
+transform = Transform( 0.104774, 0.387626, 0.915843, 0.434247, 0.810648, -0.392782, -0.89468, 0.438856, -0.0833907, 0.999089, -0.443644, 4.05911 )
+monitoring = true
+collision_mask = 8
+
+[node name="Vacant1" parent="Stations/Weinberg" instance=ExtResource( 3 )]
+
+[node name="Vacant2" parent="Stations/Weinberg" instance=ExtResource( 3 )]
+
+[node name="Vacant3" parent="Stations/Weinberg" instance=ExtResource( 3 )]
+
+[node name="Vacant4" parent="Stations/Weinberg" instance=ExtResource( 3 )]
+
+[node name="Higgs" parent="Stations" instance=ExtResource( 2 )]
+transform = Transform( 0.553398, 0.103971, 0.826402, 0.735862, -0.525841, -0.426612, 0.3902, 0.844204, -0.367508, -0.312586, 0.38734, 4.68909 )
+monitoring = true
+collision_mask = 8
+
+[node name="Vacant1" parent="Stations/Higgs" instance=ExtResource( 3 )]
+
+[node name="Vacant2" parent="Stations/Higgs" instance=ExtResource( 3 )]
+
+[node name="Vacant3" parent="Stations/Higgs" instance=ExtResource( 3 )]
+
+[node name="Vacant4" parent="Stations/Higgs" instance=ExtResource( 3 )]
+
+[node name="Hilbert" parent="Stations" instance=ExtResource( 2 )]
+transform = Transform( 0.12668, 0.725813, -0.676126, 0.95846, 0.086039, 0.271941, 0.255552, -0.682489, -0.684764, -3.40422, -0.29313, 4.46183 )
+monitoring = true
+collision_mask = 8
+
+[node name="Vacant1" parent="Stations/Hilbert" instance=ExtResource( 3 )]
+
+[node name="Vacant2" parent="Stations/Hilbert" instance=ExtResource( 3 )]
+
+[node name="Vacant3" parent="Stations/Hilbert" instance=ExtResource( 3 )]
+
+[node name="Vacant4" parent="Stations/Hilbert" instance=ExtResource( 3 )]
+
+[node name="Poisson" parent="Stations" instance=ExtResource( 2 )]
+transform = Transform( 0.0747906, -0.563056, 0.823028, -0.106497, -0.825128, -0.554816, 0.991496, -0.0461557, -0.121676, -4.22349, -0.29313, 1.80855 )
+monitoring = true
+collision_mask = 8
+
+[node name="Vacant1" parent="Stations/Poisson" instance=ExtResource( 3 )]
+
+[node name="Vacant2" parent="Stations/Poisson" instance=ExtResource( 3 )]
+
+[node name="Vacant3" parent="Stations/Poisson" instance=ExtResource( 3 )]
+
+[node name="Vacant4" parent="Stations/Poisson" instance=ExtResource( 3 )]
+
+[node name="Tomonaga" parent="Stations" instance=ExtResource( 2 )]
+transform = Transform( 0.985514, -0.0725076, -0.153312, -0.0563554, -0.992639, 0.107197, -0.159956, -0.0970036, -0.982346, -2.3995, 0.526893, 0.0723939 )
+monitoring = true
+collision_mask = 8
+
+[node name="Vacant1" parent="Stations/Tomonaga" instance=ExtResource( 3 )]
+
+[node name="Vacant2" parent="Stations/Tomonaga" instance=ExtResource( 3 )]
+
+[node name="Vacant3" parent="Stations/Tomonaga" instance=ExtResource( 3 )]
+
+[node name="Vacant4" parent="Stations/Tomonaga" instance=ExtResource( 3 )]
 
 [node name="AsteroidFeilds" type="Spatial" parent="."]
 
-[node name="IceField 1" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+[node name="[Ice Field 1]" parent="AsteroidFeilds" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33, -0.33, 0.2 )
 monitoring = true
 collision_mask = 8
 
-[node name="IceField 2" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+[node name="[Ice Field 2]" parent="AsteroidFeilds" instance=ExtResource( 5 )]
 transform = Transform( 0.198513, 0.980098, 0, 0.163399, -0.0330955, 0.986005, 0.966382, -0.195734, -0.166717, 1.85706, -0.245029, 0.876226 )
 monitoring = true
 collision_mask = 8
 
-[node name="IceField 3" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+[node name="[Ice Field 3]" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.556435, 0.15853, 0.815628, 0.548681, -0.667053, 0.503973, 0.623963, 0.727947, 0.284189, -1.48732, 0.031089, 4.64174 )
+monitoring = true
+collision_mask = 8
+
+[node name="[Iron Field 1]" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.198513, 0.980098, 0, 0.801956, -0.162431, 0.574877, 0.563436, -0.11412, -0.81824, -0.295719, -1.29876, 1.55022 )
+monitoring = true
+collision_mask = 8
+resource_type = 0
+
+[node name="[Iron Field 2]" parent="AsteroidFeilds" instance=ExtResource( 5 )]
 transform = Transform( 0.198513, 0.980098, 0, 0.163399, -0.0330955, 0.986005, 0.966382, -0.195734, -0.166717, 1.85706, 0.850659, -1.22882 )
 monitoring = true
 collision_mask = 8
+resource_type = 0
+
+[node name="[Nickel Field 1]" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.949413, 0.276947, -0.148039, -0.278585, 0.960359, 0.00996804, 0.144932, 0.0317777, 0.988931, 0.211188, -0.0774891, 3.07278 )
+monitoring = true
+collision_mask = 8
+resource_type = 1
+
+[node name="[Cobalt Field 1]" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.282911, 0.496926, 0.820382, -0.916305, -0.112749, 0.384284, 0.283457, -0.860437, 0.423438, -3.43652, 0.691798, 2.99053 )
+monitoring = true
+collision_mask = 8
+resource_type = 2
+
+[node name="[Cobalt Field 2]" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.345515, -0.707746, 0.61621, -0.173414, 0.597186, 0.783132, -0.922251, -0.377444, 0.0836034, -2.66153, -0.816194, 1.36677 )
+monitoring = true
+collision_mask = 8
+resource_type = 2
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 [connection signal="area_entered" from="Player" to="." method="_on_Player_area_entered"]
