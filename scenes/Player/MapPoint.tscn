@@ -14,7 +14,11 @@ viewport_path = NodePath("Viewport")
 
 [sub_resource type="SpatialMaterial" id=4]
 resource_local_to_scene = true
+render_priority = 2
 flags_transparent = true
+flags_no_depth_test = true
+flags_do_not_receive_shadows = true
+flags_disable_ambient_light = true
 albedo_texture = SubResource( 2 )
 emission_enabled = true
 emission = Color( 0.337255, 1, 0, 1 )

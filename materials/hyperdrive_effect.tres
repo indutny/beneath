@@ -1,0 +1,35 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type spatial;
+render_mode unshaded;
+
+uniform float displace_amount: hint_range(0, 0.1);
+uniform float wavelength: hint_range(0.1, 1.0);
+uniform float frequency: hint_range(0.25, 10.0);
+const float PI = 3.14159;
+
+void fragment() {
+	vec2 center = SCREEN_UV - 0.5;
+	vec2 outward = center / (length(center) + 1.0e-23);
+	
+	float scale = length(center);
+	
+	float phase = 2.0 * PI * (scale / wavelength + TIME * frequency);
+	float amplitude = sin(phase) * length(center);
+	vec2 displacement = outward * amplitude;
+	vec2 newUV = SCREEN_UV + displacement * displace_amount;
+	
+	vec3 new_color = texture(SCREEN_TEXTURE, newUV).rgb;
+	vec3 original_color = texture(SCREEN_TEXTURE, SCREEN_UV).rgb;
+	
+	new_color.r = original_color.r;
+	
+	ALBEDO = new_color.rgb;
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/displace_amount = 0.004
+shader_param/wavelength = 0.223
+shader_param/frequency = 0.835

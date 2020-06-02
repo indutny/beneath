@@ -81,7 +81,7 @@ export(Dictionary) var RESOURCE_BASE_PRICE = {
 	ResourceType.IronOre: 300,
 	ResourceType.NickelOre: 4000,
 	ResourceType.CobaltOre: 1000,
-	ResourceType.Ice: 50,
+	ResourceType.Ice: 25,
 	ResourceType.Silicon: 100,
 	ResourceType.Carbon: 100,
 	ResourceType.IronOre: 300,
@@ -96,7 +96,7 @@ export(Dictionary) var RESOURCE_BASE_PRICE = {
 	
 	ResourceType.Hydrogen: 25,
 	ResourceType.Oxygen: 50,
-	ResourceType.Fuel: 300,
+	ResourceType.Fuel: 150,
 	ResourceType.Microchip: 500
 }
 
