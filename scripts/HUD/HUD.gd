@@ -121,6 +121,8 @@ func _on_Universe_player_credits_updated(player: Player):
 		value = -value
 	
 	var text: String = ""
+	if value == 0:
+		text = "0"
 	while value != 0:
 		if text:
 			text = "'" + text

@@ -40,8 +40,7 @@ func update(center: Vector3, scale: float, up: Vector3):
 		var origin = offset.normalized()
 		var distance = offset.length()
 		
-		var maybe_up = up
-		if maybe_up.is_equal_approx(origin):
+		if is_equal_approx(abs(up.dot(origin)), 1.0):
 			point.visible = false
 			continue
 		if origin.is_equal_approx(zero):

@@ -48,14 +48,17 @@ anchor_left = -0.00132608
 anchor_top = 9.93411e-11
 anchor_right = 0.998674
 anchor_bottom = 1.0
+margin_top = 0.223267
+margin_right = -6.10352e-05
+margin_bottom = 0.223267
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ColorRect" type="ColorRect" parent="CenterContainer"]
 margin_left = 510.0
-margin_top = 297.0
+margin_top = 298.0
 margin_right = 514.0
-margin_bottom = 301.0
+margin_bottom = 302.0
 rect_min_size = Vector2( 4, 4 )
 color = Color( 0.337255, 1, 0, 0.501961 )

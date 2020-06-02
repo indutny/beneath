@@ -9,10 +9,10 @@ size = Vector2( 0.3, 0.3 )
 [sub_resource type="ViewportTexture" id=2]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="ViewportTexture" id=4]
+[sub_resource type="ViewportTexture" id=3]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="SpatialMaterial" id=3]
+[sub_resource type="SpatialMaterial" id=4]
 resource_local_to_scene = true
 flags_transparent = true
 albedo_texture = SubResource( 2 )
@@ -21,7 +21,7 @@ emission = Color( 0.337255, 1, 0, 1 )
 emission_energy = 2.84
 emission_operator = 0
 emission_on_uv2 = true
-emission_texture = SubResource( 4 )
+emission_texture = SubResource( 3 )
 
 [node name="MapPoint" type="Spatial"]
 script = ExtResource( 1 )
@@ -43,4 +43,4 @@ size_flags_vertical = 3
 
 [node name="Mesh" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )
-material/0 = SubResource( 3 )
+material/0 = SubResource( 4 )

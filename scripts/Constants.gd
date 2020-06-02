@@ -2,11 +2,15 @@ extends Node
 
 enum ResourceType {
 	# Asteroid Content
-	IronOre = 0,
-	NickelOre = 1,
-	CobaltOre = 2,
-	Ice = 3,
-	Silicon = 4,
+	Silicon = 0,
+	Ice = 1,
+	Carbon = 2,
+	IronOre = 3,
+	NickelOre = 4,
+	CobaltOre = 5,
+	MagnesiumOre = 6,
+	PlatinumOre = 7,
+	UraniumOre = 8,
 	
 	# Composites or intermediate resources
 	Electricity = 100,
@@ -16,11 +20,15 @@ enum ResourceType {
 }
 
 export(Dictionary) var RESOURCE_NAME = {
+	ResourceType.Silicon: "Silicon",
+	ResourceType.Ice: "Ice",
+	ResourceType.Carbon: "Carbon",
 	ResourceType.IronOre: "Iron Ore",
 	ResourceType.NickelOre: "Nickel Ore",
 	ResourceType.CobaltOre: "Cobalt Ore",
-	ResourceType.Ice: "Ice",
-	ResourceType.Silicon: "Silicon",
+	ResourceType.MagnesiumOre: "Magnesium Ore",
+	ResourceType.PlatinumOre: "Platinum Ore",
+	ResourceType.UraniumOre: "Uranium Ore",
 	
 	ResourceType.Electricity: "Electricity",
 	ResourceType.Hydrogen: "Hydrogen",
@@ -29,11 +37,15 @@ export(Dictionary) var RESOURCE_NAME = {
 }
 
 export(Dictionary) var RESOURCE_WEIGHT = {
+	ResourceType.Ice: 1,
+	ResourceType.Silicon: 2,
+	ResourceType.Carbon: 2,
 	ResourceType.IronOre: 8,
 	ResourceType.NickelOre: 9,
 	ResourceType.CobaltOre: 9,
-	ResourceType.Ice: 1,
-	ResourceType.Silicon: 2,
+	ResourceType.MagnesiumOre: 2,
+	ResourceType.PlatinumOre: 21,
+	ResourceType.UraniumOre: 19,
 	
 	ResourceType.Electricity: -1,
 	ResourceType.Hydrogen: 1,

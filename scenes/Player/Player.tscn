@@ -43,7 +43,7 @@ spot_angle_attenuation = 0.9
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.858046, -1.04015 )
 keep_aspect = 0
 fov = 90.0
-far = 100000.0
+far = 1e+07
 
 [node name="Map" parent="Camera" index="0" instance=ExtResource( 3 )]
 visible = false
