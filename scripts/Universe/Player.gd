@@ -9,13 +9,16 @@ export(float, 0, 1000) var max_total_cargo_weight = 100
 export(float, 0, 1000) var max_fuel = 100
 
 var station: Station
-var cargo = {}
+var burn_accumulator: float = 0
+
+# Start with full fuel tank
+var cargo = { Constants.ResourceType.Fuel: max_fuel }
 
 # TODO(indutny): update inertia
 var total_cargo_weight: float = 0
 
 var credits: int = 0
-	
+
 # Persistence
 func serialize():
 	var pos = to_global(Vector3())
@@ -59,6 +62,20 @@ func retrieve_cargo(resource_type: int, quantity: int) -> int:
 	total_cargo_weight -= Constants.RESOURCE_WEIGHT[resource_type] * change
 	emit_signal("cargo_updated", self)
 	return change
+
+func burn_fuel(distance: float):
+	var universe_distance: float = distance / get_universe().universe_scale
+	var quantity: float = universe_distance * Constants.FUEL_PER_UNIVERSE_UNIT
+	
+	burn_accumulator += quantity
+	if burn_accumulator < 1:
+		return
+	
+	var to_burn: int = int(floor(burn_accumulator))
+	burn_accumulator -= float(to_burn)
+	var burned = retrieve_cargo(Constants.ResourceType.Fuel, to_burn)
+	if burned != quantity:
+		credits -= burned * Constants.FUEL_LOAN_PRICE
 
 func store_cargo(resource_type: int, quantity: int) -> int:
 	var density = Constants.RESOURCE_WEIGHT[resource_type]

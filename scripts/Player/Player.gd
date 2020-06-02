@@ -96,6 +96,9 @@ func _process(_delta):
 		var offset = new_position - last_reported_position
 		last_reported_position = new_position
 		emit_signal("position_changed", self, offset)
+		
+		if hyperspace_state == HyperspaceState.IN_HYPERSPACE:
+			dual.burn_fuel(offset.length())
 
 func _on_Player_docked(_ship):
 	set_is_mining(false)

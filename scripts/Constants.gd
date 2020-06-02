@@ -50,7 +50,7 @@ export(Dictionary) var RESOURCE_STATION_CAPACITY = {
 	ResourceType.Ice: 1000,
 	ResourceType.Silicon: 1000,
 	
-	ResourceType.Electricity: 1000,
+	ResourceType.Electricity: 100,
 	ResourceType.Hydrogen: 2000,
 	ResourceType.Oxygen: 1000,
 	ResourceType.Fuel: 250,
@@ -164,3 +164,12 @@ export(Dictionary) var MINING_INTERVAL = {
 	ResourceType.Ice: 0.5,
 	ResourceType.Silicon: 1.0,
 }
+
+# Generation of fuel on stations
+export(int) var STATION_REFUEL_INTERVAL = 15
+
+# How much credits are taken on empty fuel tank
+export(int) var FUEL_LOAN_PRICE = 1000
+
+# Per one universe scale
+export(int) var FUEL_PER_UNIVERSE_UNIT = 10

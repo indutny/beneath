@@ -16,8 +16,10 @@ func reset():
 
 func update_market():
 	var cargo = player.cargo
-	for resource_type in station.market_resource.keys():
-		var market_resource = station.market_resource[resource_type]
+	for resource_type in station.resources.keys():
+		var station_capacity = \
+			Constants.RESOURCE_STATION_CAPACITY[resource_type]
+		var station_quantity = station.resources[resource_type]
 		var ui = $List.get_resource(resource_type)
 		
 		var quantity = cargo.get(resource_type, 0)
@@ -25,7 +27,7 @@ func update_market():
 		
 		var max_sell_quantity = min(
 			quantity,
-			market_resource.capacity - market_resource.quantity)
+			station_capacity - station_quantity)
 		ui.configure(max_sell_quantity, station.get_sell_price(resource_type))
 
 func _on_Confirm_pressed():

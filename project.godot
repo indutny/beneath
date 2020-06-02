@@ -19,11 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/Universe/Location.gd"
 }, {
-"base": "Reference",
-"class": "MarketResource",
-"language": "GDScript",
-"path": "res://scripts/Universe/Station/MarketResource.gd"
-}, {
 "base": "Area",
 "class": "Player",
 "language": "GDScript",
@@ -67,7 +62,6 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "AsteroidField": "",
 "Location": "",
-"MarketResource": "",
 "Player": "",
 "SpatialAsteroid": "",
 "SpatialPlayer": "",

@@ -62,15 +62,36 @@ margin_bottom = 16.0
 alignment = 1
 
 [node name="CargoLabel" type="Label" parent="Triptich/Column/Top"]
-margin_left = 358.0
+margin_left = 270.0
 margin_top = 1.0
-margin_right = 397.0
+margin_right = 309.0
 margin_bottom = 15.0
 text = "Cargo:"
 
 [node name="Cargo" type="ProgressBar" parent="Triptich/Column/Top"]
-margin_left = 401.0
-margin_right = 529.0
+margin_left = 313.0
+margin_right = 441.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 128, 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSeparator2" type="VSeparator" parent="Triptich/Column/Top"]
+margin_left = 445.0
+margin_right = 449.0
+margin_bottom = 16.0
+
+[node name="FuelLabel" type="Label" parent="Triptich/Column/Top"]
+margin_left = 453.0
+margin_top = 1.0
+margin_right = 484.0
+margin_bottom = 15.0
+text = "Fuel:"
+
+[node name="Fuel" type="ProgressBar" parent="Triptich/Column/Top"]
+margin_left = 488.0
+margin_right = 616.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 128, 16 )
 __meta__ = {
@@ -78,21 +99,21 @@ __meta__ = {
 }
 
 [node name="VSeparator" type="VSeparator" parent="Triptich/Column/Top"]
-margin_left = 533.0
-margin_right = 537.0
+margin_left = 620.0
+margin_right = 624.0
 margin_bottom = 16.0
 
 [node name="CreditsLabel" type="Label" parent="Triptich/Column/Top"]
-margin_left = 541.0
+margin_left = 628.0
 margin_top = 1.0
-margin_right = 590.0
+margin_right = 677.0
 margin_bottom = 15.0
 text = "Credits:"
 
 [node name="Credits" type="Label" parent="Triptich/Column/Top"]
-margin_left = 594.0
+margin_left = 681.0
 margin_top = 1.0
-margin_right = 602.0
+margin_right = 689.0
 margin_bottom = 15.0
 text = "0"
 

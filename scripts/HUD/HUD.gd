@@ -96,14 +96,21 @@ func set_player(spatial_player_: SpatialPlayer):
 	spatial_player = spatial_player_
 	$Triptich/Column/Top/Cargo.max_value = \
 		spatial_player.dual.max_total_cargo_weight
+	$Triptich/Column/Top/Fuel.max_value = \
+		spatial_player.dual.max_fuel
 	$Triptich/Column/Bottom.set_player(spatial_player)
+	
+	_on_Universe_player_cargo_updated(spatial_player.dual)
+	_on_Universe_player_credits_updated(spatial_player.dual)
 
 func _on_StationMenu_take_off():
 	spatial_player.take_off()
 
-
 func _on_Universe_player_cargo_updated(player: Player):
+	var fuel = player.cargo.get(Constants.ResourceType.Fuel, 0)
+
 	$Triptich/Column/Top/Cargo.value = player.total_cargo_weight
+	$Triptich/Column/Top/Fuel.value = fuel
 	$Triptich/CargoContents.update_items(player.cargo)
 
 

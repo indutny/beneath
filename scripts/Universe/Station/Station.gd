@@ -5,8 +5,10 @@ signal production_update
 
 export(int, 0, 100000) var resource_capacity = 1000
 
+var last_refuel_tick: int = 0
+
 # Just to speed-up lookup
-var market_resource = {}
+var resources = {}
 var buildings = []
 
 func _ready():
@@ -16,25 +18,21 @@ func _ready():
 			buildings.append(child)
 	
 	for resource_type in Constants.ResourceType.values():
-		var resource = MarketResource.new(resource_type, resource_capacity)
-		market_resource[resource_type] = resource
+		resources[resource_type] = 0
 
 #
 # Persistence
 #
 
 func serialize():
-	var market = {}
-	for resource_type in market_resource.keys():
-		market[resource_type] = market_resource[resource_type].serialize()
-	return { "market": market }
+	return { "resources": resources, "last_refuel_tick": last_refuel_tick }
 
 func deserialize(data):
-	var market = data["market"]
-	for resource_type in market.keys():
-		var subdata = market[resource_type]
-		if market_resource.has(int(resource_type)):
-			market_resource[int(resource_type)].deserialize(subdata)
+	var saved = data["resources"]
+	for resource_type in saved.keys():
+		var quantity = saved[resource_type]
+		resources[int(resource_type)] = int(quantity)
+	last_refuel_tick = data.get("last_refuel_tick", 0)
 
 #
 # Visual Instancing
@@ -49,29 +47,31 @@ func load_spatial_instance() -> Spatial:
 # Storage and Market
 #
 
-func store_resource(resource_type, quantity):
-	var res = market_resource[resource_type]
-	var space_left = res.capacity - res.quantity
+func store_resource(resource_type: int, quantity: int):
+	var stored = resources[resource_type]
+	var capacity = Constants.RESOURCE_STATION_CAPACITY[resource_type]
+	var space_left = capacity - stored
 	var to_store = clamp(quantity, 0, space_left)
-	res.quantity += to_store
+	resources[resource_type] += to_store
 	return to_store
 
-func has_resource(resource_type, quantity) -> bool:
-	return market_resource[resource_type].quantity >= quantity
+func has_resource(resource_type: int, quantity: int) -> bool:
+	return resources[resource_type] >= quantity
 
 func can_store_resource(resource_type, quantity) -> bool:
-	var market = market_resource[resource_type]
-	return quantity <= market.capacity - market.quantity
+	var stored = resources[resource_type]
+	return quantity <= Constants.RESOURCE_STATION_CAPACITY[resource_type] - \
+		stored
 
 func retrieve_resource(resource_type, quantity):
-	var res = market_resource[resource_type]
-	var to_retrieve = clamp(quantity, 0, res.quantity)
-	res.quantity -= to_retrieve
+	var stored = resources[resource_type]
+	var to_retrieve = clamp(quantity, 0, stored)
+	resources[resource_type] -= to_retrieve
 	return to_retrieve
 
 func has_resources(dict: Dictionary) -> bool:
 	for key in dict.keys():
-		if market_resource[key].quantity < dict[key]:
+		if not has_resource(key, dict[key]):
 			return false
 	return true
 
@@ -119,5 +119,10 @@ func process_tick(tick):
 	for building in buildings:
 		if building.produce(tick, self):
 			produced = true
+	
+	if tick > last_refuel_tick + Constants.STATION_REFUEL_INTERVAL:
+		last_refuel_tick = tick
+		store_resource(Constants.ResourceType.Fuel, 1)
+		
 	if produced:
 		emit_signal("production_update")
