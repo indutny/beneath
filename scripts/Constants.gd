@@ -56,11 +56,15 @@ export(Dictionary) var RESOURCE_WEIGHT = {
 }
 
 export(Dictionary) var RESOURCE_STATION_CAPACITY = {
-	ResourceType.IronOre: 1000,
-	ResourceType.NickelOre: 1000,
-	ResourceType.CobaltOre: 1000,
-	ResourceType.Ice: 1000,
-	ResourceType.Silicon: 1000,
+	ResourceType.Ice: 10000,
+	ResourceType.Silicon: 10000,
+	ResourceType.Carbon: 10000,
+	ResourceType.IronOre: 10000,
+	ResourceType.NickelOre: 10000,
+	ResourceType.CobaltOre: 10000,
+	ResourceType.MagnesiumOre: 10000,
+	ResourceType.PlatinumOre: 10000,
+	ResourceType.UraniumOre: 10000,
 	
 	ResourceType.Electricity: 100,
 	ResourceType.Hydrogen: 2000,
@@ -75,6 +79,13 @@ export(Dictionary) var RESOURCE_BASE_PRICE = {
 	ResourceType.CobaltOre: 1000,
 	ResourceType.Ice: 50,
 	ResourceType.Silicon: 100,
+	ResourceType.Carbon: 100,
+	ResourceType.IronOre: 300,
+	ResourceType.NickelOre: 2000,
+	ResourceType.CobaltOre: 1000,
+	ResourceType.MagnesiumOre: 4000,
+	ResourceType.PlatinumOre: 7000,
+	ResourceType.UraniumOre: 10000,
 	
 	# Can't be sold
 	ResourceType.Electricity: 0,
@@ -170,11 +181,15 @@ export(Dictionary) var BUILDING_PRODUCE_INTERVAL = {
 #
 
 export(Dictionary) var MINING_INTERVAL = {
-	ResourceType.IronOre: 3.0,
-	ResourceType.NickelOre: 4.0,
-	ResourceType.CobaltOre: 5.0,
 	ResourceType.Ice: 0.5,
 	ResourceType.Silicon: 1.0,
+	ResourceType.Carbon: 1.0,
+	ResourceType.IronOre: 3.0,
+	ResourceType.NickelOre: 5.0,
+	ResourceType.CobaltOre: 7.0,
+	ResourceType.MagnesiumOre: 7.0,
+	ResourceType.PlatinumOre: 10.0,
+	ResourceType.UraniumOre: 30.0,
 }
 
 # Generation of fuel on stations
