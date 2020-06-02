@@ -34,7 +34,7 @@ func _process(delta):
 		var buffer_value = buffer.get(collider.resource_type, 0)
 		buffer_value += mined
 		collider.resources -= mined
-	
+		
 		if buffer_value >= 1:
 			var released = floor(buffer_value)
 			buffer_value -= released

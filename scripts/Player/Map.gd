@@ -3,6 +3,7 @@ extends Spatial
 const MapPoint = preload("res://scenes/Player/MapPoint.tscn")
 
 var points = {}
+var zero = Vector3()
 
 func add_locations(locations: Array):
 	var new_points = {}
@@ -34,11 +35,20 @@ func update(center: Vector3, scale: float, up: Vector3):
 		var location: Spatial = x
 		var point: Spatial = points[x]
 		
-		var pos: Vector3 = location.to_global(Vector3()) * scale
+		var pos: Vector3 = location.to_global(zero) * scale
 		var offset = pos - center
 		var origin = offset.normalized()
 		var distance = offset.length()
 		
+		var maybe_up = up
+		if maybe_up.is_equal_approx(origin):
+			point.visible = false
+			continue
+		if origin.is_equal_approx(zero):
+			point.visible = false
+			continue
+		
+		point.visible = true
 		point.transform = identity.looking_at(origin, up)
 		point.transform.origin = origin
 		
