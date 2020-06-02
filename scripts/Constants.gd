@@ -140,7 +140,7 @@ export(Dictionary) var BUILDING_COST = {
 		}
 	],
 	BuildingType.MicrochipFactory: [
-		100000,
+		300000,
 		{
 			ResourceType.Silicon: 5
 		}
