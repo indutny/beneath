@@ -213,6 +213,7 @@ export(int) var STATION_REFUEL_INTERVAL = 15
 
 # How much credits are taken on empty fuel tank
 export(int) var FUEL_LOAN_PRICE = 1000
+export(int) var FUEL_MAX_LOAN = 100000
 
 # Per one universe scale
 export(int) var FUEL_PER_UNIVERSE_UNIT = 10

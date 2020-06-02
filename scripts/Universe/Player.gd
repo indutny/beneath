@@ -80,7 +80,8 @@ func burn_fuel(distance: float):
 	burn_accumulator -= float(to_burn)
 	var burned = retrieve_cargo(Constants.ResourceType.Fuel, to_burn)
 	if burned != to_burn:
-		credits -= max(to_burn - burned, 0) * Constants.FUEL_LOAN_PRICE
+		credits -= int(max(to_burn - burned, 0) * Constants.FUEL_LOAN_PRICE)
+		credits = int(max(-Constants.FUEL_MAX_LOAN, credits))
 		emit_signal("credits_updated", self)
 
 func store_cargo(resource_type: int, quantity: int) -> int:
