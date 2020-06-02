@@ -12,9 +12,12 @@ func reset():
 
 func configure(max_quantity: int, price_: float, limit: int = 0):
 	price = price_
+	$Of.visible = price != 0
+	$SellCount.visible = price != 0
+	$PriceBox.visible = price != 0
 	
 	$MaxQuantity.text = str(max(limit, max_quantity))
-	$Price.text = str(price)
+	$PriceBox/Price.text = str(price)
 	$SellCount.max_value = max_quantity
 
 func _on_All_pressed():

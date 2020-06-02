@@ -33,7 +33,8 @@ func deserialize(data):
 	var market = data["market"]
 	for resource_type in market.keys():
 		var subdata = market[resource_type]
-		market_resource[int(resource_type)].deserialize(subdata)
+		if market_resource.has(int(resource_type)):
+			market_resource[int(resource_type)].deserialize(subdata)
 
 #
 # Visual Instancing
@@ -68,8 +69,25 @@ func retrieve_resource(resource_type, quantity):
 	res.quantity -= to_retrieve
 	return to_retrieve
 
+func has_resources(dict: Dictionary) -> bool:
+	for key in dict.keys():
+		if market_resource[key].quantity < dict[key]:
+			return false
+	return true
+
+func retrieve_resources(dict: Dictionary) -> Dictionary:
+	var out = {}
+	for key in dict.keys():
+		out[key] = retrieve_resource(key, dict[key])
+	return out
+
 func get_resource_economics(resource_type):
 	var price = Constants.RESOURCE_BASE_PRICE[resource_type]
+	
+	# No calculation and no mark-up for priceless resources
+	if price == 0:
+		return { "buy_price": 0, "sell_price": 0 }
+	
 	var supply = 0
 	var demand = 0.0
 	for building in buildings:
@@ -79,7 +97,7 @@ func get_resource_economics(resource_type):
 		var consumes = building.get_consume_dict()
 		supply += produces.get(resource_type, 0) / interval
 		demand += consumes.get(resource_type, 0) / interval
-	var adjusted_price = price * pow(20.0, demand - supply)
+	var adjusted_price = price * pow(5.0, demand - supply)
 	
 	return {
 		"buy_price": convert(max(

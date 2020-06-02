@@ -23,6 +23,7 @@ func _on_any_transaction():
 	$TabContainer/Buy.update_market()
 	$TabContainer/Sell.update_market()
 	$TabContainer/Buildings.update_market()
+	Persistence.save_game()
 
 
 func _on_TakeOff_pressed():

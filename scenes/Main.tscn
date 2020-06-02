@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/images/stars.jpg" type="Texture" id=5]
 
 [sub_resource type="PanoramaSky" id=1]
+resource_local_to_scene = true
 panorama = ExtResource( 5 )
 
 [sub_resource type="Environment" id=2]
@@ -44,6 +45,11 @@ light_energy = 0.2
 
 [node name="UniverseViewport" type="Viewport" parent="."]
 own_world = true
+hdr = false
+usage = 3
+render_target_clear_mode = 1
+render_target_update_mode = 0
+gui_disable_input = true
 
 [node name="Universe" parent="UniverseViewport" instance=ExtResource( 3 )]
 [connection signal="body_entered" from="Player" to="HUD" method="_on_Player_body_entered"]

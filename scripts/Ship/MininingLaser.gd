@@ -1,7 +1,5 @@
 extends Spatial
 
-export(float, 0, 100) var mining_speed = 0.5
-
 signal released_mined_resources(resource_type, count)
 
 var enabled = false
@@ -29,7 +27,9 @@ func _process(delta):
 	$Ray.scale.z = distance
 	
 	if collider is SpatialAsteroid:
-		var mined = min(collider.resources, mining_speed * delta)
+		# Two lasers in standard equipment
+		var interval = Constants.MINING_INTERVAL[collider.resource_type] * 2.0
+		var mined = min(collider.resources, delta / interval)
 		
 		var buffer_value = buffer.get(collider.resource_type, 0)
 		buffer_value += mined

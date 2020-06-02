@@ -16,21 +16,21 @@ margin_bottom = 20.0
 alignment = 1
 
 [node name="TypeLabel" type="Label" parent="Top"]
-margin_left = 336.0
+margin_left = 330.0
 margin_top = 3.0
-margin_right = 370.0
+margin_right = 364.0
 margin_bottom = 17.0
 text = "Type:"
 
 [node name="Type" type="OptionButton" parent="Top"]
-margin_left = 374.0
-margin_right = 438.0
+margin_left = 368.0
+margin_right = 432.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 64, 0 )
 
 [node name="CostBox" type="HBoxContainer" parent="Top"]
-margin_left = 442.0
-margin_right = 494.0
+margin_left = 436.0
+margin_right = 500.0
 margin_bottom = 20.0
 
 [node name="Sep1" type="VSeparator" parent="Top/CostBox"]
@@ -51,14 +51,24 @@ margin_right = 52.0
 margin_bottom = 17.0
 text = "0"
 
+[node name="Sep2" type="VSeparator" parent="Top/CostBox"]
+margin_left = 56.0
+margin_right = 60.0
+margin_bottom = 20.0
+
+[node name="Resources" type="HBoxContainer" parent="Top/CostBox"]
+margin_left = 64.0
+margin_right = 64.0
+margin_bottom = 20.0
+
 [node name="Sep2" type="VSeparator" parent="Top"]
-margin_left = 498.0
-margin_right = 502.0
+margin_left = 504.0
+margin_right = 508.0
 margin_bottom = 20.0
 
 [node name="Action" type="Button" parent="Top"]
-margin_left = 506.0
-margin_right = 551.0
+margin_left = 512.0
+margin_right = 557.0
 margin_bottom = 20.0
 text = "Build"
 

@@ -41,36 +41,40 @@ margin_right = 529.0
 margin_bottom = 19.0
 text = "1"
 
-[node name="VSeparator2" type="VSeparator" parent="."]
+[node name="PriceBox" type="HBoxContainer" parent="."]
 margin_left = 533.0
-margin_right = 537.0
+margin_right = 630.0
 margin_bottom = 24.0
 
-[node name="All" type="Button" parent="."]
-margin_left = 541.0
-margin_right = 570.0
+[node name="VSeparator2" type="VSeparator" parent="PriceBox"]
+margin_right = 4.0
+margin_bottom = 24.0
+
+[node name="All" type="Button" parent="PriceBox"]
+margin_left = 8.0
+margin_right = 37.0
 margin_bottom = 24.0
 text = "All"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VSeparator" type="VSeparator" parent="."]
-margin_left = 574.0
-margin_right = 578.0
+[node name="VSeparator" type="VSeparator" parent="PriceBox"]
+margin_left = 41.0
+margin_right = 45.0
 margin_bottom = 24.0
 
-[node name="PriceLabel" type="Label" parent="."]
-margin_left = 582.0
+[node name="PriceLabel" type="Label" parent="PriceBox"]
+margin_left = 49.0
 margin_top = 5.0
-margin_right = 618.0
+margin_right = 85.0
 margin_bottom = 19.0
 text = "Price:"
 
-[node name="Price" type="Label" parent="."]
-margin_left = 622.0
+[node name="Price" type="Label" parent="PriceBox"]
+margin_left = 89.0
 margin_top = 5.0
-margin_right = 630.0
+margin_right = 97.0
 margin_bottom = 19.0
 text = "2"
-[connection signal="pressed" from="All" to="." method="_on_All_pressed"]
+[connection signal="pressed" from="PriceBox/All" to="." method="_on_All_pressed"]

@@ -22,9 +22,16 @@ func update_market():
 		ui.visible = market_resource.quantity != 0
 		
 		var buy_price = station.get_buy_price(resource_type)
-		var max_buy_quantity = min(
-			floor(player.credits / buy_price),
-			market_resource.quantity)
+		var max_buy_quantity = 0
+		if buy_price != 0:
+			max_buy_quantity = min(
+				floor(player.credits / buy_price),
+				market_resource.quantity)
+		
+		# Electricity can't be sold
+		if Constants.RESOURCE_BASE_PRICE[resource_type] == 0:
+			max_buy_quantity = 0
+
 		ui.configure(max_buy_quantity, buy_price, market_resource.quantity)
 
 # TODO(indutny): DRY

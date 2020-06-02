@@ -18,7 +18,7 @@ func queue_resource(uri: String):
 	start_mutex.unlock()
 	
 	var err = start_sem.post()
-	assert(err == OK)
+	_check(err == OK)
 
 func cancel_resource(uri: String):
 	start_mutex.lock()
@@ -51,12 +51,12 @@ func get_resource(uri: String) -> Resource:
 			queue_resource(uri)
 		
 		var err = complete_sem.wait()
-		assert(err == OK)
+		_check(err == OK)
 	return null
 
 func stop():
 	var err = start_sem.post()
-	assert(err == OK)
+	_check(err == OK)
 	
 	thread.wait_to_finish()
 	
@@ -75,7 +75,7 @@ func _load_one():
 	start_mutex.unlock()
 	
 	var err = loader.wait()
-	assert(err == ERR_FILE_EOF)
+	_check(err == ERR_FILE_EOF)
 	
 	start_mutex.lock()
 	running.erase(uri)
@@ -86,20 +86,26 @@ func _load_one():
 	complete_mutex.unlock()
 	
 	err = complete_sem.post()
-	assert(err == OK)
+	_check(err == OK)
 	
 	return true
 	
 func _loop(_data):
 	while true:
 		var err = start_sem.wait()
-		assert(err == OK)
+		_check(err == OK)
 		
 		if not _load_one():
 			break
+
+func _check(condition):
+	if condition:
+		return
+	print_debug("ResourceQueue check failed")
+	assert(0)
 
 func _init():
 	._init()
 	
 	var err = thread.start(self, "_loop")
-	assert(err == OK)
+	_check(err == OK)

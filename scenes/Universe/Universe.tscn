@@ -172,10 +172,11 @@ collision_mask = 8
 
 [node name="AsteroidFeilds" type="Spatial" parent="."]
 
-[node name="[Ice Field 1]" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+[node name="[Silicon Field 1]" parent="AsteroidFeilds" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33, -0.33, 0.2 )
 monitoring = true
 collision_mask = 8
+resource_type = 4
 
 [node name="[Ice Field 2]" parent="AsteroidFeilds" instance=ExtResource( 5 )]
 transform = Transform( 0.198513, 0.980098, 0, 0.163399, -0.0330955, 0.986005, 0.966382, -0.195734, -0.166717, 1.85706, -0.245029, 0.876226 )

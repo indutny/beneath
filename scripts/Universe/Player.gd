@@ -6,6 +6,7 @@ signal credits_updated(player)
 signal map_updated(player)
 
 export(float, 0, 1000) var max_total_cargo_weight = 100
+export(float, 0, 1000) var max_fuel = 100
 
 var station: Station
 var cargo = {}
@@ -49,7 +50,7 @@ func retrieve_cargo(resource_type: int, quantity: int) -> int:
 		return 0
 	
 	var max_quantity = cargo[resource_type]
-	var change = clamp(quantity, 0, max_quantity)
+	var change: int = int(clamp(quantity, 0, max_quantity))
 	
 	cargo[resource_type] -= change
 	if cargo[resource_type] == 0:
@@ -60,16 +61,29 @@ func retrieve_cargo(resource_type: int, quantity: int) -> int:
 	return change
 
 func store_cargo(resource_type: int, quantity: int) -> int:
-	var capacity = max_total_cargo_weight - total_cargo_weight
-	capacity /= Constants.RESOURCE_WEIGHT[resource_type]
-	capacity = floor(capacity)
+	var density = Constants.RESOURCE_WEIGHT[resource_type]
 	
-	var to_store = clamp(quantity, 0, capacity)
+	# Can't store in cargo (see Constants.gd)
+	if density < 0:
+		return 0
+
+	var capacity
+	
+	# Store fuel alongside regular cargo, but use different capacity
+	if resource_type == Constants.ResourceType.Fuel:
+		assert(density == 0)
+		capacity = max_fuel - cargo.get(resource_type, 0)
+	else:
+		capacity = max_total_cargo_weight - total_cargo_weight
+		capacity /= density
+		capacity = floor(capacity)
+	
+	var to_store: int = int(clamp(quantity, 0, capacity))
 	if to_store == 0:
 		return to_store
 	
 	cargo[resource_type] = cargo.get(resource_type, 0) + to_store
-	total_cargo_weight += to_store * Constants.RESOURCE_WEIGHT[resource_type]
+	total_cargo_weight += to_store * density
 	emit_signal("cargo_updated", self)
 	return to_store
 	
@@ -83,6 +97,9 @@ func spend_credits(delta: int) -> bool:
 	credits -= delta
 	emit_signal("credits_updated", self)
 	return true
+
+func has_credits(value: int) -> bool:
+	return value <= credits
 
 func get_map_locations() -> Array:
 	# TODO(indutny): can it be done more efficiently?
