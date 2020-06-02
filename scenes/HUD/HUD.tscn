@@ -14,6 +14,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+thrust_volume = -12.0
 
 [node name="Overlay" type="CenterContainer" parent="."]
 anchor_right = 1.0

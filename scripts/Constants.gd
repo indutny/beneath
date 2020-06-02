@@ -94,9 +94,9 @@ export(Dictionary) var RESOURCE_BASE_PRICE = {
 	# Can't be sold
 	ResourceType.Electricity: 0,
 	
-	ResourceType.Hydrogen: 25,
-	ResourceType.Oxygen: 50,
-	ResourceType.Fuel: 150,
+	ResourceType.Hydrogen: 12,
+	ResourceType.Oxygen: 25,
+	ResourceType.Fuel: 75,
 	ResourceType.Microchip: 500
 }
 

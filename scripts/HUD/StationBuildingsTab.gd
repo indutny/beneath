@@ -13,6 +13,9 @@ func set_player(player: Player):
 	current_player = player
 	station = player.station
 	
+	for child in $List.get_children():
+		$List.remove_child(child)
+	
 	for building in station.buildings:
 		var ui = HUDStationBuilding.instance()
 		ui.init(current_player, building)

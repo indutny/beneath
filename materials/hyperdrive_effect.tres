@@ -30,6 +30,6 @@ void fragment() {
 
 [resource]
 shader = SubResource( 1 )
-shader_param/displace_amount = 0.004
+shader_param/displace_amount = 0.005
 shader_param/wavelength = 0.223
 shader_param/frequency = 0.835

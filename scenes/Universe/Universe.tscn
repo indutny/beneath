@@ -15,7 +15,7 @@ universe_scale = 100000.0
 [node name="Stations" type="Spatial" parent="."]
 
 [node name="Dirac" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.61017293664216, -0.787074156659165, 0.09057184611537482, -0.13290772272817722, -0.21438867189367428, -0.9676636991242756, 0.7810406677175606, 0.5784045031661935, -0.23542239929194592, -11.9, -0.28, 6.44)
+transform = Transform( 0.610173, -0.787074, 0.0905718, -0.132908, -0.214389, -0.967664, 0.781041, 0.578404, -0.235422, -11.9, -0.28, 6.44 )
 
 [node name="Vacant0" parent="Stations/Dirac" instance=ExtResource( 3 )]
 
@@ -24,7 +24,7 @@ transform=Transform(0.61017293664216, -0.787074156659165, 0.09057184611537482, -
 [node name="Vacant2" parent="Stations/Dirac" instance=ExtResource( 3 )]
 
 [node name="Abrikosov" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.13738283635360007, 0.841132202433042, 0.5230894515334639, -0.5290125341344435, 0.3841649706485516, -0.7566789372351075, -0.8374196648061796, -0.38067557494110066, 0.39219180465579373, -7.5600000000000005, -1.4000000000000001, 9.94)
+transform = Transform( -0.137383, 0.841132, 0.523089, -0.529013, 0.384165, -0.756679, -0.83742, -0.380676, 0.392192, -7.56, -1.4, 9.94 )
 
 [node name="Vacant0" parent="Stations/Abrikosov" instance=ExtResource( 3 )]
 
@@ -39,7 +39,7 @@ transform=Transform(-0.13738283635360007, 0.841132202433042, 0.5230894515334639,
 [node name="Vacant5" parent="Stations/Abrikosov" instance=ExtResource( 3 )]
 
 [node name="Adler" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.5184706288384355, 0.781750826530375, -0.34648788182410123, 0.33832814210806367, -0.18459446044518693, -0.9227453350901622, -0.785316671979898, -0.595642955462436, -0.1687814987443572, -3.5, -0.42, 12.46)
+transform = Transform( -0.518471, 0.781751, -0.346488, 0.338328, -0.184594, -0.922745, -0.785317, -0.595643, -0.168782, -3.5, -0.42, 12.46 )
 
 [node name="Vacant0" parent="Stations/Adler" instance=ExtResource( 3 )]
 
@@ -54,7 +54,7 @@ transform=Transform(-0.5184706288384355, 0.781750826530375, -0.34648788182410123
 [node name="Vacant5" parent="Stations/Adler" instance=ExtResource( 3 )]
 
 [node name="Alcubierre" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.46159819091833865, 0.480247387026931, -0.7458482133750286, -0.43782560639365764, 0.6079032437999757, 0.6623914134131671, 0.7715152937738454, 0.6323101244099074, -0.0703424341474229, -3.9200000000000004, 7.700000000000001, 10.92)
+transform = Transform( -0.461598, 0.480247, -0.745848, -0.437826, 0.607903, 0.662391, 0.771515, 0.63231, -0.0703424, -3.92, 7.7, 10.92 )
 
 [node name="Vacant0" parent="Stations/Alcubierre" instance=ExtResource( 3 )]
 
@@ -63,7 +63,7 @@ transform=Transform(-0.46159819091833865, 0.480247387026931, -0.7458482133750286
 [node name="Vacant2" parent="Stations/Alcubierre" instance=ExtResource( 3 )]
 
 [node name="Alferov" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.44406360446929033, 0.05261080239283565, -0.8944493382284564, 0.5066927599554237, -0.8085743219403897, -0.2991153839363571, -0.7389654675250373, -0.5860372593702732, 0.3324009152142665, -1.26, 2.1, 8.96)
+transform = Transform( -0.444064, 0.0526108, -0.894449, 0.506693, -0.808574, -0.299115, -0.738965, -0.586037, 0.332401, -1.26, 2.1, 8.96 )
 
 [node name="Vacant0" parent="Stations/Alferov" instance=ExtResource( 3 )]
 
@@ -80,7 +80,7 @@ transform=Transform(-0.44406360446929033, 0.05261080239283565, -0.89444933822845
 [node name="Vacant6" parent="Stations/Alferov" instance=ExtResource( 3 )]
 
 [node name="Alvarez" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.7031131823414329, 0.4801831689404977, 0.5244577934247565, 0.37690513644117246, 0.37375236972162706, -0.8474973063389226, -0.6029712853378378, 0.7935573642741462, 0.08180671527635222, -2.66, 4.62, 12.88)
+transform = Transform( 0.703113, 0.480183, 0.524458, 0.376905, 0.373752, -0.847497, -0.602971, 0.793557, 0.0818067, -2.66, 4.62, 12.88 )
 
 [node name="Vacant0" parent="Stations/Alvarez" instance=ExtResource( 3 )]
 
@@ -97,14 +97,14 @@ transform=Transform(0.7031131823414329, 0.4801831689404977, 0.5244577934247565, 
 [node name="Vacant6" parent="Stations/Alvarez" instance=ExtResource( 3 )]
 
 [node name="Ampere" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.3966407574376884, 0.9177116674924327, 0.02194094089858366, 0.7942107285175114, -0.35505253572487405, 0.4931196767347866, 0.4603318675118422, -0.17816563143209005, -0.8696847587082712, 2.24, -0.42, 9.94)
+transform = Transform( 0.396641, 0.917712, 0.0219409, 0.794211, -0.355053, 0.49312, 0.460332, -0.178166, -0.869685, 2.24, -0.42, 9.94 )
 
 [node name="Vacant0" parent="Stations/Ampere" instance=ExtResource( 3 )]
 
 [node name="Vacant1" parent="Stations/Ampere" instance=ExtResource( 3 )]
 
 [node name="Arago" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.5890156387097336, -0.1035332973496194, 0.8014620600473115, -0.6941686548794798, 0.4429512152945254, 0.5673835558525793, -0.4137516839097799, -0.8905476277038857, 0.1890356232375351, 1.54, -4.8999999999999995, 11.34)
+transform = Transform( 0.589016, -0.103533, 0.801462, -0.694169, 0.442951, 0.567384, -0.413752, -0.890548, 0.189036, 1.54, -4.9, 11.34 )
 
 [node name="Vacant0" parent="Stations/Arago" instance=ExtResource( 3 )]
 
@@ -113,14 +113,14 @@ transform=Transform(0.5890156387097336, -0.1035332973496194, 0.8014620600473115,
 [node name="Vacant2" parent="Stations/Arago" instance=ExtResource( 3 )]
 
 [node name="Avicenna" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.7593104101670545, -0.30381571435106913, 0.5754508777691537, -0.4235888693044138, -0.9020745971383778, 0.08266735146986348, 0.49398397829620766, -0.30652476720647426, -0.8136475872733041, -11.76, 0.7000000000000001, 1.4000000000000001)
+transform = Transform( 0.75931, -0.303816, 0.575451, -0.423589, -0.902075, 0.0826674, 0.493984, -0.306525, -0.813648, -11.76, 0.7, 1.4 )
 
 [node name="Vacant0" parent="Stations/Avicenna" instance=ExtResource( 3 )]
 
 [node name="Vacant1" parent="Stations/Avicenna" instance=ExtResource( 3 )]
 
 [node name="Bell" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.05117291847687592, 0.0890886455891472, 0.9947082716262343, 0.08765796897428069, -0.9917684569054681, 0.0933349257387109, 0.9948353697420811, 0.09197032735854521, 0.042942356662146394, 3.9200000000000004, -5.88, 6.44)
+transform = Transform( -0.0511729, 0.0890886, 0.994708, 0.087658, -0.991768, 0.0933349, 0.994835, 0.0919703, 0.0429424, 3.92, -5.88, 6.44 )
 
 [node name="Vacant0" parent="Stations/Bell" instance=ExtResource( 3 )]
 
@@ -135,14 +135,14 @@ transform=Transform(-0.05117291847687592, 0.0890886455891472, 0.9947082716262343
 [node name="Vacant5" parent="Stations/Bell" instance=ExtResource( 3 )]
 
 [node name="Bhabha" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.011497303187626822, 0.0025490582501263366, 0.9999306547563432, 0.5942213456735059, -0.8042873391221285, -0.004782099310348346, 0.8042193757709271, 0.5942351204951486, -0.010761840211446968, -11.06, -3.5, 1.82)
+transform = Transform( 0.0114973, 0.00254906, 0.999931, 0.594221, -0.804287, -0.0047821, 0.804219, 0.594235, -0.0107618, -11.06, -3.5, 1.82 )
 
 [node name="Vacant0" parent="Stations/Bhabha" instance=ExtResource( 3 )]
 
 [node name="Vacant1" parent="Stations/Bhabha" instance=ExtResource( 3 )]
 
 [node name="Bloch" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.7004582144231356, -0.13189646778663133, -0.7013997516627468, -0.12943871556153339, 0.9899539183490197, -0.056893395567528836, 0.7018574704033099, 0.05093683667870402, -0.7104938633853455, 9.94, -3.08, 4.2)
+transform = Transform( -0.700458, -0.131896, -0.7014, -0.129439, 0.989954, -0.0568934, 0.701857, 0.0509368, -0.710494, 9.94, -3.08, 4.2 )
 
 [node name="Vacant0" parent="Stations/Bloch" instance=ExtResource( 3 )]
 
@@ -155,7 +155,7 @@ transform=Transform(-0.7004582144231356, -0.13189646778663133, -0.70139975166274
 [node name="Vacant4" parent="Stations/Bloch" instance=ExtResource( 3 )]
 
 [node name="Bogolyubov" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.6554547269491686, 0.6072301376575184, 0.4490552981988101, 0.731181557822384, -0.36135600904104376, -0.5786150397547243, -0.1890836598451138, 0.7075969153765161, -0.6808479822465636, -10.64, -4.2, -3.64)
+transform = Transform( 0.655455, 0.60723, 0.449055, 0.731182, -0.361356, -0.578615, -0.189084, 0.707597, -0.680848, -10.64, -4.2, -3.64 )
 
 [node name="Vacant0" parent="Stations/Bogolyubov" instance=ExtResource( 3 )]
 
@@ -168,7 +168,7 @@ transform=Transform(0.6554547269491686, 0.6072301376575184, 0.4490552981988101, 
 [node name="Vacant4" parent="Stations/Bogolyubov" instance=ExtResource( 3 )]
 
 [node name="Bohm" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.8442680738824023, 0.5347586317529621, 0.035279245862092, -0.18524117739660806, -0.3529600502057652, 0.9171177182649246, 0.5028887805664553, 0.7677580404817934, 0.3970522203135753, 7.28, 1.54, 3.5)
+transform = Transform( -0.844268, 0.534759, 0.0352792, -0.185241, -0.35296, 0.917118, 0.502889, 0.767758, 0.397052, 7.28, 1.54, 3.5 )
 
 [node name="Vacant0" parent="Stations/Bohm" instance=ExtResource( 3 )]
 
@@ -179,7 +179,7 @@ transform=Transform(-0.8442680738824023, 0.5347586317529621, 0.035279245862092, 
 [node name="Vacant3" parent="Stations/Bohm" instance=ExtResource( 3 )]
 
 [node name="Bohr" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.3486267921666418, 0.11108302698484082, -0.9306556403415187, -0.3231362974935841, 0.946317809247185, -0.008095501451201243, 0.8797967339253625, 0.3035509265633917, 0.36580670026227147, 9.1, -6.3, 7.840000000000001)
+transform = Transform( 0.348627, 0.111083, -0.930656, -0.323136, 0.946318, -0.0080955, 0.879797, 0.303551, 0.365807, 9.1, -6.3, 7.84 )
 
 [node name="Vacant0" parent="Stations/Bohr" instance=ExtResource( 3 )]
 
@@ -190,7 +190,7 @@ transform=Transform(0.3486267921666418, 0.11108302698484082, -0.9306556403415187
 [node name="Vacant3" parent="Stations/Bohr" instance=ExtResource( 3 )]
 
 [node name="Boltzmann" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.042821426376264314, 0.030090664061567046, -0.9986294995539818, -0.910933117379443, 0.40934018613870654, 0.05139521060662347, 0.4103257012477676, 0.9118854993628658, 0.009882051774035889, 5.739999999999999, 5.32, 1.12)
+transform = Transform( -0.0428214, 0.0300907, -0.99863, -0.910933, 0.40934, 0.0513952, 0.410326, 0.911885, 0.00988205, 5.74, 5.32, 1.12 )
 
 [node name="Vacant0" parent="Stations/Boltzmann" instance=ExtResource( 3 )]
 
@@ -203,14 +203,14 @@ transform=Transform(-0.042821426376264314, 0.030090664061567046, -0.998629499553
 [node name="Vacant4" parent="Stations/Boltzmann" instance=ExtResource( 3 )]
 
 [node name="Born" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.4431951544900138, 0.39605858457926324, 0.8041863295391458, 0.8956773087257276, 0.15901249757809352, 0.4153037252997073, 0.03660892883451795, 0.904352046050125, -0.4252142555636415, 0, 7.840000000000001, -4.06)
+transform = Transform( -0.443195, 0.396059, 0.804186, 0.895677, 0.159012, 0.415304, 0.0366089, 0.904352, -0.425214, 0, 7.84, -4.06 )
 
 [node name="Vacant0" parent="Stations/Born" instance=ExtResource( 3 )]
 
 [node name="Vacant1" parent="Stations/Born" instance=ExtResource( 3 )]
 
 [node name="Bose" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.831435216279692, -0.4680218045672672, -0.2994512841507617, -0.44472486669891476, 0.23749253275287657, 0.8636070227981336, -0.33306947333788195, 0.8512067242075936, -0.4056005899825632, 8.4, 9.24, -2.94)
+transform = Transform( -0.831435, -0.468022, -0.299451, -0.444725, 0.237493, 0.863607, -0.333069, 0.851207, -0.405601, 8.4, 9.24, -2.94 )
 
 [node name="Vacant0" parent="Stations/Bose" instance=ExtResource( 3 )]
 
@@ -219,7 +219,7 @@ transform=Transform(-0.831435216279692, -0.4680218045672672, -0.2994512841507617
 [node name="Vacant2" parent="Stations/Bose" instance=ExtResource( 3 )]
 
 [node name="Boyle" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.9454126403567715, -0.0803753407491817, 0.31580808104462804, 0.3234630699893723, 0.11374894256101459, -0.939378954639341, 0.039580068300697505, 0.9902529892233114, 0.13353814259457178, -3.5, -6.58, -8.26)
+transform = Transform( 0.945413, -0.0803753, 0.315808, 0.323463, 0.113749, -0.939379, 0.0395801, 0.990253, 0.133538, -3.5, -6.58, -8.26 )
 
 [node name="Vacant0" parent="Stations/Boyle" instance=ExtResource( 3 )]
 
@@ -232,7 +232,7 @@ transform=Transform(0.9454126403567715, -0.0803753407491817, 0.31580808104462804
 [node name="Vacant4" parent="Stations/Boyle" instance=ExtResource( 3 )]
 
 [node name="Bragg" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.3105036505012271, 0.3237645751624046, 0.8937359693417961, -0.7000633783013067, 0.5581411673565784, -0.445409590897185, -0.6430386842070805, -0.7639731259486449, 0.05335085230324641, -2.94, -1.26, 2.94)
+transform = Transform( -0.310504, 0.323765, 0.893736, -0.700063, 0.558141, -0.44541, -0.643039, -0.763973, 0.0533509, -2.94, -1.26, 2.94 )
 
 [node name="Vacant0" parent="Stations/Bragg" instance=ExtResource( 3 )]
 
@@ -243,7 +243,7 @@ transform=Transform(-0.3105036505012271, 0.3237645751624046, 0.8937359693417961,
 [node name="Vacant3" parent="Stations/Bragg" instance=ExtResource( 3 )]
 
 [node name="Brillouin" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.27286699084352006, 0.40552523801407975, 0.8724063770065112, -0.9493675860370915, -0.2602706881344442, -0.1759555497281324, 0.15570739189296284, -0.8762467975585688, 0.45601179576656176, 4.06, -2.66, 0.7000000000000001)
+transform = Transform( -0.272867, 0.405525, 0.872406, -0.949368, -0.260271, -0.175956, 0.155707, -0.876247, 0.456012, 4.06, -2.66, 0.7 )
 
 [node name="Vacant0" parent="Stations/Brillouin" instance=ExtResource( 3 )]
 
@@ -252,7 +252,7 @@ transform=Transform(-0.27286699084352006, 0.40552523801407975, 0.872406377006511
 [node name="Vacant2" parent="Stations/Brillouin" instance=ExtResource( 3 )]
 
 [node name="Broglie" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.3807362223236918, -0.8493075629075776, -0.36567279444699624, -0.885341612521428, -0.22069769121459656, -0.4092221380014817, 0.26685231523942504, 0.4795510324048291, -0.8359549324998451, -6.44, 6.02, -6.44)
+transform = Transform( 0.380736, -0.849308, -0.365673, -0.885342, -0.220698, -0.409222, 0.266852, 0.479551, -0.835955, -6.44, 6.02, -6.44 )
 
 [node name="Vacant0" parent="Stations/Broglie" instance=ExtResource( 3 )]
 
@@ -261,7 +261,7 @@ transform=Transform(0.3807362223236918, -0.8493075629075776, -0.3656727944469962
 [node name="Vacant2" parent="Stations/Broglie" instance=ExtResource( 3 )]
 
 [node name="Carnot" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.09278837335442854, -0.059856125032267546, 0.9938850849400852, 0.6414981311321651, 0.7598147148994798, 0.10564916836474049, -0.7614922622877914, 0.6473784390280103, -0.03210437910126879, -13.44, 1.82, -2.24)
+transform = Transform( -0.0927884, -0.0598561, 0.993885, 0.641498, 0.759815, 0.105649, -0.761492, 0.647378, -0.0321044, -13.44, 1.82, -2.24 )
 
 [node name="Vacant0" parent="Stations/Carnot" instance=ExtResource( 3 )]
 
@@ -278,7 +278,7 @@ transform=Transform(-0.09278837335442854, -0.059856125032267546, 0.9938850849400
 [node name="Vacant6" parent="Stations/Carnot" instance=ExtResource( 3 )]
 
 [node name="Casimir" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.3630429348241771, -0.5671886172042904, -0.7392542864185052, 0.8112357777141483, 0.5826898522103123, -0.04867287835792323, 0.45836267347022186, -0.5820391813658332, 0.6716651330270327, -9.1, -3.5, 4.760000000000001)
+transform = Transform( 0.363043, -0.567189, -0.739254, 0.811236, 0.58269, -0.0486729, 0.458363, -0.582039, 0.671665, -9.1, -3.5, 4.76 )
 
 [node name="Vacant0" parent="Stations/Casimir" instance=ExtResource( 3 )]
 
@@ -289,7 +289,7 @@ transform=Transform(0.3630429348241771, -0.5671886172042904, -0.7392542864185052
 [node name="Vacant3" parent="Stations/Casimir" instance=ExtResource( 3 )]
 
 [node name="Chandrasekhar" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.40796510564650773, -0.682923150695095, 0.605954159008351, -0.5228531128980585, 0.36932912474008367, 0.7682581727202994, -0.7484578110405713, -0.6302475449086716, -0.20639509981815993, -3.9200000000000004, -4.62, -12.32)
+transform = Transform( 0.407965, -0.682923, 0.605954, -0.522853, 0.369329, 0.768258, -0.748458, -0.630248, -0.206395, -3.92, -4.62, -12.32 )
 
 [node name="Vacant0" parent="Stations/Chandrasekhar" instance=ExtResource( 3 )]
 
@@ -302,7 +302,7 @@ transform=Transform(0.40796510564650773, -0.682923150695095, 0.605954159008351, 
 [node name="Vacant4" parent="Stations/Chandrasekhar" instance=ExtResource( 3 )]
 
 [node name="Cherenkov" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.4630144035812987, 0.6273670276112512, 0.6261216133807216, 0.8575334863660702, 0.13840844064098307, 0.4954588008302854, 0.22417399902108892, 0.766324811177059, -0.6020733360125973, -8.26, 9.1, -2.1)
+transform = Transform( -0.463014, 0.627367, 0.626122, 0.857534, 0.138408, 0.495459, 0.224174, 0.766325, -0.602073, -8.26, 9.1, -2.1 )
 
 [node name="Vacant0" parent="Stations/Cherenkov" instance=ExtResource( 3 )]
 
@@ -311,7 +311,7 @@ transform=Transform(-0.4630144035812987, 0.6273670276112512, 0.6261216133807216,
 [node name="Vacant2" parent="Stations/Cherenkov" instance=ExtResource( 3 )]
 
 [node name="Compton" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.6675861730452569, -0.2826625468548654, -0.688789217514552, -0.038310000955508454, -0.9369455452566187, 0.34736924021934684, -0.743546263110492, -0.205511386130546, -0.636320693349764, -0.14, 4.34, 0.14)
+transform = Transform( 0.667586, -0.282663, -0.688789, -0.03831, -0.936946, 0.347369, -0.743546, -0.205511, -0.636321, -0.14, 4.34, 0.14 )
 
 [node name="Vacant0" parent="Stations/Compton" instance=ExtResource( 3 )]
 
@@ -326,14 +326,14 @@ transform=Transform(0.6675861730452569, -0.2826625468548654, -0.688789217514552,
 [node name="Vacant5" parent="Stations/Compton" instance=ExtResource( 3 )]
 
 [node name="Cooper" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.08277279172057478, 0.8223914701225368, 0.5628684880329285, 0.9780866295784315, -0.041231348208092905, 0.20407479257577893, 0.19103719530679505, 0.5674259826573292, -0.8009572674086163, -7.700000000000001, 0, -9.38)
+transform = Transform( -0.0827728, 0.822391, 0.562868, 0.978087, -0.0412313, 0.204075, 0.191037, 0.567426, -0.800957, -7.7, 0, -9.38 )
 
 [node name="Vacant0" parent="Stations/Cooper" instance=ExtResource( 3 )]
 
 [node name="Vacant1" parent="Stations/Cooper" instance=ExtResource( 3 )]
 
 [node name="Coriolis" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.025080331136251733, -0.14672904688578323, -0.9888587178106315, -0.17894698178640922, -0.9725343287560408, 0.14884541343478497, -0.9835389950071278, 0.1806863752224477, -0.0018652370740336274, 1.54, -3.5, 3.9200000000000004)
+transform = Transform( -0.0250803, -0.146729, -0.988859, -0.178947, -0.972534, 0.148845, -0.983539, 0.180686, -0.00186524, 1.54, -3.5, 3.92 )
 
 [node name="Vacant0" parent="Stations/Coriolis" instance=ExtResource( 3 )]
 
@@ -346,7 +346,7 @@ transform=Transform(-0.025080331136251733, -0.14672904688578323, -0.988858717810
 [node name="Vacant4" parent="Stations/Coriolis" instance=ExtResource( 3 )]
 
 [node name="Coulomb" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.4911986047360144, -0.8089193204872939, -0.3230688218441507, -0.6885727230950894, -0.13344721823217953, -0.7127828876702262, 0.533471213576521, 0.5725743383076716, -0.6225488666737142, 1.26, -7.140000000000001, 2.66)
+transform = Transform( 0.491199, -0.808919, -0.323069, -0.688573, -0.133447, -0.712783, 0.533471, 0.572574, -0.622549, 1.26, -7.14, 2.66 )
 
 [node name="Vacant0" parent="Stations/Coulomb" instance=ExtResource( 3 )]
 
@@ -359,7 +359,7 @@ transform=Transform(0.4911986047360144, -0.8089193204872939, -0.3230688218441507
 [node name="Vacant4" parent="Stations/Coulomb" instance=ExtResource( 3 )]
 
 [node name="Curie" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.22557111341064268, -0.25272742081869115, 0.9408754027824381, 0.9197648906753662, -0.37362594578012515, 0.12015073250229863, 0.32117007749106213, 0.892486696486978, 0.31672902916869794, -0.42, 2.94, -13.299999999999999)
+transform = Transform( -0.225571, -0.252727, 0.940875, 0.919765, -0.373626, 0.120151, 0.32117, 0.892487, 0.316729, -0.42, 2.94, -13.3 )
 
 [node name="Vacant0" parent="Stations/Curie" instance=ExtResource( 3 )]
 
@@ -375,19 +375,19 @@ transform=Transform(-0.22557111341064268, -0.25272742081869115, 0.94087540278243
 
 [node name="Vacant6" parent="Stations/Curie" instance=ExtResource( 3 )]
 
-[node name="d'Alembert" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.16149611065772965, 0.3552122000003454, 0.9207297644875728, -0.9031255475665809, -0.3229248020703518, 0.28299084356280496, 0.3978482770793285, -0.8772364933008311, 0.2686501130583628, -0.42, 9.520000000000001, 5.18)
+[node name="d\'Alembert" parent="Stations" instance=ExtResource( 2 )]
+transform = Transform( 0.161496, 0.355212, 0.92073, -0.903126, -0.322925, 0.282991, 0.397848, -0.877236, 0.26865, -0.42, 9.52, 5.18 )
 
-[node name="Vacant0" parent="Stations/d'Alembert" instance=ExtResource( 3 )]
+[node name="Vacant0" parent="Stations/d\'Alembert" instance=ExtResource( 3 )]
 
-[node name="Vacant1" parent="Stations/d'Alembert" instance=ExtResource( 3 )]
+[node name="Vacant1" parent="Stations/d\'Alembert" instance=ExtResource( 3 )]
 
-[node name="Vacant2" parent="Stations/d'Alembert" instance=ExtResource( 3 )]
+[node name="Vacant2" parent="Stations/d\'Alembert" instance=ExtResource( 3 )]
 
-[node name="Vacant3" parent="Stations/d'Alembert" instance=ExtResource( 3 )]
+[node name="Vacant3" parent="Stations/d\'Alembert" instance=ExtResource( 3 )]
 
 [node name="Deutsch" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.3168495536293075, -0.9223245780249649, -0.22118709984078908, -0.9451735037898369, -0.3264837751292987, 0.007442601088646238, -0.07907849327441571, 0.2067020013168525, -0.9752029914602683, 2.8000000000000003, -10.36, -7.28)
+transform = Transform( 0.31685, -0.922325, -0.221187, -0.945174, -0.326484, 0.0074426, -0.0790785, 0.206702, -0.975203, 2.8, -10.36, -7.28 )
 
 [node name="Vacant0" parent="Stations/Deutsch" instance=ExtResource( 3 )]
 
@@ -404,14 +404,14 @@ transform=Transform(0.3168495536293075, -0.9223245780249649, -0.2211870998407890
 [node name="Vacant6" parent="Stations/Deutsch" instance=ExtResource( 3 )]
 
 [node name="Doppler" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.8184558119931474, -0.5074411187905102, 0.2695062054485446, -0.5129995021865461, 0.8566258099960201, 0.05498847520179604, -0.2587693849182969, -0.09325091210973736, -0.961427414223096, 5.6000000000000005, 10.08, 2.24)
+transform = Transform( -0.818456, -0.507441, 0.269506, -0.512999, 0.856626, 0.0549885, -0.258769, -0.0932509, -0.961427, 5.6, 10.08, 2.24 )
 
 [node name="Vacant0" parent="Stations/Doppler" instance=ExtResource( 3 )]
 
 [node name="Vacant1" parent="Stations/Doppler" instance=ExtResource( 3 )]
 
 [node name="Drell" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.13269627611546272, 0.23562742769704573, -0.9627416131143197, -0.3540874185931928, -0.8959636190447775, -0.26808821932750787, -0.9257503974069349, 0.3764690009350815, -0.035458328159173956, -1.82, -2.94, 9.799999999999999)
+transform = Transform( 0.132696, 0.235627, -0.962742, -0.354087, -0.895964, -0.268088, -0.92575, 0.376469, -0.0354583, -1.82, -2.94, 9.8 )
 
 [node name="Vacant0" parent="Stations/Drell" instance=ExtResource( 3 )]
 
@@ -426,14 +426,14 @@ transform=Transform(0.13269627611546272, 0.23562742769704573, -0.962741613114319
 [node name="Vacant5" parent="Stations/Drell" instance=ExtResource( 3 )]
 
 [node name="Drude" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.10284350628828133, -0.457780815501461, 0.8830967886778605, -0.6965346366120769, -0.6669467570163059, -0.26461580320365385, 0.7101145775253558, -0.5878934837742719, -0.38745133697244566, -3.64, -0.9800000000000001, -10.780000000000001)
+transform = Transform( 0.102844, -0.457781, 0.883097, -0.696535, -0.666947, -0.264616, 0.710115, -0.587893, -0.387451, -3.64, -0.98, -10.78 )
 
 [node name="Vacant0" parent="Stations/Drude" instance=ExtResource( 3 )]
 
 [node name="Vacant1" parent="Stations/Drude" instance=ExtResource( 3 )]
 
 [node name="Dyson" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.3179877087828668, 0.785638570937021, 0.5307125897499115, -0.8807357754241646, -0.4520038430406939, 0.14141081912088418, 0.35098192396620426, -0.4224506618913965, 0.8356716623869105, 8.82, -2.1, 7.42)
+transform = Transform( -0.317988, 0.785639, 0.530713, -0.880736, -0.452004, 0.141411, 0.350982, -0.422451, 0.835672, 8.82, -2.1, 7.42 )
 
 [node name="Vacant0" parent="Stations/Dyson" instance=ExtResource( 3 )]
 
@@ -450,14 +450,14 @@ transform=Transform(-0.3179877087828668, 0.785638570937021, 0.5307125897499115, 
 [node name="Vacant6" parent="Stations/Dyson" instance=ExtResource( 3 )]
 
 [node name="Eckart" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.32656400641317657, 0.4262246068046116, 0.8436163430550816, 0.8783336413303562, 0.4665326255962754, 0.10429440906205262, -0.3491217040270228, 0.7750354145511673, -0.526720174256472, 0.84, 7.840000000000001, 1.82)
+transform = Transform( -0.326564, 0.426225, 0.843616, 0.878334, 0.466533, 0.104294, -0.349122, 0.775035, -0.52672, 0.84, 7.84, 1.82 )
 
 [node name="Vacant0" parent="Stations/Eckart" instance=ExtResource( 3 )]
 
 [node name="Vacant1" parent="Stations/Eckart" instance=ExtResource( 3 )]
 
 [node name="Ehrenfest" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.26532844310484793, -0.037660217344679565, 0.9634222985322213, 0.8616452363117343, -0.43910792771419827, -0.2544635819912888, 0.432629522826231, 0.8976446601234219, -0.08405807594189665, -8.12, 3.08, -2.8000000000000003)
+transform = Transform( 0.265328, -0.0376602, 0.963422, 0.861645, -0.439108, -0.254464, 0.43263, 0.897645, -0.0840581, -8.12, 3.08, -2.8 )
 
 [node name="Vacant0" parent="Stations/Ehrenfest" instance=ExtResource( 3 )]
 
@@ -466,7 +466,7 @@ transform=Transform(0.26532844310484793, -0.037660217344679565, 0.96342229853222
 [node name="Vacant2" parent="Stations/Ehrenfest" instance=ExtResource( 3 )]
 
 [node name="Einstein" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.6817243591447931, -0.0763105577533247, -0.7276184418525946, 0.4975731577902658, 0.6807524778562365, -0.5375844273592918, 0.5363514247163369, -0.7285278050067622, -0.42611546150871454, 10.5, 7.140000000000001, -1.26)
+transform = Transform( -0.681724, -0.0763106, -0.727618, 0.497573, 0.680752, -0.537584, 0.536351, -0.728528, -0.426115, 10.5, 7.14, -1.26 )
 
 [node name="Vacant0" parent="Stations/Einstein" instance=ExtResource( 3 )]
 
@@ -481,7 +481,7 @@ transform=Transform(-0.6817243591447931, -0.0763105577533247, -0.727618441852594
 [node name="Vacant5" parent="Stations/Einstein" instance=ExtResource( 3 )]
 
 [node name="Ellis" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.9177963205315903, -0.12979109519603577, -0.37523883811045977, -0.2304156548236183, -0.5955466494712989, 0.7695666405943757, -0.3233551298972655, 0.7927663337398502, 0.5166846233998057, -7.700000000000001, -4.62, 0.7000000000000001)
+transform = Transform( -0.917796, -0.129791, -0.375239, -0.230416, -0.595547, 0.769567, -0.323355, 0.792766, 0.516685, -7.7, -4.62, 0.7 )
 
 [node name="Vacant0" parent="Stations/Ellis" instance=ExtResource( 3 )]
 
@@ -492,7 +492,7 @@ transform=Transform(-0.9177963205315903, -0.12979109519603577, -0.37523883811045
 [node name="Vacant3" parent="Stations/Ellis" instance=ExtResource( 3 )]
 
 [node name="Euler" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.46286826003620096, -0.48897029271397907, -0.7393652863735661, 0.43053261100800394, -0.6050963584696101, 0.669701476648699, -0.7748513694313837, -0.6283044244711498, -0.06956224177157234, 6.16, 3.7800000000000002, -1.82)
+transform = Transform( 0.462868, -0.48897, -0.739365, 0.430533, -0.605096, 0.669701, -0.774851, -0.628304, -0.0695622, 6.16, 3.78, -1.82 )
 
 [node name="Vacant0" parent="Stations/Euler" instance=ExtResource( 3 )]
 
@@ -507,7 +507,7 @@ transform=Transform(0.46286826003620096, -0.48897029271397907, -0.73936528637356
 [node name="Vacant5" parent="Stations/Euler" instance=ExtResource( 3 )]
 
 [node name="Faddeev" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.0997574137756, -0.78526284127871, -0.6110734231691733, -0.4579782860593014, 0.5089797563724001, -0.7288315972165843, 0.8833483728942896, 0.35256471421567437, -0.30885882599503517, -1.12, -11.76, -4.760000000000001)
+transform = Transform( 0.0997574, -0.785263, -0.611073, -0.457978, 0.50898, -0.728832, 0.883348, 0.352565, -0.308859, -1.12, -11.76, -4.76 )
 
 [node name="Vacant0" parent="Stations/Faddeev" instance=ExtResource( 3 )]
 
@@ -520,7 +520,7 @@ transform=Transform(0.0997574137756, -0.78526284127871, -0.6110734231691733, -0.
 [node name="Vacant4" parent="Stations/Faddeev" instance=ExtResource( 3 )]
 
 [node name="Fahrenheit" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.13064594767766552, -0.4553627240402152, -0.880668170147008, -0.27957879259729723, 0.8691525500092193, -0.4079332586861594, 0.9511925856971564, 0.19292131651828007, -0.24086101915339364, -6.72, -5.18, 8.96)
+transform = Transform( -0.130646, -0.455363, -0.880668, -0.279579, 0.869153, -0.407933, 0.951193, 0.192921, -0.240861, -6.72, -5.18, 8.96 )
 
 [node name="Vacant0" parent="Stations/Fahrenheit" instance=ExtResource( 3 )]
 
@@ -535,14 +535,14 @@ transform=Transform(-0.13064594767766552, -0.4553627240402152, -0.88066817014700
 [node name="Vacant5" parent="Stations/Fahrenheit" instance=ExtResource( 3 )]
 
 [node name="Faraday" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.8298514787120066, 0.4455290485371633, -0.335932121401134, 0.3548799546012091, -0.8860091852115237, -0.29840901719461466, -0.430588830674624, 0.1284195881880253, -0.8933653610185914, -7.42, 7.840000000000001, 4.2)
+transform = Transform( 0.829852, 0.445529, -0.335932, 0.35488, -0.886009, -0.298409, -0.430589, 0.12842, -0.893365, -7.42, 7.84, 4.2 )
 
 [node name="Vacant0" parent="Stations/Faraday" instance=ExtResource( 3 )]
 
 [node name="Vacant1" parent="Stations/Faraday" instance=ExtResource( 3 )]
 
 [node name="Fermi" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.2547167619147101, -0.8579821439914425, -0.44607848165040737, 0.021931948930929857, 0.4560496666244412, -0.8896840400882929, 0.9667669630349273, -0.23640080829723056, -0.09734627378919065, 7, 3.08, 8.82)
+transform = Transform( -0.254717, -0.857982, -0.446078, 0.0219319, 0.45605, -0.889684, 0.966767, -0.236401, -0.0973463, 7, 3.08, 8.82 )
 
 [node name="Vacant0" parent="Stations/Fermi" instance=ExtResource( 3 )]
 
@@ -559,7 +559,7 @@ transform=Transform(-0.2547167619147101, -0.8579821439914425, -0.446078481650407
 [node name="Vacant6" parent="Stations/Fermi" instance=ExtResource( 3 )]
 
 [node name="Feynman" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.0044523326748602855, 0.08934338198676363, -0.9959909321017535, -0.21830864368144512, -0.9718897170094194, -0.08815732564749613, -0.9758696187645767, 0.21782593524766072, 0.015177256200041867, -2.24, 10.92, -2.8000000000000003)
+transform = Transform( 0.00445233, 0.0893434, -0.995991, -0.218309, -0.97189, -0.0881573, -0.97587, 0.217826, 0.0151773, -2.24, 10.92, -2.8 )
 
 [node name="Vacant0" parent="Stations/Feynman" instance=ExtResource( 3 )]
 
@@ -572,7 +572,7 @@ transform=Transform(0.0044523326748602855, 0.08934338198676363, -0.9959909321017
 [node name="Vacant4" parent="Stations/Feynman" instance=ExtResource( 3 )]
 
 [node name="Fock" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.48941645619921376, 0.11073213808241388, 0.8649912866596405, 0.5838635123364333, 0.778381083503036, 0.23070823090389087, -0.6477460392496173, 0.6179492555544805, -0.4456049665298813, -5.6000000000000005, -9.520000000000001, -2.94)
+transform = Transform( -0.489416, 0.110732, 0.864991, 0.583863, 0.778381, 0.230708, -0.647746, 0.617949, -0.445605, -5.6, -9.52, -2.94 )
 
 [node name="Vacant0" parent="Stations/Fock" instance=ExtResource( 3 )]
 
@@ -585,7 +585,7 @@ transform=Transform(-0.48941645619921376, 0.11073213808241388, 0.864991286659640
 [node name="Vacant4" parent="Stations/Fock" instance=ExtResource( 3 )]
 
 [node name="Foucault" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.7548116710555379, 0.06617604598935735, 0.6525948759954838, 0.6248660124835914, -0.37514017627483887, -0.6846987035093165, 0.1995039039247165, 0.9246029304959492, -0.3245113453133807, -7.42, -1.12, -0.14)
+transform = Transform( 0.754812, 0.066176, 0.652595, 0.624866, -0.37514, -0.684699, 0.199504, 0.924603, -0.324511, -7.42, -1.12, -0.14 )
 
 [node name="Vacant0" parent="Stations/Foucault" instance=ExtResource( 3 )]
 
@@ -598,14 +598,14 @@ transform=Transform(0.7548116710555379, 0.06617604598935735, 0.6525948759954838,
 [node name="Vacant4" parent="Stations/Foucault" instance=ExtResource( 3 )]
 
 [node name="Fourier" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.4325630082187226, 0.08576572451397518, 0.8975151722502315, -0.6091046065565975, -0.7617427713812399, -0.22077030715193777, 0.6647411693225432, -0.6421776940590675, 0.3817420425636622, 7, -7.42, -7.9799999999999995)
+transform = Transform( -0.432563, 0.0857657, 0.897515, -0.609105, -0.761743, -0.22077, 0.664741, -0.642178, 0.381742, 7, -7.42, -7.98 )
 
 [node name="Vacant0" parent="Stations/Fourier" instance=ExtResource( 3 )]
 
 [node name="Vacant1" parent="Stations/Fourier" instance=ExtResource( 3 )]
 
 [node name="Franklin" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.7437294019967899, 0.3902194185922683, 0.5427664156513459, 0.37592675736927583, -0.42724157427450654, 0.8222795815933065, 0.5527618381358458, 0.8155939201373154, 0.1710581998494304, 5.18, 6.58, -7.42)
+transform = Transform( -0.743729, 0.390219, 0.542766, 0.375927, -0.427242, 0.82228, 0.552762, 0.815594, 0.171058, 5.18, 6.58, -7.42 )
 
 [node name="Vacant0" parent="Stations/Franklin" instance=ExtResource( 3 )]
 
@@ -616,14 +616,14 @@ transform=Transform(-0.7437294019967899, 0.3902194185922683, 0.5427664156513459,
 [node name="Vacant3" parent="Stations/Franklin" instance=ExtResource( 3 )]
 
 [node name="Freeman" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.9479453086590707, -0.3178392927655789, 0.01943902686699029, -0.24937417077140472, -0.7789406162393268, -0.5753816466700791, 0.1980207432147784, 0.5405827414438737, -0.8176540129600615, -3.9200000000000004, 2.66, -2.1)
+transform = Transform( 0.947945, -0.317839, 0.019439, -0.249374, -0.778941, -0.575382, 0.198021, 0.540583, -0.817654, -3.92, 2.66, -2.1 )
 
 [node name="Vacant0" parent="Stations/Freeman" instance=ExtResource( 3 )]
 
 [node name="Vacant1" parent="Stations/Freeman" instance=ExtResource( 3 )]
 
 [node name="Fresnel" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.20919937896704427, 0.007354216628072843, 0.9778453534877539, 0.9351511391987906, -0.2938461656586671, -0.1978554466849563, 0.2858810359135552, 0.955824432846057, -0.06834973942529739, 0.84, -4.06, 0.14)
+transform = Transform( 0.209199, 0.00735422, 0.977845, 0.935151, -0.293846, -0.197855, 0.285881, 0.955824, -0.0683497, 0.84, -4.06, 0.14 )
 
 [node name="Vacant0" parent="Stations/Fresnel" instance=ExtResource( 3 )]
 
@@ -636,14 +636,14 @@ transform=Transform(0.20919937896704427, 0.007354216628072843, 0.977845353487753
 [node name="Vacant4" parent="Stations/Fresnel" instance=ExtResource( 3 )]
 
 [node name="Friedman" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.0041273371442278415, -0.6950794569140852, -0.7189210761023203, 0.9551774834079092, -0.2155481201986614, 0.2029161971587206, -0.2960049666452089, -0.6858597206826216, 0.6648138861865966, 4.62, 0.42, 7.28)
+transform = Transform( -0.00412734, -0.695079, -0.718921, 0.955177, -0.215548, 0.202916, -0.296005, -0.68586, 0.664814, 4.62, 0.42, 7.28 )
 
 [node name="Vacant0" parent="Stations/Friedman" instance=ExtResource( 3 )]
 
 [node name="Vacant1" parent="Stations/Friedman" instance=ExtResource( 3 )]
 
 [node name="Galilei" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.8307930353789786, -0.4439932981525782, 0.335638024605942, 0.2400516371571981, -0.8298999099709564, -0.50362818718609, 0.502153506274657, -0.33784033303587985, 0.7960563833738624, 4.760000000000001, 6.72, 9.520000000000001)
+transform = Transform( -0.830793, -0.443993, 0.335638, 0.240052, -0.8299, -0.503628, 0.502154, -0.33784, 0.796056, 4.76, 6.72, 9.52 )
 
 [node name="Vacant0" parent="Stations/Galilei" instance=ExtResource( 3 )]
 
@@ -652,14 +652,14 @@ transform=Transform(-0.8307930353789786, -0.4439932981525782, 0.335638024605942,
 [node name="Vacant2" parent="Stations/Galilei" instance=ExtResource( 3 )]
 
 [node name="Gauss" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.5523741587431561, 0.7754037514457126, 0.30599315514681963, -0.6440757072030726, 0.16396346680376242, 0.7471830197110696, 0.5291968179644053, -0.6098073497405607, 0.5899879016206527, 7.140000000000001, -4.34, -4.34)
+transform = Transform( 0.552374, 0.775404, 0.305993, -0.644076, 0.163963, 0.747183, 0.529197, -0.609807, 0.589988, 7.14, -4.34, -4.34 )
 
 [node name="Vacant0" parent="Stations/Gauss" instance=ExtResource( 3 )]
 
 [node name="Vacant1" parent="Stations/Gauss" instance=ExtResource( 3 )]
 
 [node name="Geiger" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.22004350368189565, 0.026983885947538425, -0.9751167757692231, -0.23707025216769742, -0.9681691177997962, -0.08028857251133786, -0.9462444462318073, 0.24883815872557455, -0.20664224819122984, 8.54, 1.26, -5.46)
+transform = Transform( 0.220044, 0.0269839, -0.975117, -0.23707, -0.968169, -0.0802886, -0.946244, 0.248838, -0.206642, 8.54, 1.26, -5.46 )
 
 [node name="Vacant0" parent="Stations/Geiger" instance=ExtResource( 3 )]
 
@@ -676,7 +676,7 @@ transform=Transform(0.22004350368189565, 0.026983885947538425, -0.97511677576922
 [node name="Vacant6" parent="Stations/Geiger" instance=ExtResource( 3 )]
 
 [node name="Gell-Mann" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.18828205475778284, -0.40357209720420845, -0.8953655288285249, -0.13248356795184413, -0.8929010518599553, 0.4303205965441748, -0.9731382081076337, 0.19964286600222483, 0.11465057337615601, 1.26, -1.54, -2.24)
+transform = Transform( -0.188282, -0.403572, -0.895366, -0.132484, -0.892901, 0.430321, -0.973138, 0.199643, 0.114651, 1.26, -1.54, -2.24 )
 
 [node name="Vacant0" parent="Stations/Gell-Mann" instance=ExtResource( 3 )]
 
@@ -687,7 +687,7 @@ transform=Transform(-0.18828205475778284, -0.40357209720420845, -0.8953655288285
 [node name="Vacant3" parent="Stations/Gell-Mann" instance=ExtResource( 3 )]
 
 [node name="Gerlach" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.08777526882905136, -0.041889204093134666, 0.9952591606021175, -0.9468311921163098, -0.31395858400336846, 0.07029012139843928, 0.30952575953803146, -0.9485121517993554, -0.06721980416039007, 4.62, -8.12, 0.14)
+transform = Transform( 0.0877753, -0.0418892, 0.995259, -0.946831, -0.313959, 0.0702901, 0.309526, -0.948512, -0.0672198, 4.62, -8.12, 0.14 )
 
 [node name="Vacant0" parent="Stations/Gerlach" instance=ExtResource( 3 )]
 
@@ -696,7 +696,7 @@ transform=Transform(0.08777526882905136, -0.041889204093134666, 0.99525916060211
 [node name="Vacant2" parent="Stations/Gerlach" instance=ExtResource( 3 )]
 
 [node name="Gibbs" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.2763676544424853, 0.06752881072705656, -0.9586765770058996, 0.3398155353327098, 0.9262232673708447, 0.16320496600110143, 0.8989695887651055, -0.3708777678732795, 0.23303081292573927, -2.1, 2.1, 4.8999999999999995)
+transform = Transform( 0.276368, 0.0675288, -0.958677, 0.339816, 0.926223, 0.163205, 0.89897, -0.370878, 0.233031, -2.1, 2.1, 4.9 )
 
 [node name="Vacant0" parent="Stations/Gibbs" instance=ExtResource( 3 )]
 
@@ -711,14 +711,14 @@ transform=Transform(0.2763676544424853, 0.06752881072705656, -0.9586765770058996
 [node name="Vacant5" parent="Stations/Gibbs" instance=ExtResource( 3 )]
 
 [node name="Ginzburg" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.45557684335677595, -0.2471851162636983, 0.8551896035937163, -0.06896479336662181, 0.9675881998904725, 0.2429340089584289, -0.8875210403550864, 0.05169713464416387, -0.457857848241797, 8.96, 6.02, 7.42)
+transform = Transform( -0.455577, -0.247185, 0.85519, -0.0689648, 0.967588, 0.242934, -0.887521, 0.0516971, -0.457858, 8.96, 6.02, 7.42 )
 
 [node name="Vacant0" parent="Stations/Ginzburg" instance=ExtResource( 3 )]
 
 [node name="Vacant1" parent="Stations/Ginzburg" instance=ExtResource( 3 )]
 
 [node name="Glashow" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.3436948866529025, -0.7459861300127605, 0.5704195988193544, 0.7027046095453958, -0.6072485201717432, -0.37074987049610797, 0.6229607183541362, 0.27341164674865764, 0.7329161035274677, 0.14, -7.140000000000001, -11.200000000000001)
+transform = Transform( -0.343695, -0.745986, 0.57042, 0.702705, -0.607249, -0.37075, 0.622961, 0.273412, 0.732916, 0.14, -7.14, -11.2 )
 
 [node name="Vacant0" parent="Stations/Glashow" instance=ExtResource( 3 )]
 
@@ -727,14 +727,14 @@ transform=Transform(-0.3436948866529025, -0.7459861300127605, 0.5704195988193544
 [node name="Vacant2" parent="Stations/Glashow" instance=ExtResource( 3 )]
 
 [node name="Goddard" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.8903797648799864, 0.10097233794295701, 0.44387888129825803, 0.39970703667331203, -0.29322581827464905, 0.8684773481968322, 0.21784893648145126, 0.9506961693766813, 0.2207229811469681, -11.34, 6.58, 0)
+transform = Transform( -0.89038, 0.100972, 0.443879, 0.399707, -0.293226, 0.868477, 0.217849, 0.950696, 0.220723, -11.34, 6.58, 0 )
 
 [node name="Vacant0" parent="Stations/Goddard" instance=ExtResource( 3 )]
 
 [node name="Vacant1" parent="Stations/Goddard" instance=ExtResource( 3 )]
 
 [node name="Goldstone" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.16153186210738021, -0.25965278329471075, -0.9520965758007075, 0.5997932165268982, 0.7919606947445992, -0.11422064344053094, 0.7836807736141289, -0.5526107944177001, 0.2836648638104459, -3.64, -5.46, -3.64)
+transform = Transform( 0.161532, -0.259653, -0.952097, 0.599793, 0.791961, -0.114221, 0.783681, -0.552611, 0.283665, -3.64, -5.46, -3.64 )
 
 [node name="Vacant0" parent="Stations/Goldstone" instance=ExtResource( 3 )]
 
@@ -749,7 +749,7 @@ transform=Transform(0.16153186210738021, -0.25965278329471075, -0.95209657580070
 [node name="Vacant5" parent="Stations/Goldstone" instance=ExtResource( 3 )]
 
 [node name="Green" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.717605795941111, 0.0386988324652242, 0.6953735125797884, 0.2069700375672007, 0.9651964931535992, 0.15987224009635206, -0.6649852067385833, 0.25864672812510625, -0.7006400965181918, -7.140000000000001, 11.34, 0.42)
+transform = Transform( -0.717606, 0.0386988, 0.695374, 0.20697, 0.965196, 0.159872, -0.664985, 0.258647, -0.70064, -7.14, 11.34, 0.42 )
 
 [node name="Vacant0" parent="Stations/Green" instance=ExtResource( 3 )]
 
@@ -758,7 +758,7 @@ transform=Transform(-0.717605795941111, 0.0386988324652242, 0.6953735125797884, 
 [node name="Vacant2" parent="Stations/Green" instance=ExtResource( 3 )]
 
 [node name="Grover" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.2697720960227643, -0.3915257309944909, -0.8797332653575819, 0.38607338446308853, -0.8809377014449449, 0.2736715330137809, -0.8821396476843676, -0.26581265609847526, 0.3888100742537069, -4.8999999999999995, 4.34, 2.1)
+transform = Transform( -0.269772, -0.391526, -0.879733, 0.386073, -0.880938, 0.273672, -0.88214, -0.265813, 0.38881, -4.9, 4.34, 2.1 )
 
 [node name="Vacant0" parent="Stations/Grover" instance=ExtResource( 3 )]
 
@@ -773,7 +773,7 @@ transform=Transform(-0.2697720960227643, -0.3915257309944909, -0.879733265357581
 [node name="Vacant5" parent="Stations/Grover" instance=ExtResource( 3 )]
 
 [node name="Hall" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.14967390283833762, 0.10990254989732111, -0.9826083412709291, -0.6695631024446675, 0.7425136194158789, -0.018941405085236465, 0.7275183672278052, 0.6607533234937212, 0.18472160360442486, 4.06, 1.4000000000000001, -8.26)
+transform = Transform( 0.149674, 0.109903, -0.982608, -0.669563, 0.742514, -0.0189414, 0.727518, 0.660753, 0.184722, 4.06, 1.4, -8.26 )
 
 [node name="Vacant0" parent="Stations/Hall" instance=ExtResource( 3 )]
 
@@ -784,7 +784,7 @@ transform=Transform(0.14967390283833762, 0.10990254989732111, -0.982608341270929
 [node name="Vacant3" parent="Stations/Hall" instance=ExtResource( 3 )]
 
 [node name="Hamilton" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.08688678602527376, 0.26018237409215106, -0.9616422508531801, 0.9573049337454548, -0.24534876559792268, -0.15287657455014605, -0.2757135293031685, -0.9338678254610487, -0.22775630469395, -0.28, -6.58, -2.3800000000000003)
+transform = Transform( -0.0868868, 0.260182, -0.961642, 0.957305, -0.245349, -0.152877, -0.275714, -0.933868, -0.227756, -0.28, -6.58, -2.38 )
 
 [node name="Vacant0" parent="Stations/Hamilton" instance=ExtResource( 3 )]
 
@@ -795,7 +795,7 @@ transform=Transform(-0.08688678602527376, 0.26018237409215106, -0.96164225085318
 [node name="Vacant3" parent="Stations/Hamilton" instance=ExtResource( 3 )]
 
 [node name="Hawking" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.15023273271836501, -0.9885041127997739, 0.01702189759998933, -0.7718602869793203, 0.10651371187315019, -0.6268066101814859, 0.6177878465979837, -0.10730539669995995, -0.7789889141925517, 0.42, 6.02, -7)
+transform = Transform( -0.150233, -0.988504, 0.0170219, -0.77186, 0.106514, -0.626807, 0.617788, -0.107305, -0.778989, 0.42, 6.02, -7 )
 
 [node name="Vacant0" parent="Stations/Hawking" instance=ExtResource( 3 )]
 
@@ -808,7 +808,7 @@ transform=Transform(-0.15023273271836501, -0.9885041127997739, 0.017021897599989
 [node name="Vacant4" parent="Stations/Hawking" instance=ExtResource( 3 )]
 
 [node name="Heaviside" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.0628532605502576, -0.4616557627098634, 0.8848296018980012, 0.32176825331822484, 0.8298668210722268, 0.4558357713475492, -0.9447299396095902, 0.3133608399916153, 0.09638633287457896, -7.28, 6.3, 7.140000000000001)
+transform = Transform( -0.0628533, -0.461656, 0.88483, 0.321768, 0.829867, 0.455836, -0.94473, 0.313361, 0.0963863, -7.28, 6.3, 7.14 )
 
 [node name="Vacant0" parent="Stations/Heaviside" instance=ExtResource( 3 )]
 
@@ -819,7 +819,7 @@ transform=Transform(-0.0628532605502576, -0.4616557627098634, 0.8848296018980012
 [node name="Vacant3" parent="Stations/Heaviside" instance=ExtResource( 3 )]
 
 [node name="Heisenberg" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.27588303718591245, -0.7069352611968754, 0.6512534731343719, -0.7680499655180613, -0.24524214706770517, -0.5915704013634616, 0.5779167762409926, -0.6633994466218129, -0.475303454606729, 0.56, 1.26, -5.46)
+transform = Transform( -0.275883, -0.706935, 0.651253, -0.76805, -0.245242, -0.59157, 0.577917, -0.663399, -0.475303, 0.56, 1.26, -5.46 )
 
 [node name="Vacant0" parent="Stations/Heisenberg" instance=ExtResource( 3 )]
 
@@ -836,7 +836,7 @@ transform=Transform(-0.27588303718591245, -0.7069352611968754, 0.651253473134371
 [node name="Vacant6" parent="Stations/Heisenberg" instance=ExtResource( 3 )]
 
 [node name="Helmholtz" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.5167817788040069, 0.47390989675026096, -0.7129838727897874, -0.45405423594319505, -0.5543114674158164, -0.6975482405635943, -0.7257901514337378, 0.6842135681594467, -0.07127727006774663, -8.54, 2.24, 5.46)
+transform = Transform( 0.516782, 0.47391, -0.712984, -0.454054, -0.554311, -0.697548, -0.72579, 0.684214, -0.0712773, -8.54, 2.24, 5.46 )
 
 [node name="Vacant0" parent="Stations/Helmholtz" instance=ExtResource( 3 )]
 
@@ -845,7 +845,7 @@ transform=Transform(0.5167817788040069, 0.47390989675026096, -0.7129838727897874
 [node name="Vacant2" parent="Stations/Helmholtz" instance=ExtResource( 3 )]
 
 [node name="Higgs" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.7127162797036151, -0.29858677554900476, 0.6347294243318854, -0.6997828270614914, 0.24026378538746837, -0.6727386627666878, 0.048368373915867235, -0.9236445479179385, -0.3801858091857218, -3.22, 8.54, 2.66)
+transform = Transform( -0.712716, -0.298587, 0.634729, -0.699783, 0.240264, -0.672739, 0.0483684, -0.923645, -0.380186, -3.22, 8.54, 2.66 )
 
 [node name="Vacant0" parent="Stations/Higgs" instance=ExtResource( 3 )]
 
@@ -860,14 +860,14 @@ transform=Transform(-0.7127162797036151, -0.29858677554900476, 0.634729424331885
 [node name="Vacant5" parent="Stations/Higgs" instance=ExtResource( 3 )]
 
 [node name="Hooft" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.09232878455426002, -0.28650895165727813, -0.9536183807807924, 0.7308971578669337, -0.6308933295212944, 0.2603131794350297, -0.6762135314860032, -0.7210313636630399, 0.1511589641716479, -10.08, -1.54, -6.44)
+transform = Transform( 0.0923288, -0.286509, -0.953618, 0.730897, -0.630893, 0.260313, -0.676214, -0.721031, 0.151159, -10.08, -1.54, -6.44 )
 
 [node name="Vacant0" parent="Stations/Hooft" instance=ExtResource( 3 )]
 
 [node name="Vacant1" parent="Stations/Hooft" instance=ExtResource( 3 )]
 
 [node name="Hooke" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.8104290205560299, -0.5802342959511364, -0.08082675573523321, 0.5675990749965297, 0.8118476978186562, -0.13687441546772652, 0.1450382456584396, 0.0650498066763999, 0.9872853842469689, 8.26, -9.38, 4.06)
+transform = Transform( 0.810429, -0.580234, -0.0808268, 0.567599, 0.811848, -0.136874, 0.145038, 0.0650498, 0.987285, 8.26, -9.38, 4.06 )
 
 [node name="Vacant0" parent="Stations/Hooke" instance=ExtResource( 3 )]
 
@@ -878,7 +878,7 @@ transform=Transform(0.8104290205560299, -0.5802342959511364, -0.0808267557352332
 [node name="Vacant3" parent="Stations/Hooke" instance=ExtResource( 3 )]
 
 [node name="Hubbard" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.7967924621299569, -0.6041946508943443, -0.008402149935734508, 0.3439833028614982, -0.442114383175499, -0.8283781500871705, 0.4967869358642354, -0.662935665068647, 0.5601062794993595, -8.12, -8.12, 5.46)
+transform = Transform( -0.796792, -0.604195, -0.00840215, 0.343983, -0.442114, -0.828378, 0.496787, -0.662936, 0.560106, -8.12, -8.12, 5.46 )
 
 [node name="Vacant0" parent="Stations/Hubbard" instance=ExtResource( 3 )]
 
@@ -891,7 +891,7 @@ transform=Transform(-0.7967924621299569, -0.6041946508943443, -0.008402149935734
 [node name="Vacant4" parent="Stations/Hubbard" instance=ExtResource( 3 )]
 
 [node name="Huygens" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.6826526304461493, 0.37722225265178905, 0.6258504280171605, 0.7131836145735653, 0.5305537940818082, 0.4581285883779602, -0.15923102100010972, 0.7590889563744873, -0.6312126727669166, 10.08, 5.88, -7)
+transform = Transform( -0.682653, 0.377222, 0.62585, 0.713184, 0.530554, 0.458129, -0.159231, 0.759089, -0.631213, 10.08, 5.88, -7 )
 
 [node name="Vacant0" parent="Stations/Huygens" instance=ExtResource( 3 )]
 
@@ -904,7 +904,7 @@ transform=Transform(-0.6826526304461493, 0.37722225265178905, 0.6258504280171605
 [node name="Vacant4" parent="Stations/Huygens" instance=ExtResource( 3 )]
 
 [node name="Arthur Iberall" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.363915829526247, -0.06738457422991896, 0.9289911668988442, -0.845856345337046, -0.441511165174942, 0.29932412879505915, 0.38999014355914113, -0.8947218619111293, -0.21767057160995099, -8.54, 4.06, 1.54)
+transform = Transform( 0.363916, -0.0673846, 0.928991, -0.845856, -0.441511, 0.299324, 0.38999, -0.894722, -0.217671, -8.54, 4.06, 1.54 )
 
 [node name="Vacant0" parent="Stations/Arthur Iberall" instance=ExtResource( 3 )]
 
@@ -921,7 +921,7 @@ transform=Transform(0.363915829526247, -0.06738457422991896, 0.9289911668988442,
 [node name="Vacant6" parent="Stations/Arthur Iberall" instance=ExtResource( 3 )]
 
 [node name="Iliopoulos" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.12070400229476141, 0.724228397065572, 0.678913671031788, 0.6191870215515733, -0.589492854448145, 0.518753898199011, 0.7759110620245842, 0.35775886213818753, -0.519586970958156, 0.9800000000000001, -9.38, -0.9800000000000001)
+transform = Transform( 0.120704, 0.724228, 0.678914, 0.619187, -0.589493, 0.518754, 0.775911, 0.357759, -0.519587, 0.98, -9.38, -0.98 )
 
 [node name="Vacant0" parent="Stations/Iliopoulos" instance=ExtResource( 3 )]
 
@@ -936,7 +936,7 @@ transform=Transform(0.12070400229476141, 0.724228397065572, 0.678913671031788, 0
 [node name="Vacant5" parent="Stations/Iliopoulos" instance=ExtResource( 3 )]
 
 [node name="Ising" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.9147144097449893, -0.3006674201555729, 0.26999379819149105, 0.22751124684696605, -0.935354873561517, -0.2708318538555926, 0.33397032976450813, -0.18630717367216545, 0.9239878007177773, 3.36, -6.44, -5.46)
+transform = Transform( -0.914714, -0.300667, 0.269994, 0.227511, -0.935355, -0.270832, 0.33397, -0.186307, 0.923988, 3.36, -6.44, -5.46 )
 
 [node name="Vacant0" parent="Stations/Ising" instance=ExtResource( 3 )]
 
@@ -949,7 +949,7 @@ transform=Transform(-0.9147144097449893, -0.3006674201555729, 0.2699937981914910
 [node name="Vacant4" parent="Stations/Ising" instance=ExtResource( 3 )]
 
 [node name="Joule" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.0023523826853065724, 0.44960022627578416, 0.8932267924936341, -0.09682881850603334, 0.8891344107018064, -0.44728534473273013, -0.9952982699685696, -0.08543790867475175, 0.045625843102974614, 10.92, -4.8999999999999995, -1.82)
+transform = Transform( 0.00235238, 0.4496, 0.893227, -0.0968288, 0.889134, -0.447285, -0.995298, -0.0854379, 0.0456258, 10.92, -4.9, -1.82 )
 
 [node name="Vacant0" parent="Stations/Joule" instance=ExtResource( 3 )]
 
@@ -958,7 +958,7 @@ transform=Transform(0.0023523826853065724, 0.44960022627578416, 0.89322679249363
 [node name="Vacant2" parent="Stations/Joule" instance=ExtResource( 3 )]
 
 [node name="Kapitsa" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.6265246050592911, 0.13730056489153, 0.767212795862899, -0.5554791771477893, -0.6118390645116408, 0.5631126378378801, 0.5467264425748171, -0.7789746555684512, -0.3070646234451281, 8.12, -1.54, -2.3800000000000003)
+transform = Transform( 0.626525, 0.137301, 0.767213, -0.555479, -0.611839, 0.563113, 0.546726, -0.778975, -0.307065, 8.12, -1.54, -2.38 )
 
 [node name="Vacant0" parent="Stations/Kapitsa" instance=ExtResource( 3 )]
 
@@ -967,7 +967,7 @@ transform=Transform(0.6265246050592911, 0.13730056489153, 0.767212795862899, -0.
 [node name="Vacant2" parent="Stations/Kapitsa" instance=ExtResource( 3 )]
 
 [node name="Kepler" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.12580149168023733, 0.07299034673613225, -0.9893666630599428, -0.558444988129956, 0.8294835109509285, -0.00981327127180556, 0.8199470592200209, 0.5537413785729399, 0.14511135631844804, -12.18, -6.02, -1.12)
+transform = Transform( 0.125801, 0.0729904, -0.989367, -0.558445, 0.829484, -0.00981327, 0.819947, 0.553741, 0.145111, -12.18, -6.02, -1.12 )
 
 [node name="Vacant0" parent="Stations/Kepler" instance=ExtResource( 3 )]
 
@@ -984,14 +984,14 @@ transform=Transform(0.12580149168023733, 0.07299034673613225, -0.989366663059942
 [node name="Vacant6" parent="Stations/Kepler" instance=ExtResource( 3 )]
 
 [node name="Kerr" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.02421642620260761, -0.32368782108902205, -0.9458539840697479, -0.38583035218793565, -0.8698013285886332, 0.30753957162612766, -0.9222518658330312, 0.3723866851326586, -0.10382510632502621, 9.24, -4.06, -8.68)
+transform = Transform( -0.0242164, -0.323688, -0.945854, -0.38583, -0.869801, 0.30754, -0.922252, 0.372387, -0.103825, 9.24, -4.06, -8.68 )
 
 [node name="Vacant0" parent="Stations/Kerr" instance=ExtResource( 3 )]
 
 [node name="Vacant1" parent="Stations/Kerr" instance=ExtResource( 3 )]
 
 [node name="Kirchhoff" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.8440753877062821, 0.4861432620749402, 0.22627741515145888, 0.22303379780919483, 0.06545896492161421, -0.9726104302063587, -0.48763989264958296, 0.8714240372232838, -0.05317407682486117, -1.82, 6.3, 8.26)
+transform = Transform( 0.844075, 0.486143, 0.226277, 0.223034, 0.065459, -0.97261, -0.48764, 0.871424, -0.0531741, -1.82, 6.3, 8.26 )
 
 [node name="Vacant0" parent="Stations/Kirchhoff" instance=ExtResource( 3 )]
 
@@ -1002,14 +1002,14 @@ transform=Transform(0.8440753877062821, 0.4861432620749402, 0.22627741515145888,
 [node name="Vacant3" parent="Stations/Kirchhoff" instance=ExtResource( 3 )]
 
 [node name="Klein" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.24115560870261896, 0.12839192900886126, -0.9619560722593586, 0.8107858597589845, 0.5714008269296299, -0.12699363999436722, 0.5333575367482427, -0.810565609651383, -0.24189487477895885, 0.14, 2.24, -10.08)
+transform = Transform( -0.241156, 0.128392, -0.961956, 0.810786, 0.571401, -0.126994, 0.533358, -0.810566, -0.241895, 0.14, 2.24, -10.08 )
 
 [node name="Vacant0" parent="Stations/Klein" instance=ExtResource( 3 )]
 
 [node name="Vacant1" parent="Stations/Klein" instance=ExtResource( 3 )]
 
 [node name="Koshiba" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.2238642250137448, -0.5535428386757139, 0.8021690186674053, -0.958553338960185, -0.2738818112080675, 0.07851273691363114, 0.17623934046425616, -0.7864979842569345, -0.5919126756815594, -3.64, 6.16, -4.06)
+transform = Transform( 0.223864, -0.553543, 0.802169, -0.958553, -0.273882, 0.0785127, 0.176239, -0.786498, -0.591913, -3.64, 6.16, -4.06 )
 
 [node name="Vacant0" parent="Stations/Koshiba" instance=ExtResource( 3 )]
 
@@ -1022,7 +1022,7 @@ transform=Transform(0.2238642250137448, -0.5535428386757139, 0.8021690186674053,
 [node name="Vacant4" parent="Stations/Koshiba" instance=ExtResource( 3 )]
 
 [node name="Kramers" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.609989809760623, -0.26905401608713336, -0.7453337295571587, -0.09554836968170252, -0.9087551329234912, 0.40624452911562625, -0.7866275745480628, 0.3190204457595041, 0.5286236980575498, 13.58, -1.68, 0.9800000000000001)
+transform = Transform( -0.60999, -0.269054, -0.745334, -0.0955484, -0.908755, 0.406245, -0.786628, 0.31902, 0.528624, 13.58, -1.68, 0.98 )
 
 [node name="Vacant0" parent="Stations/Kramers" instance=ExtResource( 3 )]
 
@@ -1039,7 +1039,7 @@ transform=Transform(-0.609989809760623, -0.26905401608713336, -0.745333729557158
 [node name="Vacant6" parent="Stations/Kramers" instance=ExtResource( 3 )]
 
 [node name="Kubo" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.05124877778339702, -0.9909776632900547, 0.12384197041347136, 0.7864245183757669, 0.0363876579134523, 0.6166136677442505, -0.6155566908686407, 0.1289930587735507, 0.7774643085795593, -0.56, -2.52, -4.8999999999999995)
+transform = Transform( -0.0512488, -0.990978, 0.123842, 0.786425, 0.0363877, 0.616614, -0.615557, 0.128993, 0.777464, -0.56, -2.52, -4.9 )
 
 [node name="Vacant0" parent="Stations/Kubo" instance=ExtResource( 3 )]
 
@@ -1048,7 +1048,7 @@ transform=Transform(-0.05124877778339702, -0.9909776632900547, 0.123841970413471
 [node name="Vacant2" parent="Stations/Kubo" instance=ExtResource( 3 )]
 
 [node name="Kurchatov" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.9523737902525571, -0.19558513360619018, 0.23394576113327448, 0.2950295113246189, 0.3970784660481764, -0.869072079432071, 0.0770827547998574, 0.8967023738750087, 0.4358705101281677, 4.2, 1.54, 0.56)
+transform = Transform( 0.952374, -0.195585, 0.233946, 0.29503, 0.397078, -0.869072, 0.0770828, 0.896702, 0.43587, 4.2, 1.54, 0.56 )
 
 [node name="Vacant0" parent="Stations/Kurchatov" instance=ExtResource( 3 )]
 
@@ -1059,14 +1059,14 @@ transform=Transform(0.9523737902525571, -0.19558513360619018, 0.2339457611332744
 [node name="Vacant3" parent="Stations/Kurchatov" instance=ExtResource( 3 )]
 
 [node name="Lagrange" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.3004145038835072, -0.639287347300455, -0.7078579048354081, 0.7973757508996207, -0.23891457821470324, 0.5541766290577009, -0.523395679895901, -0.7309114254805693, 0.43797882410941946, 11.479999999999999, -1.54, -3.7800000000000002)
+transform = Transform( 0.300415, -0.639287, -0.707858, 0.797376, -0.238915, 0.554177, -0.523396, -0.730911, 0.437979, 11.48, -1.54, -3.78 )
 
 [node name="Vacant0" parent="Stations/Lagrange" instance=ExtResource( 3 )]
 
 [node name="Vacant1" parent="Stations/Lagrange" instance=ExtResource( 3 )]
 
 [node name="Landau" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.022817265698858922, 0.015486981515010321, 0.9996196905771622, -0.8379376217330601, -0.545661646355728, -0.010672852509970016, 0.5452888358204033, -0.8378624714712494, 0.025427631225087052, 4.06, -1.54, -13.299999999999999)
+transform = Transform( -0.0228173, 0.015487, 0.99962, -0.837938, -0.545662, -0.0106729, 0.545289, -0.837862, 0.0254276, 4.06, -1.54, -13.3 )
 
 [node name="Vacant0" parent="Stations/Landau" instance=ExtResource( 3 )]
 
@@ -1077,7 +1077,7 @@ transform=Transform(-0.022817265698858922, 0.015486981515010321, 0.9996196905771
 [node name="Vacant3" parent="Stations/Landau" instance=ExtResource( 3 )]
 
 [node name="Langevin" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.49069636392313537, 0.3629983975688715, 0.7921169369449471, -0.18478174494413174, 0.9317635709110399, -0.312525766391364, -0.8515120581459875, 0.006986507392045427, 0.5242884735967835, 3.5, -10.64, 8.26)
+transform = Transform( 0.490696, 0.362998, 0.792117, -0.184782, 0.931764, -0.312526, -0.851512, 0.00698651, 0.524288, 3.5, -10.64, 8.26 )
 
 [node name="Vacant0" parent="Stations/Langevin" instance=ExtResource( 3 )]
 
@@ -1094,7 +1094,7 @@ transform=Transform(0.49069636392313537, 0.3629983975688715, 0.7921169369449471,
 [node name="Vacant6" parent="Stations/Langevin" instance=ExtResource( 3 )]
 
 [node name="Laplace" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.2395028202938523, -0.08683383678358289, -0.9670048003297258, 0.9247689881191437, 0.28294475262736163, -0.25444957373463284, 0.2957037667740908, -0.9551974412392881, 0.012535173135257338, 12.32, 1.54, 2.66)
+transform = Transform( -0.239503, -0.0868338, -0.967005, 0.924769, 0.282945, -0.25445, 0.295704, -0.955197, 0.0125352, 12.32, 1.54, 2.66 )
 
 [node name="Vacant0" parent="Stations/Laplace" instance=ExtResource( 3 )]
 
@@ -1109,7 +1109,7 @@ transform=Transform(-0.2395028202938523, -0.08683383678358289, -0.96700480032972
 [node name="Vacant5" parent="Stations/Laplace" instance=ExtResource( 3 )]
 
 [node name="Larmor" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.8191125613792997, -0.19896041161746997, -0.5380235742043749, 0.5558332837658215, 0.5071201812188603, 0.6586945289424031, 0.14178847784198545, -0.8385963727619847, 0.525977329494053, -3.9200000000000004, -11.9, 4.48)
+transform = Transform( 0.819113, -0.19896, -0.538024, 0.555833, 0.50712, 0.658695, 0.141788, -0.838596, 0.525977, -3.92, -11.9, 4.48 )
 
 [node name="Vacant0" parent="Stations/Larmor" instance=ExtResource( 3 )]
 
@@ -1120,7 +1120,7 @@ transform=Transform(0.8191125613792997, -0.19896041161746997, -0.538023574204374
 [node name="Vacant3" parent="Stations/Larmor" instance=ExtResource( 3 )]
 
 [node name="Leibniz" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.5244525353895825, 0.06931253479008812, 0.8486137582224387, 0.19172737546485466, -0.961469588865996, 0.19701990555071192, 0.8295722702819793, 0.26603007763564185, 0.490956053198631, 3.36, -0.7000000000000001, 3.7800000000000002)
+transform = Transform( -0.524453, 0.0693125, 0.848614, 0.191727, -0.96147, 0.19702, 0.829572, 0.26603, 0.490956, 3.36, -0.7, 3.78 )
 
 [node name="Vacant0" parent="Stations/Leibniz" instance=ExtResource( 3 )]
 
@@ -1131,7 +1131,7 @@ transform=Transform(-0.5244525353895825, 0.06931253479008812, 0.8486137582224387
 [node name="Vacant3" parent="Stations/Leibniz" instance=ExtResource( 3 )]
 
 [node name="Lemaître" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.26543600443525045, 0.5220809816449827, 0.8105400521590903, -0.9329950363995037, 0.3510107417666266, 0.0794463417554993, -0.24303084084810866, -0.7773177649900032, 0.5802698532817361, 6.58, -8.12, -2.8000000000000003)
+transform = Transform( 0.265436, 0.522081, 0.81054, -0.932995, 0.351011, 0.0794463, -0.243031, -0.777318, 0.58027, 6.58, -8.12, -2.8 )
 
 [node name="Vacant0" parent="Stations/Lemaître" instance=ExtResource( 3 )]
 
@@ -1148,7 +1148,7 @@ transform=Transform(0.26543600443525045, 0.5220809816449827, 0.8105400521590903,
 [node name="Vacant6" parent="Stations/Lemaître" instance=ExtResource( 3 )]
 
 [node name="Lorenz" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.7206503712113036, -0.4169149210973839, -0.5539359087831125, -0.3946617136244636, 0.41020402091494995, -0.822176862374641, 0.5700045388170277, 0.8111193560700977, 0.13107332274882644, -1.68, -13.58, 1.9600000000000002)
+transform = Transform( 0.72065, -0.416915, -0.553936, -0.394662, 0.410204, -0.822177, 0.570005, 0.811119, 0.131073, -1.68, -13.58, 1.96 )
 
 [node name="Vacant0" parent="Stations/Lorenz" instance=ExtResource( 3 )]
 
@@ -1159,14 +1159,14 @@ transform=Transform(0.7206503712113036, -0.4169149210973839, -0.5539359087831125
 [node name="Vacant3" parent="Stations/Lorenz" instance=ExtResource( 3 )]
 
 [node name="Mach" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.7685185091708778, -0.30880165593901787, -0.5603756225524913, -0.5206886194400823, -0.8108324801660536, -0.26727149248161103, -0.3718368763952184, 0.4971842982205764, -0.7839292767562392, -3.64, -1.54, 7.28)
+transform = Transform( 0.768519, -0.308802, -0.560376, -0.520689, -0.810833, -0.267271, -0.371837, 0.497184, -0.783929, -3.64, -1.54, 7.28 )
 
 [node name="Vacant0" parent="Stations/Mach" instance=ExtResource( 3 )]
 
 [node name="Vacant1" parent="Stations/Mach" instance=ExtResource( 3 )]
 
 [node name="Majorana" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.4359404932381176, 0.6984540458578751, -0.5675542548339075, -0.8532364128861356, -0.1201674873925222, 0.5074912794314479, 0.2862577685941583, 0.7054939551821358, 0.6483322983786631, 4.760000000000001, -6.3, 11.06)
+transform = Transform( -0.435941, 0.698454, -0.567554, -0.853236, -0.120167, 0.507491, 0.286258, 0.705494, 0.648332, 4.76, -6.3, 11.06 )
 
 [node name="Vacant0" parent="Stations/Majorana" instance=ExtResource( 3 )]
 
@@ -1175,14 +1175,14 @@ transform=Transform(-0.4359404932381176, 0.6984540458578751, -0.5675542548339075
 [node name="Vacant2" parent="Stations/Majorana" instance=ExtResource( 3 )]
 
 [node name="Mandelshtam" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.1619543670680269, -0.27504376114651785, 0.9476928365467221, -0.3491114616165072, 0.8822923052673312, 0.3157237327697183, -0.9229799403863449, -0.38198326863939436, 0.04687016240619866, 6.859999999999999, -4.760000000000001, 3.5)
+transform = Transform( 0.161954, -0.275044, 0.947693, -0.349111, 0.882292, 0.315724, -0.92298, -0.381983, 0.0468702, 6.86, -4.76, 3.5 )
 
 [node name="Vacant0" parent="Stations/Mandelshtam" instance=ExtResource( 3 )]
 
 [node name="Vacant1" parent="Stations/Mandelshtam" instance=ExtResource( 3 )]
 
 [node name="Mandl" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.22636821233865176, 0.7403905065766605, -0.6329133670683209, 0.5113495537625417, -0.46270739433021474, -0.7241709060014719, -0.8290229588554545, -0.4875692412399486, -0.27385610945759115, 0.28, -9.94, 6.16)
+transform = Transform( -0.226368, 0.74039, -0.632913, 0.51135, -0.462707, -0.724171, -0.829023, -0.487569, -0.273856, 0.28, -9.94, 6.16 )
 
 [node name="Vacant0" parent="Stations/Mandl" instance=ExtResource( 3 )]
 
@@ -1199,14 +1199,14 @@ transform=Transform(-0.22636821233865176, 0.7403905065766605, -0.632913367068320
 [node name="Vacant6" parent="Stations/Mandl" instance=ExtResource( 3 )]
 
 [node name="Maxwell" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.4081247264929756, -0.8639372716214107, 0.29503660506518004, 0.900608579131197, -0.4339221949754477, -0.02481362333428962, 0.14946034531045474, 0.2555854444428372, 0.9551636957970278, -3.22, -6.16, 6.3)
+transform = Transform( -0.408125, -0.863937, 0.295037, 0.900609, -0.433922, -0.0248136, 0.14946, 0.255585, 0.955164, -3.22, -6.16, 6.3 )
 
 [node name="Vacant0" parent="Stations/Maxwell" instance=ExtResource( 3 )]
 
 [node name="Vacant1" parent="Stations/Maxwell" instance=ExtResource( 3 )]
 
 [node name="Michelson" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.08621023759159677, -0.06273366783568099, 0.9942998953305199, -0.12220329951284736, -0.9898134219312502, -0.07304617274657384, 0.9887538361607371, -0.12780405582230736, 0.07766578907598129, 9.799999999999999, -8.4, 0.28)
+transform = Transform( -0.0862102, -0.0627337, 0.9943, -0.122203, -0.989813, -0.0730462, 0.988754, -0.127804, 0.0776658, 9.8, -8.4, 0.28 )
 
 [node name="Vacant0" parent="Stations/Michelson" instance=ExtResource( 3 )]
 
@@ -1217,7 +1217,7 @@ transform=Transform(-0.08621023759159677, -0.06273366783568099, 0.99429989533051
 [node name="Vacant3" parent="Stations/Michelson" instance=ExtResource( 3 )]
 
 [node name="Montgomery" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.5164548179285553, 0.27063233716587376, -0.812423878968682, -0.3032151706253616, 0.9450715606397585, 0.12206680782491325, 0.8008339286899724, 0.18329725407127145, 0.5701465910701529, 3.36, 5.6000000000000005, -1.68)
+transform = Transform( 0.516455, 0.270632, -0.812424, -0.303215, 0.945072, 0.122067, 0.800834, 0.183297, 0.570147, 3.36, 5.6, -1.68 )
 
 [node name="Vacant0" parent="Stations/Montgomery" instance=ExtResource( 3 )]
 
@@ -1226,7 +1226,7 @@ transform=Transform(0.5164548179285553, 0.27063233716587376, -0.812423878968682,
 [node name="Vacant2" parent="Stations/Montgomery" instance=ExtResource( 3 )]
 
 [node name="Nambu" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.5035536978031153, -0.49734825411751815, 0.7064548022025653, -0.8605444053387242, 0.21604873656631085, -0.46128762162919856, 0.07679192580623696, -0.8402188152822798, -0.5367823977894692, 4.760000000000001, 3.5, 5.6000000000000005)
+transform = Transform( -0.503554, -0.497348, 0.706455, -0.860544, 0.216049, -0.461288, 0.0767919, -0.840219, -0.536782, 4.76, 3.5, 5.6 )
 
 [node name="Vacant0" parent="Stations/Nambu" instance=ExtResource( 3 )]
 
@@ -1243,7 +1243,7 @@ transform=Transform(-0.5035536978031153, -0.49734825411751815, 0.706454802202565
 [node name="Vacant6" parent="Stations/Nambu" instance=ExtResource( 3 )]
 
 [node name="Neumann" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.139839538015717, 0.8155851732470711, -0.5614852881305937, 0.9220284160658627, -0.313984785831221, -0.22644459418056054, -0.3609826915166811, -0.4860394834229697, -0.7959001928504009, 3.5, -12.88, -0.28)
+transform = Transform( 0.13984, 0.815585, -0.561485, 0.922028, -0.313985, -0.226445, -0.360983, -0.486039, -0.7959, 3.5, -12.88, -0.28 )
 
 [node name="Vacant0" parent="Stations/Neumann" instance=ExtResource( 3 )]
 
@@ -1258,7 +1258,7 @@ transform=Transform(0.139839538015717, 0.8155851732470711, -0.5614852881305937, 
 [node name="Vacant5" parent="Stations/Neumann" instance=ExtResource( 3 )]
 
 [node name="Newton" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.3832558391006324, 0.786740182568211, 0.4838954917415621, -0.2875749762320947, 0.5994989786319501, -0.7469281141210035, -0.8777332139325595, 0.1471083265889006, 0.4560082733984473, 2.24, -4.62, -9.24)
+transform = Transform( 0.383256, 0.78674, 0.483895, -0.287575, 0.599499, -0.746928, -0.877733, 0.147108, 0.456008, 2.24, -4.62, -9.24 )
 
 [node name="Vacant0" parent="Stations/Newton" instance=ExtResource( 3 )]
 
@@ -1267,7 +1267,7 @@ transform=Transform(0.3832558391006324, 0.786740182568211, 0.4838954917415621, -
 [node name="Vacant2" parent="Stations/Newton" instance=ExtResource( 3 )]
 
 [node name="Noether" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.9708625360077152, 0.1194078793887469, -0.20776836745893443, 0.12080563092355107, -0.9926580789038241, -0.005994824779129867, -0.2069587778129526, -0.01927943792884485, -0.9781596840799139, 4.34, 11.62, -5.6000000000000005)
+transform = Transform( 0.970863, 0.119408, -0.207768, 0.120806, -0.992658, -0.00599482, -0.206959, -0.0192794, -0.97816, 4.34, 11.62, -5.6 )
 
 [node name="Vacant0" parent="Stations/Noether" instance=ExtResource( 3 )]
 
@@ -1280,7 +1280,7 @@ transform=Transform(0.9708625360077152, 0.1194078793887469, -0.20776836745893443
 [node name="Vacant4" parent="Stations/Noether" instance=ExtResource( 3 )]
 
 [node name="Ohm" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.8667150482909108, 0.24223365994110305, 0.4360365570197316, 0.215443559542845, 0.6066230514801356, -0.7652401884796936, -0.44987675836565755, 0.7571864548474612, 0.4735816454191833, -3.7800000000000002, 2.94, -8.12)
+transform = Transform( 0.866715, 0.242234, 0.436037, 0.215444, 0.606623, -0.76524, -0.449877, 0.757186, 0.473582, -3.78, 2.94, -8.12 )
 
 [node name="Vacant0" parent="Stations/Ohm" instance=ExtResource( 3 )]
 
@@ -1291,7 +1291,7 @@ transform=Transform(0.8667150482909108, 0.24223365994110305, 0.4360365570197316,
 [node name="Vacant3" parent="Stations/Ohm" instance=ExtResource( 3 )]
 
 [node name="Oppenheimer" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.5548012510557004, -0.29472547742801913, -0.7780311464085844, -0.5646219331054191, -0.8202153788022203, -0.0919173815588233, -0.6110627173075851, 0.49028932818403953, -0.6214649870954226, -0.9800000000000001, 7.9799999999999995, -10.5)
+transform = Transform( 0.554801, -0.294725, -0.778031, -0.564622, -0.820215, -0.0919174, -0.611063, 0.490289, -0.621465, -0.98, 7.98, -10.5 )
 
 [node name="Vacant0" parent="Stations/Oppenheimer" instance=ExtResource( 3 )]
 
@@ -1304,14 +1304,14 @@ transform=Transform(0.5548012510557004, -0.29472547742801913, -0.778031146408584
 [node name="Vacant4" parent="Stations/Oppenheimer" instance=ExtResource( 3 )]
 
 [node name="Pascal" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.2641857499659544, 0.33221972176983944, -0.9054479256048336, -0.5382008538973858, 0.8298203384710534, 0.14743828106672593, 0.8003410088075276, 0.44836175386283394, 0.3980276463940569, -7, -7.5600000000000005, -6.02)
+transform = Transform( 0.264186, 0.33222, -0.905448, -0.538201, 0.82982, 0.147438, 0.800341, 0.448362, 0.398028, -7, -7.56, -6.02 )
 
 [node name="Vacant0" parent="Stations/Pascal" instance=ExtResource( 3 )]
 
 [node name="Vacant1" parent="Stations/Pascal" instance=ExtResource( 3 )]
 
 [node name="Pauli" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.06092123627722918, -0.21610504221007543, 0.9744676565704141, -0.8434338463164962, 0.510931489915998, 0.1660372232361737, -0.5337676927823701, -0.8320141965997933, -0.15114372894098346, -4.2, 9.520000000000001, 6.859999999999999)
+transform = Transform( 0.0609212, -0.216105, 0.974468, -0.843434, 0.510931, 0.166037, -0.533768, -0.832014, -0.151144, -4.2, 9.52, 6.86 )
 
 [node name="Vacant0" parent="Stations/Pauli" instance=ExtResource( 3 )]
 
@@ -1324,7 +1324,7 @@ transform=Transform(0.06092123627722918, -0.21610504221007543, 0.974467656570414
 [node name="Vacant4" parent="Stations/Pauli" instance=ExtResource( 3 )]
 
 [node name="Peltier" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.3745335598988094, 0.07965030427688222, 0.923785928415304, -0.6061741185715959, -0.774939375609622, -0.1789466459694567, 0.701624935762316, -0.6269966452528828, 0.3385227560418308, 6.859999999999999, -0.9800000000000001, -9.94)
+transform = Transform( -0.374534, 0.0796503, 0.923786, -0.606174, -0.774939, -0.178947, 0.701625, -0.626997, 0.338523, 6.86, -0.98, -9.94 )
 
 [node name="Vacant0" parent="Stations/Peltier" instance=ExtResource( 3 )]
 
@@ -1333,7 +1333,7 @@ transform=Transform(-0.3745335598988094, 0.07965030427688222, 0.923785928415304,
 [node name="Vacant2" parent="Stations/Peltier" instance=ExtResource( 3 )]
 
 [node name="Penrose" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.9940170833335619, -0.01433066373362505, -0.10828051587424614, 0.024334643733029633, -0.9954947130500036, -0.09164115562277632, -0.1064794024937482, -0.09372784200249758, 0.9898874827363611, -2.94, -5.739999999999999, 11.62)
+transform = Transform( -0.994017, -0.0143307, -0.108281, 0.0243346, -0.995495, -0.0916412, -0.106479, -0.0937278, 0.989887, -2.94, -5.74, 11.62 )
 
 [node name="Vacant0" parent="Stations/Penrose" instance=ExtResource( 3 )]
 
@@ -1348,7 +1348,7 @@ transform=Transform(-0.9940170833335619, -0.01433066373362505, -0.10828051587424
 [node name="Vacant5" parent="Stations/Penrose" instance=ExtResource( 3 )]
 
 [node name="Planck" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.8739599503722854, -0.07784944956879901, -0.4797222825209479, -0.3464226542792899, -0.5925143659132652, 0.7272675372849343, -0.3408597215092517, 0.8017893672207412, 0.4908650128746182, -4.8999999999999995, -3.5, -1.12)
+transform = Transform( -0.87396, -0.0778494, -0.479722, -0.346423, -0.592514, 0.727268, -0.34086, 0.801789, 0.490865, -4.9, -3.5, -1.12 )
 
 [node name="Vacant0" parent="Stations/Planck" instance=ExtResource( 3 )]
 
@@ -1363,7 +1363,7 @@ transform=Transform(-0.8739599503722854, -0.07784944956879901, -0.47972228252094
 [node name="Vacant5" parent="Stations/Planck" instance=ExtResource( 3 )]
 
 [node name="Podolsky" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.5223048628733372, 0.245516560857632, 0.8166512404714176, -0.5240555482908446, -0.8478938893945792, -0.08026041759743908, 0.6727283348606975, -0.46989101999503424, 0.5715234175461051, 2.3800000000000003, 7.9799999999999995, 7)
+transform = Transform( -0.522305, 0.245517, 0.816651, -0.524056, -0.847894, -0.0802604, 0.672728, -0.469891, 0.571523, 2.38, 7.98, 7 )
 
 [node name="Vacant0" parent="Stations/Podolsky" instance=ExtResource( 3 )]
 
@@ -1380,14 +1380,14 @@ transform=Transform(-0.5223048628733372, 0.245516560857632, 0.8166512404714176, 
 [node name="Vacant6" parent="Stations/Podolsky" instance=ExtResource( 3 )]
 
 [node name="Poincaré" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.6521862435920547, -0.48985100416173005, -0.5785318464795436, -0.7136640234763237, -0.13942029423836497, -0.6864733375376447, 0.25561057346062693, 0.8605858326025551, -0.4405170365137959, 8.54, 7.42, 3.5)
+transform = Transform( 0.652186, -0.489851, -0.578532, -0.713664, -0.13942, -0.686473, 0.255611, 0.860586, -0.440517, 8.54, 7.42, 3.5 )
 
 [node name="Vacant0" parent="Stations/Poincaré" instance=ExtResource( 3 )]
 
 [node name="Vacant1" parent="Stations/Poincaré" instance=ExtResource( 3 )]
 
 [node name="Poisson" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.442948054045924, -0.6414532285691181, -0.6263663280981697, 0.33671059106950313, -0.5284775394702362, 0.7793185921926351, -0.8309169629262331, -0.5561018304535057, -0.018104001980370318, -1.4000000000000001, 13.299999999999999, 0.7000000000000001)
+transform = Transform( 0.442948, -0.641453, -0.626366, 0.336711, -0.528478, 0.779319, -0.830917, -0.556102, -0.018104, -1.4, 13.3, 0.7 )
 
 [node name="Vacant0" parent="Stations/Poisson" instance=ExtResource( 3 )]
 
@@ -1404,7 +1404,7 @@ transform=Transform(0.442948054045924, -0.6414532285691181, -0.6263663280981697,
 [node name="Vacant6" parent="Stations/Poisson" instance=ExtResource( 3 )]
 
 [node name="Polchinski" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.0049169197897098085, -0.2925615102636094, -0.9562340647624187, -0.9834007475105443, -0.17203150566968994, 0.057689954521755335, -0.18138024615565038, 0.9406449509614642, -0.2868593427713664, -11.62, 5.18, -4.760000000000001)
+transform = Transform( -0.00491692, -0.292562, -0.956234, -0.983401, -0.172032, 0.05769, -0.18138, 0.940645, -0.286859, -11.62, 5.18, -4.76 )
 
 [node name="Vacant0" parent="Stations/Polchinski" instance=ExtResource( 3 )]
 
@@ -1419,7 +1419,7 @@ transform=Transform(-0.0049169197897098085, -0.2925615102636094, -0.956234064762
 [node name="Vacant5" parent="Stations/Polchinski" instance=ExtResource( 3 )]
 
 [node name="Polyakov" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.44526304497218977, -0.21064222104906963, -0.870270461117467, -0.20507427331478023, 0.9700906799066289, -0.12987923306945348, 0.8715993134499984, 0.12063965960582565, -0.47514283044541666, 0.9800000000000001, 4.760000000000001, 5.88)
+transform = Transform( -0.445263, -0.210642, -0.87027, -0.205074, 0.970091, -0.129879, 0.871599, 0.12064, -0.475143, 0.98, 4.76, 5.88 )
 
 [node name="Vacant0" parent="Stations/Polyakov" instance=ExtResource( 3 )]
 
@@ -1432,7 +1432,7 @@ transform=Transform(-0.44526304497218977, -0.21064222104906963, -0.8702704611174
 [node name="Vacant4" parent="Stations/Polyakov" instance=ExtResource( 3 )]
 
 [node name="Powell" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.4232808320960201, 0.8826404769010516, -0.2043994268973986, 0.13108737598420678, -0.16356798281306725, -0.9777840328293561, -0.8964649669884909, -0.4406714235508677, -0.04646783218502512, -8.68, 8.26, -5.46)
+transform = Transform( -0.423281, 0.88264, -0.204399, 0.131087, -0.163568, -0.977784, -0.896465, -0.440671, -0.0464678, -8.68, 8.26, -5.46 )
 
 [node name="Vacant0" parent="Stations/Powell" instance=ExtResource( 3 )]
 
@@ -1443,7 +1443,7 @@ transform=Transform(-0.4232808320960201, 0.8826404769010516, -0.2043994268973986
 [node name="Vacant3" parent="Stations/Powell" instance=ExtResource( 3 )]
 
 [node name="Poynting" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.20474066484533424, -0.4294849212959212, -0.8795589591028719, -0.9774514898559058, 0.13714657104399156, 0.16055965567148453, 0.051670544192613535, 0.8925993056407293, -0.44788015632814926, -10.5, 1.68, -5.32)
+transform = Transform( -0.204741, -0.429485, -0.879559, -0.977452, 0.137147, 0.16056, 0.0516705, 0.892599, -0.44788, -10.5, 1.68, -5.32 )
 
 [node name="Vacant0" parent="Stations/Poynting" instance=ExtResource( 3 )]
 
@@ -1456,7 +1456,7 @@ transform=Transform(-0.20474066484533424, -0.4294849212959212, -0.87955895910287
 [node name="Vacant4" parent="Stations/Poynting" instance=ExtResource( 3 )]
 
 [node name="Rayleigh" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.8810014924348516, 0.4287276773963314, -0.20007235931510187, -0.4390250806777629, -0.5832147380640708, 0.6834599826183981, 0.17633306230950505, 0.6899660483960095, 0.7020352578021618, 1.54, 6.3, -12.32)
+transform = Transform( -0.881001, 0.428728, -0.200072, -0.439025, -0.583215, 0.68346, 0.176333, 0.689966, 0.702035, 1.54, 6.3, -12.32 )
 
 [node name="Vacant0" parent="Stations/Rayleigh" instance=ExtResource( 3 )]
 
@@ -1467,7 +1467,7 @@ transform=Transform(-0.8810014924348516, 0.4287276773963314, -0.2000723593151018
 [node name="Vacant3" parent="Stations/Rayleigh" instance=ExtResource( 3 )]
 
 [node name="Reeves" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.2909236425748336, -0.2523346518488202, 0.9228708781120603, -0.8825871266882854, -0.4431389181636928, 0.15706006180066465, 0.3693283065175307, -0.8602064418992958, -0.35162690357799165, -1.9600000000000002, 10.219999999999999, -7.840000000000001)
+transform = Transform( 0.290924, -0.252335, 0.922871, -0.882587, -0.443139, 0.15706, 0.369328, -0.860206, -0.351627, -1.96, 10.22, -7.84 )
 
 [node name="Vacant0" parent="Stations/Reeves" instance=ExtResource( 3 )]
 
@@ -1484,7 +1484,7 @@ transform=Transform(0.2909236425748336, -0.2523346518488202, 0.9228708781120603,
 [node name="Vacant6" parent="Stations/Reeves" instance=ExtResource( 3 )]
 
 [node name="Regge" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.5252212387602863, -0.42627054754993327, -0.7365025937813056, 0.16820928213025146, 0.9004192335358798, -0.4011867910137177, 0.8341752140649685, 0.08682525076346716, 0.5446219680379458, -7.840000000000001, -4.34, -8.4)
+transform = Transform( 0.525221, -0.426271, -0.736503, 0.168209, 0.900419, -0.401187, 0.834175, 0.0868253, 0.544622, -7.84, -4.34, -8.4 )
 
 [node name="Vacant0" parent="Stations/Regge" instance=ExtResource( 3 )]
 
@@ -1501,7 +1501,7 @@ transform=Transform(0.5252212387602863, -0.42627054754993327, -0.736502593781305
 [node name="Vacant6" parent="Stations/Regge" instance=ExtResource( 3 )]
 
 [node name="Rovelli" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.49170591400727015, 0.03517202997820896, -0.8700507010729246, -0.1694647050615358, 0.983944178140222, -0.05599614310262981, 0.8541118239836527, 0.17497652017106605, 0.48977158913124264, 10.219999999999999, 1.26, 9.38)
+transform = Transform( 0.491706, 0.035172, -0.870051, -0.169465, 0.983944, -0.0559961, 0.854112, 0.174977, 0.489772, 10.22, 1.26, 9.38 )
 
 [node name="Vacant0" parent="Stations/Rovelli" instance=ExtResource( 3 )]
 
@@ -1516,7 +1516,7 @@ transform=Transform(0.49170591400727015, 0.03517202997820896, -0.870050701072924
 [node name="Vacant5" parent="Stations/Rovelli" instance=ExtResource( 3 )]
 
 [node name="Rutherford" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.0819541001951971, 0.31130247332682587, -0.9467704555813917, 0.4512951078929044, -0.858583908021777, -0.24324144070857726, -0.8886035398607902, -0.4073382414979636, -0.2108537549113585, -5.18, -8.54, 8.96)
+transform = Transform( 0.0819541, 0.311302, -0.94677, 0.451295, -0.858584, -0.243241, -0.888604, -0.407338, -0.210854, -5.18, -8.54, 8.96 )
 
 [node name="Vacant0" parent="Stations/Rutherford" instance=ExtResource( 3 )]
 
@@ -1529,7 +1529,7 @@ transform=Transform(0.0819541001951971, 0.31130247332682587, -0.9467704555813917
 [node name="Vacant4" parent="Stations/Rutherford" instance=ExtResource( 3 )]
 
 [node name="Rydberg" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.7143798901593263, 0.6969087538716587, -0.0630837642583323, -0.6267259032802237, 0.5971177302372117, -0.500664616678619, -0.3112491199883732, 0.397200963006653, 0.863339666813156, 2.94, 11.200000000000001, 5.46)
+transform = Transform( 0.71438, 0.696909, -0.0630838, -0.626726, 0.597118, -0.500665, -0.311249, 0.397201, 0.86334, 2.94, 11.2, 5.46 )
 
 [node name="Vacant0" parent="Stations/Rydberg" instance=ExtResource( 3 )]
 
@@ -1546,7 +1546,7 @@ transform=Transform(0.7143798901593263, 0.6969087538716587, -0.0630837642583323,
 [node name="Vacant6" parent="Stations/Rydberg" instance=ExtResource( 3 )]
 
 [node name="Sakharov" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.231874191837469, -0.9545284563801991, 0.18737605268591623, 0.9279178358043763, -0.15924421557523227, 0.33706048389265664, -0.29189527086926836, 0.2520252085928381, 0.9226486032493049, 3.08, -2.1, 13.44)
+transform = Transform( -0.231874, -0.954528, 0.187376, 0.927918, -0.159244, 0.33706, -0.291895, 0.252025, 0.922649, 3.08, -2.1, 13.44 )
 
 [node name="Vacant0" parent="Stations/Sakharov" instance=ExtResource( 3 )]
 
@@ -1563,7 +1563,7 @@ transform=Transform(-0.231874191837469, -0.9545284563801991, 0.18737605268591623
 [node name="Vacant6" parent="Stations/Sakharov" instance=ExtResource( 3 )]
 
 [node name="Salam" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.1551891122682528, 0.21098925542242583, 0.965090603793075, -0.9877214954561453, -0.0153778465521478, -0.15546629618439656, -0.017960702861178568, -0.97736741092166, 0.21078509724604227, 4.8999999999999995, -10.36, 3.5)
+transform = Transform( -0.155189, 0.210989, 0.965091, -0.987722, -0.0153778, -0.155466, -0.0179607, -0.977367, 0.210785, 4.9, -10.36, 3.5 )
 
 [node name="Vacant0" parent="Stations/Salam" instance=ExtResource( 3 )]
 
@@ -1576,7 +1576,7 @@ transform=Transform(-0.1551891122682528, 0.21098925542242583, 0.965090603793075,
 [node name="Vacant4" parent="Stations/Salam" instance=ExtResource( 3 )]
 
 [node name="Salpeter" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.014428600722535675, -0.8972484993036475, -0.44129009277179815, -0.950035715175682, -0.1253244776331599, 0.28587744786290176, -0.31180756144105953, 0.4233661604371896, -0.8506098628777189, -3.08, -10.780000000000001, -0.28)
+transform = Transform( -0.0144286, -0.897249, -0.44129, -0.950036, -0.125324, 0.285877, -0.311808, 0.423366, -0.85061, -3.08, -10.78, -0.28 )
 
 [node name="Vacant0" parent="Stations/Salpeter" instance=ExtResource( 3 )]
 
@@ -1589,7 +1589,7 @@ transform=Transform(-0.014428600722535675, -0.8972484993036475, -0.4412900927717
 [node name="Vacant4" parent="Stations/Salpeter" instance=ExtResource( 3 )]
 
 [node name="Savart" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.4776352748876487, -0.452487430946, -0.753073481818932, 0.8692715629976427, 0.3676994157675145, 0.3303998931716895, 0.12740288044873851, -0.8124360063907295, 0.568960667861362, 6.02, -11.76, -4.34)
+transform = Transform( 0.477635, -0.452487, -0.753073, 0.869272, 0.367699, 0.3304, 0.127403, -0.812436, 0.568961, 6.02, -11.76, -4.34 )
 
 [node name="Vacant0" parent="Stations/Savart" instance=ExtResource( 3 )]
 
@@ -1598,7 +1598,7 @@ transform=Transform(0.4776352748876487, -0.452487430946, -0.753073481818932, 0.8
 [node name="Vacant2" parent="Stations/Savart" instance=ExtResource( 3 )]
 
 [node name="Brendan Scaife" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.5087397969372132, -0.5639263270864687, -0.6505158849951695, -0.8396643780168438, -0.15814349807667824, -0.5195713293722612, 0.1901250938247508, 0.8105416285637876, -0.5539627397788528, -2.52, -5.6000000000000005, 1.54)
+transform = Transform( 0.50874, -0.563926, -0.650516, -0.839664, -0.158144, -0.519571, 0.190125, 0.810542, -0.553963, -2.52, -5.6, 1.54 )
 
 [node name="Vacant0" parent="Stations/Brendan Scaife" instance=ExtResource( 3 )]
 
@@ -1611,7 +1611,7 @@ transform=Transform(0.5087397969372132, -0.5639263270864687, -0.6505158849951695
 [node name="Vacant4" parent="Stations/Brendan Scaife" instance=ExtResource( 3 )]
 
 [node name="Martin Schadt" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.8302027634952982, -0.40401395916438115, 0.38410427267226815, -0.528096665527359, 0.34930747396446654, -0.7740143412698814, 0.17854210524034655, -0.8454330307202845, -0.5033544548560783, -1.82, -3.7800000000000002, -9.799999999999999)
+transform = Transform( -0.830203, -0.404014, 0.384104, -0.528097, 0.349307, -0.774014, 0.178542, -0.845433, -0.503354, -1.82, -3.78, -9.8 )
 
 [node name="Vacant0" parent="Stations/Martin Schadt" instance=ExtResource( 3 )]
 
@@ -1628,7 +1628,7 @@ transform=Transform(-0.8302027634952982, -0.40401395916438115, 0.384104272672268
 [node name="Vacant6" parent="Stations/Martin Schadt" instance=ExtResource( 3 )]
 
 [node name="Schawlow" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.4320279412759476, 0.41648581290468956, 0.7999321381254704, -0.8616752056085691, -0.07119377896450858, 0.5024413258044993, 0.26620987584290834, -0.9063503811914423, 0.3281177967100089, 3.36, 10.780000000000001, -0.14)
+transform = Transform( 0.432028, 0.416486, 0.799932, -0.861675, -0.0711938, 0.502441, 0.26621, -0.90635, 0.328118, 3.36, 10.78, -0.14 )
 
 [node name="Vacant0" parent="Stations/Schawlow" instance=ExtResource( 3 )]
 
@@ -1637,7 +1637,7 @@ transform=Transform(0.4320279412759476, 0.41648581290468956, 0.7999321381254704,
 [node name="Vacant2" parent="Stations/Schawlow" instance=ExtResource( 3 )]
 
 [node name="Schottky" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.6484442551672639, -0.7208146297622505, -0.2448393707337168, -0.551400810030436, -0.6664746270344812, 0.5017656008705943, -0.5248592141120815, -0.19036239397517346, -0.8296294138479476, -3.64, 12.46, 4.62)
+transform = Transform( 0.648444, -0.720815, -0.244839, -0.551401, -0.666475, 0.501766, -0.524859, -0.190362, -0.829629, -3.64, 12.46, 4.62 )
 
 [node name="Vacant0" parent="Stations/Schottky" instance=ExtResource( 3 )]
 
@@ -1648,14 +1648,14 @@ transform=Transform(0.6484442551672639, -0.7208146297622505, -0.2448393707337168
 [node name="Vacant3" parent="Stations/Schottky" instance=ExtResource( 3 )]
 
 [node name="Schrödinger" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.08764218782150233, -0.1911062666311553, -0.9776488335635459, 0.2243737572931832, -0.9599929678205584, 0.1675407973396798, -0.970554101506969, -0.20467510007174228, 0.12701511507935603, -1.26, 10.219999999999999, 9.24)
+transform = Transform( -0.0876422, -0.191106, -0.977649, 0.224374, -0.959993, 0.167541, -0.970554, -0.204675, 0.127015, -1.26, 10.22, 9.24 )
 
 [node name="Vacant0" parent="Stations/Schrödinger" instance=ExtResource( 3 )]
 
 [node name="Vacant1" parent="Stations/Schrödinger" instance=ExtResource( 3 )]
 
 [node name="Schwarzschild" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.007433506196092999, -0.012640377233818613, -0.9998924761438197, -0.9375956678590115, 0.34771789567310435, 0.0025746146666994338, 0.34764796360348, 0.937513992371343, -0.014436326066510451, -5.6000000000000005, 3.5, 8.4)
+transform = Transform( -0.00743351, -0.0126404, -0.999892, -0.937596, 0.347718, 0.00257461, 0.347648, 0.937514, -0.0144363, -5.6, 3.5, 8.4 )
 
 [node name="Vacant0" parent="Stations/Schwarzschild" instance=ExtResource( 3 )]
 
@@ -1664,14 +1664,14 @@ transform=Transform(-0.007433506196092999, -0.012640377233818613, -0.99989247614
 [node name="Vacant2" parent="Stations/Schwarzschild" instance=ExtResource( 3 )]
 
 [node name="Seebeck" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.9127051611711835, 0.07917764379557353, 0.40087428140810644, -0.038402057952628015, 0.9600843745145669, -0.27706186269130634, -0.40681023919818854, -0.26827018942840924, -0.8732333793136623, -9.1, -8.4, -1.82)
+transform = Transform( -0.912705, 0.0791776, 0.400874, -0.0384021, 0.960084, -0.277062, -0.40681, -0.26827, -0.873233, -9.1, -8.4, -1.82 )
 
 [node name="Vacant0" parent="Stations/Seebeck" instance=ExtResource( 3 )]
 
 [node name="Vacant1" parent="Stations/Seebeck" instance=ExtResource( 3 )]
 
 [node name="Gupta" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.023174526766568854, -0.005032846464065741, -0.9997187663366207, 0.3302313265455917, 0.9438955672512512, 0.0029032897509150683, 0.9436155002314685, -0.3302057367459083, 0.02353633665223853, -5.739999999999999, 0.28, -5.32)
+transform = Transform( 0.0231745, -0.00503285, -0.999719, 0.330231, 0.943896, 0.00290329, 0.943615, -0.330206, 0.0235363, -5.74, 0.28, -5.32 )
 
 [node name="Vacant0" parent="Stations/Gupta" instance=ExtResource( 3 )]
 
@@ -1688,7 +1688,7 @@ transform=Transform(0.023174526766568854, -0.005032846464065741, -0.999718766336
 [node name="Vacant6" parent="Stations/Gupta" instance=ExtResource( 3 )]
 
 [node name="Sitter" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.40212273086903305, -0.376085418765726, -0.8347796518304936, -0.8365772845265449, 0.5214304783503433, 0.16807350553113645, 0.37206955846000617, 0.7659438713372809, -0.5243035662936456, -4.62, 5.04, -11.9)
+transform = Transform( -0.402123, -0.376085, -0.83478, -0.836577, 0.52143, 0.168074, 0.37207, 0.765944, -0.524304, -4.62, 5.04, -11.9 )
 
 [node name="Vacant0" parent="Stations/Sitter" instance=ExtResource( 3 )]
 
@@ -1705,7 +1705,7 @@ transform=Transform(-0.40212273086903305, -0.376085418765726, -0.834779651830493
 [node name="Vacant6" parent="Stations/Sitter" instance=ExtResource( 3 )]
 
 [node name="Smolin" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.08472555163356622, 0.06440550591323892, 0.9943206282223289, -0.9073448441997928, -0.41736945179586776, -0.050279960338786116, 0.4117607492275594, -0.906451692874847, 0.09379986076686066, 6.44, -4.8999999999999995, -10.5)
+transform = Transform( -0.0847256, 0.0644055, 0.994321, -0.907345, -0.417369, -0.05028, 0.411761, -0.906452, 0.0937999, 6.44, -4.9, -10.5 )
 
 [node name="Vacant0" parent="Stations/Smolin" instance=ExtResource( 3 )]
 
@@ -1714,7 +1714,7 @@ transform=Transform(-0.08472555163356622, 0.06440550591323892, 0.994320628222328
 [node name="Vacant2" parent="Stations/Smolin" instance=ExtResource( 3 )]
 
 [node name="Snell" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.2667595019146602, 0.1389120851756869, -0.953699533779054, -0.9295321712586928, -0.22430665632179203, -0.29267126016204215, -0.2545767285777368, 0.9645672379476095, 0.06928732023088462, 0.9800000000000001, 1.68, 13.58)
+transform = Transform( 0.26676, 0.138912, -0.9537, -0.929532, -0.224307, -0.292671, -0.254577, 0.964567, 0.0692873, 0.98, 1.68, 13.58 )
 
 [node name="Vacant0" parent="Stations/Snell" instance=ExtResource( 3 )]
 
@@ -1729,7 +1729,7 @@ transform=Transform(0.2667595019146602, 0.1389120851756869, -0.953699533779054, 
 [node name="Vacant5" parent="Stations/Snell" instance=ExtResource( 3 )]
 
 [node name="Sommerfeld" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.9122547349104521, -0.34488735494993583, -0.22100681217803553, 0.2145786769097155, -0.8619410730161676, 0.45936214261017755, -0.348923043161578, 0.37163194028954805, 0.8603152973808433, 3.9200000000000004, 1.82, -11.9)
+transform = Transform( -0.912255, -0.344887, -0.221007, 0.214579, -0.861941, 0.459362, -0.348923, 0.371632, 0.860315, 3.92, 1.82, -11.9 )
 
 [node name="Vacant0" parent="Stations/Sommerfeld" instance=ExtResource( 3 )]
 
@@ -1746,7 +1746,7 @@ transform=Transform(-0.9122547349104521, -0.34488735494993583, -0.22100681217803
 [node name="Vacant6" parent="Stations/Sommerfeld" instance=ExtResource( 3 )]
 
 [node name="Stokes" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.007316836014188573, -0.004371386446801023, -0.9999636767859494, -0.9938113166302306, 0.11081023339864908, -0.007756230516495224, 0.11084011389578045, 0.9938319692758278, -0.003533553013722992, 11.06, 2.24, -7.9799999999999995)
+transform = Transform( 0.00731684, -0.00437139, -0.999964, -0.993811, 0.11081, -0.00775623, 0.11084, 0.993832, -0.00353355, 11.06, 2.24, -7.98 )
 
 [node name="Vacant0" parent="Stations/Stokes" instance=ExtResource( 3 )]
 
@@ -1763,7 +1763,7 @@ transform=Transform(0.007316836014188573, -0.004371386446801023, -0.999963676785
 [node name="Vacant6" parent="Stations/Stokes" instance=ExtResource( 3 )]
 
 [node name="Susskind" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.6342657251637863, 0.6313803092405696, -0.44616801206018625, -0.4987943866951668, 0.106736261831722, 0.8601229738889562, 0.5906870149951227, 0.7680926217022739, 0.24722980160708583, -2.66, 7.700000000000001, -1.12)
+transform = Transform( -0.634266, 0.63138, -0.446168, -0.498794, 0.106736, 0.860123, 0.590687, 0.768093, 0.24723, -2.66, 7.7, -1.12 )
 
 [node name="Vacant0" parent="Stations/Susskind" instance=ExtResource( 3 )]
 
@@ -1772,7 +1772,7 @@ transform=Transform(-0.6342657251637863, 0.6313803092405696, -0.4461680120601862
 [node name="Vacant2" parent="Stations/Susskind" instance=ExtResource( 3 )]
 
 [node name="Kelvin" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.2701368659681865, 0.5298822733536777, -0.8038972882342773, 0.8856990236797322, 0.19066601610780307, 0.42330096828893304, 0.3775755726972488, -0.8263602402627547, -0.4178102921365476, -5.739999999999999, 1.82, -11.76)
+transform = Transform( 0.270137, 0.529882, -0.803897, 0.885699, 0.190666, 0.423301, 0.377576, -0.82636, -0.41781, -5.74, 1.82, -11.76 )
 
 [node name="Vacant0" parent="Stations/Kelvin" instance=ExtResource( 3 )]
 
@@ -1789,7 +1789,7 @@ transform=Transform(0.2701368659681865, 0.5298822733536777, -0.8038972882342773,
 [node name="Vacant6" parent="Stations/Kelvin" instance=ExtResource( 3 )]
 
 [node name="Thorne" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.43616276174939456, 0.11777994747227555, 0.8921266329600125, -0.043617540554790585, -0.9874650537222411, 0.1516913901092702, 0.8988100775019671, -0.10507450523680625, -0.4255582133270938, 8.12, -1.4000000000000001, 10.780000000000001)
+transform = Transform( 0.436163, 0.11778, 0.892127, -0.0436175, -0.987465, 0.151691, 0.89881, -0.105075, -0.425558, 8.12, -1.4, 10.78 )
 
 [node name="Vacant0" parent="Stations/Thorne" instance=ExtResource( 3 )]
 
@@ -1800,7 +1800,7 @@ transform=Transform(0.43616276174939456, 0.11777994747227555, 0.8921266329600125
 [node name="Vacant3" parent="Stations/Thorne" instance=ExtResource( 3 )]
 
 [node name="Tomonaga" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.3931888820735553, -0.1297475228617985, 0.9102571523064102, -0.8991600553409281, -0.26112774071016914, 0.35117445509447603, 0.192129378006195, -0.9565447628536942, -0.21933631428498765, -7.9799999999999995, -7.9799999999999995, 1.68)
+transform = Transform( 0.393189, -0.129748, 0.910257, -0.89916, -0.261128, 0.351174, 0.192129, -0.956545, -0.219336, -7.98, -7.98, 1.68 )
 
 [node name="Vacant0" parent="Stations/Tomonaga" instance=ExtResource( 3 )]
 
@@ -1815,7 +1815,7 @@ transform=Transform(0.3931888820735553, -0.1297475228617985, 0.9102571523064102,
 [node name="Vacant5" parent="Stations/Tomonaga" instance=ExtResource( 3 )]
 
 [node name="Veneziano" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.700861172645165, 0.7132886739415558, 0.003589471429201198, 0.16211848850632832, 0.16419041752084199, -0.9730154687767071, -0.6946302702609984, -0.6813668427660892, -0.23071197024884482, 11.200000000000001, 1.9600000000000002, -2.8000000000000003)
+transform = Transform( -0.700861, 0.713289, 0.00358947, 0.162118, 0.16419, -0.973015, -0.69463, -0.681367, -0.230712, 11.2, 1.96, -2.8 )
 
 [node name="Vacant0" parent="Stations/Veneziano" instance=ExtResource( 3 )]
 
@@ -1824,7 +1824,7 @@ transform=Transform(-0.700861172645165, 0.7132886739415558, 0.003589471429201198
 [node name="Vacant2" parent="Stations/Veneziano" instance=ExtResource( 3 )]
 
 [node name="Watt" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.5198501196062646, -0.8455884028486824, 0.12139236431162709, 0.6280573771968223, -0.4746427441669773, -0.6166507896356654, 0.5790507612411894, -0.2443246168061165, 0.7778211218066423, 2.3800000000000003, 9.38, -7.9799999999999995)
+transform = Transform( -0.51985, -0.845588, 0.121392, 0.628057, -0.474643, -0.616651, 0.579051, -0.244325, 0.777821, 2.38, 9.38, -7.98 )
 
 [node name="Vacant0" parent="Stations/Watt" instance=ExtResource( 3 )]
 
@@ -1833,7 +1833,7 @@ transform=Transform(-0.5198501196062646, -0.8455884028486824, 0.1213923643116270
 [node name="Vacant2" parent="Stations/Watt" instance=ExtResource( 3 )]
 
 [node name="Webb" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.4499400651854633, 0.7465734410107179, 0.4900837019513271, -0.6981862688215628, 0.6362411856335953, -0.3282271892037304, -0.5568571376663188, -0.19448714836968803, 0.8075177257182045, 12.6, 3.64, -0.14)
+transform = Transform( 0.44994, 0.746573, 0.490084, -0.698186, 0.636241, -0.328227, -0.556857, -0.194487, 0.807518, 12.6, 3.64, -0.14 )
 
 [node name="Vacant0" parent="Stations/Webb" instance=ExtResource( 3 )]
 
@@ -1848,7 +1848,7 @@ transform=Transform(0.4499400651854633, 0.7465734410107179, 0.4900837019513271, 
 [node name="Vacant5" parent="Stations/Webb" instance=ExtResource( 3 )]
 
 [node name="Weinberg" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.40568157851918274, -0.33785359628539063, 0.8492805215752993, 0.6467077267185775, 0.5505179105087242, 0.5279196401078464, -0.6459036871335183, 0.7634035483845596, -0.004842443720840428, -5.18, -8.82, 3.36)
+transform = Transform( -0.405682, -0.337854, 0.849281, 0.646708, 0.550518, 0.52792, -0.645904, 0.763404, -0.00484244, -5.18, -8.82, 3.36 )
 
 [node name="Vacant0" parent="Stations/Weinberg" instance=ExtResource( 3 )]
 
@@ -1863,7 +1863,7 @@ transform=Transform(-0.40568157851918274, -0.33785359628539063, 0.84928052157529
 [node name="Vacant5" parent="Stations/Weinberg" instance=ExtResource( 3 )]
 
 [node name="Wheeler" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.006511605733304126, 0.006685871395963659, -0.9999564481088417, 0.6349979076217206, -0.7725131689390015, -0.0010301125466583047, -0.7724864117295597, -0.6349635445751973, -0.009275815526980976, 4.34, -8.4, -10.219999999999999)
+transform = Transform( 0.00651161, 0.00668587, -0.999956, 0.634998, -0.772513, -0.00103011, -0.772486, -0.634964, -0.00927582, 4.34, -8.4, -10.22 )
 
 [node name="Vacant0" parent="Stations/Wheeler" instance=ExtResource( 3 )]
 
@@ -1872,7 +1872,7 @@ transform=Transform(0.006511605733304126, 0.006685871395963659, -0.9999564481088
 [node name="Vacant2" parent="Stations/Wheeler" instance=ExtResource( 3 )]
 
 [node name="Wick" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.011958640138284488, -0.048119894758608395, -0.9987699768487555, -0.05330636091252908, 0.997390370856343, -0.048691683163655436, 0.9985065962788158, 0.053823079171179566, 0.009362336045385819, 9.94, -2.8000000000000003, 0.56)
+transform = Transform( 0.0119586, -0.0481199, -0.99877, -0.0533064, 0.99739, -0.0486917, 0.998507, 0.0538231, 0.00936234, 9.94, -2.8, 0.56 )
 
 [node name="Vacant0" parent="Stations/Wick" instance=ExtResource( 3 )]
 
@@ -1889,7 +1889,7 @@ transform=Transform(0.011958640138284488, -0.048119894758608395, -0.998769976848
 [node name="Vacant6" parent="Stations/Wick" instance=ExtResource( 3 )]
 
 [node name="Wigner" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.8072460158214523, 0.12476250387680266, -0.5768779659224144, -0.20530690159849135, 0.8570068158258921, 0.4726398140063878, 0.553356075322589, 0.4999736345592198, -0.6662007345006645, -13.020000000000001, -1.9600000000000002, -2.66)
+transform = Transform( -0.807246, 0.124763, -0.576878, -0.205307, 0.857007, 0.47264, 0.553356, 0.499974, -0.666201, -13.02, -1.96, -2.66 )
 
 [node name="Vacant0" parent="Stations/Wigner" instance=ExtResource( 3 )]
 
@@ -1902,7 +1902,7 @@ transform=Transform(-0.8072460158214523, 0.12476250387680266, -0.576877965922414
 [node name="Vacant4" parent="Stations/Wigner" instance=ExtResource( 3 )]
 
 [node name="Wilczek" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.004497605260540491, 0.04577272892509666, 0.9989417544750397, 0.6997735024010875, 0.7134650392152393, -0.0358424769639692, -0.7143506260123499, 0.6991941755366294, -0.02882165872078426, -3.22, -10.08, -8.26)
+transform = Transform( 0.00449761, 0.0457727, 0.998942, 0.699773, 0.713465, -0.0358425, -0.714351, 0.699194, -0.0288217, -3.22, -10.08, -8.26 )
 
 [node name="Vacant0" parent="Stations/Wilczek" instance=ExtResource( 3 )]
 
@@ -1919,7 +1919,7 @@ transform=Transform(0.004497605260540491, 0.04577272892509666, 0.998941754475039
 [node name="Vacant6" parent="Stations/Wilczek" instance=ExtResource( 3 )]
 
 [node name="Wilson" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.37977646370087514, -0.4205508050042029, -0.8239580438524612, -0.9161576271381837, 0.04758960751574569, 0.3979829537719294, -0.12816021167035516, 0.9060200051140228, -0.403364240454946, 1.9600000000000002, -11.76, 2.94)
+transform = Transform( -0.379776, -0.420551, -0.823958, -0.916158, 0.0475896, 0.397983, -0.12816, 0.90602, -0.403364, 1.96, -11.76, 2.94 )
 
 [node name="Vacant0" parent="Stations/Wilson" instance=ExtResource( 3 )]
 
@@ -1932,7 +1932,7 @@ transform=Transform(-0.37977646370087514, -0.4205508050042029, -0.82395804385246
 [node name="Vacant4" parent="Stations/Wilson" instance=ExtResource( 3 )]
 
 [node name="Witten" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.7904771618566386, -0.16164108584215298, -0.5907774673689267, 0.5618767597502804, -0.5753145932373054, -0.5943968587237987, -0.2438039446678399, -0.8018012709992194, 0.5455954163924375, 0.56, -1.4000000000000001, 6.859999999999999)
+transform = Transform( -0.790477, -0.161641, -0.590777, 0.561877, -0.575315, -0.594397, -0.243804, -0.801801, 0.545595, 0.56, -1.4, 6.86 )
 
 [node name="Vacant0" parent="Stations/Witten" instance=ExtResource( 3 )]
 
@@ -1943,7 +1943,7 @@ transform=Transform(-0.7904771618566386, -0.16164108584215298, -0.59077746736892
 [node name="Vacant3" parent="Stations/Witten" instance=ExtResource( 3 )]
 
 [node name="Xanthopoulos" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.6362424835734781, 0.4352702425592827, -0.6369735614910841, -0.3608264863062568, 0.8976618530550349, 0.25299692557357656, 0.6819089007163152, 0.06886953979942352, 0.7281876390132439, 7.140000000000001, -10.64, -0.7000000000000001)
+transform = Transform( 0.636243, 0.43527, -0.636974, -0.360826, 0.897662, 0.252997, 0.681909, 0.0688695, 0.728188, 7.14, -10.64, -0.7 )
 
 [node name="Vacant0" parent="Stations/Xanthopoulos" instance=ExtResource( 3 )]
 
@@ -1952,7 +1952,7 @@ transform=Transform(0.6362424835734781, 0.4352702425592827, -0.6369735614910841,
 [node name="Vacant2" parent="Stations/Xanthopoulos" instance=ExtResource( 3 )]
 
 [node name="Young" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.395311567742903, -0.2945883782487175, 0.8700266960326213, 0.6228420716955277, -0.7821365654298806, 0.018169940659606396, 0.6751270385154721, 0.5490720175153173, 0.49266966767499254, 0.7000000000000001, -7.700000000000001, -7.28)
+transform = Transform( -0.395312, -0.294588, 0.870027, 0.622842, -0.782137, 0.0181699, 0.675127, 0.549072, 0.49267, 0.7, -7.7, -7.28 )
 
 [node name="Vacant0" parent="Stations/Young" instance=ExtResource( 3 )]
 
@@ -1961,7 +1961,7 @@ transform=Transform(-0.395311567742903, -0.2945883782487175, 0.8700266960326213,
 [node name="Vacant2" parent="Stations/Young" instance=ExtResource( 3 )]
 
 [node name="Yukawa" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(-0.16883629534304812, 0.4441287369653844, 0.8799113423387425, -0.006504007006330249, -0.8932098163582447, 0.44959306250667685, 0.9856226475014142, 0.07018467755004217, 0.15369485277490583, 0.14, -1.26, -11.76)
+transform = Transform( -0.168836, 0.444129, 0.879911, -0.00650401, -0.89321, 0.449593, 0.985623, 0.0701847, 0.153695, 0.14, -1.26, -11.76 )
 
 [node name="Vacant0" parent="Stations/Yukawa" instance=ExtResource( 3 )]
 
@@ -1978,7 +1978,7 @@ transform=Transform(-0.16883629534304812, 0.4441287369653844, 0.8799113423387425
 [node name="Vacant6" parent="Stations/Yukawa" instance=ExtResource( 3 )]
 
 [node name="Zeeman" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.6068254972561619, -0.4346097044220191, -0.6654902108235831, -0.41052005559407867, -0.8883233580815333, 0.2058030501275004, -0.6806145016342559, 0.14831054011415723, -0.7174732635131434, 10.219999999999999, 1.4000000000000001, 6.02)
+transform = Transform( 0.606825, -0.43461, -0.66549, -0.41052, -0.888323, 0.205803, -0.680615, 0.148311, -0.717473, 10.22, 1.4, 6.02 )
 
 [node name="Vacant0" parent="Stations/Zeeman" instance=ExtResource( 3 )]
 
@@ -1987,7 +1987,7 @@ transform=Transform(0.6068254972561619, -0.4346097044220191, -0.6654902108235831
 [node name="Vacant2" parent="Stations/Zeeman" instance=ExtResource( 3 )]
 
 [node name="Zwiebach" parent="Stations" instance=ExtResource( 2 )]
-transform=Transform(0.9682956367250541, 0.2173042369972032, 0.12321699753802377, 0.03728297453887183, -0.6134364501305378, 0.7888635505971727, 0.24700918952289175, -0.75925923783271, -0.6020895864046616, 7.28, -5.04, -0.14)
+transform = Transform( 0.968296, 0.217304, 0.123217, 0.037283, -0.613436, 0.788864, 0.247009, -0.759259, -0.60209, 7.28, -5.04, -0.14 )
 
 [node name="Vacant0" parent="Stations/Zwiebach" instance=ExtResource( 3 )]
 
@@ -1998,443 +1998,413 @@ transform=Transform(0.9682956367250541, 0.2173042369972032, 0.12321699753802377,
 [node name="AsteroidFeilds" type="Spatial" parent="."]
 
 [node name="LZZ-93-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.960632, -0.258242, -0.102454, 0.277331, -0.869389, -0.408962, 0.0165387, -0.421276, 0.906782, -11.66, -0.76, 5.78 )
 resource_type = 0
-transform=Transform(-0.9606320902864834, -0.2582423665372753, -0.10245422020126405, 0.27733095729124235, -0.869389317212623, -0.40896180169362073, 0.016538658946379833, -0.4212755573752135, 0.906781879791639, -11.66, -0.76, 5.78)
 
 [node name="UGM-72-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.0248749, -0.327796, 0.944421, 0.155461, -0.934489, -0.320254, 0.987529, 0.138854, 0.0742045, -4.9, 10.5, 3.22 )
 resource_type = 0
-transform=Transform(-0.024874862441610114, -0.32779553386118204, 0.9444211609230141, 0.15546053024195555, -0.9344889878175483, -0.32025357950321853, 0.9875288678086332, 0.1388539507122392, 0.07420455253016524, -4.8999999999999995, 10.5, 3.22)
 
 [node name="WIM-32-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.944342, 0.286188, -0.162215, 0.260521, 0.951708, 0.162421, 0.200865, 0.11112, -0.973296, 13.3, -0.42, -1.26 )
 resource_type = 0
-transform=Transform(-0.9443423376614829, 0.28618819529721307, -0.16221549301028623, 0.260520511601959, 0.9517082737862902, 0.16242051791991438, 0.2008646617369505, 0.11112010834787694, -0.9732963110923911, 13.299999999999999, -0.42, -1.26)
 
 [node name="SEW-28-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.0935685, 0.191278, -0.977066, 0.83136, -0.524955, -0.182384, -0.547801, -0.829358, -0.109901, -0.56, -12.6, 1.82 )
 resource_type = 0
-transform=Transform(-0.0935684565213159, 0.19127750522586398, -0.9770659445189913, 0.8313595391972504, -0.524954707759233, -0.18238385725484063, -0.5478012965756421, -0.829358469418374, -0.10990117685474399, -0.56, -12.6, 1.82)
 
 [node name="PSX-49-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.743899, 0.573033, 0.343871, 0.646896, 0.488283, 0.585752, 0.167749, 0.658189, -0.733927, 2.8, 5.32, -12.6 )
 resource_type = 0
-transform=Transform(-0.7438990420146153, 0.573033387928878, 0.3438705448398997, 0.646896051257131, 0.48828331018494453, 0.5857515752115094, 0.16774896171860162, 0.6581885332589632, -0.7339265225679925, 2.8000000000000003, 5.32, -12.6)
 
 [node name="XYD-89-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.0135341, 0.0231559, -0.99964, -0.60116, 0.799061, 0.0103706, 0.799014, 0.600804, 0.0247349, 2.52, 11.06, 4.76 )
 resource_type = 0
-transform=Transform(0.013534058151525563, 0.023155894643584644, -0.9996402521973624, -0.6011604171371658, 0.7990610766719759, 0.010370564849192429, 0.7990137559125123, 0.600803795170335, 0.024734946361420762, 2.52, 11.06, 4.760000000000001)
 
 [node name="IEO-42-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.152074, -0.419231, 0.895052, -0.17777, 0.879215, 0.442017, -0.972251, -0.226333, 0.0591792, 3.08, -10.08, 6.02 )
 resource_type = 0
-transform=Transform(0.15207427264610465, -0.41923082922843924, 0.8950524718828464, -0.17777034102837375, 0.8792148803178358, 0.4420168549708816, -0.9722505445870494, -0.2263331748819181, 0.05917915594241926, 3.08, -10.08, 6.02)
 
 [node name="EDC-73-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.221049, -0.957181, -0.186926, 0.968595, 0.237842, -0.0724957, 0.11385, -0.16503, 0.979695, -6.02, 9.52, -3.08 )
 resource_type = 0
-transform=Transform(0.22104897911010382, -0.9571813190846756, -0.18692584419951414, 0.9685945708629982, 0.23784224733114642, -0.07249567352051996, 0.11385036727698747, -0.16503026322402178, 0.9796954149587027, -6.02, 9.520000000000001, -3.08)
 
 [node name="PUP-46-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.509695, -0.622698, -0.593681, -0.0702666, 0.717866, -0.692626, 0.857481, -0.311312, -0.409648, 7.42, 5.04, -8.54 )
 resource_type = 0
-transform=Transform(-0.5096952450546225, -0.6226982735468304, -0.5936814105987362, -0.07026658562293642, 0.7178659257340798, -0.6926262481416995, 0.857480824341631, -0.3113123396072655, -0.4096477304888283, 7.42, 5.04, -8.54)
 
 [node name="LHP-85-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.726765, 0.190293, 0.660001, -0.594429, 0.655715, 0.465502, -0.344191, -0.730635, 0.589666, 1.54, 7.14, -10.22 )
 resource_type = 0
-transform=Transform(0.7267645087307038, 0.190293471259518, 0.6600013209421794, -0.5944293379228087, 0.6557146083212355, 0.4655020028429307, -0.34419051565385994, -0.7306344826451402, 0.5896661273159568, 1.54, 7.140000000000001, -10.219999999999999)
 
 [node name="DHM-31-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.623052, -0.223407, -0.749597, -0.317494, -0.948077, 0.0186664, -0.714846, 0.226362, -0.661631, -8.68, -10.64, -2.24 )
 resource_type = 0
-transform=Transform(0.6230517019684246, -0.22340729370041498, -0.7495970636253227, -0.3174936767943426, -0.9480766485395216, 0.01866637859035125, -0.7148456769610201, 0.2263622088943412, -0.6616311725686871, -8.68, -10.64, -2.24)
 
 [node name="IKO-63-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.243206, 0.516429, 0.821068, -0.875889, 0.480607, -0.0428436, -0.416737, -0.708744, 0.569221, 4.62, -2.66, 11.9 )
 resource_type = 0
-transform=Transform(0.24320645387342524, 0.5164288302989486, 0.82106752708311, -0.8758888465630261, 0.48060706479180376, -0.04284364292049666, -0.4167365465864562, -0.7087440387814681, 0.5692209924369688, 4.62, -2.66, 11.9)
 
 [node name="FGX-92-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.274286, -0.449654, 0.850046, -0.851268, -0.524723, -0.00288526, 0.447336, -0.722826, -0.5267, -0.7, -0.28, -12.74 )
 resource_type = 0
-transform=Transform(0.274286061248378, -0.4496537185986498, 0.8500462869486916, -0.8512681985348066, -0.5247229072884634, -0.0028852608283739113, 0.44733612727808614, -0.722825984533725, -0.5267000904828999, -0.7000000000000001, -0.28, -12.74)
 
 [node name="MPT-50-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.938831, -0.134239, -0.317139, -0.341884, -0.47395, -0.811472, -0.0413769, 0.87026, -0.490852, -5.04, 8.26, -6.58 )
 resource_type = 0
-transform=Transform(0.9388307295373637, -0.1342385184791358, -0.3171385839548205, -0.34188421408339564, -0.47394954335567907, -0.8114721279954861, -0.04137687079662816, 0.8702596454561539, -0.4908524259424712, -5.04, 8.26, -6.58)
 
 [node name="PNV-30-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.726539, 0.374596, -0.576037, -0.367283, -0.920233, -0.135183, -0.580727, 0.113353, 0.806168, -7.7, -6.72, -9.38 )
 resource_type = 0
-transform=Transform(-0.7265390286331413, 0.37459640295174174, -0.5760369560787117, -0.3672833132921772, -0.920232897850735, -0.13518277068605683, -0.5807271370014765, 0.11335320290514522, 0.8061681237441811, -7.700000000000001, -6.72, -9.38)
 
 [node name="HGY-07-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.44192, -0.498773, -0.745609, -0.892853, -0.324913, -0.311842, -0.0867196, 0.803528, -0.588916, 7.14, -9.66, -3.36 )
 resource_type = 0
-transform=Transform(0.441919803794401, -0.4987729542028935, -0.7456087628039496, -0.8928530656857293, -0.32491267760839593, -0.3118415543588396, -0.08671960626013397, 0.8035280281888497, -0.5889163079801972, 7.140000000000001, -9.66, -3.36)
 
 [node name="TEC-11-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.687247, -0.237796, 0.686399, -0.0146995, -0.949262, -0.314144, 0.726275, 0.205805, -0.655873, 10.22, 2.52, -5.32 )
 resource_type = 0
-transform=Transform(0.6872474688817896, -0.23779588055779718, 0.6863993267080872, -0.014699507087478025, -0.9492615165637266, -0.3141440715062426, 0.7262746319450782, 0.20580498623909943, -0.6558730567969424, 10.219999999999999, 2.52, -5.32)
 
 [node name="XKR-69-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.276523, 0.0508642, -0.95966, 0.162432, -0.986704, -0.00549341, -0.947181, -0.15436, -0.281108, -7.56, 7.42, -8.26 )
 resource_type = 0
-transform=Transform(0.27652301607288976, 0.050864229940644275, -0.9596602793147676, 0.16243188666374064, -0.9867044667163675, -0.005493410309343021, -0.9471805022152907, -0.15436037533808458, -0.2811084679419593, -7.5600000000000005, 7.42, -8.26)
 
 [node name="UAQ-92-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.13603, 0.233053, -0.962903, 0.98991, 0.0708884, -0.122688, 0.0396659, -0.969877, -0.240345, -2.66, -4.34, -12.32 )
 resource_type = 0
-transform=Transform(-0.13602959500710585, 0.23305320756181688, -0.9629029814718361, 0.989910383254792, 0.07088839207584462, -0.12268768884143118, 0.0396658846687336, -0.9698768160514251, -0.24034470928105886, -2.66, -4.34, -12.32)
 
 [node name="YBG-09-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.446446, -0.89409, 0.0359038, -0.448619, -0.258366, -0.855563, 0.774226, 0.365856, -0.516452, 11.34, -0.14, 5.88 )
 resource_type = 0
-transform=Transform(0.4464464411276969, -0.8940897582266213, 0.03590375243167807, -0.4486191381156489, -0.2583659356592441, -0.8555629212438413, 0.7742263519932564, 0.365855910879112, -0.516452329217353, 11.34, -0.14, 5.88)
 
 [node name="EHN-66-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.50229, -0.48495, -0.715911, 0.0555761, 0.844324, -0.532943, 0.862911, 0.227904, 0.451047, -5.18, 0.42, 11.2 )
 resource_type = 0
-transform=Transform(0.5022898313694378, -0.48495009299428377, -0.7159108412419084, 0.05557609169905907, 0.8443240009947833, -0.5329430357698828, 0.8629114805901699, 0.22790434100515977, 0.45104699091855643, -5.18, 0.42, 11.200000000000001)
 
 [node name="YLT-13-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.97611, -0.110763, 0.186925, -0.151089, -0.964276, 0.217587, 0.156147, -0.240631, -0.957974, 12.88, -3.5, 4.06 )
 resource_type = 0
-transform=Transform(0.976109811534249, -0.11076344293011699, 0.18692537424555086, -0.1510885162593176, -0.9642760808220037, 0.21758653499036665, 0.15614703353291873, -0.24063062910781502, -0.9579744277662355, 12.88, -3.5, 4.06)
 
 [node name="ZBY-16-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.993545, -0.00528471, 0.113318, -0.104859, 0.423935, -0.899602, -0.0432855, -0.905677, -0.421752, 11.34, -2.94, 7.56 )
 resource_type = 0
-transform=Transform(-0.9935446650842581, -0.005284712298982853, 0.11331844641772353, -0.10485878018471738, 0.4239348648941313, -0.8996020601051155, -0.04328550220088266, -0.9056772615800353, -0.4217523718440783, 11.34, -2.94, 7.5600000000000005)
 
 [node name="HHN-24-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.255237, -0.0118241, -0.966806, 0.267965, 0.959891, -0.0824824, 0.929004, -0.280123, -0.241832, 1.54, -3.22, 12.88 )
 resource_type = 0
-transform=Transform(-0.25523740613022844, -0.01182406196002224, -0.9668061119328313, 0.26796478689611863, 0.959891417175785, -0.0824823630601179, 0.9290041654888478, -0.2801225781529025, -0.24183176324325245, 1.54, -3.22, 12.88)
 
 [node name="REO-33-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.229573, 0.407984, 0.883654, -0.518688, -0.81952, 0.243618, 0.823565, -0.402413, 0.399756, -6.02, 5.32, -10.64 )
 resource_type = 0
-transform=Transform(-0.22957305797489821, 0.40798409906651073, 0.8836544494093502, -0.5186880595258485, -0.8195199082201811, 0.2436181785829949, 0.8235647563837127, -0.4024128414199448, 0.39975617206362485, -6.02, 5.32, -10.64)
 
 [node name="PKS-57-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.464515, 0.384115, 0.797923, 0.643774, 0.472245, -0.602112, -0.608096, 0.793373, -0.0279184, 7.7, 9.24, -2.24 )
 resource_type = 0
-transform=Transform(0.4645151123119494, 0.3841151384623175, 0.7979230983233232, 0.6437741820251422, 0.4722451796422158, -0.6021123590016655, -0.6080958090561684, 0.7933725800081359, -0.027918386406772105, 7.700000000000001, 9.24, -2.24)
 
 [node name="NAC-29-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.87651, 0.173146, -0.449166, 0.454325, 0.605966, -0.652989, 0.159117, -0.776419, -0.6098, 3.92, 12.04, 0.98 )
 resource_type = 0
-transform=Transform(-0.8765103817627162, 0.17314569285293496, -0.4491660268861113, 0.45432516441970816, 0.6059655292004577, -0.6529888378799554, 0.15911692442095166, -0.7764189245937317, -0.6097995227085133, 3.9200000000000004, 12.04, 0.9800000000000001)
 
 [node name="EZW-90-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.0904649, 0.00726328, 0.995873, 0.384803, -0.922567, -0.0282268, 0.918555, 0.385769, -0.0862548, 0.98, -11.06, -7.28 )
 resource_type = 0
-transform=Transform(0.09046487160815198, 0.007263281877442039, 0.9958731604683848, 0.38480315444348645, -0.9225669518075724, -0.028226791578688588, 0.9185546468965594, 0.385768666649915, -0.08625483462324808, 0.9800000000000001, -11.06, -7.28)
 
 [node name="WAB-19-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.0223028, 0.0649117, 0.997642, 0.930592, -0.363349, 0.0444452, 0.365377, 0.929389, -0.0523026, -12.6, 4.62, -0.28 )
 resource_type = 0
-transform=Transform(-0.022302770338464256, 0.06491169838651821, 0.9976417482482415, 0.9305922814729571, -0.3633491830687486, 0.0444452115106876, 0.36537732838558334, 0.9293889619399678, -0.052302632113143545, -12.6, 4.62, -0.28)
 
 [node name="XRG-40-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.11699, -0.417725, 0.90101, 0.980253, 0.0970707, 0.172283, -0.159429, 0.903373, 0.39812, 8.4, -2.8, 8.82 )
 resource_type = 0
-transform=Transform(-0.11699009898187734, -0.4177250423027105, 0.9010100475429834, 0.9802529402504705, 0.09707071748781362, 0.1722830488954397, -0.15942863566661394, 0.9033731592424029, 0.398119888086343, 8.4, -2.8000000000000003, 8.82)
 
 [node name="QBT-24-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.0794529, -0.0686949, -0.994469, -0.995999, -0.0464028, -0.0763698, -0.0408999, 0.996558, -0.0721069, 0.84, 13.02, 2.1 )
 resource_type = 0
-transform=Transform(0.07945288426771324, -0.06869491480640014, -0.9944688269932259, -0.9959992139279716, -0.046402817356265114, -0.07636978719535494, -0.04089993932029806, 0.9965579698247075, -0.07210691882512668, 0.84, 13.020000000000001, 2.1)
 
 [node name="PHL-30-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(-0.6853397076791887, -0.24397003160384045, -0.6861400066731463, 0.4425282607637624, 0.608759769185327, -0.6584681327496623, 0.5783409232482202, -0.7549107014082186, -0.30924360849619476, 9.94, 5.46, 7.42)
+transform = Transform( -0.68534, -0.24397, -0.68614, 0.442528, 0.60876, -0.658468, 0.578341, -0.754911, -0.309244, 9.94, 5.46, 7.42 )
 
 [node name="HRT-02-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(0.9051088499521638, 0.16644721550959082, -0.3912458232203576, 0.3337987536440661, -0.8481379259022349, 0.4113884426085926, -0.2633559602589992, -0.502948688332477, -0.823217015798812, 11.9, -0.42, 2.66)
+transform = Transform( 0.905109, 0.166447, -0.391246, 0.333799, -0.848138, 0.411388, -0.263356, -0.502949, -0.823217, 11.9, -0.42, 2.66 )
 
 [node name="VBK-31-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(-0.2629723875416591, -0.0748368835958974, -0.961896545499719, -0.90432432448467, 0.36655359788572034, 0.21871437086386972, 0.3362187376336782, 0.9273822840289152, -0.16407028900239093, -3.9200000000000004, -11.200000000000001, 3.22)
+transform = Transform( -0.262972, -0.0748369, -0.961897, -0.904324, 0.366554, 0.218714, 0.336219, 0.927382, -0.16407, -3.92, -11.2, 3.22 )
 
 [node name="RQU-91-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(0.4310384987137505, 0.11833173228484108, -0.8945408955218676, 0.8001204359990045, -0.5084306708039115, 0.3182853136458663, -0.4171487750471755, -0.8529336751004462, -0.31383283027160763, -11.76, -3.36, 1.82)
+transform = Transform( 0.431038, 0.118332, -0.894541, 0.80012, -0.508431, 0.318285, -0.417149, -0.852934, -0.313833, -11.76, -3.36, 1.82 )
 
 [node name="OAW-67-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(0.9502123929829417, 0.2537305697471555, -0.18087898218813264, -0.2109317174550802, 0.9510228003594744, 0.22597221901789866, 0.22935609604516988, -0.1765684886161933, 0.9571934757585384, -9.799999999999999, 9.1, -3.5)
+transform = Transform( 0.950212, 0.253731, -0.180879, -0.210932, 0.951023, 0.225972, 0.229356, -0.176568, 0.957193, -9.8, 9.1, -3.5 )
 
 [node name="AXO-77-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(0.024501818131493647, -0.01955164284285016, -0.99950857633659, -0.7645768819746824, -0.6445033343034395, -0.006135439806667671, -0.6440666521860323, 0.7643514802326835, -0.03074023760451312, -5.18, -9.66, 8.54)
+transform = Transform( 0.0245018, -0.0195516, -0.999509, -0.764577, -0.644503, -0.00613544, -0.644067, 0.764351, -0.0307402, -5.18, -9.66, 8.54 )
 
 [node name="PSY-19-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(0.011047489922852243, -0.049688478855535845, 0.9987036637739082, -0.8712481679284722, 0.48966380449261016, 0.03399983016286666, -0.4907184354063798, -0.8704943501475733, -0.03788144022432063, -0.7000000000000001, 9.94, 6.3)
+transform = Transform( 0.0110475, -0.0496885, 0.998704, -0.871248, 0.489664, 0.0339998, -0.490718, -0.870494, -0.0378814, -0.7, 9.94, 6.3 )
 
 [node name="BXC-00-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(0.2650649142156517, -0.21536773845835758, 0.9398709105420712, 0.9560080809931849, -0.06832469795631209, -0.2852722992596843, 0.12565484601708507, 0.9741398631000127, 0.1877828181488164, -9.799999999999999, 5.18, -5.18)
+transform = Transform( 0.265065, -0.215368, 0.939871, 0.956008, -0.0683247, -0.285272, 0.125655, 0.97414, 0.187783, -9.8, 5.18, -5.18 )
 
 [node name="WQP-95-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(-0.9927873596769484, -0.06367569647875808, 0.10158082566911351, -0.0549910938770676, -0.5110427556872637, -0.8577944284347921, 0.10653280274111487, -0.8571935064718544, 0.5038551918980392, -11.62, -5.32, -1.68)
+transform = Transform( -0.992787, -0.0636757, 0.101581, -0.0549911, -0.511043, -0.857794, 0.106533, -0.857194, 0.503855, -11.62, -5.32, -1.68 )
 
 [node name="OPJ-93-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(0.008425559469540184, -0.004681439776284257, -0.999953545955634, 0.8266853190098264, 0.562647866402763, 0.004331485431110112, 0.5626014515456271, -0.8266834113214319, 0.008610700593669222, -6.859999999999999, -8.54, -5.18)
+transform = Transform( 0.00842556, -0.00468144, -0.999954, 0.826685, 0.562648, 0.00433149, 0.562601, -0.826683, 0.0086107, -6.86, -8.54, -5.18 )
 
 [node name="FLT-82-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(-0.014468424235194212, 0.34316397481655553, -0.9391640703776164, 0.9911514024214694, -0.11902209217924872, -0.058759161423803774, -0.13194529994700324, -0.931703937933814, -0.3384053927769451, -8.54, 9.66, 1.26)
+transform = Transform( -0.0144684, 0.343164, -0.939164, 0.991151, -0.119022, -0.0587592, -0.131945, -0.931704, -0.338405, -8.54, 9.66, 1.26 )
 
 [node name="DCE-05-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(0.3048789836339727, 0.4041151523201428, -0.862403472281729, -0.4899855943868291, 0.8430364412689618, 0.22181901628568618, 0.8166779797641792, 0.3549373217313607, 0.45503469649079165, -12.46, 0.56, -0.28)
+transform = Transform( 0.304879, 0.404115, -0.862403, -0.489986, 0.843036, 0.221819, 0.816678, 0.354937, 0.455035, -12.46, 0.56, -0.28 )
 
 [node name="WYL-33-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(-0.7844936520895025, 0.4900709372369187, -0.3800002451407138, 0.17349329506471647, -0.4148567206622811, -0.893193135827255, -0.5953736527583848, -0.7666318398012609, 0.2404284421695406, -2.3800000000000003, 12.32, -3.5)
+transform = Transform( -0.784494, 0.490071, -0.38, 0.173493, -0.414857, -0.893193, -0.595374, -0.766632, 0.240428, -2.38, 12.32, -3.5 )
 
 [node name="FFP-34-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(0.41422001293628036, 0.6712309916571397, 0.6147119136002169, 0.049616591179089176, -0.6910246071474468, 0.7211263316482652, 0.9088234013067857, -0.2682050487140193, -0.3195404154116905, -6.3, -2.24, -10.36)
+transform = Transform( 0.41422, 0.671231, 0.614712, 0.0496166, -0.691025, 0.721126, 0.908823, -0.268205, -0.31954, -6.3, -2.24, -10.36 )
 
 [node name="VHW-08-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(0.650301110201539, 0.032035280944041594, 0.7590007950229579, -0.3852708602662329, 0.8749980458791491, 0.29316340825107695, -0.6547326403199727, -0.48306537909739206, 0.5813544609075693, -12.88, 0.56, 3.22)
+transform = Transform( 0.650301, 0.0320353, 0.759001, -0.385271, 0.874998, 0.293163, -0.654733, -0.483065, 0.581354, -12.88, 0.56, 3.22 )
 
 [node name="ZKF-59-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(-0.3820923554747016, 0.9125908667931797, 0.14554498182165918, 0.8098863289594856, 0.40653204352473243, -0.42286621022745813, -0.4450725402137522, -0.04369905529045122, -0.8944276530353923, -8.82, 0.28, -8.96)
+transform = Transform( -0.382092, 0.912591, 0.145545, 0.809886, 0.406532, -0.422866, -0.445073, -0.0436991, -0.894428, -8.82, 0.28, -8.96 )
 
 [node name="WGM-41-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(-0.8693562835082637, 0.39608238213449526, 0.29553070718178054, -0.10385073744678318, 0.43823774942357097, -0.8928396828725317, -0.48315078045725945, -0.806886870349758, -0.33985129365755545, -4.2, 4.760000000000001, 11.34)
+transform = Transform( -0.869356, 0.396082, 0.295531, -0.103851, 0.438238, -0.89284, -0.483151, -0.806887, -0.339851, -4.2, 4.76, 11.34 )
 
 [node name="ZEM-39-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(0.39023894904160356, 0.5059451409019954, -0.7692418846166431, 0.3344942038346111, 0.7004915265409044, 0.6304167263369868, 0.8578037014678559, -0.5033201124950737, 0.10412336003986798, -2.24, -6.58, -9.94)
+transform = Transform( 0.390239, 0.505945, -0.769242, 0.334494, 0.700492, 0.630417, 0.857804, -0.50332, 0.104123, -2.24, -6.58, -9.94 )
 
 [node name="KHW-80-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(0.09624818732527235, 0.11926908197777795, 0.988185798582826, -0.46537697833804775, -0.8722066599164997, 0.1505981753881895, 0.8798639408849231, -0.4743737223766529, -0.02844322501002216, 1.26, 0.28, 11.62)
+transform = Transform( 0.0962482, 0.119269, 0.988186, -0.465377, -0.872207, 0.150598, 0.879864, -0.474374, -0.0284432, 1.26, 0.28, 11.62 )
 
 [node name="NIP-04-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(0.5203575246630934, 0.43184743925167296, -0.7367060714683099, -0.8031316084093778, -0.045672545890343356, -0.5940485149595612, -0.29018557183337657, 0.9007895468774417, 0.32306427554910666, 6.3, 2.3800000000000003, -10.219999999999999)
+transform = Transform( 0.520358, 0.431847, -0.736706, -0.803132, -0.0456725, -0.594049, -0.290186, 0.90079, 0.323064, 6.3, 2.38, -10.22 )
 
 [node name="OSL-39-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(-0.7987334650320056, -0.4016994648198753, 0.44795355987132374, -0.3873943511653297, -0.2263198843202071, -0.8937029297515373, 0.4603807864400501, -0.8873651164682517, 0.025153161871365896, -4.62, 0.9800000000000001, -12.18)
+transform = Transform( -0.798733, -0.401699, 0.447954, -0.387394, -0.22632, -0.893703, 0.460381, -0.887365, 0.0251532, -4.62, 0.98, -12.18 )
 
 [node name="FTA-57-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(-0.6604600881723631, -0.3374151834815158, -0.6707782538868484, -0.5313083382568212, 0.8412600937736552, 0.09996451531776693, 0.5305694314885937, 0.4224126520123135, -0.7348902161478233, 7.840000000000001, -5.32, -8.82)
+transform = Transform( -0.66046, -0.337415, -0.670778, -0.531308, 0.84126, 0.0999645, 0.530569, 0.422413, -0.73489, 7.84, -5.32, -8.82 )
 
 [node name="FBR-16-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(-0.20363625339397398, 0.17454520503344226, 0.9633619505167821, -0.867024749981545, -0.48919490343050853, -0.09463841385534096, 0.4547530750012633, -0.8545304663131965, 0.25095283006861346, 3.08, 13.020000000000001, -3.9200000000000004)
+transform = Transform( -0.203636, 0.174545, 0.963362, -0.867025, -0.489195, -0.0946384, 0.454753, -0.85453, 0.250953, 3.08, 13.02, -3.92 )
 
 [node name="KYR-10-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(-0.4097922982502734, -0.16128749847328838, -0.8978065577455911, -0.8904057013967634, -0.14303422468839733, 0.4321098210963578, -0.1981109770176712, 0.9764873544516682, -0.08499698454113344, -10.08, -6.72, 0.56)
+transform = Transform( -0.409792, -0.161288, -0.897807, -0.890406, -0.143034, 0.43211, -0.198111, 0.976487, -0.084997, -10.08, -6.72, 0.56 )
 
 [node name="FJH-42-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(0.38271530615242394, 0.7578179237542358, 0.5284325774150144, -0.024119741916044372, 0.5799803820652228, -0.8142732922486045, -0.9235514238452343, 0.29888919494738664, 0.2402457422247964, 9.799999999999999, 7.9799999999999995, 1.26)
+transform = Transform( 0.382715, 0.757818, 0.528433, -0.0241197, 0.57998, -0.814273, -0.923551, 0.298889, 0.240246, 9.8, 7.98, 1.26 )
 
 [node name="JTX-78-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(0.47248160923734783, 0.8426561084989959, 0.2582475783851898, -0.6553954502314493, 0.14002492804671332, 0.7421925783389569, 0.5892520112383174, -0.5199266316845497, 0.6184321829568353, 3.36, -6.859999999999999, 10.08)
+transform = Transform( 0.472482, 0.842656, 0.258248, -0.655395, 0.140025, 0.742193, 0.589252, -0.519927, 0.618432, 3.36, -6.86, 10.08 )
 
 [node name="BUY-96-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(0.2555343622043187, -0.0027939316674117256, -0.9667959369374023, 0.40136525141423735, 0.9100565782841912, 0.10345510755325467, 0.8795499557671627, -0.4144746292205438, 0.23367211438782035, 3.08, 8.96, 7.5600000000000005)
+transform = Transform( 0.255534, -0.00279393, -0.966796, 0.401365, 0.910057, 0.103455, 0.87955, -0.414475, 0.233672, 3.08, 8.96, 7.56 )
 
 [node name="HAT-89-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(-0.585039232582266, -0.16288826903345455, -0.79447876507232, 0.0103156224205265, -0.9810378796683468, 0.19354138211222968, -0.8109393838466786, 0.10503375870223775, 0.5756259421353851, 2.1, -1.4000000000000001, -13.719999999999999)
+transform = Transform( -0.585039, -0.162888, -0.794479, 0.0103156, -0.981038, 0.193541, -0.810939, 0.105034, 0.575626, 2.1, -1.4, -13.72 )
 
 [node name="GSD-83-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(-0.06806570874636562, -0.10437475923818906, -0.9922061121192634, 0.9029314204676611, 0.4165683728229616, -0.10576218934894169, 0.4243605886803182, -0.9030928525891452, 0.06588922808239304, -2.8000000000000003, 7, 8.96)
+transform = Transform( -0.0680657, -0.104375, -0.992206, 0.902931, 0.416568, -0.105762, 0.424361, -0.903093, 0.0658892, -2.8, 7, 8.96 )
 
 [node name="FLF-87-I" parent="AsteroidFeilds" instance=ExtResource( 5 )]
-resource_type = 1
-transform=Transform(-0.10031548994053543, -0.4313214940356042, -0.8966039099072037, -0.3422059492178436, 0.8611287929238598, -0.3759684698447614, 0.9342547247929256, 0.26910773080755396, -0.23398533804857127, -8.4, -4.760000000000001, -6.72)
+transform = Transform( -0.100315, -0.431322, -0.896604, -0.342206, 0.861129, -0.375968, 0.934255, 0.269108, -0.233985, -8.4, -4.76, -6.72 )
 
 [node name="VKV-84-C" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.807235, 0.0284401, -0.589545, 0.469001, -0.637328, 0.611434, -0.358344, -0.770068, -0.527811, 4.76, 3.78, 6.44 )
 resource_type = 2
-transform=Transform(0.8072347825542475, 0.02844009611858119, -0.5895448810458472, 0.4690006640728226, -0.6373275535709387, 0.6114343517979124, -0.358343945021885, -0.7700680167310209, -0.5278113930885768, 4.760000000000001, 3.7800000000000002, 6.44)
 
 [node name="JRL-10-C" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.236733, 0.143592, -0.960905, -0.629408, -0.776091, 0.0390894, -0.740137, 0.614056, 0.274104, -8.4, 3.92, 9.1 )
 resource_type = 2
-transform=Transform(-0.23673293493839884, 0.1435920788984152, -0.9609052150930825, -0.6294084992166946, -0.7760908183835977, 0.0390894197253673, -0.7401367837293591, 0.6140556623778572, 0.2741043320935496, -8.4, 3.9200000000000004, 9.1)
 
 [node name="DHS-54-C" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.597201, -0.361687, -0.715914, -0.375868, 0.662296, -0.648141, 0.708571, 0.65616, 0.259578, 5.04, 3.08, -6.72 )
 resource_type = 2
-transform=Transform(0.5972014448140086, -0.36168681408776876, -0.7159141588396618, -0.3758684466015134, 0.662296456852381, -0.6481406591860656, 0.708571340911715, 0.656160080891715, 0.2595777399600206, 5.04, 3.08, -6.72)
 
 [node name="TNT-54-C" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.909032, 0.229839, 0.347614, 0.341453, 0.888993, 0.305126, -0.238897, 0.396063, -0.886602, 0.14, -6.3, 2.8 )
 resource_type = 2
-transform=Transform(-0.9090315284658836, 0.2298389078466015, 0.3476143792981831, 0.3414528129291735, 0.8889926610329334, 0.3051262446469312, -0.23889674924061757, 0.39606328417244824, -0.8866014990585117, 0.14, -6.3, 2.8000000000000003)
 
 [node name="ECF-88-C" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.360744, -0.0540159, -0.931099, 0.193529, -0.980928, -0.0180742, -0.912365, -0.186715, 0.364318, 0.98, -1.82, 7.42 )
 resource_type = 2
-transform=Transform(-0.36074403598327315, -0.05401589061414509, -0.9310993631528591, 0.19352943783206386, -0.9809279684793476, -0.01807421775307761, -0.9123651117808618, -0.18671530257625124, 0.36431757930266645, 0.9800000000000001, -1.82, 7.42)
 
 [node name="HCR-19-C" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.705478, -0.220757, 0.673474, 0.273667, -0.961403, -0.0284647, 0.653763, 0.164226, 0.738663, -2.1, -2.66, 2.52 )
 resource_type = 2
-transform=Transform(-0.705478393512774, -0.22075687819742548, 0.6734735607395163, 0.27366701496743095, -0.9614032074571913, -0.02846467301482748, 0.6537634137862501, 0.16422628723670327, 0.7386630662047455, -2.1, -2.66, 2.52)
 
 [node name="USP-69-C" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.372159, -0.37645, 0.8484, -0.646402, -0.761073, -0.0541509, 0.66608, -0.528255, -0.526578, -2.38, -5.18, 0.84 )
 resource_type = 2
-transform=Transform(0.37215902970475695, -0.3764496649706728, 0.8484004398588453, -0.6464015319518214, -0.7610734113249376, -0.05415091933255611, 0.6660801123735435, -0.528254590436932, -0.5265779824325709, -2.3800000000000003, -5.18, 0.84)
 
 [node name="VTL-25-C" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.0325325, -0.301713, -0.952844, 0.595972, -0.771176, 0.223841, -0.802346, -0.560586, 0.204901, -11.48, 2.8, -6.58 )
 resource_type = 2
-transform=Transform(-0.03253252347514511, -0.30171316368245565, -0.9528435347826328, 0.5959717250394707, -0.7711762786958812, 0.22384112698574782, -0.8023461459182166, -0.5605856883987459, 0.2049008250170981, -11.479999999999999, 2.8000000000000003, -6.58)
 
 [node name="JWH-31-C" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.450609, 0.804543, 0.386862, -0.0467907, 0.454041, -0.889751, -0.891494, 0.382829, 0.24224, 3.22, 8.4, 2.94 )
 resource_type = 2
-transform=Transform(0.4506091593978979, 0.8045427420025476, 0.38686219995980753, -0.04679067507543803, 0.4540410667579457, -0.8897512812147514, -0.8914942614468726, 0.38282853340409334, 0.2422401614492659, 3.22, 8.4, 2.94)
 
 [node name="VMO-26-C" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.552872, 0.797791, 0.240543, 0.550216, -0.132734, -0.824406, -0.625776, 0.588142, -0.512342, 10.64, 3.5, 4.2 )
 resource_type = 2
-transform=Transform(0.5528722771088534, 0.7977914392874133, 0.24054326971293297, 0.5502156147065692, -0.13273361976831075, -0.8244055819293521, -0.6257755368640926, 0.5881416543511598, -0.5123420457853693, 10.64, 3.5, 4.2)
 
 [node name="PBK-17-C" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.146529, -0.93257, 0.329913, -0.0357523, -0.338288, -0.940363, 0.98856, 0.125996, -0.0829106, 1.82, 8.26, -4.48 )
 resource_type = 2
-transform=Transform(0.1465292327715212, -0.9325697330901516, 0.3299134384464398, -0.03575231419424185, -0.3382880716562051, -0.9403632024940589, 0.988560041663199, 0.12599552967978528, -0.0829106177010205, 1.82, 8.26, -4.48)
 
 [node name="ULT-88-C" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.0588459, -0.988864, 0.136697, -0.98939, -0.0395521, 0.139798, -0.132834, -0.143473, -0.980699, -8.54, 6.86, 8.26 )
 resource_type = 2
-transform=Transform(0.058845946545179426, -0.9888635386651826, 0.13669695122340889, -0.989389795459991, -0.03955209712110585, 0.1397979408037186, -0.13283443535032352, -0.14347311076259464, -0.9806989748507261, -8.54, 6.859999999999999, 8.26)
 
 [node name="AVA-98-C" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.384854, 0.39459, 0.834378, 0.0856027, -0.884851, 0.457943, 0.918999, 0.247666, 0.30676, 1.82, 1.12, 1.26 )
 resource_type = 2
-transform=Transform(-0.3848536096245831, 0.3945896901830851, 0.8343780171841456, 0.08560265632769455, -0.8848505917924709, 0.45794280803846776, 0.9189993930294905, 0.24766591732761944, 0.30676001859058677, 1.82, 1.12, 1.26)
 
 [node name="HVN-88-C" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.745271, 0.0499919, 0.664885, -0.647085, 0.294697, 0.703161, -0.160787, -0.954282, 0.251978, 2.66, -7.84, -10.36 )
 resource_type = 2
-transform=Transform(0.7452709543740842, 0.049991888687817475, 0.6648849642094237, -0.6470846852615169, 0.29469731243387626, 0.7031606531542092, -0.16078748292807293, -0.9542820888551117, 0.25197833284625776, 2.66, -7.840000000000001, -10.36)
 
 [node name="FRO-35-C" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.131795, -0.0211973, -0.99105, 0.440316, 0.894475, -0.0776874, 0.888117, -0.446615, -0.108554, 5.6, -1.68, -11.2 )
 resource_type = 2
-transform=Transform(-0.1317953703289972, -0.021197330399389654, -0.9910502780100421, 0.4403164800199467, 0.8944752979400256, -0.07768744298756602, 0.8881167590934688, -0.4466146152546304, -0.10855416923486673, 5.6000000000000005, -1.68, -11.200000000000001)
 
 [node name="KZB-52-C" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.185674, -0.791137, -0.582776, 0.788816, -0.233639, 0.568491, -0.585913, -0.565257, 0.580681, 0.14, -10.64, -4.2 )
 resource_type = 2
-transform=Transform(0.1856738880013307, -0.7911368235691661, -0.5827758863468524, 0.7888159944392052, -0.23363896394271777, 0.568491126970915, -0.5859134187159029, -0.5652568981628296, 0.5806807253973388, 0.14, -10.64, -4.2)
 
 [node name="EIR-62-C" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.763994, 0.632005, 0.129933, 0.290627, -0.157284, -0.943821, -0.576063, 0.758836, -0.303842, 0.7, 1.12, -4.76 )
 resource_type = 2
-transform=Transform(0.7639943055461998, 0.6320048241885824, 0.12993307236935037, 0.2906272652700373, -0.1572836790129183, -0.943820765292765, -0.576062925186684, 0.7588357836307671, -0.3038416688126243, 0.7000000000000001, 1.12, -4.760000000000001)
 
 [node name="LZV-44-C" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.938839, 0.165169, -0.302161, -0.343531, 0.388479, -0.855026, -0.023841, 0.906533, 0.42146, -3.92, -10.64, -5.74 )
 resource_type = 2
-transform=Transform(0.9388386300772541, 0.16516938745967977, -0.3021607190236003, -0.3435311212841255, 0.388479203460884, -0.8550264774775508, -0.0238410441033185, 0.9065334974089988, 0.42146010806655515, -3.9200000000000004, -10.64, -5.739999999999999)
 
 [node name="LYD-03-C" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.213391, -0.274063, -0.937739, -0.773579, -0.633633, 0.00915044, -0.59669, 0.723463, -0.347221, -7.28, -0.28, -0.84 )
 resource_type = 2
-transform=Transform(0.21339062953532908, -0.2740627494418083, -0.9377387955048637, -0.7735793456121629, -0.6336333841155195, 0.009150441332108494, -0.5966904015222415, 0.7234627453454056, -0.34722070910087593, -7.28, -0.28, -0.84)
 
 [node name="NNH-28-C" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.0685118, -0.0955002, -0.993069, 0.797273, 0.593128, -0.112043, 0.599718, -0.799424, 0.0355035, -2.1, 6.44, -1.82 )
 resource_type = 2
-transform=Transform(-0.06851177084787734, -0.09550020606997066, -0.9930689039013765, 0.7972734850952738, 0.593128431774671, -0.11204308717879825, 0.5997175395295057, -0.7994237762670765, 0.035503502919615244, -2.1, 6.44, -1.82)
 
 [node name="LNM-72-MI" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.542059, -0.83456, 0.0983934, -0.736811, 0.528311, 0.421897, -0.404081, 0.156196, -0.901289, 3.64, -1.82, 3.78 )
 resource_type = 3
-transform=Transform(-0.5420590666659861, -0.8345601861331275, 0.09839341424424594, -0.7368110160458041, 0.5283106282160314, 0.42189738888446837, -0.40408104988820015, 0.1561959533260129, -0.9012887047366277, 3.64, -1.82, 3.7800000000000002)
 
 [node name="ASH-37-MI" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.932119, -0.308295, -0.190022, -0.0166581, 0.487648, -0.872882, 0.361768, 0.816795, 0.44941, -4.9, 0.56, 5.74 )
 resource_type = 3
-transform=Transform(0.9321191510777961, -0.30829468396654824, -0.19002177778342796, -0.016658101892922963, 0.48764764599893234, -0.8728815962047914, 0.3617684284667933, 0.8167950545820326, 0.4494101055550493, -4.8999999999999995, 0.56, 5.739999999999999)
 
 [node name="UQD-18-MI" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.172966, -0.478559, -0.86085, 0.600751, -0.743876, 0.292826, -0.7805, -0.466508, 0.416161, 0.56, -6.3, -0.7 )
 resource_type = 3
-transform=Transform(-0.17296629830843066, -0.47855945682690204, -0.8608504550332884, 0.6007512534880378, -0.7438757310877461, 0.292825593367832, -0.7805002185022312, -0.466508030992192, 0.4161606251650409, 0.56, -6.3, -0.7000000000000001)
 
 [node name="KPS-14-MI" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.901937, -0.34744, 0.256506, 0.408786, 0.495257, -0.766561, 0.139297, 0.796245, 0.588719, -1.68, 4.2, 0.28 )
 resource_type = 3
-transform=Transform(0.9019371129356198, -0.34743959307220595, 0.2565056987187201, 0.4087856236283428, 0.4952566063978734, -0.7665606353929536, 0.1392973733569508, 0.7962453283913707, 0.5887186244639899, -1.68, 4.2, 0.28)
 
 [node name="ZKQ-57-MI" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.277223, -0.138439, 0.95078, -0.12777, 0.975464, 0.179288, -0.952272, -0.171184, 0.252733, -2.52, -2.94, -2.38 )
 resource_type = 3
-transform=Transform(0.2772228152980717, -0.1384392929662299, 0.9507797183581596, -0.1277698354440199, 0.9754643581951408, 0.17928791103013555, -0.9522722193936033, -0.17118366760281797, 0.25273260992050195, -2.52, -2.94, -2.3800000000000003)
 
 [node name="ZCP-71-MI" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.302659, 0.399997, 0.865101, 0.456513, 0.735939, -0.49999, -0.836656, 0.546256, 0.0401346, 0.28, 6.86, 3.78 )
 resource_type = 3
-transform=Transform(0.30265919106466316, 0.39999744207616067, 0.865100838282227, 0.4565130894350754, 0.7359388872090318, -0.4999897533629811, -0.8366559706585056, 0.5462563506505534, 0.040134600227398155, 0.28, 6.859999999999999, 3.7800000000000002)
 
 [node name="QYY-26-MI" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.898606, -0.398636, -0.183294, -0.43778, 0.786758, 0.435155, -0.0292609, 0.471276, -0.8815, 3.64, -5.04, 3.08 )
 resource_type = 3
-transform=Transform(-0.8986058606795331, -0.39863629440840515, -0.18329378585410674, -0.4377799781502048, 0.7867581882753704, 0.435155425006357, -0.029260859235538065, 0.47127556478348454, -0.8815005071778496, 3.64, -5.04, 3.08)
 
 [node name="NTG-97-MI" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.609676, 0.745067, 0.270499, -0.720767, -0.379104, -0.580323, -0.329833, -0.548776, 0.768151, 3.08, 4.06, -1.4 )
 resource_type = 3
-transform=Transform(-0.609676191267086, 0.745067354028303, 0.2704987611123626, -0.7207672504684464, -0.37910396216352893, -0.5803229760435733, -0.32983255214459295, -0.5487757500411049, 0.7681508079229024, 3.08, 4.06, -1.4000000000000001)
 
 [node name="ENY-92-MI" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.468016, -0.21987, -0.855931, -0.882325, -0.170664, -0.438608, -0.0496402, 0.960485, -0.273871, 5.88, -0.84, 1.82 )
 resource_type = 3
-transform=Transform(0.4680158334635188, -0.21987020869893048, -0.8559312302715311, -0.8823247843793155, -0.17066440865219, -0.4386076087910389, -0.04964025077940765, 0.9604846437846298, -0.27387057993963215, 5.88, -0.84, 1.82)
 
 [node name="XJO-42-MI" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.670356, -0.727664, -0.145356, 0.717962, 0.685533, -0.120723, 0.187493, -0.0234328, 0.981986, -5.74, 4.06, -3.22 )
 resource_type = 3
-transform=Transform(0.670355563153138, -0.7276640272362218, -0.14535639791905391, 0.7179623094232007, 0.6855333461134113, -0.1207234592540085, 0.18749277638710124, -0.02343277262538589, 0.9819864377728156, -5.739999999999999, 4.06, -3.22)
 
 [node name="IVD-34-MN" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.724598, -0.166719, 0.668702, 0.564359, -0.413353, -0.714589, 0.395546, 0.895178, -0.205425, -6.02, -4.9, -0.28 )
 resource_type = 4
-transform=Transform(0.7245979271491685, -0.16671900280418453, 0.668702189375141, 0.564359298459589, -0.4133531033589465, -0.7145892485797201, 0.3955457321389389, 0.8951781867580927, -0.20542538241211675, -6.02, -4.8999999999999995, -0.28)
 
 [node name="MTW-06-MN" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.153576, 0.276459, -0.948675, -0.81102, 0.58373, 0.0388161, 0.564501, 0.763433, 0.313861, -0.14, 1.96, 4.62 )
 resource_type = 4
-transform=Transform(0.1535764573821899, 0.27645919854497664, -0.948675172689686, -0.8110197856048057, 0.5837295762215501, 0.03881609462252102, 0.5645008229360444, 0.7634330968618527, 0.313861000317736, -0.14, 1.9600000000000002, 4.62)
 
 [node name="HJD-77-MN" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.0558155, -0.506532, 0.860413, 0.618128, -0.659222, -0.428188, 0.784094, 0.555744, 0.276307, -3.5, 0.14, 2.1 )
 resource_type = 4
-transform=Transform(0.05581553503268252, -0.5065320832765865, 0.8604126188408074, 0.6181275532446757, -0.6592219253492316, -0.42818778714321426, 0.7840937150422556, 0.5557442772987711, 0.2763066128070423, -3.5, 0.14, 2.1)
 
 [node name="KXI-19-MN" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.74193, 0.656134, -0.137946, -0.483203, -0.665892, -0.568422, -0.464817, -0.355073, 0.81109, 0.84, -5.74, -4.9 )
 resource_type = 4
-transform=Transform(-0.7419297928540501, 0.656133530122582, -0.13794554405425732, -0.4832027703614018, -0.6658915924057349, -0.5684219118563436, -0.46481745362089477, -0.35507348227125224, 0.8110903506990784, 0.84, -5.739999999999999, -4.8999999999999995)
 
 [node name="CYM-28-MN" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.000416074, -0.010698, 0.999943, 0.974971, -0.222313, -0.00278412, 0.22233, 0.974917, 0.0103377, -1.82, -3.36, 6.86 )
 resource_type = 4
-transform=Transform(0.00041607398998003847, -0.010697995384345951, 0.9999426882462771, 0.9749714416198255, -0.22231270026977717, -0.0027841200620022403, 0.22232974364262262, 0.9749167226966191, 0.010337741450093528, -1.82, -3.36, 6.859999999999999)
 
 [node name="UCX-89-MN" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.941334, -0.21584, 0.25943, 0.102008, -0.914753, -0.390923, 0.321692, -0.341525, 0.883105, -0.42, -3.5, -6.72 )
 resource_type = 4
-transform=Transform(-0.9413335972726554, -0.2158402821697055, 0.2594302049465791, 0.1020076515883919, -0.9147531406987125, -0.3909234331672415, 0.32169161888856135, -0.3415254956438002, 0.883105224852686, -0.42, -3.5, -6.72)
 
 [node name="HKD-02-MN" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.626352, 0.596929, -0.501358, 0.63632, 0.763027, 0.113518, 0.450312, -0.247922, -0.857761, 3.78, -0.84, -6.3 )
 resource_type = 4
-transform=Transform(-0.6263516347136473, 0.5969287596310034, -0.5013578418823557, 0.6363196130621133, 0.7630275040558071, 0.11351818394797976, 0.4503120914699316, -0.24792152786669508, -0.8577610018508763, 3.7800000000000002, -0.84, -6.3)
 
 [node name="YZV-52-MC" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.556153, 0.677081, 0.481929, 0.127746, -0.642638, 0.755445, 0.821203, -0.358578, -0.4439, -2.52, 1.12, -2.94 )
 resource_type = 5
-transform=Transform(0.5561529214991102, 0.6770806007860154, 0.4819292354145502, 0.1277464483249951, -0.6426379078097217, 0.7554451432012075, 0.8212032469786965, -0.35857827525547603, -0.44389959187462, -2.52, 1.12, -2.94)
 
 [node name="QOK-65-MC" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.801448, 0.0646634, 0.594558, -0.564864, 0.244776, -0.788044, -0.196491, -0.967421, -0.159649, 2.52, -1.96, 0.84 )
 resource_type = 5
-transform=Transform(-0.8014482766389478, 0.06466338127149353, 0.5945580770580768, -0.564864486248011, 0.24477605926463186, -0.7880436491633239, -0.19649115005066048, -0.9674209672802296, -0.1596493032191307, 2.52, -1.9600000000000002, 0.84)
 
 [node name="IIK-95-MC" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.261659, 0.333457, 0.905727, -0.0795941, 0.94268, -0.324067, -0.961873, 0.0127047, 0.273202, 4.9, 2.94, 0.98 )
 resource_type = 5
-transform=Transform(0.26165915684569924, 0.3334568439813216, 0.9057267903958756, -0.07959409819932634, 0.9426797569498682, -0.32406736239364453, -0.961872790534504, 0.012704685708600727, 0.2732019871640979, 4.8999999999999995, 2.94, 0.9800000000000001)
 
 [node name="ZEC-45-MC" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.649113, -0.38871, -0.653878, -0.755526, 0.429449, 0.494726, 0.0885026, 0.815155, -0.572442, 3.36, 0, -1.54 )
 resource_type = 5
-transform=Transform(-0.6491127393368125, -0.388710444677905, -0.6538783081193051, -0.7555262688676986, 0.4294492926292851, 0.49472554220604065, 0.08850259138304163, 0.8151548903481548, -0.5724419586822531, 3.36, 0, -1.54)
 
 [node name="MGZ-08-MC" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.80827, -0.519848, -0.27651, -0.412194, -0.164205, -0.896177, 0.420471, 0.838329, -0.347, 3.64, -3.22, -2.8 )
 resource_type = 5
-transform=Transform(0.8082700261819368, -0.5198478504048498, -0.2765099947656644, -0.41219358205780765, -0.1642054490185367, -0.8961768918148769, 0.42047118294385444, 0.8383285650281023, -0.3470002901608558, 3.64, -3.22, -2.8000000000000003)
 
 [node name="QAQ-24-MM" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.058138, 0.10804, -0.992445, 0.956665, -0.278105, -0.0863172, -0.285329, -0.954455, -0.0871899, 1.12, 4.2, 2.38 )
 resource_type = 6
-transform=Transform(-0.058137951893407, 0.10804032949439259, -0.9924450945782257, 0.9566645702087124, -0.27810474140236874, -0.08631716467135356, -0.28532942129584155, -0.9544553630276614, -0.08718991530398143, 1.12, 4.2, 2.3800000000000003)
 
 [node name="HGK-59-MM" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.0357512, -0.291403, -0.955932, 0.313211, 0.905083, -0.287616, 0.94901, -0.309691, 0.0589126, 0.7, -2.94, -3.64 )
 resource_type = 6
-transform=Transform(-0.035751246187023425, -0.2914025236380327, -0.9559322243828067, 0.3132110068581946, 0.9050834101658747, -0.2876158650446583, 0.94901038644419, -0.3096911200856377, 0.05891261801305619, 0.7000000000000001, -2.94, -3.64)
 
 [node name="HQQ-25-MM" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.275901, -0.715619, -0.641691, -0.3521, -0.696445, 0.625292, -0.894374, 0.0534212, -0.44412, -0.56, 3.92, -2.66 )
 resource_type = 6
-transform=Transform(0.2759007908064378, -0.7156193435909545, -0.641691287700584, -0.35210048067391464, -0.6964446321871669, 0.625292032419157, -0.8943735266327937, 0.0534212446142287, -0.44411953963126444, -0.56, 3.9200000000000004, -2.66)
 
 [node name="SPI-07-MP" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( -0.556697, 0.830614, -0.0130176, 0.745912, 0.506703, 0.432282, 0.365655, 0.23094, -0.901645, -0.14, -2.1, -0.56 )
 resource_type = 7
-transform=Transform(-0.5566968899436587, 0.8306136976898215, -0.013017601050103154, 0.7459120645950941, 0.5067026946041169, 0.4322818191555266, 0.3656552537822233, 0.23093995862771108, -0.9016445923369635, -0.14, -2.1, -0.56)
 
 [node name="FBR-63-MP" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.0789623, -0.915615, -0.394226, 0.992901, 0.0369485, 0.11306, -0.0889533, -0.400355, 0.912033, 0.56, -0.98, 4.2 )
 resource_type = 7
-transform=Transform(0.07896228155683396, -0.915615013257061, -0.3942259575289421, 0.9929009370132806, 0.03694847528555609, 0.11305989320807755, -0.08895328756987303, -0.40035478974572614, 0.9120325405149571, 0.56, -0.9800000000000001, 4.2)
 
 [node name="RWM-99-U" parent="AsteroidFeilds" instance=ExtResource( 5 )]
+transform = Transform( 0.430623, 0.028539, -0.902081, -0.801964, -0.446409, -0.396954, -0.414026, 0.894374, -0.169347, 0.56, 1.12, -1.68 )
 resource_type = 8
-transform=Transform(0.4306229308173253, 0.028538960646109154, -0.9020806056996996, -0.8019642809990994, -0.4464090389892082, -0.39695372766901826, -0.4140255830934782, 0.8943738019608868, -0.16934674165785993, 0.56, 1.12, -1.68)
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-transform=Transform(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9, -0.28, 6.44)
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9, -0.28, 6.44 )
 [connection signal="area_entered" from="Player" to="." method="_on_Player_area_entered"]
 [connection signal="area_exited" from="Player" to="." method="_on_Player_area_exited"]
 [connection signal="cargo_updated" from="Player" to="." method="_on_Player_cargo_updated"]
