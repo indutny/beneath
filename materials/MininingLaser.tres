@@ -64,5 +64,5 @@ shader_param/concentration = 6.778
 shader_param/active = 0.0
 shader_param/wiggly_frequency = 5.0
 shader_param/wiggly_wavelength = 0.282
-shader_param/wiggliness = 0.128
+shader_param/wiggliness = 0.163
 shader_param/ray_color = Color( 0.921569, 0.509804, 0.0784314, 1 )
