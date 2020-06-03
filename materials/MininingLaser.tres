@@ -35,11 +35,13 @@ void fragment() {
 	wiggly_phase += phase_offset;
 	wiggly_phase *= 2.0 * PI;
 	
-	float amplitude = abs(pow(sin(phase), 2.0));
+	float amplitude = pow(max(0.0, sin(phase)), 3.0) +
+		pow(max(0.0, sin(phase + PI)), 3.0);
 	amplitude = amplitude_mix * amplitude + 1.0 - amplitude_mix;
+	float wiggle_amplitude = sin(wiggly_phase) * exp(-3.0 / (y + 1e-23));
 	
 	vec3 projected_view = normalize(VIEW - dot(VIEW, BINORMAL) * BINORMAL);
-	vec3 noisy_normal = NORMAL + TANGENT * sin(wiggly_phase) * wiggliness;
+	vec3 noisy_normal = NORMAL + TANGENT * wiggle_amplitude * wiggliness;
 	noisy_normal = normalize(noisy_normal);
 	
 	float opacity = pow(abs(dot(noisy_normal, projected_view)), concentration);
@@ -53,14 +55,14 @@ void fragment() {
 
 [resource]
 shader = SubResource( 3 )
-shader_param/frequency = 1.241
-shader_param/wavelength = 4.96
+shader_param/frequency = 1.848
+shader_param/wavelength = 1.422
 shader_param/phase_offset = 0.0
-shader_param/amplitude_mix = 0.674
+shader_param/amplitude_mix = 0.336
 shader_param/emission = 4.0
 shader_param/concentration = 6.778
 shader_param/active = 0.0
 shader_param/wiggly_frequency = 5.0
 shader_param/wiggly_wavelength = 0.282
-shader_param/wiggliness = 0.05
+shader_param/wiggliness = 0.128
 shader_param/ray_color = Color( 0.921569, 0.509804, 0.0784314, 1 )
