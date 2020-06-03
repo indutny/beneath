@@ -20,6 +20,7 @@ uniform float wiggly_wavelength: hint_range(0.01, 10.0) = 4.96;
 uniform float wiggliness: hint_range(0.0, 1.0) = 0.1;
 
 uniform vec4 ray_color: hint_color = vec4(0.92, 0.51, 0.08, 1.0);
+uniform vec4 core_color: hint_color = vec4(0.92, 0.51, 0.08, 1.0);
 
 const float PI = 3.14159;
 
@@ -41,15 +42,19 @@ void fragment() {
 	float wiggle_amplitude = sin(wiggly_phase) * exp(-3.0 / (y + 1e-23));
 	
 	vec3 projected_view = normalize(VIEW - dot(VIEW, BINORMAL) * BINORMAL);
-	vec3 noisy_normal = NORMAL + TANGENT * wiggle_amplitude * wiggliness;
+	vec3 noisy_normal = NORMAL +
+		TANGENT * wiggle_amplitude * wiggliness * active;
 	noisy_normal = normalize(noisy_normal);
 	
 	float opacity = pow(abs(dot(noisy_normal, projected_view)), concentration);
 	
 	amplitude = amplitude * active + (1.0 - active) * (1.0 - amplitude_mix);
 	
-	ALBEDO = ray_color.xyz;
-	EMISSION = ray_color.xyz * amplitude * opacity * emission;
+	vec3 emission_color = ray_color.xyz * (1.0 - pow(opacity, 10.0)) +
+		core_color.xyz * pow(opacity, 10.0);
+	
+	ALBEDO = vec3(0.0);
+	EMISSION = emission_color * amplitude * opacity * emission;
 	ALPHA = amplitude * opacity;
 }"
 
@@ -66,3 +71,4 @@ shader_param/wiggly_frequency = 5.0
 shader_param/wiggly_wavelength = 0.282
 shader_param/wiggliness = 0.163
 shader_param/ray_color = Color( 0.921569, 0.509804, 0.0784314, 1 )
+shader_param/core_color = Color( 0.92, 0.51, 0.08, 1 )
