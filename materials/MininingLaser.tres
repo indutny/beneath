@@ -1,0 +1,45 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=3]
+resource_local_to_scene = true
+resource_name = "LaserShader"
+code = "shader_type spatial;
+render_mode shadows_disabled, ambient_light_disabled;
+
+uniform float frequency: hint_range(0.25, 10.0) = 1.25;
+uniform float wavelength: hint_range(0.01, 10.0) = 4.96;
+uniform float amplitude_mix: hint_range(0.0, 1.0) = 0.674;
+uniform float emission: hint_range(1.0, 100.0) = 4.0;
+uniform float concentration: hint_range(1.0, 100.0) = 6.778;
+uniform float active: hint_range(0.0, 1.0) = 0.0;
+uniform vec4 ray_color: hint_color = vec4(0.92, 0.51, 0.08, 1.0);
+
+const float PI = 3.14159;
+
+void fragment() {
+	float length_scale = length(WORLD_MATRIX * vec4(0.0, 1.0, 0.0, 0.0));
+	float y = UV.y * length_scale;
+	
+	float phase = 2.0 * PI *(y / wavelength + frequency * TIME);
+	float amplitude = abs(pow(sin(phase), 2.0));
+	amplitude = amplitude_mix * amplitude + 1.0 - amplitude_mix;
+	
+	vec3 projected_view = normalize(VIEW - dot(VIEW, BINORMAL) * BINORMAL);
+	float opacity = pow(abs(dot(NORMAL, projected_view)), concentration);
+	
+	amplitude = amplitude * active + (1.0 - active) * (1.0 - amplitude_mix);
+	
+	ALBEDO = ray_color.xyz;
+	EMISSION = ray_color.xyz * amplitude * opacity * emission;
+	ALPHA = amplitude * opacity;
+}"
+
+[resource]
+shader = SubResource( 3 )
+shader_param/frequency = 1.241
+shader_param/wavelength = 4.96
+shader_param/amplitude_mix = 0.674
+shader_param/emission = 4.0
+shader_param/concentration = 6.778
+shader_param/active = 0.0
+shader_param/ray_color = Color( 0.92, 0.51, 0.08, 1 )

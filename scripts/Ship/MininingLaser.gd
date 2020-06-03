@@ -5,6 +5,8 @@ signal released_mined_resources(resource_type, count)
 var enabled = false
 var buffer = Dictionary()
 
+var last_shader_active = null
+
 func set_enabled(new_value):
 	enabled = new_value
 	visible = new_value
@@ -19,9 +21,11 @@ func _process(delta):
 	
 	var collider = $RayCast.get_collider()
 	if not collider:
+		set_shader_active(false)
 		$Ray.scale.z = $RayCast.cast_to.length()
 		return
 	
+	var is_active = false
 	var distance = to_global(Vector3()).distance_to(
 		$RayCast.get_collision_point())
 	$Ray.scale.z = distance
@@ -35,6 +39,9 @@ func _process(delta):
 		buffer_value += mined
 		collider.resources -= mined
 		
+		if mined > 0:
+			is_active = true
+		
 		if buffer_value >= 1:
 			var released = floor(buffer_value)
 			buffer_value -= released
@@ -42,3 +49,13 @@ func _process(delta):
 				collider.resource_type, released)
 		
 		buffer[collider.resource_type] = buffer_value
+	
+	set_shader_active(is_active)
+
+func set_shader_active(new_value: bool):
+	if last_shader_active == new_value:
+		return
+	last_shader_active = new_value
+	
+	var material: ShaderMaterial = $Ray/Mesh["material/0"]
+	material.set_shader_param("active", 1.0 if new_value else 0.0)
