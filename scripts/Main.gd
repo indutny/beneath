@@ -11,6 +11,7 @@ var location_map = {}
 func _ready():
 	randomize()
 	
+	$Map.universe_scale = $UniverseViewport/Universe.universe_scale
 	$UniverseViewport/Universe.start()
 
 func _notification(what):

@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/Ship/MininingLaser.gd" type="Script" id=1]
 [ext_resource path="res://materials/MininingLaser.tres" type="Material" id=2]
 
-[sub_resource type="CylinderMesh" id=2]
+[sub_resource type="CylinderMesh" id=1]
 top_radius = 0.05
 bottom_radius = 0.05
 height = 1.0
@@ -23,5 +23,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 75, 0, 0, 0 )
 
 [node name="Mesh" type="MeshInstance" parent="Ray"]
 transform = Transform( 0.963166, 0, 0, 0, -4.21013e-08, -0.963166, 0, 0.963166, -4.21013e-08, 0, 0, -0.5 )
-mesh = SubResource( 2 )
+mesh = SubResource( 1 )
 material/0 = ExtResource( 2 )
