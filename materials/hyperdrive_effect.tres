@@ -4,9 +4,12 @@
 code = "shader_type spatial;
 render_mode unshaded;
 
-uniform float displace_amount: hint_range(0, 0.1);
-uniform float wavelength: hint_range(0.1, 1.0);
-uniform float frequency: hint_range(0.25, 10.0);
+uniform float displace_amount: hint_range(0, 0.1) = 0.005;
+uniform float wavelength: hint_range(0.1, 1.0) = 0.223;
+uniform float frequency: hint_range(0.25, 10.0) = 0.835;
+uniform float width: hint_range(1.0, 10.0) = 2.0;
+uniform float active: hint_range(0.0, 1.0) = 1.0;
+
 const float PI = 3.14159;
 
 void fragment() {
@@ -15,17 +18,23 @@ void fragment() {
 	
 	float scale = length(center);
 	
-	float phase = 2.0 * PI * (scale / wavelength + TIME * frequency);
-	float amplitude = sin(phase) * length(center);
-	vec2 displacement = outward * amplitude;
-	vec2 newUV = SCREEN_UV + displacement * displace_amount;
+	vec3 phase = vec3(scale / wavelength + TIME * frequency);
+	phase += vec3(0.0, 1.0 / 3.0, 2.0 / 3.0);
+	phase *= 2.0 * PI;
+	vec3 amplitude = sin(phase) * pow(length(center), 1.0 / width);
 	
-	vec3 new_color = texture(SCREEN_TEXTURE, newUV).rgb;
-	vec3 original_color = texture(SCREEN_TEXTURE, SCREEN_UV).rgb;
+	vec2 displacement_r = outward * amplitude.r;
+	vec2 displacement_g = outward * amplitude.g;
+	vec2 displacement_b = outward * amplitude.b;
+	vec2 new_uv_r = SCREEN_UV + displacement_r * displace_amount * active;
+	vec2 new_uv_g = SCREEN_UV + displacement_g * displace_amount * active;
+	vec2 new_uv_b = SCREEN_UV + displacement_b * displace_amount * active;
 	
-	new_color.r = original_color.r;
+	float new_color_r = texture(SCREEN_TEXTURE, new_uv_r).r;
+	float new_color_g = texture(SCREEN_TEXTURE, new_uv_g).g;
+	float new_color_b = texture(SCREEN_TEXTURE, new_uv_b).b;
 	
-	ALBEDO = new_color.rgb;
+	ALBEDO = vec3(new_color_r, new_color_g, new_color_b);
 }"
 
 [resource]
@@ -33,3 +42,5 @@ shader = SubResource( 1 )
 shader_param/displace_amount = 0.005
 shader_param/wavelength = 0.223
 shader_param/frequency = 0.835
+shader_param/width = 2.0
+shader_param/active = 1.0

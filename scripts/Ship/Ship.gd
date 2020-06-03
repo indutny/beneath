@@ -353,12 +353,10 @@ func toggle_hyperspace():
 		HyperspaceState.NOT_IN_HYPERSPACE:
 			if hyperspace_unsafe[0] <= 0:
 				hyperspace_state = HyperspaceState.IN_HYPERSPACE
-				$Camera/HyperdriveOverlay.visible = true
 				emit_signal("entered_hyperspace", self)
 				return true
 		HyperspaceState.IN_HYPERSPACE:
 			hyperspace_state = HyperspaceState.LEAVING_HYPERSPACE
-			$Camera/HyperdriveOverlay.visible = false
 			emit_signal("leaving_hyperspace", self)
 			return true
 	return false
