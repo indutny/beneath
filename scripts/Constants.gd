@@ -209,7 +209,7 @@ export(Dictionary) var MINING_INTERVAL = {
 }
 
 # Generation of fuel on stations
-export(int) var STATION_REFUEL_INTERVAL = 15
+export(int) var STATION_REFUEL_INTERVAL = 30
 
 # How much credits are taken on empty fuel tank
 export(int) var FUEL_LOAN_PRICE = 1000
