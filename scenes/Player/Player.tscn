@@ -86,6 +86,7 @@ visible = false
 [node name="RightLaser" parent="." index="8" instance=ExtResource( 5 )]
 transform = Transform( 0.999976, 0, 0.00698126, 0, 1, 0, -0.00698126, 0, 0.999976, 0.7, -0.580474, -0.869904 )
 visible = false
+phase_offset = 0.25
 [connection signal="entered_hyperspace" from="." to="." method="_on_Player_entered_hyperspace"]
 [connection signal="leaving_hyperspace" from="." to="." method="_on_Player_leaving_hyperspace"]
 [connection signal="left_hyperspace" from="." to="." method="_on_Player_left_hyperspace"]

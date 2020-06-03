@@ -2,10 +2,15 @@ extends Spatial
 
 signal released_mined_resources(resource_type, count)
 
+export(float, 0.0, 1.0) var phase_offset = 0.0
+
 var enabled = false
 var buffer = Dictionary()
 
 var last_shader_active = null
+
+func _ready():
+	_get_shader().set_shader_param("phase_offset", phase_offset)
 
 func set_enabled(new_value):
 	enabled = new_value
@@ -57,5 +62,9 @@ func set_shader_active(new_value: bool):
 		return
 	last_shader_active = new_value
 	
+	_get_shader().set_shader_param("active", 1.0 if new_value else 0.0)
+
+func _get_shader():
 	var material: ShaderMaterial = $Ray/Mesh["material/0"]
-	material.set_shader_param("active", 1.0 if new_value else 0.0)
+	return material
+	

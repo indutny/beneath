@@ -129,16 +129,16 @@ func _on_Universe_player_map_updated(dual_):
 	$Camera/Map.add_locations(dual.get_map_locations())
 
 
-func _on_Player_entered_hyperspace(ship):
+func _on_Player_entered_hyperspace(_ship):
 	$Camera/HyperdriveOverlay.visible = true
 	
 	# TODO(indutny): tween?
 	var material: ShaderMaterial = $Camera/HyperdriveOverlay["material/0"]
 	material.set_shader_param("active", 1.0)
 
-func _on_Player_leaving_hyperspace(ship):
+func _on_Player_leaving_hyperspace(_ship):
 	var material: ShaderMaterial = $Camera/HyperdriveOverlay["material/0"]
 	material.set_shader_param("active", 0.5)
 
-func _on_Player_left_hyperspace(ship):
+func _on_Player_left_hyperspace(_ship):
 	$Camera/HyperdriveOverlay.visible = false

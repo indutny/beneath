@@ -12,6 +12,7 @@ uniform float amplitude_mix: hint_range(0.0, 1.0) = 0.674;
 uniform float emission: hint_range(1.0, 100.0) = 4.0;
 uniform float concentration: hint_range(1.0, 100.0) = 6.778;
 uniform float active: hint_range(0.0, 1.0) = 0.0;
+uniform float phase_offset: hint_range(0.0, 1.0) = 0.0;
 uniform vec4 ray_color: hint_color = vec4(0.92, 0.51, 0.08, 1.0);
 
 const float PI = 3.14159;
@@ -20,7 +21,10 @@ void fragment() {
 	float length_scale = length(WORLD_MATRIX * vec4(0.0, 1.0, 0.0, 0.0));
 	float y = UV.y * length_scale;
 	
-	float phase = 2.0 * PI *(y / wavelength + frequency * TIME);
+	float phase = y / wavelength + frequency * TIME;
+	phase += phase_offset;
+	phase *= 2.0 * PI;
+	
 	float amplitude = abs(pow(sin(phase), 2.0));
 	amplitude = amplitude_mix * amplitude + 1.0 - amplitude_mix;
 	
@@ -42,4 +46,5 @@ shader_param/amplitude_mix = 0.674
 shader_param/emission = 4.0
 shader_param/concentration = 6.778
 shader_param/active = 0.0
+shader_param/phase_offset = 0.0
 shader_param/ray_color = Color( 0.92, 0.51, 0.08, 1 )
