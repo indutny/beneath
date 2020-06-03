@@ -1,31 +1,27 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/Player/MapPoint.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Player/MapPointLocation.tscn" type="PackedScene" id=2]
+[ext_resource path="res://materials/MapPointTexture.tres" type="Texture" id=3]
 
 [sub_resource type="QuadMesh" id=1]
 size = Vector2( 0.3, 0.3 )
 
-[sub_resource type="ViewportTexture" id=2]
-viewport_path = NodePath("Viewport")
-
-[sub_resource type="ViewportTexture" id=3]
-viewport_path = NodePath("Viewport")
-
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="SpatialMaterial" id=2]
 resource_local_to_scene = true
 render_priority = 2
 flags_transparent = true
 flags_no_depth_test = true
 flags_do_not_receive_shadows = true
 flags_disable_ambient_light = true
-albedo_texture = SubResource( 2 )
+albedo_color = Color( 0, 0, 0, 1 )
+albedo_texture = ExtResource( 3 )
 emission_enabled = true
 emission = Color( 0.337255, 1, 0, 1 )
 emission_energy = 2.84
 emission_operator = 0
 emission_on_uv2 = true
-emission_texture = SubResource( 3 )
+emission_texture = ExtResource( 3 )
 
 [node name="MapPoint" type="Spatial"]
 script = ExtResource( 1 )
@@ -39,6 +35,7 @@ hdr = false
 disable_3d = true
 usage = 0
 render_target_v_flip = true
+render_target_update_mode = 3
 gui_disable_input = true
 
 [node name="Control" parent="Viewport" instance=ExtResource( 2 )]
@@ -47,4 +44,4 @@ size_flags_vertical = 3
 
 [node name="Mesh" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )
-material/0 = SubResource( 4 )
+material/0 = SubResource( 2 )
