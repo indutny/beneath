@@ -8,11 +8,17 @@ render_mode shadows_disabled, ambient_light_disabled;
 
 uniform float frequency: hint_range(0.25, 10.0) = 1.25;
 uniform float wavelength: hint_range(0.01, 10.0) = 4.96;
+uniform float phase_offset: hint_range(0.0, 1.0) = 0.0;
+
 uniform float amplitude_mix: hint_range(0.0, 1.0) = 0.674;
 uniform float emission: hint_range(1.0, 100.0) = 4.0;
 uniform float concentration: hint_range(1.0, 100.0) = 6.778;
 uniform float active: hint_range(0.0, 1.0) = 0.0;
-uniform float phase_offset: hint_range(0.0, 1.0) = 0.0;
+
+uniform float wiggly_frequency: hint_range(0.25, 10.0) = 1.25;
+uniform float wiggly_wavelength: hint_range(0.01, 10.0) = 4.96;
+uniform float wiggliness: hint_range(0.0, 1.0) = 0.1;
+
 uniform vec4 ray_color: hint_color = vec4(0.92, 0.51, 0.08, 1.0);
 
 const float PI = 3.14159;
@@ -25,11 +31,18 @@ void fragment() {
 	phase += phase_offset;
 	phase *= 2.0 * PI;
 	
+	float wiggly_phase = y / wiggly_wavelength + wiggly_frequency * TIME;
+	wiggly_phase += phase_offset;
+	wiggly_phase *= 2.0 * PI;
+	
 	float amplitude = abs(pow(sin(phase), 2.0));
 	amplitude = amplitude_mix * amplitude + 1.0 - amplitude_mix;
 	
 	vec3 projected_view = normalize(VIEW - dot(VIEW, BINORMAL) * BINORMAL);
-	float opacity = pow(abs(dot(NORMAL, projected_view)), concentration);
+	vec3 noisy_normal = NORMAL + TANGENT * sin(wiggly_phase) * wiggliness;
+	noisy_normal = normalize(noisy_normal);
+	
+	float opacity = pow(abs(dot(noisy_normal, projected_view)), concentration);
 	
 	amplitude = amplitude * active + (1.0 - active) * (1.0 - amplitude_mix);
 	
@@ -42,9 +55,12 @@ void fragment() {
 shader = SubResource( 3 )
 shader_param/frequency = 1.241
 shader_param/wavelength = 4.96
+shader_param/phase_offset = 0.0
 shader_param/amplitude_mix = 0.674
 shader_param/emission = 4.0
 shader_param/concentration = 6.778
 shader_param/active = 0.0
-shader_param/phase_offset = 0.0
-shader_param/ray_color = Color( 0.92, 0.51, 0.08, 1 )
+shader_param/wiggly_frequency = 5.0
+shader_param/wiggly_wavelength = 0.282
+shader_param/wiggliness = 0.05
+shader_param/ray_color = Color( 0.921569, 0.509804, 0.0784314, 1 )
