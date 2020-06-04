@@ -1,0 +1,29 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type spatial;
+render_mode shadows_disabled, ambient_light_disabled;
+
+uniform vec4 main_color: hint_color = vec4(0.8353, 0.8784, 1.0, 1.0);
+uniform float cutoff: hint_range(0.0, 1.0) = 0.0;
+uniform float cutoff_strength: hint_range(1.0, 50.0) = 1.0;
+
+
+const float PI = 3.14159;
+
+float noise() {
+	return 0.0;
+}
+
+void fragment() {
+	float collision = max(dot(VIEW, NORMAL), 0.0);
+	
+	ALPHA = clamp(pow(collision / cutoff, cutoff_strength), 0.0, 1.0);
+	EMISSION = main_color.rgb;
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/main_color = Color( 0.8353, 0.8784, 1, 1 )
+shader_param/cutoff = 0.282
+shader_param/cutoff_strength = 1.839

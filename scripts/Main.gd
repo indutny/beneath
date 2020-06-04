@@ -23,7 +23,7 @@ func _on_Universe_universe_ready():
 	universe = $UniverseViewport/Universe
 	$Player.dual = universe.player
 	$HUD.set_player($Player)
-		
+	
 	Persistence.load_game()
 	$UniverseViewport/Universe.translate_player(Vector3())
 
@@ -33,7 +33,7 @@ func _on_Universe_new_surroundings(location, offset, surroundings):
 	
 	var distance = offset.distance_to($Player.transform.origin)
 	if distance < safe_location_distance:
-		offset -= $Player.transform.basis.z * \
+		$Player.transform.origin += $Player.transform.basis.z * \
 			(safe_location_distance - distance)
 	
 	location_map[location] = surroundings

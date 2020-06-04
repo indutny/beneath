@@ -5,10 +5,12 @@ signal update_building(building)
 const ProductionItem = preload("res://scenes/HUD/StationProductionItem.tscn")
 
 var player: Player
+var station: Station
 var building: StationBuilding
 
 func init(player_: Player, building_: StationBuilding):
 	player = player_
+	station = player.station
 	building = building_
 	update()
 
@@ -50,7 +52,7 @@ func _on_Type_item_selected(idx):
 	$Top/CostBox/Cost.text = str(cost)
 	
 	$Top/Action.disabled = not player.has_credits(cost) or \
-		not player.station.has_resources(required_resources)
+		not station.has_resources(required_resources)
 	
 	# Clear resources/consumption/production
 	for child in $Top/CostBox/Resources.get_children():
@@ -87,13 +89,13 @@ func _on_Action_pressed():
 	var cost = requirements[0]
 	var resources = requirements[1]
 	if not player.has_credits(cost) or \
-		not player.station.has_resources(resources):
+		not station.has_resources(resources):
 		return
 	
 	var spent = player.spend_credits(cost)
 	assert(spent)
 	
-	var retrieved = player.station.retrieve_resources(resources)
+	var retrieved = station.retrieve_resources(resources)
 	for key in resources.keys():
 		assert(retrieved[key] == resources[key])
 	

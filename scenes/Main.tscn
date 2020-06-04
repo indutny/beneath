@@ -39,6 +39,7 @@ environment = SubResource( 2 )
 physics_material_override = SubResource( 3 )
 
 [node name="Map" parent="." instance=ExtResource( 6 )]
+visible = false
 
 [node name="StarLight" type="DirectionalLight" parent="."]
 transform = Transform( -0.42091, 0.549845, -0.72146, -0.490426, 0.531142, 0.69092, 0.763097, 0.644638, 0.0460953, 9.33116, 2.52591, 0 )

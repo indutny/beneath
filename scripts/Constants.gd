@@ -123,24 +123,24 @@ export(Dictionary) var BUILDING_NAME = {
 
 export(Dictionary) var BUILDING_COST = {
 	BuildingType.Vacant: [ 0, {} ],
-	BuildingType.SolarPanel: [ 20000, { ResourceType.Silicon: 250 } ],
-	BuildingType.ElectrolysisPlant: [ 50000, { ResourceType.IronOre: 200 } ],
+	BuildingType.SolarPanel: [ 10000, { ResourceType.Silicon: 250 } ],
+	BuildingType.ElectrolysisPlant: [ 25000, { ResourceType.IronOre: 200 } ],
 	BuildingType.FuelRefinery: [
-		75000,
+		35000,
 		{
 			ResourceType.IronOre: 50,
 			ResourceType.NickelOre: 100
 		}
 	],
 	BuildingType.IceMine: [
-		200000,
+		50000,
 		{
 			ResourceType.IronOre: 100,
 			ResourceType.CobaltOre: 10
 		}
 	],
 	BuildingType.MicrochipFactory: [
-		300000,
+		75000,
 		{
 			ResourceType.Silicon: 5
 		}
