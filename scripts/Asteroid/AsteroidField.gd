@@ -21,8 +21,8 @@ func set_player_pos(player_pos: Vector3):
 		# Leave enough space for player
 		while origin.distance_to(player_pos) < 50.0 or \
 			is_overlapping(added, origin, dual.min_separation):
-			origin.x = (2 * randf() - 1) * 1000.0
-			origin.z = (2 * randf() - 1) * 1000.0
+			origin.x = Utils.random_normal(0.0, 1000.0)
+			origin.z = Utils.random_normal(0.0, 1000.0)
 		node.transform.origin = origin
 		
 		node.angular_velocity.x = Utils.random_normal(

@@ -1,4 +1,4 @@
-extends "./Location.gd"
+extends "../Location.gd"
 class_name AsteroidField
 
 export(Constants.ResourceType) var resource_type = \
@@ -10,8 +10,12 @@ export(float, -2, 2) var angular_mean = 0.0
 export(float, 0, 2) var angular_deviation = 0.15
 export(float, 25.0, 500.0) var min_separation = 100.0
 
+var resources = {}
+
 func _ready():
 	spatial_scene_uri = "res://scenes/Asteroid/AsteroidField.tscn"
+	for child in $Resources.get_children():
+		resources[child.resource_type] = child.quantity
 
 func load_spatial_instance() -> Spatial:
 	var res: Spatial = instance_spatial_scene()

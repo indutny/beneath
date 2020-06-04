@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/Universe/Universe.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Universe/Station/Station.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Universe/Station/StationBuilding.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Universe/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/Universe/AsteroidField.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Universe/Asteroid/AsteroidField.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Universe/Asteroid/AsteroidFieldResource.tscn" type="PackedScene" id=6]
 
 [node name="Universe" type="Spatial" groups=[
 "Persist",
@@ -28,6 +29,34 @@ transform = Transform( 0.610173, -0.787074, 0.0905718, -0.132908, -0.214389, -0.
 [node name="LZZ-93-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
 transform = Transform( -0.960632, -0.258242, -0.102454, 0.277331, -0.869389, -0.408962, 0.0165387, -0.421276, 0.906782, 0, 0, 0.5 )
 resource_type = 0
+
+[node name="Resources" type="Node" parent="AsteroidFeilds/LZZ-93-S"]
+
+[node name="Ice" parent="AsteroidFeilds/LZZ-93-S/Resources" instance=ExtResource( 6 )]
+
+[node name="Silicon" parent="AsteroidFeilds/LZZ-93-S/Resources" instance=ExtResource( 6 )]
+resource_type = 0
+
+[node name="Carbon" parent="AsteroidFeilds/LZZ-93-S/Resources" instance=ExtResource( 6 )]
+resource_type = 2
+
+[node name="Iron" parent="AsteroidFeilds/LZZ-93-S/Resources" instance=ExtResource( 6 )]
+resource_type = 3
+
+[node name="Nickel" parent="AsteroidFeilds/LZZ-93-S/Resources" instance=ExtResource( 6 )]
+resource_type = 4
+
+[node name="Cobalt" parent="AsteroidFeilds/LZZ-93-S/Resources" instance=ExtResource( 6 )]
+resource_type = 5
+
+[node name="Magnesium" parent="AsteroidFeilds/LZZ-93-S/Resources" instance=ExtResource( 6 )]
+resource_type = 6
+
+[node name="Platinum" parent="AsteroidFeilds/LZZ-93-S/Resources" instance=ExtResource( 6 )]
+resource_type = 7
+
+[node name="Uranium" parent="AsteroidFeilds/LZZ-93-S/Resources" instance=ExtResource( 6 )]
+resource_type = 8
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 [connection signal="area_entered" from="Player" to="." method="_on_Player_area_entered"]

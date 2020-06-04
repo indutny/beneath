@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "",
 "class": "AsteroidField",
 "language": "GDScript",
-"path": "res://scripts/Universe/AsteroidField.gd"
+"path": "res://scripts/Universe/Asteroid/AsteroidField.gd"
 }, {
 "base": "Area",
 "class": "Location",

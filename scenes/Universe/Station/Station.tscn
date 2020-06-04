@@ -12,6 +12,7 @@ albedo_color = Color( 0, 0.337255, 0.666667, 1 )
 
 [node name="Station" groups=[
 "Persist",
+"Simulation",
 ] instance=ExtResource( 2 )]
 script = ExtResource( 1 )
 

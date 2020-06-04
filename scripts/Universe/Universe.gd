@@ -23,8 +23,9 @@ func _process(delta):
 	while buffered_time >= 1:
 		buffered_time -= 1
 		tick += 1
-		for station in $Stations.get_children():
-			station.process_tick(tick)
+		
+		for node in get_tree().get_nodes_in_group("Simulation"):
+			node.process_tick(tick)
 
 func start():
 	player = $Player
