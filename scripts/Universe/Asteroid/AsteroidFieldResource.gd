@@ -19,6 +19,11 @@ func deserialize(dict):
 func process_tick(tick):
 	var replenish_interval = \
 		Constants.ASTEROID_REPLENISH_INTERVAL[resource_type]
+	
+	# Depletes once and forever
+	if replenish_interval == 0.0:
+		return
+	
 	if tick > last_replenish_tick + replenish_interval:
 		last_replenish_tick = tick
 		quantity = int(min(quantity + 1, capacity))

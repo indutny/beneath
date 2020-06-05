@@ -200,12 +200,12 @@ export(Dictionary) var MINING_INTERVAL = {
 	ResourceType.Ice: 0.5,
 	ResourceType.Silicon: 1.0,
 	ResourceType.Carbon: 1.0,
-	ResourceType.IronOre: 3.0,
-	ResourceType.NickelOre: 5.0,
-	ResourceType.CobaltOre: 7.0,
-	ResourceType.MagnesiumOre: 7.0,
-	ResourceType.PlatinumOre: 10.0,
-	ResourceType.UraniumOre: 30.0,
+	ResourceType.IronOre: 2.0,
+	ResourceType.NickelOre: 2.0,
+	ResourceType.CobaltOre: 3.0,
+	ResourceType.MagnesiumOre: 3.0,
+	ResourceType.PlatinumOre: 5.0,
+	ResourceType.UraniumOre: 7.0,
 }
 
 # Generation of fuel on stations
