@@ -53,7 +53,7 @@ resource_type = 6
 
 [node name="Platinum" parent="AsteroidFeilds/LZZ-93-S/Resources" instance=ExtResource( 6 )]
 resource_type = 7
-capacity = 50
+capacity = 100
 
 [node name="Uranium" parent="AsteroidFeilds/LZZ-93-S/Resources" instance=ExtResource( 6 )]
 resource_type = 8

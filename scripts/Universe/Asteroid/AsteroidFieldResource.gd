@@ -1,10 +1,10 @@
 extends Node
 
 export(Constants.ResourceType) var resource_type = Constants.ResourceType.Ice
-export(int, 0, 10000) var capacity = 100
+export(int, 0, 10000) var capacity = 1000
 
 var last_replenish_tick: int = 0
-var quantity = capacity
+onready var quantity = capacity
 
 func serialize():
 	return {

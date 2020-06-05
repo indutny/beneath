@@ -61,5 +61,4 @@ func distribute_resources():
 	return asteroids
 
 func consume_resources(resource_type: int, quantity: int):
-	print("consume ", resource_type, quantity)
 	resources[resource_type].consume_resources(quantity)

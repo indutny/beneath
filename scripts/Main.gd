@@ -17,7 +17,6 @@ func _ready():
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
 		Persistence.save_game()
-		ResourceQueue.stop()
 
 func _on_Universe_universe_ready():
 	universe = $UniverseViewport/Universe
