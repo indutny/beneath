@@ -28,7 +28,6 @@ transform = Transform( 0.610173, -0.787074, 0.0905718, -0.132908, -0.214389, -0.
 
 [node name="LZZ-93-S" parent="AsteroidFeilds" instance=ExtResource( 5 )]
 transform = Transform( -0.960632, -0.258242, -0.102454, 0.277331, -0.869389, -0.408962, 0.0165387, -0.421276, 0.906782, 0, 0, 0.5 )
-resource_type = 0
 
 [node name="Resources" type="Node" parent="AsteroidFeilds/LZZ-93-S"]
 

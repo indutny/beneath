@@ -1,10 +1,19 @@
 extends RigidBody
 class_name SpatialAsteroid
 
-var resource_type
-var resources = 0
+signal resources_taken(resource_type, quantity)
 
-func configure(field: AsteroidField):
-	resource_type = field.resource_type
-	resources = max(0, Utils.random_normal(field.resource_mean, \
-		field.resource_deviation))
+var resource_type: int
+var resources: int = 0
+
+func configure(config):
+	resource_type = config["resource_type"]
+	resources = config["quantity"]
+
+func take_resources(quantity: int) -> int:
+	var to_take: int = int(clamp(quantity, 0, resources))
+	resources -= to_take
+	
+	emit_signal("resources_taken", resource_type, to_take)
+	
+	return to_take

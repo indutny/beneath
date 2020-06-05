@@ -3,7 +3,8 @@ class_name Location
 
 var spatial_scene_uri = ""
 
-# TODO(indutny): are crashes caused by thread pool?
+func get_location_name():
+	return name
 
 func _on_InteractiveLoader_area_entered(_area):
 	pass

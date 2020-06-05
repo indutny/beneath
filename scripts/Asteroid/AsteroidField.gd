@@ -12,7 +12,7 @@ func is_overlapping(list: Array, origin: Vector3, min_separation: float):
 
 func set_player_pos(player_pos: Vector3):
 	var added = []
-	for _i in range(0, dual.asteroid_count):
+	for config in dual.distribute_resources():
 		var node: SpatialAsteroid = Asteroid.instance()
 		
 		var origin = Vector3()
@@ -32,6 +32,13 @@ func set_player_pos(player_pos: Vector3):
 		node.angular_velocity.z = Utils.random_normal(
 			dual.angular_mean, dual.angular_deviation)
 		
-		node.configure(dual)
+		node.configure(config)
 		add_child(node)
 		added.append(node.transform.origin)
+		
+		var err = node.connect(
+			"resources_taken", self, "_on_Asteroid_resources_taken")
+		assert(err == OK)
+		
+func _on_Asteroid_resources_taken(resource_type: int, quantity: int):
+	dual.consume_resources(resource_type, quantity)

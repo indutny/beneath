@@ -5,7 +5,7 @@ signal cargo_updated(player)
 signal credits_updated(player)
 signal map_updated(player)
 
-export(float, 0, 1000) var max_total_cargo_weight = 100
+export(float, 0, 1000) var max_total_cargo_weight = 1000
 export(float, 0, 1000) var max_fuel = 100
 
 var station: Station

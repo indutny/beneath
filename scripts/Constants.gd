@@ -217,3 +217,15 @@ export(int) var FUEL_MAX_LOAN = 100000
 
 # Per one universe scale
 export(int) var FUEL_PER_UNIVERSE_UNIT = 10
+
+export(Dictionary) var ASTEROID_REPLENISH_INTERVAL = {
+	ResourceType.Ice: 60,
+	ResourceType.Silicon: 60,
+	ResourceType.Carbon: 0,
+	ResourceType.IronOre: 0,
+	ResourceType.NickelOre: 0,
+	ResourceType.CobaltOre: 0,
+	ResourceType.MagnesiumOre: 0,
+	ResourceType.PlatinumOre: 0,
+	ResourceType.UraniumOre: 0,
+}

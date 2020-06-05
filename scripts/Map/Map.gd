@@ -22,6 +22,8 @@ func update_points():
 		var offset = location_pos - player_pos
 		
 		point.transform.origin = offset * universe_scale;
+		
+		point.set_name(location.get_location_name())
 		point.set_distance(offset.length())
 
 func _on_Universe_player_map_updated(player_: Player):
@@ -33,15 +35,13 @@ func _on_Universe_player_map_updated(player_: Player):
 	
 	var new_points = {}
 	for x in locations:
-		var location: Spatial = x
+		var location: Location = x
 		
 		var point
 		if points.has(location):
 			point = points[location]
 		else:
 			point = MapPoint.instance()
-		
-		point.set_name(location.name)
 		
 		new_points[location] = point
 	

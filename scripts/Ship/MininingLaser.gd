@@ -36,20 +36,22 @@ func _process(delta):
 	$Ray.scale.z = distance
 	
 	if collider is SpatialAsteroid:
-		# Two lasers in standard equipment
-		var interval = Constants.MINING_INTERVAL[collider.resource_type] * 2.0
-		var mined = min(collider.resources, delta / interval)
+		var asteroid: SpatialAsteroid = collider as SpatialAsteroid
 		
-		var buffer_value = buffer.get(collider.resource_type, 0)
+		# Two lasers in standard equipment
+		var interval = Constants.MINING_INTERVAL[asteroid.resource_type] * 2.0
+		var mined = min(asteroid.resources, delta / interval)
+		
+		var buffer_value = buffer.get(asteroid.resource_type, 0)
 		buffer_value += mined
-		collider.resources -= mined
 		
 		if mined > 0:
 			is_active = true
 		
 		if buffer_value >= 1:
-			var released = floor(buffer_value)
-			buffer_value -= released
+			var released: int =  asteroid.take_resources(int(floor(buffer_value)))
+			
+			buffer_value -= float(released)
 			emit_signal("released_mined_resources",
 				collider.resource_type, released)
 		
