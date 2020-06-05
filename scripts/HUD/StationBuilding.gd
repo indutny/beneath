@@ -52,7 +52,7 @@ func _on_Type_item_selected(idx):
 	$Top/CostBox/Cost.text = str(cost)
 	
 	$Top/Action.disabled = not player.has_credits(cost) or \
-		not station.has_resources(required_resources)
+		not player.has_cargo_dict(required_resources)
 	
 	# Clear resources/consumption/production
 	for child in $Top/CostBox/Resources.get_children():
@@ -89,13 +89,13 @@ func _on_Action_pressed():
 	var cost = requirements[0]
 	var resources = requirements[1]
 	if not player.has_credits(cost) or \
-		not station.has_resources(resources):
+		not player.has_cargo_dict(resources):
 		return
 	
 	var spent = player.spend_credits(cost)
 	assert(spent)
 	
-	var retrieved = station.retrieve_resources(resources)
+	var retrieved = playe.retrieve_cargo_dict(resources)
 	for key in resources.keys():
 		assert(retrieved[key] == resources[key])
 	

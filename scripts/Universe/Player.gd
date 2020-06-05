@@ -57,6 +57,8 @@ func retrieve_cargo(resource_type: int, quantity: int) -> int:
 		return 0
 	
 	var max_quantity = cargo[resource_type]
+	
+	# TODO(indutny): stop using clamp for ints
 	var change: int = int(clamp(quantity, 0, max_quantity))
 	
 	cargo[resource_type] -= change
@@ -114,6 +116,18 @@ func store_cargo(resource_type: int, quantity: int) -> int:
 	total_cargo_weight += to_store * density
 	emit_signal("cargo_updated", self)
 	return to_store
+	
+func has_cargo_dict(dict: Dictionary) -> bool:
+	for key in dict.keys():
+		if cargo.get(key, 0) < dict[key]:
+			return false
+	return true
+
+func retrieve_cargo_dict(dict: Dictionary) -> Dictionary:
+	var out = {}
+	for key in dict.keys():
+		out[key] = retrieve_cargo(key, dict[key])
+	return out
 	
 func add_credits(delta: int):
 	assert(delta >= 0)

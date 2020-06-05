@@ -69,18 +69,6 @@ func retrieve_resource(resource_type, quantity):
 	resources[resource_type] -= to_retrieve
 	return to_retrieve
 
-func has_resources(dict: Dictionary) -> bool:
-	for key in dict.keys():
-		if not has_resource(key, dict[key]):
-			return false
-	return true
-
-func retrieve_resources(dict: Dictionary) -> Dictionary:
-	var out = {}
-	for key in dict.keys():
-		out[key] = retrieve_resource(key, dict[key])
-	return out
-
 func get_resource_economics(resource_type):
 	var price = Constants.RESOURCE_BASE_PRICE[resource_type]
 	
