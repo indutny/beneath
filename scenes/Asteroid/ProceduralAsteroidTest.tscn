@@ -5,10 +5,11 @@
 [node name="ProceduralAsteroidTest" type="Spatial"]
 
 [node name="RigidBody" type="RigidBody" parent="."]
-angular_velocity = Vector3( 0.3, 1, 0.2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00380826, 9.53674e-07, -0.0020802 )
+angular_velocity = Vector3( 0.3, 0.2, 0.1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="RigidBody"]
 script = ExtResource( 1 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )

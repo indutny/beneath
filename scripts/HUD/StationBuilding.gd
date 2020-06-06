@@ -95,7 +95,7 @@ func _on_Action_pressed():
 	var spent = player.spend_credits(cost)
 	assert(spent)
 	
-	var retrieved = playe.retrieve_cargo_dict(resources)
+	var retrieved = player.retrieve_cargo_dict(resources)
 	for key in resources.keys():
 		assert(retrieved[key] == resources[key])
 	
